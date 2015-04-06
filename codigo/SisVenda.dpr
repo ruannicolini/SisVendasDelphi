@@ -1,8 +1,8 @@
-program SisVendas;
+program SisVenda;
 
 uses
   Forms,
-  UPrincipal in 'UPrincipal.pas' {Form1};
+  uPrincipal in 'uPrincipal.pas' {Form1};
 
 {$R *.res}
 

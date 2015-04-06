@@ -1,14 +1,20 @@
-unit UPrincipal;
+unit uPrincipal;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls;
+  Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg;
 
 type
   TForm1 = class(TForm)
     Panel1: TPanel;
+    XPManifest1: TXPManifest;
+    Panel2: TPanel;
+    Image2: TImage;
+    Panel3: TPanel;
+    Image4: TImage;
+    Image3: TImage;
   private
     { Private declarations }
   public
