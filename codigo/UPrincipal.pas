@@ -15,6 +15,7 @@ type
     Panel3: TPanel;
     Image4: TImage;
     Image3: TImage;
+    Image1: TImage;
   private
     { Private declarations }
   public

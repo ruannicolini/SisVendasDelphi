@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 320
-  Top = 150
+  Left = 263
+  Top = 117
   Width = 937
   Height = 503
   Caption = 'MR Sistema de Vendas'
@@ -3864,24 +3864,30 @@ object Form1: TForm1
         95E3DC2F419829D7129CA5614C5048413C9C3AA01692875CD07FFFD9}
     end
     object Panel1: TPanel
-      Left = 136
+      Left = 96
       Top = 6
-      Width = 786
+      Width = 826
       Height = 461
       Anchors = [akLeft, akTop, akRight, akBottom]
       ParentBackground = False
       TabOrder = 0
+      object Image1: TImage
+        Left = 0
+        Top = 64
+        Width = 825
+        Height = 378
+      end
     end
     object Panel3: TPanel
       Left = 6
       Top = 6
-      Width = 123
+      Width = 83
       Height = 461
       Anchors = [akLeft, akTop, akBottom]
       ParentColor = True
       TabOrder = 1
       object Image4: TImage
-        Left = 8
+        Left = 24
         Top = 408
         Width = 30
         Height = 30
@@ -7467,10 +7473,10 @@ object Form1: TForm1
           C1830000C0030000C0030000F00F0000F00F0000FE7F0000FFFF0000}
       end
       object Image3: TImage
-        Left = 8
-        Top = 8
-        Width = 105
-        Height = 105
+        Left = 26
+        Top = 16
+        Width = 33
+        Height = 41
         Picture.Data = {
           055449636F6E0000010007008080000001002000280801007600000060600000
           01002000A89400009E080100404000000100200028420000469D010030300000

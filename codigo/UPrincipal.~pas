@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg;
+  Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg, Buttons;
 
 type
   TForm1 = class(TForm)
@@ -15,6 +15,7 @@ type
     Panel3: TPanel;
     Image4: TImage;
     Image3: TImage;
+    Image1: TImage;
   private
     { Private declarations }
   public
