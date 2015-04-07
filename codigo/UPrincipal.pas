@@ -23,10 +23,13 @@ type
     Image9: TImage;
     Image10: TImage;
     procedure Image3DblClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
+
   public
     { Public declarations }
+
   end;
 
 var
@@ -34,11 +37,30 @@ var
 
 implementation
 
+Uses  uPadraoModel;
+
+var Form2: TForm2;
+
 {$R *.dfm}
 
 procedure TForm1.Image3DblClick(Sender: TObject);
 begin
-  ShowMessage('Deu Certo!');
+  Application.CreateForm(TForm2, Form2);
+
+  {Posicionamento do Form2 dentro do painel com logo do programa
+  Form2.Left := Round((Panel1.Width- Form2.Width)/2);
+  Form2.Top := Round((Panel1.Height - Form2.Height)/2);   }
+
+  Form2.ShowModal;
+  
+  Form2.free;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  {Aplica Tela Cheia ao Form}
+  ShowWindow(Handle, SW_MAXIMIZE);
+
 end;
 
 end.
