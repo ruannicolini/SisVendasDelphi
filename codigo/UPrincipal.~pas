@@ -16,6 +16,13 @@ type
     Image4: TImage;
     Image3: TImage;
     Image1: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    Image10: TImage;
+    procedure Image3DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,5 +35,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Image3DblClick(Sender: TObject);
+begin
+  ShowMessage('Deu Certo!');
+end;
 
 end.
