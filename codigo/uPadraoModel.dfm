@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 311
-  Top = 148
+  Left = 580
+  Top = 142
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -14,6 +14,8 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   object StatusBar1: TStatusBar
@@ -100,23 +102,51 @@ object Form2: TForm2
     Top = 31
     Width = 920
     Height = 434
-    ActivePage = tbFiltros
+    ActivePage = tbDados
     Align = alClient
     TabOrder = 2
     object tbDados: TTabSheet
       Caption = 'Dados'
-    end
-    object tbFiltros: TTabSheet
-      Caption = 'Filtros'
-      ImageIndex = 1
-      object GroupBox1: TGroupBox
+      object DBMemo1: TDBMemo
+        Left = 176
+        Top = 152
+        Width = 185
+        Height = 89
+        TabOrder = 0
+      end
+      object gbDados: TGroupBox
         Left = 0
         Top = 0
         Width = 912
         Height = 105
         Align = alTop
-        Caption = 'GroupBox1'
+        TabOrder = 1
+      end
+    end
+    object tbFiltros: TTabSheet
+      Caption = 'Filtros'
+      ImageIndex = 1
+      object gbFiltros: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 912
+        Height = 105
+        Align = alTop
         TabOrder = 0
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Top = 105
+        Width = 912
+        Height = 301
+        Align = alClient
+        DataSource = DS
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
       end
     end
   end

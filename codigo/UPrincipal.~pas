@@ -52,7 +52,7 @@ begin
   Form2.Top := Round((Panel1.Height - Form2.Height)/2);   }
 
   Form2.ShowModal;
-  
+
   Form2.free;
 end;
 
