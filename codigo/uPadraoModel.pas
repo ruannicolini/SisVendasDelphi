@@ -22,16 +22,19 @@ type
     btnProximo: TToolButton;
     btnUltimo: TToolButton;
     DS: TDataSource;
-    tb: TPageControl;
+    PageControl1: TPageControl;
     tbDados: TTabSheet;
     tbFiltros: TTabSheet;
     gbFiltros: TGroupBox;
     DBGrid1: TDBGrid;
-    DBMemo1: TDBMemo;
     gbDados: TGroupBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DSStateChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
     { Private declarations }
@@ -79,6 +82,46 @@ begin
       and not (ActiveControl is TDBMemo)
       and not (ActiveControl is TDBGrid) then
       Perform( WM_NEXTDLGCTL,0,0);
+end;
+
+procedure TForm2.DSStateChange(Sender: TObject);
+begin
+    tbFiltros.TabVisible := ds.DataSet.State in [dsBrowse, dsInactive];
+    gbDados.Enabled      := ds.DataSet.State in dsEditModes;
+
+    if ds.DataSet.State in dsEditModes then
+      StatusBotoes(1)
+    else
+      StatusBotoes(2);
+
+end;
+
+procedure TForm2.FormShow(Sender: TObject);
+begin
+    StatusBotoes(2);
+end;
+
+procedure TForm2.btnNovoClick(Sender: TObject);
+begin
+    if not ds.DataSet.Active then
+        ds.DataSet.Open;
+
+    ds.DataSet.Append;
+
+    PageControl1.ActivePageIndex := 0;
+end;
+
+procedure TForm2.btnAlterarClick(Sender: TObject);
+begin
+    if ds.DataSet.Active then
+    begin
+        if not ds.DataSet.IsEmpty then
+        begin
+            ds.DataSet.Edit;
+            PageControl1.ActivePageIndex := 0;
+        end else
+            ShowMessage('Não Há Registros para Alteração.');
+    end;
 end;
 
 end.

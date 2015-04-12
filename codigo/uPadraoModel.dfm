@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 580
-  Top = 142
+  Left = 764
+  Top = 140
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -16,6 +16,7 @@ object Form2: TForm2
   Position = poScreenCenter
   OnClose = FormClose
   OnKeyDown = FormKeyDown
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object StatusBar1: TStatusBar
@@ -41,6 +42,7 @@ object Form2: TForm2
       Top = 0
       Caption = 'btnNovo'
       ImageIndex = 0
+      OnClick = btnNovoClick
     end
     object btnDeletar: TToolButton
       Left = 23
@@ -53,6 +55,7 @@ object Form2: TForm2
       Top = 0
       Caption = 'btnAlterar'
       ImageIndex = 2
+      OnClick = btnAlterarClick
     end
     object btnCancelar: TToolButton
       Left = 69
@@ -97,7 +100,7 @@ object Form2: TForm2
       ImageIndex = 9
     end
   end
-  object tb: TPageControl
+  object PageControl1: TPageControl
     Left = 0
     Top = 31
     Width = 920
@@ -107,20 +110,13 @@ object Form2: TForm2
     TabOrder = 2
     object tbDados: TTabSheet
       Caption = 'Dados'
-      object DBMemo1: TDBMemo
-        Left = 176
-        Top = 152
-        Width = 185
-        Height = 89
-        TabOrder = 0
-      end
       object gbDados: TGroupBox
         Left = 0
         Top = 0
         Width = 912
-        Height = 105
-        Align = alTop
-        TabOrder = 1
+        Height = 406
+        Align = alClient
+        TabOrder = 0
       end
     end
     object tbFiltros: TTabSheet
@@ -151,6 +147,7 @@ object Form2: TForm2
     end
   end
   object DS: TDataSource
+    OnStateChange = DSStateChange
     Left = 888
   end
 end
