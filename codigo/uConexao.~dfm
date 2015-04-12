@@ -1,0 +1,35 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Left = 274
+  Top = 127
+  Height = 299
+  Width = 412
+  object dbSisVenda: TDatabase
+    AliasName = 'SistemaDeVendas'
+    Connected = True
+    DatabaseName = 'SistemaDeVendas'
+    KeepConnection = False
+    LoginPrompt = False
+    Params.Strings = (
+      'DATABASE NAME='
+      'USER NAME=sa'
+      'ODBC DSN=SistemaDeVendas'
+      'OPEN MODE=READ/WRITE'
+      'SCHEMA CACHE SIZE=8'
+      'SQLQRYMODE='
+      'LANGDRIVER='
+      'SQLPASSTHRU MODE=SHARED AUTOCOMMIT'
+      'SCHEMA CACHE TIME=-1'
+      'MAX ROWS=-1'
+      'BATCH COUNT=200'
+      'ENABLE SCHEMA CACHE=FALSE'
+      'SCHEMA CACHE DIR='
+      'ENABLE BCD=FALSE'
+      'ROWSET SIZE=20'
+      'BLOBS TO CACHE=64'
+      'PASSWORD=123')
+    SessionName = 'Default'
+    Left = 88
+    Top = 48
+  end
+end

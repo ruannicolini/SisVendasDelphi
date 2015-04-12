@@ -2,13 +2,14 @@ program SisVenda;
 
 uses
   Forms,
-  uPrincipal in 'uPrincipal.pas' {Form1};
+  uPrincipal in 'uPrincipal.pas' {Form1},
+  uConexao in 'uConexao.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
-  
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

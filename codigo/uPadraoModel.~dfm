@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 315
-  Top = 127
+  Left = 267
+  Top = 228
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -14,7 +14,6 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnShow = FormShow
   DesignSize = (
     920
     484)
@@ -22,9 +21,9 @@ object Form2: TForm2
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 33
+    Top = 32
     Width = 919
-    Height = 427
+    Height = 428
     Anchors = [akLeft, akTop, akRight, akBottom]
     Color = 16382457
     TabOrder = 0
@@ -46,5 +45,23 @@ object Form2: TForm2
     Flat = True
     TabOrder = 2
     Transparent = True
+    object ToolButton1: TToolButton
+      Left = 0
+      Top = 0
+      Caption = 'ToolButton1'
+      ImageIndex = 0
+    end
+    object ToolButton2: TToolButton
+      Left = 23
+      Top = 0
+      Caption = 'ToolButton2'
+      ImageIndex = 1
+    end
+    object ToolButton3: TToolButton
+      Left = 46
+      Top = 0
+      Caption = 'ToolButton3'
+      ImageIndex = 2
+    end
   end
 end

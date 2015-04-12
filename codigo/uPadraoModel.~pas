@@ -4,14 +4,16 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin;
+  Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao;
 
 type
   TForm2 = class(TForm)
     Panel1: TPanel;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
-    procedure FormShow(Sender: TObject);
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
   private
     { Private declarations }
   public
@@ -25,11 +27,5 @@ implementation
 Uses  uPrincipal;
 
 {$R *.dfm}
-
-procedure TForm2.FormShow(Sender: TObject);
-begin
-  Left := Round((825- Width)/2);
-  Top := Round((462 - Height)/2);
-end;
 
 end.
