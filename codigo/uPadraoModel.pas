@@ -4,11 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB;
+  Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB, StdCtrls;
 
 type
   TForm2 = class(TForm)
-    Panel1: TPanel;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     btnNovo: TToolButton;
@@ -21,7 +20,11 @@ type
     btnAnterior: TToolButton;
     btnProximo: TToolButton;
     btnUltimo: TToolButton;
-    DataSource1: TDataSource;
+    DS: TDataSource;
+    tb: TPageControl;
+    tbDados: TTabSheet;
+    tbFiltros: TTabSheet;
+    GroupBox1: TGroupBox;
   private
     { Private declarations }
   public

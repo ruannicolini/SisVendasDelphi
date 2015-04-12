@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 267
-  Top = 228
+  Left = 311
+  Top = 148
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -14,20 +14,8 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  DesignSize = (
-    920
-    484)
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
-    Left = 0
-    Top = 40
-    Width = 919
-    Height = 414
-    Anchors = [akLeft, akTop, akRight, akBottom]
-    Color = 16382457
-    TabOrder = 0
-  end
   object StatusBar1: TStatusBar
     Left = 0
     Top = 465
@@ -44,7 +32,7 @@ object Form2: TForm2
     Caption = 'ToolBar1'
     Flat = True
     Images = DataModule1.ImageList1
-    TabOrder = 2
+    TabOrder = 1
     Transparent = True
     object btnNovo: TToolButton
       Left = 0
@@ -107,7 +95,32 @@ object Form2: TForm2
       ImageIndex = 9
     end
   end
-  object DataSource1: TDataSource
+  object tb: TPageControl
+    Left = 0
+    Top = 31
+    Width = 920
+    Height = 434
+    ActivePage = tbFiltros
+    Align = alClient
+    TabOrder = 2
+    object tbDados: TTabSheet
+      Caption = 'Dados'
+    end
+    object tbFiltros: TTabSheet
+      Caption = 'Filtros'
+      ImageIndex = 1
+      object GroupBox1: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 912
+        Height = 105
+        Align = alTop
+        Caption = 'GroupBox1'
+        TabOrder = 0
+      end
+    end
+  end
+  object DS: TDataSource
     Left = 888
   end
 end
