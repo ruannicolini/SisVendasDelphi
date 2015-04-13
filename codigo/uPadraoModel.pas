@@ -37,6 +37,12 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnDeletarClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnPrimeiroClick(Sender: TObject);
+    procedure btnAnteriorClick(Sender: TObject);
+    procedure btnProximoClick(Sender: TObject);
+    procedure btnUltimoClick(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
     { Private declarations }
@@ -133,10 +139,52 @@ end;
 
 procedure TForm2.btnCancelarClick(Sender: TObject);
 begin
-    if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )) then
+    if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )= id_yes) then
     begin
         ds.DataSet.Cancel;
     end;
+end;
+
+procedure TForm2.btnDeletarClick(Sender: TObject);
+begin
+  if ds.DataSet.Active then
+  begin
+    if not ds.DataSet.IsEmpty then
+    begin
+        if (Application.MessageBox('Deseja Deletar ', 'Deletar', MB_YESNO + MB_ICONQUESTION) = id_yes) then
+        begin
+          ds.DataSet.Cancel;
+        end;
+    end
+    else
+        ShowMessage('Não Há registros');
+  end;
+end;
+
+procedure TForm2.btnPesquisarClick(Sender: TObject);
+begin
+    ds.DataSet.Close;
+    ds.DataSet.Open;
+end;
+
+procedure TForm2.btnPrimeiroClick(Sender: TObject);
+begin
+    ds.DataSet.First;
+end;
+
+procedure TForm2.btnAnteriorClick(Sender: TObject);
+begin
+    ds.DataSet.Prior;
+end;
+
+procedure TForm2.btnProximoClick(Sender: TObject);
+begin
+    ds.DataSet.Next;
+end;
+
+procedure TForm2.btnUltimoClick(Sender: TObject);
+begin
+    ds.DataSet.Last;
 end;
 
 end.

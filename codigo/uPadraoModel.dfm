@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 881
-  Top = 620
+  Left = 439
+  Top = 180
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -49,6 +49,7 @@ object Form2: TForm2
       Top = 0
       Caption = 'btnDeletar'
       ImageIndex = 1
+      OnClick = btnDeletarClick
     end
     object btnAlterar: TToolButton
       Left = 46
@@ -76,30 +77,35 @@ object Form2: TForm2
       Top = 0
       Caption = 'btnPesquisar'
       ImageIndex = 5
+      OnClick = btnPesquisarClick
     end
     object btnPrimeiro: TToolButton
       Left = 138
       Top = 0
       Caption = 'btnPrimeiro'
       ImageIndex = 6
+      OnClick = btnPrimeiroClick
     end
     object btnAnterior: TToolButton
       Left = 161
       Top = 0
       Caption = 'btnAnterior'
       ImageIndex = 7
+      OnClick = btnAnteriorClick
     end
     object btnProximo: TToolButton
       Left = 184
       Top = 0
       Caption = 'btnProximo'
       ImageIndex = 8
+      OnClick = btnProximoClick
     end
     object btnUltimo: TToolButton
       Left = 207
       Top = 0
       Caption = 'btnUltimo'
       ImageIndex = 9
+      OnClick = btnUltimoClick
     end
   end
   object PageControl1: TPageControl
