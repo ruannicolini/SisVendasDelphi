@@ -9,6 +9,7 @@ type
   TDataModule1 = class(TDataModule)
     dbSisVenda: TDatabase;
     ImageList1: TImageList;
+    Query1: TQuery;
   private
     { Private declarations }
   public
