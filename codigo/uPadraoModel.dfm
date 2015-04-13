@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 764
-  Top = 140
+  Left = 881
+  Top = 620
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -62,12 +62,14 @@ object Form2: TForm2
       Top = 0
       Caption = 'btnCancelar'
       ImageIndex = 3
+      OnClick = btnCancelarClick
     end
     object btnSalvar: TToolButton
       Left = 92
       Top = 0
       Caption = 'btnSalvar'
       ImageIndex = 4
+      OnClick = btnSalvarClick
     end
     object btnPesquisar: TToolButton
       Left = 115

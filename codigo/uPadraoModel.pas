@@ -35,6 +35,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
     { Private declarations }
@@ -121,6 +123,19 @@ begin
             PageControl1.ActivePageIndex := 0;
         end else
             ShowMessage('Não Há Registros para Alteração.');
+    end;
+end;
+
+procedure TForm2.btnSalvarClick(Sender: TObject);
+begin
+    ds.DataSet.Post;
+end;
+
+procedure TForm2.btnCancelarClick(Sender: TObject);
+begin
+    if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )) then
+    begin
+        ds.DataSet.Cancel;
     end;
 end;
 
