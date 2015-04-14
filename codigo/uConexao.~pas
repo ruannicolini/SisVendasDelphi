@@ -52,7 +52,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    function buscaProximoParametro(p:string): integer;
+    function buscaProximoParametro(p:string):integer;
   end;
 
 var
@@ -87,9 +87,10 @@ begin
   if not qAux.IsEmpty then
   begin
     i := StrToInt(qAux.Fields[0].AsString);
-    qAux.SQL.Text := 'update parametro set valor =:v where idParametro =: p';
-    qAux.ParamByName('v').AsString := IntToStr(i+1);
+    qAux.SQL.Text := 'update parametro set valor =:v where idParametro =:p';
     qAux.ParamByName('p').AsString := p;
+    qAux.ParamByName('v').AsString := IntToStr(i+1);
+
     qAux.ExecSQL;
     buscaProximoParametro := i;
   end
