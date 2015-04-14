@@ -1,7 +1,9 @@
 inherited FCliente: TFCliente
-  Top = 183
+  Left = 275
+  Top = 287
   Height = 499
   Caption = 'FCliente'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar

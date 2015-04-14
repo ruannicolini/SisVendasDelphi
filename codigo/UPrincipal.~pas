@@ -38,8 +38,6 @@ implementation
 
 Uses  uPadraoModel;
 
-var Form2: TForm2;
-
 {$R *.dfm}
 
 procedure TForm1.FormShow(Sender: TObject);
