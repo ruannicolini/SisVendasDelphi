@@ -3,7 +3,7 @@ unit uConexao;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient;
+  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs;
 
 type
   TDataModule1 = class(TDataModule)
@@ -38,13 +38,21 @@ type
     mClienteemail: TStringField;
     mClienteie: TStringField;
     mClienteidCidade: TIntegerField;
+    qCidade: TQuery;
+    qCidadeidCidade: TIntegerField;
+    qCidadenome: TStringField;
+    qCidadeuf: TStringField;
+    qClienteCidade: TStringField;
+    qAux: TQuery;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
+    procedure mClienteAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
     { Public declarations }
+    function buscaProximoParametro(p:string): integer;
   end;
 
 var
@@ -67,6 +75,31 @@ end;
 procedure TDataModule1.mClienteAfterCancel(DataSet: TDataSet);
 begin
     mCliente.CancelUpdates;
+end;
+
+function TDataModule1.buscaProximoParametro(p: string): integer;
+var i : integer;
+begin
+  qAux.SQL.Text := 'select valor from parametro where idParametro =:p';
+  qAux.ParamByName('p').AsString := p;
+  qAux.Open;
+  
+  if not qAux.IsEmpty then
+  begin
+    i := StrToInt(qAux.Fields[0].AsString);
+    qAux.SQL.Text := 'update parametro set valor =:v where idParametro =: p';
+    qAux.ParamByName('v').AsString := IntToStr(i+1);
+    DataModule1.qAux.ParamByName('p').AsString := p;
+    qAux.ExecSQL;
+    buscaProximoParametro := i;
+  end
+  else
+    showmessage('Parametro Inválido');
+end;
+
+procedure TDataModule1.mClienteAfterInsert(DataSet: TDataSet);
+begin
+  mClienteidCliente.AsInteger := buscaProximoParametro('SeqCliente');
 end;
 
 end.

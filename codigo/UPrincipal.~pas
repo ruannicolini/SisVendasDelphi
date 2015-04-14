@@ -23,6 +23,7 @@ type
     Image9: TImage;
     Image10: TImage;
     procedure FormShow(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -36,7 +37,7 @@ var
 
 implementation
 
-Uses  uPadraoModel;
+Uses  uPadraoModel, UCliente;
 
 {$R *.dfm}
 
@@ -45,6 +46,11 @@ begin
   {Aplica Tela Cheia ao Form}
   ShowWindow(Handle, SW_MAXIMIZE);
 
+end;
+
+procedure TForm1.Image3Click(Sender: TObject);
+begin
+  fcliente.show;
 end;
 
 end.

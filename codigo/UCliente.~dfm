@@ -232,6 +232,7 @@ inherited FCliente: TFCliente
           Width = 25
           Height = 21
           TabStop = False
+          Color = 14286847
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True

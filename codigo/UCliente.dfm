@@ -123,8 +123,10 @@ inherited FCliente: TFCliente
           Top = 40
           Width = 134
           Height = 21
+          Color = 14876413
           DataField = 'idCliente'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 0
         end
         object DBEdit2: TDBEdit

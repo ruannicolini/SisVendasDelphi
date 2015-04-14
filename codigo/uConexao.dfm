@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 682
-  Top = 199
+  Left = 905
+  Top = 157
   Height = 299
   Width = 412
   object dbSisVenda: TDatabase
@@ -35,7 +35,7 @@ object DataModule1: TDataModule1
     Left = 72
     Top = 8
     Bitmap = {
-      494C01010A000E00040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C01010A000E00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -567,7 +567,8 @@ object DataModule1: TDataModule1
       8000E007E00080028001C003E000C00000008003E000800101008001E0008260
       01000001E000024001800001E000018009A00001E000030001000001E0000040
       80000001E000846000018001C0008001C00180038000C003C003C00700014003
-      F00BE00F0003D00FD417F83F0007C41F}
+      F00BE00F0003D00FD417F83F0007C41F00000000000000000000000000000000
+      000000000000}
   end
   object qCliente: TQuery
     DatabaseName = 'SistemaDeVendas'
@@ -656,11 +657,22 @@ object DataModule1: TDataModule1
       Origin = 'SISTEMADEVENDAS.cliente.idCidade'
       ProviderFlags = [pfInUpdate]
     end
+    object qClienteCidade: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Cidade'
+      LookupDataSet = qCidade
+      LookupKeyFields = 'idCidade'
+      LookupResultField = 'nome'
+      KeyFields = 'idCidade'
+      Size = 30
+      Lookup = True
+    end
   end
   object mCliente: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'pCliente'
+    AfterInsert = mClienteAfterInsert
     AfterPost = mClienteAfterPost
     AfterCancel = mClienteAfterCancel
     AfterDelete = mClienteAfterDelete
@@ -726,5 +738,32 @@ object DataModule1: TDataModule1
     DataSet = qCliente
     Left = 288
     Top = 8
+  end
+  object qCidade: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from cidade')
+    Left = 8
+    Top = 72
+    object qCidadeidCidade: TIntegerField
+      FieldName = 'idCidade'
+      Origin = 'SISTEMADEVENDAS.cidade.idCidade'
+    end
+    object qCidadenome: TStringField
+      FieldName = 'nome'
+      Origin = 'SISTEMADEVENDAS.cidade.nome'
+      Size = 30
+    end
+    object qCidadeuf: TStringField
+      FieldName = 'uf'
+      Origin = 'SISTEMADEVENDAS.cidade.uf'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object qAux: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    Left = 56
+    Top = 72
   end
 end

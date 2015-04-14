@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 250
-  Top = 263
+  Left = 317
+  Top = 184
   Width = 935
   Height = 505
   Caption = 'MR Sistema de Vendas'

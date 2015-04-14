@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 241
-  Top = 190
+  Left = 250
+  Top = 263
   Width = 935
   Height = 505
   Caption = 'MR Sistema de Vendas'
@@ -15013,6 +15013,7 @@ object Form1: TForm1
           0000000000000000000000000000000000000000800100008001000080010000
           800100008001000080010000C0030000F00F0000F83F0000F81F0000F00F0000
           F00F0000F00F0000F00F0000F01F0000F81F0000}
+        OnClick = Image3Click
       end
       object Image5: TImage
         Left = 1
