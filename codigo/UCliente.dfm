@@ -1,6 +1,6 @@
 inherited FCliente: TFCliente
-  Left = 275
-  Top = 287
+  Left = 250
+  Top = 191
   Height = 499
   Caption = 'FCliente'
   OldCreateOrder = True
@@ -110,13 +110,13 @@ inherited FCliente: TFCliente
           Caption = 'ie'
           FocusControl = DBEdit12
         end
-        object Label13: TLabel
+        object Label14: TLabel
           Left = 24
           Top = 341
-          Width = 41
+          Width = 33
           Height = 13
-          Caption = 'idCidade'
-          FocusControl = DBEdit13
+          Caption = 'Cidade'
+          FocusControl = DBLookupComboBox1
         end
         object DBEdit1: TDBEdit
           Left = 24
@@ -206,7 +206,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'telCel'
           DataSource = DS
-          TabOrder = 9
+          TabOrder = 10
         end
         object DBEdit11: TDBEdit
           Left = 24
@@ -215,7 +215,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'email'
           DataSource = DS
-          TabOrder = 10
+          TabOrder = 9
         end
         object DBEdit12: TDBEdit
           Left = 24
@@ -229,10 +229,22 @@ inherited FCliente: TFCliente
         object DBEdit13: TDBEdit
           Left = 24
           Top = 357
-          Width = 134
+          Width = 25
           Height = 21
+          TabStop = False
+          Color = 14286847
           DataField = 'idCidade'
           DataSource = DS
+          ReadOnly = True
+          TabOrder = 13
+        end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 49
+          Top = 357
+          Width = 384
+          Height = 21
+          DataField = 'Cidade'
+          DataSource = DataSource1
           TabOrder = 12
         end
       end
@@ -245,5 +257,10 @@ inherited FCliente: TFCliente
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mCliente
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.qCliente
+    Left = 608
+    Top = 112
   end
 end
