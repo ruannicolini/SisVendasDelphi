@@ -139,7 +139,7 @@ end;
 
 procedure TForm2.btnCancelarClick(Sender: TObject);
 begin
-    if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )) then
+    if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )= id_yes) then
     begin
         ds.DataSet.Cancel;
     end;
@@ -151,7 +151,7 @@ begin
   begin
     if not ds.DataSet.IsEmpty then
     begin
-        if (Application.MessageBox('Deseja Deletar ', 'Deletar', MB_YESNO + MB_ICONQUESTION )) then
+        if (Application.MessageBox('Deseja Deletar ', 'Deletar', MB_YESNO + MB_ICONQUESTION) = id_yes) then
         begin
           ds.DataSet.Cancel;
         end;

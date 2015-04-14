@@ -6,7 +6,6 @@ object DataModule1: TDataModule1
   Width = 412
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
-    Connected = True
     DatabaseName = 'SistemaDeVendas'
     KeepConnection = False
     LoginPrompt = False
@@ -175,8 +174,162 @@ object DataModule1: TDataModule1
       F00B000000000000D41700000000000000000000000000000000000000000000
       000000000000}
   end
-  object Query1: TQuery
+  object qCliente: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from cliente')
     Left = 136
+    Top = 8
+    object qClienteidCliente: TIntegerField
+      FieldName = 'idCliente'
+      Origin = 'SISTEMADEVENDAS.cliente.idCliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qClientenome: TStringField
+      FieldName = 'nome'
+      Origin = 'SISTEMADEVENDAS.cliente.nome'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qClienteendereco: TStringField
+      FieldName = 'endereco'
+      Origin = 'SISTEMADEVENDAS.cliente.endereco'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qClientenumero: TStringField
+      FieldName = 'numero'
+      Origin = 'SISTEMADEVENDAS.cliente.numero'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 7
+    end
+    object qClientebairro: TStringField
+      FieldName = 'bairro'
+      Origin = 'SISTEMADEVENDAS.cliente.bairro'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qClientecomplemento: TStringField
+      FieldName = 'complemento'
+      Origin = 'SISTEMADEVENDAS.cliente.complemento'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qClientecep: TStringField
+      FieldName = 'cep'
+      Origin = 'SISTEMADEVENDAS.cliente.cep'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 9
+    end
+    object qClientecnpj: TStringField
+      FieldName = 'cnpj'
+      Origin = 'SISTEMADEVENDAS.cliente.cnpj'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 15
+    end
+    object qClientetelFixo: TStringField
+      FieldName = 'telFixo'
+      Origin = 'SISTEMADEVENDAS.cliente.telFixo'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 15
+    end
+    object qClientetelCel: TStringField
+      FieldName = 'telCel'
+      Origin = 'SISTEMADEVENDAS.cliente.telCel'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 15
+    end
+    object qClienteemail: TStringField
+      FieldName = 'email'
+      Origin = 'SISTEMADEVENDAS.cliente.email'
+      ProviderFlags = [pfInUpdate]
+      Size = 40
+    end
+    object qClienteie: TStringField
+      FieldName = 'ie'
+      Origin = 'SISTEMADEVENDAS.cliente.ie'
+      ProviderFlags = [pfInUpdate]
+      FixedChar = True
+      Size = 15
+    end
+    object qClienteidCidade: TIntegerField
+      FieldName = 'idCidade'
+      Origin = 'SISTEMADEVENDAS.cliente.idCidade'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mCliente: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pCliente'
+    AfterPost = mClienteAfterPost
+    AfterCancel = mClienteAfterCancel
+    AfterDelete = mClienteAfterDelete
+    Left = 200
+    Top = 8
+    object mClienteidCliente: TIntegerField
+      FieldName = 'idCliente'
+    end
+    object mClientenome: TStringField
+      FieldName = 'nome'
+      Size = 50
+    end
+    object mClienteendereco: TStringField
+      FieldName = 'endereco'
+      Size = 50
+    end
+    object mClientenumero: TStringField
+      FieldName = 'numero'
+      FixedChar = True
+      Size = 7
+    end
+    object mClientebairro: TStringField
+      FieldName = 'bairro'
+      Size = 50
+    end
+    object mClientecomplemento: TStringField
+      FieldName = 'complemento'
+    end
+    object mClientecep: TStringField
+      FieldName = 'cep'
+      FixedChar = True
+      Size = 9
+    end
+    object mClientecnpj: TStringField
+      FieldName = 'cnpj'
+      FixedChar = True
+      Size = 15
+    end
+    object mClientetelFixo: TStringField
+      FieldName = 'telFixo'
+      FixedChar = True
+      Size = 15
+    end
+    object mClientetelCel: TStringField
+      FieldName = 'telCel'
+      FixedChar = True
+      Size = 15
+    end
+    object mClienteemail: TStringField
+      FieldName = 'email'
+      Size = 40
+    end
+    object mClienteie: TStringField
+      FieldName = 'ie'
+      FixedChar = True
+      Size = 15
+    end
+    object mClienteidCidade: TIntegerField
+      FieldName = 'idCidade'
+    end
+  end
+  object pCliente: TDataSetProvider
+    DataSet = qCliente
+    Left = 288
     Top = 8
   end
 end

@@ -1,11 +1,11 @@
-object Form2: TForm2
-  Left = 439
-  Top = 180
+object FormPadrao: TFormPadrao
+  Left = 307
+  Top = 167
   Width = 928
   Height = 515
   AlphaBlend = True
   AlphaBlendValue = 240
-  Caption = 'Form2'
+  Caption = 'FormPadr'#227'o'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
