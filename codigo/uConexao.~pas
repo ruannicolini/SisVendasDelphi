@@ -44,6 +44,7 @@ type
     qCidadeuf: TStringField;
     qClienteCidade: TStringField;
     qAux: TQuery;
+    pCidade: TDataSetProvider;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -62,19 +63,19 @@ implementation
 
 {$R *.dfm}
 
-procedure TDataModule1.mClienteAfterPost(DataSet: TDataSet);
+procedure TDataModule1.mCidadeAfterPost(DataSet: TDataSet);
 begin
-  mCliente.ApplyUpdates(-1);
+  mCidade.ApplyUpdates(-1);
 end;
 
-procedure TDataModule1.mClienteAfterDelete(DataSet: TDataSet);
+procedure TDataModule1.mCidadeAfterDelete(DataSet: TDataSet);
 begin
-    mCliente.ApplyUpdates(-1);
+    mCidade.ApplyUpdates(-1);
 end;
 
-procedure TDataModule1.mClienteAfterCancel(DataSet: TDataSet);
+procedure TDataModule1.mCidadeAfterCancel(DataSet: TDataSet);
 begin
-    mCliente.CancelUpdates;
+    mCidade.CancelUpdates;
 end;
 
 function TDataModule1.buscaProximoParametro(p: string): integer;
@@ -97,9 +98,9 @@ begin
     showmessage('Parametro Inválido');
 end;
 
-procedure TDataModule1.mClienteAfterInsert(DataSet: TDataSet);
+procedure TDataModule1.mCidadeAfterInsert(DataSet: TDataSet);
 begin
-  mClienteidCliente.AsInteger := buscaProximoParametro('SeqCliente');
+  mCidadeidCidade.AsInteger := buscaProximoParametro('SeqCidade');
 end;
 
 end.

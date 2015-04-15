@@ -1,8 +1,8 @@
-object FPrincipal: TFPrincipal
+object Form1: TForm1
   Left = 204
   Top = 142
   Width = 935
-  Height = 533
+  Height = 544
   Caption = 'MR Sistema de Vendas'
   Color = 16053492
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object FPrincipal: TFPrincipal
     Left = 0
     Top = 0
     Width = 927
-    Height = 502
+    Height = 513
     Align = alCustom
     Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Panel2'
@@ -28,12 +28,12 @@ object FPrincipal: TFPrincipal
     TabOrder = 0
     DesignSize = (
       927
-      502)
+      513)
     object Image2: TImage
       Left = 1
       Top = 1
       Width = 925
-      Height = 500
+      Height = 511
       Align = alClient
       Picture.Data = {
         0A544A504547496D6167656DDE0100FFD8FFE000104A46494600010101006000
@@ -3869,17 +3869,17 @@ object FPrincipal: TFPrincipal
       Left = 96
       Top = 6
       Width = 825
-      Height = 490
+      Height = 501
       Anchors = [akLeft, akTop, akRight, akBottom]
       Color = 16382457
       ParentBackground = False
       TabOrder = 0
       DesignSize = (
         825
-        490)
+        501)
       object Image1: TImage
         Left = 0
-        Top = 49
+        Top = 55
         Width = 824
         Height = 397
         Anchors = [akLeft, akRight]
@@ -7033,13 +7033,13 @@ object FPrincipal: TFPrincipal
       Left = 6
       Top = 6
       Width = 83
-      Height = 490
+      Height = 501
       Anchors = [akLeft, akTop, akBottom]
       ParentColor = True
       TabOrder = 1
       object Image4: TImage
         Left = 1
-        Top = 443
+        Top = 450
         Width = 80
         Height = 30
         Center = True
@@ -46602,7 +46602,7 @@ object FPrincipal: TFPrincipal
       end
       object Image11: TImage
         Left = 2
-        Top = 396
+        Top = 397
         Width = 80
         Height = 30
         Center = True
@@ -52752,6 +52752,7 @@ object FPrincipal: TFPrincipal
           0000000000000000000000000000000000000000000000000000000000000000
           00000000000000008000000080000000800000008000000080000000C0000000
           C00F0000C00F0000C1FF0000}
+        OnClick = Image11Click
       end
     end
   end

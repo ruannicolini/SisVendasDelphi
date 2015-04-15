@@ -574,7 +574,7 @@ object DataModule1: TDataModule1
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from cliente')
-    Left = 104
+    Left = 8
     Top = 72
     object qClienteidCliente: TIntegerField
       FieldName = 'idCliente'
@@ -676,8 +676,8 @@ object DataModule1: TDataModule1
     AfterPost = mClienteAfterPost
     AfterCancel = mClienteAfterCancel
     AfterDelete = mClienteAfterDelete
-    Left = 128
-    Top = 8
+    Left = 8
+    Top = 136
     object mClienteidCliente: TIntegerField
       FieldName = 'idCliente'
     end
@@ -736,14 +736,14 @@ object DataModule1: TDataModule1
   end
   object pCliente: TDataSetProvider
     DataSet = qCliente
-    Left = 176
-    Top = 8
+    Left = 8
+    Top = 192
   end
   object qCidade: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from cidade')
-    Left = 8
+    Left = 72
     Top = 72
     object qCidadeidCidade: TIntegerField
       FieldName = 'idCidade'
@@ -763,7 +763,18 @@ object DataModule1: TDataModule1
   end
   object qAux: TQuery
     DatabaseName = 'SistemaDeVendas'
-    Left = 56
-    Top = 72
+    Left = 128
+    Top = 16
+  end
+  object pCidade: TDataSetProvider
+    DataSet = qCidade
+    Left = 72
+    Top = 192
+  end
+  object mCidade: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 72
+    Top = 136
   end
 end
