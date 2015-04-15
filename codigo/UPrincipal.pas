@@ -22,6 +22,7 @@ type
     Image8: TImage;
     Image9: TImage;
     Image10: TImage;
+    Image11: TImage;
     procedure FormShow(Sender: TObject);
     procedure Image3Click(Sender: TObject);
   private

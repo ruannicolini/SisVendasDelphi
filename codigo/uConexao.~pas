@@ -90,7 +90,6 @@ begin
     qAux.SQL.Text := 'update parametro set valor =:v where idParametro =:p';
     qAux.ParamByName('p').AsString := p;
     qAux.ParamByName('v').AsString := IntToStr(i+1);
-
     qAux.ExecSQL;
     buscaProximoParametro := i;
   end
