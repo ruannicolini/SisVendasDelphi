@@ -56,6 +56,7 @@ type
     procedure mCidadeAfterPost(DataSet: TDataSet);
     procedure mCidadeAfterDelete(DataSet: TDataSet);
     procedure mCidadeAfterCancel(DataSet: TDataSet);
+    procedure mCidadeAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -123,6 +124,11 @@ end;
 procedure TDataModule1.mCidadeAfterCancel(DataSet: TDataSet);
 begin
   mCidade.CancelUpdates;
+end;
+
+procedure TDataModule1.mCidadeAfterInsert(DataSet: TDataSet);
+begin
+  mCidadeidCidade.AsInteger := buscaProximoParametro('SeqCidade');
 end;
 
 end.

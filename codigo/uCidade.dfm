@@ -34,8 +34,10 @@ inherited FCidade: TFCidade
           Top = 37
           Width = 134
           Height = 21
+          Color = 14155258
           DataField = 'idCidade'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 0
         end
         object DBEdit2: TDBEdit

@@ -773,6 +773,7 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pCidade'
+    AfterInsert = mCidadeAfterInsert
     AfterPost = mCidadeAfterPost
     AfterCancel = mCidadeAfterCancel
     AfterDelete = mCidadeAfterDelete
