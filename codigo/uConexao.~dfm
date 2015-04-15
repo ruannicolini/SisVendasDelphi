@@ -574,8 +574,8 @@ object DataModule1: TDataModule1
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from cliente')
-    Left = 136
-    Top = 8
+    Left = 8
+    Top = 64
     object qClienteidCliente: TIntegerField
       FieldName = 'idCliente'
       Origin = 'SISTEMADEVENDAS.cliente.idCliente'
@@ -676,8 +676,8 @@ object DataModule1: TDataModule1
     AfterPost = mClienteAfterPost
     AfterCancel = mClienteAfterCancel
     AfterDelete = mClienteAfterDelete
-    Left = 200
-    Top = 8
+    Left = 8
+    Top = 128
     object mClienteidCliente: TIntegerField
       FieldName = 'idCliente'
     end
@@ -736,34 +736,63 @@ object DataModule1: TDataModule1
   end
   object pCliente: TDataSetProvider
     DataSet = qCliente
-    Left = 288
-    Top = 8
+    Left = 8
+    Top = 184
   end
   object qCidade: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from cidade')
-    Left = 8
-    Top = 72
+    Left = 72
+    Top = 64
     object qCidadeidCidade: TIntegerField
       FieldName = 'idCidade'
       Origin = 'SISTEMADEVENDAS.cidade.idCidade'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object qCidadenome: TStringField
       FieldName = 'nome'
       Origin = 'SISTEMADEVENDAS.cidade.nome'
+      ProviderFlags = [pfInUpdate]
       Size = 30
     end
     object qCidadeuf: TStringField
       FieldName = 'uf'
       Origin = 'SISTEMADEVENDAS.cidade.uf'
+      ProviderFlags = [pfInUpdate]
       FixedChar = True
       Size = 2
     end
   end
   object qAux: TQuery
     DatabaseName = 'SistemaDeVendas'
-    Left = 56
-    Top = 72
+    Left = 128
+    Top = 8
+  end
+  object mCidade: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pCidade'
+    AfterPost = mCidadeAfterPost
+    AfterDelete = mCidadeAfterDelete
+    Left = 72
+    Top = 128
+    object mCidadeidCidade: TIntegerField
+      FieldName = 'idCidade'
+    end
+    object mCidadenome: TStringField
+      FieldName = 'nome'
+      Size = 30
+    end
+    object mCidadeuf: TStringField
+      FieldName = 'uf'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object pCidade: TDataSetProvider
+    DataSet = qCidade
+    Left = 72
+    Top = 184
   end
 end

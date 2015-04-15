@@ -7,7 +7,7 @@ uses
   Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg, Buttons;
 
 type
-  TFPrincipal = class(TForm)
+  TForm1 = class(TForm)
     Panel1: TPanel;
     XPManifest1: TXPManifest;
     Panel2: TPanel;
@@ -34,22 +34,22 @@ type
   end;
 
 var
-  FPrincipal: TFPrincipal;
+  Form1: TForm1;
 
 implementation
 
-Uses  uPadraoModel, UCliente;
+Uses  uPadraoModel, UCliente, uCidade;
 
 {$R *.dfm}
 
-procedure TFPrincipal.FormShow(Sender: TObject);
+procedure TForm1.FormShow(Sender: TObject);
 begin
   {Aplica Tela Cheia ao Form}
   ShowWindow(Handle, SW_MAXIMIZE);
 
 end;
 
-procedure TFPrincipal.Image3Click(Sender: TObject);
+procedure TForm1.Image3Click(Sender: TObject);
 begin
   fcliente.show;
 end;

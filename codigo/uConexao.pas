@@ -44,10 +44,18 @@ type
     qCidadeuf: TStringField;
     qClienteCidade: TStringField;
     qAux: TQuery;
+    mCidade: TClientDataSet;
+    pCidade: TDataSetProvider;
+    mCidadeidCidade: TIntegerField;
+    mCidadenome: TStringField;
+    mCidadeuf: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
     procedure mClienteAfterInsert(DataSet: TDataSet);
+    procedure mCidadeAfterPost(DataSet: TDataSet);
+    procedure mCidadeAfterDelete(DataSet: TDataSet);
+    procedure mCidadeAfterCancel(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -100,6 +108,21 @@ end;
 procedure TDataModule1.mClienteAfterInsert(DataSet: TDataSet);
 begin
   mClienteidCliente.AsInteger := buscaProximoParametro('SeqCliente');
+end;
+
+procedure TDataModule1.mCidadeAfterPost(DataSet: TDataSet);
+begin
+  mCidade.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mCidadeAfterDelete(DataSet: TDataSet);
+begin
+  mCidade.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mCidadeAfterCancel(DataSet: TDataSet);
+begin
+  mCidade.CancelUpdates;
 end;
 
 end.
