@@ -733,6 +733,16 @@ object DataModule1: TDataModule1
     object mClienteidCidade: TIntegerField
       FieldName = 'idCidade'
     end
+    object mClienteCidade: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Cidade'
+      LookupDataSet = qCidade
+      LookupKeyFields = 'idCidade'
+      LookupResultField = 'nome'
+      KeyFields = 'idCidade'
+      Size = 30
+      Lookup = True
+    end
   end
   object pCliente: TDataSetProvider
     DataSet = qCliente

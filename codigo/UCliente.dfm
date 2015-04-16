@@ -104,27 +104,19 @@ inherited FCliente: TFCliente
         end
         object Label12: TLabel
           Left = 24
-          Top = 301
+          Top = 303
           Width = 8
           Height = 13
           Caption = 'ie'
           FocusControl = DBEdit12
         end
-        object Label14: TLabel
-          Left = 24
-          Top = 341
+        object Label13: TLabel
+          Left = 233
+          Top = 304
           Width = 33
           Height = 13
           Caption = 'Cidade'
           FocusControl = DBLookupComboBox1
-        end
-        object Label13: TLabel
-          Left = 480
-          Top = 160
-          Width = 33
-          Height = 13
-          Caption = 'Cidade'
-          FocusControl = DBLookupComboBox2
         end
         object DBEdit1: TDBEdit
           Left = 24
@@ -229,42 +221,33 @@ inherited FCliente: TFCliente
         end
         object DBEdit12: TDBEdit
           Left = 24
-          Top = 317
+          Top = 320
           Width = 199
           Height = 21
           DataField = 'ie'
           DataSource = DS
           TabOrder = 11
         end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 256
+          Top = 320
+          Width = 177
+          Height = 21
+          DataField = 'Cidade'
+          DataSource = DS
+          TabOrder = 12
+        end
         object DBEdit13: TDBEdit
-          Left = 24
-          Top = 357
+          Left = 233
+          Top = 320
           Width = 25
           Height = 21
           TabStop = False
-          Color = 14286847
+          Color = 14089980
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True
           TabOrder = 13
-        end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 49
-          Top = 357
-          Width = 384
-          Height = 21
-          DataField = 'Cidade'
-          DataSource = DataSource1
-          TabOrder = 12
-        end
-        object DBLookupComboBox2: TDBLookupComboBox
-          Left = 480
-          Top = 184
-          Width = 404
-          Height = 21
-          DataField = 'Cidade'
-          DataSource = DataSource2
-          TabOrder = 14
         end
       end
     end
@@ -276,15 +259,5 @@ inherited FCliente: TFCliente
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mCliente
-  end
-  object DataSource1: TDataSource
-    DataSet = DataModule1.qCliente
-    Left = 608
-    Top = 112
-  end
-  object DataSource2: TDataSource
-    DataSet = DataModule1.mCidade
-    Left = 520
-    Top = 208
   end
 end

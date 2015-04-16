@@ -33,13 +33,9 @@ type
     DBEdit11: TDBEdit;
     Label12: TLabel;
     DBEdit12: TDBEdit;
-    Label14: TLabel;
-    DBLookupComboBox1: TDBLookupComboBox;
-    DataSource1: TDataSource;
-    DBEdit13: TDBEdit;
     Label13: TLabel;
-    DBLookupComboBox2: TDBLookupComboBox;
-    DataSource2: TDataSource;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBEdit13: TDBEdit;
   private
     { Private declarations }
   public

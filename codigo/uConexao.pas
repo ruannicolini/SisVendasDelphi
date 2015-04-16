@@ -49,6 +49,7 @@ type
     mCidadeidCidade: TIntegerField;
     mCidadenome: TStringField;
     mCidadeuf: TStringField;
+    mClienteCidade: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
