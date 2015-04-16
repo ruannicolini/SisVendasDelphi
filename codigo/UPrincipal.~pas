@@ -25,6 +25,7 @@ type
     Image11: TImage;
     procedure FormShow(Sender: TObject);
     procedure Image3Click(Sender: TObject);
+    procedure Image11Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -52,6 +53,11 @@ end;
 procedure TForm1.Image3Click(Sender: TObject);
 begin
   fcliente.show;
+end;
+
+procedure TForm1.Image11Click(Sender: TObject);
+begin
+  FCidade.Show;
 end;
 
 end.
