@@ -37,6 +37,9 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     DataSource1: TDataSource;
     DBEdit13: TDBEdit;
+    Label13: TLabel;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DataSource2: TDataSource;
   private
     { Private declarations }
   public

@@ -8,7 +8,7 @@ uses
   Grids, DBGrids, DBCtrls;
 
 type
-  TForm2 = class(TForm)
+  TFormPadrao = class(TForm)
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     btnNovo: TToolButton;
@@ -51,7 +51,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  FormPadrao: TFormPadrao;
 
 implementation
 Uses  uPrincipal;
@@ -60,7 +60,7 @@ Uses  uPrincipal;
 
 { TForm2 }
 
-procedure TForm2.StatusBotoes(e: integer);
+procedure TFormPadrao.StatusBotoes(e: integer);
 begin
   btnSalvar.Enabled := e=1;
   btnCancelar.Enabled := e=1;
@@ -77,12 +77,12 @@ begin
 
 end;
 
-procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormPadrao.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   ds.DataSet.Close;
 end;
 
-procedure TForm2.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TFormPadrao.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if( key = vk_return)
@@ -92,7 +92,7 @@ begin
       Perform( WM_NEXTDLGCTL,0,0);
 end;
 
-procedure TForm2.DSStateChange(Sender: TObject);
+procedure TFormPadrao.DSStateChange(Sender: TObject);
 begin
     tbFiltros.TabVisible := ds.DataSet.State in [dsBrowse, dsInactive];
     gbDados.Enabled      := ds.DataSet.State in dsEditModes;
@@ -104,12 +104,12 @@ begin
 
 end;
 
-procedure TForm2.FormShow(Sender: TObject);
+procedure TFormPadrao.FormShow(Sender: TObject);
 begin
     StatusBotoes(2);
 end;
 
-procedure TForm2.btnNovoClick(Sender: TObject);
+procedure TFormPadrao.btnNovoClick(Sender: TObject);
 begin
     if not ds.DataSet.Active then
         ds.DataSet.Open;
@@ -119,7 +119,7 @@ begin
     PageControl1.ActivePageIndex := 0;
 end;
 
-procedure TForm2.btnAlterarClick(Sender: TObject);
+procedure TFormPadrao.btnAlterarClick(Sender: TObject);
 begin
     if ds.DataSet.Active then
     begin
@@ -132,12 +132,12 @@ begin
     end;
 end;
 
-procedure TForm2.btnSalvarClick(Sender: TObject);
+procedure TFormPadrao.btnSalvarClick(Sender: TObject);
 begin
     ds.DataSet.Post;
 end;
 
-procedure TForm2.btnCancelarClick(Sender: TObject);
+procedure TFormPadrao.btnCancelarClick(Sender: TObject);
 begin
     if (Application.MessageBox('Deseja Cancelar ', 'Cancelar', MB_YESNO + MB_ICONQUESTION )= id_yes) then
     begin
@@ -145,7 +145,7 @@ begin
     end;
 end;
 
-procedure TForm2.btnDeletarClick(Sender: TObject);
+procedure TFormPadrao.btnDeletarClick(Sender: TObject);
 begin
   if ds.DataSet.Active then
   begin
@@ -161,28 +161,28 @@ begin
   end;
 end;
 
-procedure TForm2.btnPesquisarClick(Sender: TObject);
+procedure TFormPadrao.btnPesquisarClick(Sender: TObject);
 begin
     ds.DataSet.Close;
     ds.DataSet.Open;
 end;
 
-procedure TForm2.btnPrimeiroClick(Sender: TObject);
+procedure TFormPadrao.btnPrimeiroClick(Sender: TObject);
 begin
     ds.DataSet.First;
 end;
 
-procedure TForm2.btnAnteriorClick(Sender: TObject);
+procedure TFormPadrao.btnAnteriorClick(Sender: TObject);
 begin
     ds.DataSet.Prior;
 end;
 
-procedure TForm2.btnProximoClick(Sender: TObject);
+procedure TFormPadrao.btnProximoClick(Sender: TObject);
 begin
     ds.DataSet.Next;
 end;
 
-procedure TForm2.btnUltimoClick(Sender: TObject);
+procedure TFormPadrao.btnUltimoClick(Sender: TObject);
 begin
     ds.DataSet.Last;
 end;

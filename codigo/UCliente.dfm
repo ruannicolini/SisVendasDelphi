@@ -118,6 +118,14 @@ inherited FCliente: TFCliente
           Caption = 'Cidade'
           FocusControl = DBLookupComboBox1
         end
+        object Label13: TLabel
+          Left = 480
+          Top = 160
+          Width = 33
+          Height = 13
+          Caption = 'Cidade'
+          FocusControl = DBLookupComboBox2
+        end
         object DBEdit1: TDBEdit
           Left = 24
           Top = 40
@@ -249,6 +257,15 @@ inherited FCliente: TFCliente
           DataSource = DataSource1
           TabOrder = 12
         end
+        object DBLookupComboBox2: TDBLookupComboBox
+          Left = 480
+          Top = 184
+          Width = 404
+          Height = 21
+          DataField = 'Cidade'
+          DataSource = DataSource2
+          TabOrder = 14
+        end
       end
     end
     inherited tbFiltros: TTabSheet
@@ -264,5 +281,10 @@ inherited FCliente: TFCliente
     DataSet = DataModule1.qCliente
     Left = 608
     Top = 112
+  end
+  object DataSource2: TDataSource
+    DataSet = DataModule1.mCidade
+    Left = 520
+    Top = 208
   end
 end
