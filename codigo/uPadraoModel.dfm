@@ -124,6 +124,8 @@ object FormPadrao: TFormPadrao
         Width = 912
         Height = 406
         Align = alClient
+        Color = clBtnFace
+        ParentColor = False
         TabOrder = 0
       end
     end

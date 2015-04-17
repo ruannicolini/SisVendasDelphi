@@ -1,7 +1,9 @@
 inherited FCliente: TFCliente
-  Top = 183
+  Left = 250
+  Top = 191
   Height = 499
   Caption = 'FCliente'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
@@ -102,27 +104,29 @@ inherited FCliente: TFCliente
         end
         object Label12: TLabel
           Left = 24
-          Top = 301
+          Top = 303
           Width = 8
           Height = 13
           Caption = 'ie'
           FocusControl = DBEdit12
         end
         object Label13: TLabel
-          Left = 24
-          Top = 341
-          Width = 41
+          Left = 233
+          Top = 304
+          Width = 33
           Height = 13
-          Caption = 'idCidade'
-          FocusControl = DBEdit13
+          Caption = 'Cidade'
+          FocusControl = DBLookupComboBox1
         end
         object DBEdit1: TDBEdit
           Left = 24
           Top = 40
           Width = 134
           Height = 21
+          Color = 14876413
           DataField = 'idCliente'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 0
         end
         object DBEdit2: TDBEdit
@@ -204,7 +208,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'telCel'
           DataSource = DS
-          TabOrder = 9
+          TabOrder = 10
         end
         object DBEdit11: TDBEdit
           Left = 24
@@ -213,25 +217,37 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'email'
           DataSource = DS
-          TabOrder = 10
+          TabOrder = 9
         end
         object DBEdit12: TDBEdit
           Left = 24
-          Top = 317
+          Top = 320
           Width = 199
           Height = 21
           DataField = 'ie'
           DataSource = DS
           TabOrder = 11
         end
-        object DBEdit13: TDBEdit
-          Left = 24
-          Top = 357
-          Width = 134
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 256
+          Top = 320
+          Width = 177
           Height = 21
-          DataField = 'idCidade'
+          DataField = 'Cidade'
           DataSource = DS
           TabOrder = 12
+        end
+        object DBEdit13: TDBEdit
+          Left = 233
+          Top = 320
+          Width = 25
+          Height = 21
+          TabStop = False
+          Color = 14089980
+          DataField = 'idCidade'
+          DataSource = DS
+          ReadOnly = True
+          TabOrder = 13
         end
       end
     end

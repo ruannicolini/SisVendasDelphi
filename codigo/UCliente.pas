@@ -34,6 +34,7 @@ type
     Label12: TLabel;
     DBEdit12: TDBEdit;
     Label13: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     DBEdit13: TDBEdit;
   private
     { Private declarations }
