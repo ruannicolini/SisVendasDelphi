@@ -113,7 +113,7 @@ object FormPadrao: TFormPadrao
     Top = 31
     Width = 920
     Height = 434
-    ActivePage = tbDados
+    ActivePage = tbFiltros
     Align = alClient
     TabOrder = 2
     object tbDados: TTabSheet
@@ -136,15 +136,15 @@ object FormPadrao: TFormPadrao
         Left = 0
         Top = 0
         Width = 912
-        Height = 105
+        Height = 65
         Align = alTop
         TabOrder = 0
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Top = 105
+        Top = 65
         Width = 912
-        Height = 301
+        Height = 341
         Align = alClient
         DataSource = DS
         TabOrder = 1
