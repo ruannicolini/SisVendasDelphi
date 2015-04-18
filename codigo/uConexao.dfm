@@ -880,5 +880,15 @@ object DataModule1: TDataModule1
       FieldName = 'data'
       Size = 11
     end
+    object mPedidoNomeCliente: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCliente'
+      LookupDataSet = qCliente
+      LookupKeyFields = 'idCliente'
+      LookupResultField = 'nome'
+      KeyFields = 'idCliente'
+      Size = 50
+      Lookup = True
+    end
   end
 end

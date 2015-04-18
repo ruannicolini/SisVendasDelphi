@@ -65,6 +65,7 @@ type
     mPedidoprazoPagamento: TIntegerField;
     mPedidoidCliente: TIntegerField;
     mPedidodata: TStringField;
+    mPedidoNomeCliente: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
