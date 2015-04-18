@@ -1,6 +1,6 @@
 object FormPadrao: TFormPadrao
-  Left = 307
-  Top = 167
+  Left = 224
+  Top = 135
   Width = 928
   Height = 515
   AlphaBlend = True

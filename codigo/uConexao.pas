@@ -50,6 +50,9 @@ type
     mCidadenome: TStringField;
     mCidadeuf: TStringField;
     mClienteCidade: TStringField;
+    qPedido: TQuery;
+    pPedido: TDataSetProvider;
+    mPedido: TClientDataSet;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);

@@ -776,7 +776,7 @@ object DataModule1: TDataModule1
   end
   object qAux: TQuery
     DatabaseName = 'SistemaDeVendas'
-    Left = 128
+    Left = 136
     Top = 8
   end
   object mCidade: TClientDataSet
@@ -806,5 +806,19 @@ object DataModule1: TDataModule1
     DataSet = qCidade
     Left = 72
     Top = 184
+  end
+  object qPedido: TQuery
+    Left = 136
+    Top = 64
+  end
+  object pPedido: TDataSetProvider
+    Left = 136
+    Top = 184
+  end
+  object mPedido: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 136
+    Top = 128
   end
 end
