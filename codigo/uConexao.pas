@@ -53,6 +53,18 @@ type
     qPedido: TQuery;
     pPedido: TDataSetProvider;
     mPedido: TClientDataSet;
+    qPedidoidPedido: TIntegerField;
+    qPedidodescricao: TStringField;
+    qPedidovalorTotal: TFloatField;
+    qPedidoprazoPagamento: TIntegerField;
+    qPedidoidCliente: TIntegerField;
+    qPedidodata: TStringField;
+    mPedidoidPedido: TIntegerField;
+    mPedidodescricao: TStringField;
+    mPedidovalorTotal: TFloatField;
+    mPedidoprazoPagamento: TIntegerField;
+    mPedidoidCliente: TIntegerField;
+    mPedidodata: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -61,6 +73,10 @@ type
     procedure mCidadeAfterDelete(DataSet: TDataSet);
     procedure mCidadeAfterCancel(DataSet: TDataSet);
     procedure mCidadeAfterInsert(DataSet: TDataSet);
+    procedure mPedidoAfterPost(DataSet: TDataSet);
+    procedure mPedidoAfterDelete(DataSet: TDataSet);
+    procedure mPedidoAfterCancel(DataSet: TDataSet);
+    procedure mPedidoAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -133,6 +149,26 @@ end;
 procedure TDataModule1.mCidadeAfterInsert(DataSet: TDataSet);
 begin
   mCidadeidCidade.AsInteger := buscaProximoParametro('SeqCidade');
+end;
+
+procedure TDataModule1.mPedidoAfterPost(DataSet: TDataSet);
+begin
+ mPedido.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mPedidoAfterDelete(DataSet: TDataSet);
+begin
+  mPedido.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mPedidoAfterCancel(DataSet: TDataSet);
+begin
+  mPedido.CancelUpdates;
+end;
+
+procedure TDataModule1.mPedidoAfterInsert(DataSet: TDataSet);
+begin
+  mPedidoidPedido.AsInteger := buscaProximoParametro('SeqPedido');
 end;
 
 end.

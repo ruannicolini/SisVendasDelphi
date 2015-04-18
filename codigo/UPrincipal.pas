@@ -26,6 +26,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure Image3Click(Sender: TObject);
     procedure Image11Click(Sender: TObject);
+    procedure Image7Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -39,7 +40,7 @@ var
 
 implementation
 
-Uses  uPadraoModel, UCliente, uCidade;
+Uses  uPadraoModel, UCliente, uCidade, uPedido;
 
 {$R *.dfm}
 
@@ -58,6 +59,11 @@ end;
 procedure TForm1.Image11Click(Sender: TObject);
 begin
   FCidade.Show;
+end;
+
+procedure TForm1.Image7Click(Sender: TObject);
+begin
+  FPedido.Show;
 end;
 
 end.
