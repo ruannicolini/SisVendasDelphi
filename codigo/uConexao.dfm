@@ -776,7 +776,7 @@ object DataModule1: TDataModule1
   end
   object qAux: TQuery
     DatabaseName = 'SistemaDeVendas'
-    Left = 128
+    Left = 136
     Top = 8
   end
   object mCidade: TClientDataSet
@@ -806,5 +806,89 @@ object DataModule1: TDataModule1
     DataSet = qCidade
     Left = 72
     Top = 184
+  end
+  object qPedido: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from pedido')
+    Left = 136
+    Top = 64
+    object qPedidoidPedido: TIntegerField
+      FieldName = 'idPedido'
+      Origin = 'SISTEMADEVENDAS.pedido.idPedido'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qPedidodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.pedido.descricao'
+      ProviderFlags = [pfInUpdate]
+      Size = 100
+    end
+    object qPedidovalorTotal: TFloatField
+      FieldName = 'valorTotal'
+      Origin = 'SISTEMADEVENDAS.pedido.valorTotal'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qPedidoprazoPagamento: TIntegerField
+      FieldName = 'prazoPagamento'
+      Origin = 'SISTEMADEVENDAS.pedido.prazoPagamento'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qPedidoidCliente: TIntegerField
+      FieldName = 'idCliente'
+      Origin = 'SISTEMADEVENDAS.pedido.idCliente'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qPedidodata: TStringField
+      FieldName = 'data'
+      Origin = 'SISTEMADEVENDAS.pedido.data'
+      Size = 11
+    end
+  end
+  object pPedido: TDataSetProvider
+    DataSet = qPedido
+    Left = 136
+    Top = 184
+  end
+  object mPedido: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pPedido'
+    AfterInsert = mPedidoAfterInsert
+    AfterPost = mPedidoAfterPost
+    AfterCancel = mPedidoAfterCancel
+    AfterDelete = mPedidoAfterDelete
+    Left = 136
+    Top = 128
+    object mPedidoidPedido: TIntegerField
+      FieldName = 'idPedido'
+    end
+    object mPedidodescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object mPedidovalorTotal: TFloatField
+      FieldName = 'valorTotal'
+    end
+    object mPedidoprazoPagamento: TIntegerField
+      FieldName = 'prazoPagamento'
+    end
+    object mPedidoidCliente: TIntegerField
+      FieldName = 'idCliente'
+    end
+    object mPedidodata: TStringField
+      FieldName = 'data'
+      Size = 11
+    end
+    object mPedidoNomeCliente: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCliente'
+      LookupDataSet = qCliente
+      LookupKeyFields = 'idCliente'
+      LookupResultField = 'nome'
+      KeyFields = 'idCliente'
+      Size = 50
+      Lookup = True
+    end
   end
 end

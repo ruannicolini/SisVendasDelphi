@@ -6,7 +6,8 @@ uses
   uConexao in 'uConexao.pas' {DataModule1: TDataModule},
   uPadraoModel in 'uPadraoModel.pas' {FormPadrao},
   UCliente in 'UCliente.pas' {FCliente},
-  uCidade in 'uCidade.pas' {FCidade};
+  uCidade in 'uCidade.pas' {FCidade},
+  uPedido in 'uPedido.pas' {FPedido};
 
 {$R *.res}
 
@@ -17,5 +18,6 @@ begin
   Application.CreateForm(TFormPadrao, FormPadrao);
   Application.CreateForm(TFCliente, FCliente);
   Application.CreateForm(TFCidade, FCidade);
+  Application.CreateForm(TFPedido, FPedido);
   Application.Run;
 end.

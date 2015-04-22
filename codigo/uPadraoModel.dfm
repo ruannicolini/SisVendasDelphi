@@ -1,6 +1,6 @@
 object FormPadrao: TFormPadrao
-  Left = 307
-  Top = 167
+  Left = 224
+  Top = 135
   Width = 928
   Height = 515
   AlphaBlend = True
@@ -113,7 +113,7 @@ object FormPadrao: TFormPadrao
     Top = 31
     Width = 920
     Height = 434
-    ActivePage = tbFiltros
+    ActivePage = tbDados
     Align = alClient
     TabOrder = 2
     object tbDados: TTabSheet
