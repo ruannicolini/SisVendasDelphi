@@ -81,6 +81,19 @@ type
     mProdutostatusVenda: TBooleanField;
     mProdutoqtdEstoque: TIntegerField;
     mProdutoean: TFloatField;
+    qUsuario: TQuery;
+    mUsuario: TClientDataSet;
+    pUsuario: TDataSetProvider;
+    qUsuarioidUsuario: TIntegerField;
+    qUsuarionome: TStringField;
+    qUsuariosenha: TStringField;
+    qUsuarioemail: TStringField;
+    qUsuariousername: TStringField;
+    mUsuarioidUsuario: TIntegerField;
+    mUsuarionome: TStringField;
+    mUsuariosenha: TStringField;
+    mUsuarioemail: TStringField;
+    mUsuariousername: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -97,6 +110,10 @@ type
     procedure mProdutoAfterDelete(DataSet: TDataSet);
     procedure mProdutoAfterCancel(DataSet: TDataSet);
     procedure mProdutoAfterInsert(DataSet: TDataSet);
+    procedure mUsuarioAfterPost(DataSet: TDataSet);
+    procedure mUsuarioAfterDelete(DataSet: TDataSet);
+    procedure mUsuarioAfterCancel(DataSet: TDataSet);
+    procedure mUsuarioAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -209,6 +226,26 @@ end;
 procedure TDataModule1.mProdutoAfterInsert(DataSet: TDataSet);
 begin
   mProdutoidProduto.AsInteger := buscaProximoParametro('SeqProduto');
+end;
+
+procedure TDataModule1.mUsuarioAfterPost(DataSet: TDataSet);
+begin
+  mUsuario.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mUsuarioAfterDelete(DataSet: TDataSet);
+begin
+  mUsuario.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mUsuarioAfterCancel(DataSet: TDataSet);
+begin
+  mUsuario.CancelUpdates;
+end;
+
+procedure TDataModule1.mUsuarioAfterInsert(DataSet: TDataSet);
+begin
+  mUsuarioidUsuario.AsInteger := buscaProximoParametro('SeqUsuario');
 end;
 
 end.

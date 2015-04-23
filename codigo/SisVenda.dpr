@@ -8,7 +8,8 @@ uses
   UCliente in 'UCliente.pas' {FCliente},
   uCidade in 'uCidade.pas' {FCidade},
   uPedido in 'uPedido.pas' {FPedido},
-  uProduto in 'uProduto.pas' {FProduto};
+  uProduto in 'uProduto.pas' {FProduto},
+  uUsuario in 'uUsuario.pas' {FUsuario};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.CreateForm(TFCidade, FCidade);
   Application.CreateForm(TFPedido, FPedido);
   Application.CreateForm(TFProduto, FProduto);
+  Application.CreateForm(TFUsuario, FUsuario);
   Application.Run;
 end.
