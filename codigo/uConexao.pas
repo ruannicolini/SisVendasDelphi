@@ -66,6 +66,21 @@ type
     mPedidoidCliente: TIntegerField;
     mPedidodata: TStringField;
     mPedidoNomeCliente: TStringField;
+    qProduto: TQuery;
+    mProduto: TClientDataSet;
+    pProduto: TDataSetProvider;
+    qProdutoidProduto: TIntegerField;
+    qProdutodescricao: TStringField;
+    qProdutopreco: TFloatField;
+    qProdutostatusVenda: TBooleanField;
+    qProdutoqtdEstoque: TIntegerField;
+    qProdutoean: TFloatField;
+    mProdutoidProduto: TIntegerField;
+    mProdutodescricao: TStringField;
+    mProdutopreco: TFloatField;
+    mProdutostatusVenda: TBooleanField;
+    mProdutoqtdEstoque: TIntegerField;
+    mProdutoean: TFloatField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -78,6 +93,10 @@ type
     procedure mPedidoAfterDelete(DataSet: TDataSet);
     procedure mPedidoAfterCancel(DataSet: TDataSet);
     procedure mPedidoAfterInsert(DataSet: TDataSet);
+    procedure mProdutoAfterPost(DataSet: TDataSet);
+    procedure mProdutoAfterDelete(DataSet: TDataSet);
+    procedure mProdutoAfterCancel(DataSet: TDataSet);
+    procedure mProdutoAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -170,6 +189,26 @@ end;
 procedure TDataModule1.mPedidoAfterInsert(DataSet: TDataSet);
 begin
   mPedidoidPedido.AsInteger := buscaProximoParametro('SeqPedido');
+end;
+
+procedure TDataModule1.mProdutoAfterPost(DataSet: TDataSet);
+begin
+  mProduto.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mProdutoAfterDelete(DataSet: TDataSet);
+begin
+  mProduto.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mProdutoAfterCancel(DataSet: TDataSet);
+begin
+  mProduto.CancelUpdates;
+end;
+
+procedure TDataModule1.mProdutoAfterInsert(DataSet: TDataSet);
+begin
+  mProdutoidProduto.AsInteger := buscaProximoParametro('SeqProduto');
 end;
 
 end.
