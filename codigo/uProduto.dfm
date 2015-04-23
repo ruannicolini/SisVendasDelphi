@@ -1,4 +1,4 @@
-inherited FormPadrao1: TFormPadrao1
+inherited FProduto: TFProduto
   Left = 358
   Top = 120
   Height = 516
