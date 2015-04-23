@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=04242404')
+      'PASSWORD=123')
     SessionName = 'Default'
     Left = 8
     Top = 8
