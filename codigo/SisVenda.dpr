@@ -7,7 +7,8 @@ uses
   uPadraoModel in 'uPadraoModel.pas' {FormPadrao},
   UCliente in 'UCliente.pas' {FCliente},
   uCidade in 'uCidade.pas' {FCidade},
-  uPedido in 'uPedido.pas' {FPedido};
+  uPedido in 'uPedido.pas' {FPedido},
+  uProduto in 'uProduto.pas' {FProduto};
 
 {$R *.res}
 
@@ -19,5 +20,6 @@ begin
   Application.CreateForm(TFCliente, FCliente);
   Application.CreateForm(TFCidade, FCidade);
   Application.CreateForm(TFPedido, FPedido);
+  Application.CreateForm(TFProduto, FProduto);
   Application.Run;
 end.

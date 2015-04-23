@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=123')
+      'PASSWORD=04242404')
     SessionName = 'Default'
     Left = 8
     Top = 8
@@ -890,5 +890,78 @@ object DataModule1: TDataModule1
       Size = 50
       Lookup = True
     end
+  end
+  object qProduto: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT * FROM Produto')
+    Left = 200
+    Top = 64
+    object qProdutoidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.Produto.idProduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qProdutodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.Produto.descricao'
+      ProviderFlags = [pfInUpdate]
+      Size = 100
+    end
+    object qProdutopreco: TFloatField
+      FieldName = 'preco'
+      Origin = 'SISTEMADEVENDAS.Produto.preco'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qProdutostatusVenda: TBooleanField
+      FieldName = 'statusVenda'
+      Origin = 'SISTEMADEVENDAS.Produto.statusVenda'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qProdutoqtdEstoque: TIntegerField
+      FieldName = 'qtdEstoque'
+      Origin = 'SISTEMADEVENDAS.Produto.qtdEstoque'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qProdutoean: TFloatField
+      FieldName = 'ean'
+      Origin = 'SISTEMADEVENDAS.Produto.ean'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mProduto: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pProduto'
+    AfterInsert = mProdutoAfterInsert
+    AfterPost = mProdutoAfterPost
+    AfterCancel = mProdutoAfterCancel
+    AfterDelete = mProdutoAfterDelete
+    Left = 200
+    Top = 128
+    object mProdutoidProduto: TIntegerField
+      FieldName = 'idProduto'
+    end
+    object mProdutodescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object mProdutopreco: TFloatField
+      FieldName = 'preco'
+    end
+    object mProdutostatusVenda: TBooleanField
+      FieldName = 'statusVenda'
+    end
+    object mProdutoqtdEstoque: TIntegerField
+      FieldName = 'qtdEstoque'
+    end
+    object mProdutoean: TFloatField
+      FieldName = 'ean'
+    end
+  end
+  object pProduto: TDataSetProvider
+    DataSet = qProduto
+    Left = 200
+    Top = 184
   end
 end
