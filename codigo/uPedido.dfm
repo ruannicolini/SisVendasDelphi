@@ -1,6 +1,6 @@
 inherited FPedido: TFPedido
-  Left = 292
-  Top = 133
+  Left = 198
+  Top = 118
   Width = 755
   Height = 638
   Caption = 'FPedido'
@@ -151,33 +151,6 @@ inherited FPedido: TFPedido
               TitleFont.Height = -11
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
-              Columns = <
-                item
-                  Expanded = False
-                  Title.Caption = 'COD'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'DESCRI'#199#195'O'
-                  Width = 231
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'QTD'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'VL UNIT'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'VL PARCIAL'
-                  Visible = True
-                end>
             end
           end
           object GroupBox3: TGroupBox
@@ -213,7 +186,7 @@ inherited FPedido: TFPedido
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mPedido
-    Left = 488
+    Left = 672
     Top = 8
   end
 end
