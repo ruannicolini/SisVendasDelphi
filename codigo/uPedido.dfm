@@ -139,6 +139,46 @@ inherited FPedido: TFPedido
             Height = 329
             Caption = 'PRODUTO'
             TabOrder = 0
+            object DBGrid2: TDBGrid
+              Left = 2
+              Top = 15
+              Width = 509
+              Height = 312
+              Align = alClient
+              TabOrder = 0
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -11
+              TitleFont.Name = 'MS Sans Serif'
+              TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  Title.Caption = 'COD'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'DESCRI'#199#195'O'
+                  Width = 231
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'QTD'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'VL UNIT'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'VL PARCIAL'
+                  Visible = True
+                end>
+            end
           end
           object GroupBox3: TGroupBox
             Left = 16
@@ -175,9 +215,5 @@ inherited FPedido: TFPedido
     DataSet = DataModule1.mPedido
     Left = 488
     Top = 8
-  end
-  object Table1: TTable
-    Left = 204
-    Top = 239
   end
 end
