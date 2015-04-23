@@ -1,9 +1,10 @@
 inherited FPedido: TFPedido
-  Left = 279
-  Top = 142
+  Left = 292
+  Top = 133
   Width = 755
   Height = 638
   Caption = 'FPedido'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
@@ -32,7 +33,7 @@ inherited FPedido: TFPedido
           Left = 593
           Top = 106
           Width = 99
-          Height = 14
+          Height = 13
           Caption = 'Prazo de Pagamento'
           FocusControl = DBEdit4
         end
@@ -151,7 +152,7 @@ inherited FPedido: TFPedido
             Left = 16
             Top = 80
             Width = 145
-            Height = 25
+            Height = 21
             BevelKind = bkFlat
             DataField = 'valorTotal'
             DataSource = DS
@@ -174,5 +175,9 @@ inherited FPedido: TFPedido
     DataSet = DataModule1.mPedido
     Left = 488
     Top = 8
+  end
+  object Table1: TTable
+    Left = 204
+    Top = 239
   end
 end

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  Mask, DBCtrls, ExtCtrls;
+  Mask, DBCtrls, ExtCtrls, DBTables;
 
 type
   TFPedido = class(TFormPadrao)
@@ -25,6 +25,7 @@ type
     GroupBox3: TGroupBox;
     Label3: TLabel;
     DBEdit3: TDBEdit;
+    Table1: TTable;
   private
     { Private declarations }
   public
