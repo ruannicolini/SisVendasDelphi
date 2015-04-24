@@ -1,5 +1,5 @@
 inherited FPedido: TFPedido
-  Left = 200
+  Left = 203
   Top = 116
   Width = 755
   Height = 638

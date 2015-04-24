@@ -28,6 +28,7 @@ type
     DBGrid2: TDBGrid;
     Edit1: TEdit;
     Query1: TQuery;
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -40,5 +41,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFPedido.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if(Key = #13)then
+    Edit1.SetFocus;
+end;
 
 end.
