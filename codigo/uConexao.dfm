@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 805
-  Top = 170
-  Height = 341
-  Width = 562
+  Left = 765
+  Top = 160
+  Height = 365
+  Width = 591
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
@@ -1190,15 +1190,15 @@ object DataModule1: TDataModule1
   end
   object pPedidoItem: TDataSetProvider
     DataSet = qPedidoItem
-    Left = 483
-    Top = 224
+    Left = 435
+    Top = 184
   end
   object qPedidoItem: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from pedido_item where idPedido = :i')
-    Left = 480
-    Top = 160
+    Left = 432
+    Top = 64
     ParamData = <
       item
         DataType = ftUnknown
@@ -1235,8 +1235,8 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pPedidoItem'
-    Left = 484
-    Top = 112
+    Left = 435
+    Top = 128
     object mPedidoItemidPedido: TIntegerField
       FieldName = 'idPedido'
     end
@@ -1255,7 +1255,7 @@ object DataModule1: TDataModule1
   end
   object DsPedidoItem: TDataSource
     DataSet = mPedidoItem
-    Left = 488
-    Top = 56
+    Left = 432
+    Top = 12
   end
 end
