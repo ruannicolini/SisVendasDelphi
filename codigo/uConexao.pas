@@ -81,6 +81,20 @@ type
     mProdutostatusVenda: TBooleanField;
     mProdutoqtdEstoque: TIntegerField;
     mProdutoean: TFloatField;
+    qEntrada: TQuery;
+    mEntrada: TClientDataSet;
+    pEntrada: TDataSetProvider;
+    qEntradaidUsuario: TIntegerField;
+    qEntradaidProduto: TIntegerField;
+    qEntradaqtd: TIntegerField;
+    qEntradadataAlteracaoEstoque: TStringField;
+    qEntradaidEntrada: TFloatField;
+    mEntradaidEntrada: TFloatField;
+    mEntradaidUsuario: TIntegerField;
+    mEntradaidProduto: TIntegerField;
+    mEntradaqtd: TIntegerField;
+    mEntradadataAlteracaoEstoque: TStringField;
+    mEntradaProduto: TStringField;
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -97,6 +111,10 @@ type
     procedure mProdutoAfterDelete(DataSet: TDataSet);
     procedure mProdutoAfterCancel(DataSet: TDataSet);
     procedure mProdutoAfterInsert(DataSet: TDataSet);
+    procedure mEntradaAfterPost(DataSet: TDataSet);
+    procedure mEntradaAfterDelete(DataSet: TDataSet);
+    procedure mEntradaAfterCancel(DataSet: TDataSet);
+    procedure mEntradaAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -209,6 +227,26 @@ end;
 procedure TDataModule1.mProdutoAfterInsert(DataSet: TDataSet);
 begin
   mProdutoidProduto.AsInteger := buscaProximoParametro('SeqProduto');
+end;
+
+procedure TDataModule1.mEntradaAfterPost(DataSet: TDataSet);
+begin
+  mEntrada.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mEntradaAfterDelete(DataSet: TDataSet);
+begin
+  mEntrada.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mEntradaAfterCancel(DataSet: TDataSet);
+begin
+  mEntrada.CancelUpdates;
+end;
+
+procedure TDataModule1.mEntradaAfterInsert(DataSet: TDataSet);
+begin
+  mEntradaidEntrada.AsInteger := buscaProximoParametro('SeqEntrada');
 end;
 
 end.

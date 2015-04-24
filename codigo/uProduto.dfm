@@ -1,8 +1,9 @@
 inherited FProduto: TFProduto
-  Left = 358
-  Top = 120
+  Left = 1945
+  Top = 137
   Height = 516
   Caption = 'FProduto'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar

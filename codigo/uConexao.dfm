@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 905
-  Top = 157
+  Left = 2256
+  Top = 142
   Height = 299
   Width = 412
   object dbSisVenda: TDatabase
@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=123')
+      'PASSWORD=04242404')
     SessionName = 'Default'
     Left = 8
     Top = 8
@@ -962,6 +962,81 @@ object DataModule1: TDataModule1
   object pProduto: TDataSetProvider
     DataSet = qProduto
     Left = 200
+    Top = 184
+  end
+  object qEntrada: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT * FROM responsavel_estoque')
+    Left = 264
+    Top = 64
+    object qEntradaidEntrada: TFloatField
+      FieldName = 'idEntrada'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idEntrada'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idUsuario'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradaidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idProduto'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradaqtd: TIntegerField
+      FieldName = 'qtd'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.qtd'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradadataAlteracaoEstoque: TStringField
+      FieldName = 'dataAlteracaoEstoque'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.dataAlteracaoEstoque'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+  end
+  object mEntrada: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pEntrada'
+    AfterInsert = mEntradaAfterInsert
+    AfterPost = mEntradaAfterPost
+    AfterCancel = mEntradaAfterCancel
+    AfterDelete = mEntradaAfterDelete
+    Left = 264
+    Top = 128
+    object mEntradaidEntrada: TFloatField
+      FieldName = 'idEntrada'
+    end
+    object mEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+    end
+    object mEntradaidProduto: TIntegerField
+      FieldName = 'idProduto'
+    end
+    object mEntradaqtd: TIntegerField
+      FieldName = 'qtd'
+    end
+    object mEntradadataAlteracaoEstoque: TStringField
+      FieldName = 'dataAlteracaoEstoque'
+      Size = 10
+    end
+    object mEntradaProduto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Produto'
+      LookupDataSet = qProduto
+      LookupKeyFields = 'idProduto'
+      LookupResultField = 'descricao'
+      KeyFields = 'idProduto'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object pEntrada: TDataSetProvider
+    DataSet = qEntrada
+    Left = 264
     Top = 184
   end
 end

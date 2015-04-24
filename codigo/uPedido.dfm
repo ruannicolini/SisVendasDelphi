@@ -1,6 +1,6 @@
 inherited FPedido: TFPedido
-  Left = 292
-  Top = 133
+  Left = 1956
+  Top = 125
   Width = 755
   Height = 638
   Caption = 'FPedido'
@@ -8,19 +8,19 @@ inherited FPedido: TFPedido
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 588
-    Width = 747
+    Top = 581
+    Width = 739
   end
   inherited ToolBar1: TToolBar
-    Width = 747
+    Width = 739
   end
   inherited PageControl1: TPageControl
-    Width = 747
-    Height = 557
+    Width = 739
+    Height = 550
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 739
-        Height = 529
+        Width = 731
+        Height = 522
         object Label1: TLabel
           Left = 16
           Top = 24
