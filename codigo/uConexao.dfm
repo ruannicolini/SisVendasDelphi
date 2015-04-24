@@ -1,23 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-<<<<<<< HEAD
-<<<<<<< HEAD
-  Left = 2278
-  Top = 146
-  Height = 299
-  Width = 453
-=======
-  Left = 905
-  Top = 157
-  Height = 341
-  Width = 412
->>>>>>> ruan-remote/master
-=======
   Left = 805
   Top = 170
   Height = 341
   Width = 511
->>>>>>> ruan-remote/master
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
@@ -978,7 +964,7 @@ object DataModule1: TDataModule1
     Left = 200
     Top = 184
   end
-object qUsuario: TQuery
+  object qUsuario: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from Usuario')
@@ -1053,7 +1039,7 @@ object qUsuario: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'SELECT * FROM responsavel_estoque')
-    Left = 264
+    Left = 368
     Top = 64
     object qEntradaidEntrada: TFloatField
       FieldName = 'idEntrada'
@@ -1090,7 +1076,7 @@ object qUsuario: TQuery
     AfterPost = mEntradaAfterPost
     AfterCancel = mEntradaAfterCancel
     AfterDelete = mEntradaAfterDelete
-    Left = 264
+    Left = 368
     Top = 128
     object mEntradaidEntrada: TFloatField
       FieldName = 'idEntrada'
@@ -1121,14 +1107,14 @@ object qUsuario: TQuery
   end
   object pEntrada: TDataSetProvider
     DataSet = qEntrada
-    Left = 264
+    Left = 368
     Top = 184
   end
   object qConta: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'SELECT * FROM contas')
-    Left = 328
+    Left = 312
     Top = 64
     object qContaidConta: TIntegerField
       FieldName = 'idConta'
@@ -1172,7 +1158,7 @@ object qUsuario: TQuery
     AfterPost = mContaAfterPost
     AfterCancel = mContaAfterCancel
     AfterDelete = mContaAfterDelete
-    Left = 328
+    Left = 312
     Top = 128
     object mContaidConta: TIntegerField
       FieldName = 'idConta'
@@ -1198,7 +1184,7 @@ object qUsuario: TQuery
   end
   object pConta: TDataSetProvider
     DataSet = qConta
-    Left = 328
+    Left = 312
     Top = 184
   end
 end

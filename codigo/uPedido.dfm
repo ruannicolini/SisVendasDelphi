@@ -1,16 +1,6 @@
 inherited FPedido: TFPedido
-<<<<<<< HEAD
-<<<<<<< HEAD
-  Left = 1956
-  Top = 125
-=======
-  Left = 198
-  Top = 118
->>>>>>> ruan-remote/master
-=======
   Left = 200
   Top = 116
->>>>>>> ruan-remote/master
   Width = 755
   Height = 638
   Caption = 'FPedido'
@@ -18,19 +8,19 @@ inherited FPedido: TFPedido
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 581
-    Width = 739
+    Top = 588
+    Width = 747
   end
   inherited ToolBar1: TToolBar
-    Width = 739
+    Width = 747
   end
   inherited PageControl1: TPageControl
-    Width = 739
-    Height = 550
+    Width = 747
+    Height = 557
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 731
-        Height = 522
+        Width = 739
+        Height = 529
         object Label1: TLabel
           Left = 16
           Top = 24

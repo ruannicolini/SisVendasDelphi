@@ -327,7 +327,4 @@ begin
   mContaidConta.AsInteger := buscaProximoParametro('SeqConta');
 end;
 
->>>>>>> ruan-remote/master
-end;
-
 end.
