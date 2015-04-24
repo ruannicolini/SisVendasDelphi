@@ -24,7 +24,6 @@ type
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
     ed_barra: TEdit;
     qProduto: TQuery;
     Label7: TLabel;
@@ -44,9 +43,11 @@ type
     qProdutostatusVenda: TBooleanField;
     qProdutoqtdEstoque: TIntegerField;
     qProdutoean: TFloatField;
+    qValorTotal: TQuery;
+    ed_vlTotal: TDBEdit;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure DBEdit3Enter(Sender: TObject);
+    procedure ed_vlTotalEnter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,7 +67,6 @@ begin
   inherited;
   if (key = 13) and (trim(ed_barra.Text) <> '') then
   begin
-
       qProduto.Close;
       qProduto.ParamByName('PEan').AsString:=(ed_barra.Text);
       qProduto.Open;
@@ -80,8 +80,6 @@ begin
          DataModule1.mPedidoItem.Edit;
          DataModule1.mPedidoItemquantidade.AsInteger :=DataModule1.mPedidoItemquantidade.AsInteger +1;
          DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
-
-
       end
       else
       begin
@@ -93,27 +91,37 @@ begin
           DBEdit10.Text := IntToStr(StrToInt(qProduto.FieldByName('preco').AsString) * StrToInt(DBEdit9.Text));
           DBEdit11.Text := qProduto.FieldByName('preco').AsString;
 
-
           DataModule1.mPedidoItemidPedido.AsInteger := DataModule1.mPedidoidPedido.AsInteger;
           DataModule1.mPedidoItemidProduto.AsInteger := qProdutoidProduto.AsInteger;
           DataModule1.mPedidoItemquantidade.AsInteger := 1;
           DataModule1.mPedidoItemprecoUnitario.AsFloat := qProdutopreco.AsFloat;
-          DataModule1.mPedidoItemprecoParcial.AsFloat  := 0;
+          DataModule1.mPedidoItemprecoParcial.AsFloat  := qProdutopreco.AsFloat;
       end;
 
       {Salva}
       DataModule1.mPedidoItem.Post;
       DataModule1.mPedidoItem.ApplyUpdates(-1);
-       ed_barra.clear;
-       ed_barra.SetFocus;
+
+      {Atualiza Edit vl_Total}
+      qValorTotal.Close;
+      qValorTotal.ParamByName('PVlTotal').AsString:=(DBEdit1.Text);
+      qValorTotal.Open;
+      
+      if not DataModule1.mpedidoitem.Active then {Atualiza Edit vl_Total - Abre Edição}
+            DataModule1.mpedidoitem.Open;
 
 
+      {ShowMessage(qValorTotal.FieldByName('total').AsString);}
+      DataModule1.mPedidovalorTotal.AsFloat := StrToInt(qValorTotal.FieldByName('total').AsString);
 
+      {Volta o Foco pro Edit EAN}
+      ed_barra.clear;
+      ed_barra.SetFocus;
   end;
 
 end;
 
-procedure TFPedido.DBEdit3Enter(Sender: TObject);
+procedure TFPedido.ed_vlTotalEnter(Sender: TObject);
 begin
   inherited;
   ed_barra.SetFocus;

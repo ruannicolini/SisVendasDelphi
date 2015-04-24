@@ -131,7 +131,6 @@ inherited FPedido: TFPedido
             Width = 51
             Height = 13
             Caption = 'Valor Total'
-            FocusControl = DBEdit3
           end
           object Label7: TLabel
             Left = 8
@@ -140,6 +139,7 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'idPedido'
             FocusControl = DBEdit7
+            Visible = False
           end
           object Label8: TLabel
             Left = 8
@@ -148,6 +148,7 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'idProduto'
             FocusControl = DBEdit8
+            Visible = False
           end
           object Label9: TLabel
             Left = 8
@@ -156,6 +157,7 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'quantidade'
             FocusControl = DBEdit9
+            Visible = False
           end
           object Label10: TLabel
             Left = 8
@@ -164,6 +166,7 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'precoParcial'
             FocusControl = DBEdit10
+            Visible = False
           end
           object Label11: TLabel
             Left = 8
@@ -172,6 +175,7 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'precoUnitario'
             FocusControl = DBEdit11
+            Visible = False
           end
           object GroupBox2: TGroupBox
             Left = 176
@@ -237,17 +241,6 @@ inherited FPedido: TFPedido
               OnKeyDown = ed_barraKeyDown
             end
           end
-          object DBEdit3: TDBEdit
-            Left = 16
-            Top = 80
-            Width = 145
-            Height = 21
-            BevelKind = bkFlat
-            DataField = 'valorTotal'
-            DataSource = DS
-            TabOrder = 2
-            OnEnter = DBEdit3Enter
-          end
           object DBEdit7: TDBEdit
             Left = 8
             Top = 142
@@ -255,7 +248,8 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'idPedido'
-            TabOrder = 3
+            TabOrder = 2
+            Visible = False
           end
           object DBEdit8: TDBEdit
             Left = 8
@@ -264,7 +258,8 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'idProduto'
-            TabOrder = 4
+            TabOrder = 3
+            Visible = False
           end
           object DBEdit9: TDBEdit
             Left = 8
@@ -273,7 +268,8 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'quantidade'
-            TabOrder = 5
+            TabOrder = 4
+            Visible = False
           end
           object DBEdit10: TDBEdit
             Left = 8
@@ -282,7 +278,8 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'precoParcial'
-            TabOrder = 6
+            TabOrder = 5
+            Visible = False
           end
           object DBEdit11: TDBEdit
             Left = 8
@@ -291,7 +288,18 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'precoUnitario'
+            TabOrder = 6
+            Visible = False
+          end
+          object ed_vlTotal: TDBEdit
+            Left = 16
+            Top = 80
+            Width = 134
+            Height = 21
+            DataField = 'valorTotal'
+            DataSource = DS
             TabOrder = 7
+            OnEnter = ed_vlTotalEnter
           end
         end
       end
@@ -348,5 +356,20 @@ inherited FPedido: TFPedido
       FieldName = 'ean'
       Origin = 'SISTEMADEVENDAS.produto.ean'
     end
+  end
+  object qValorTotal: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      
+        'select sum(precoparcial) total from pedido_item where idPedido =' +
+        ' :PVlTotal')
+    Left = 660
+    Top = 63
+    ParamData = <
+      item
+        DataType = ftFloat
+        Name = 'PVlTotal'
+        ParamType = ptUnknown
+      end>
   end
 end
