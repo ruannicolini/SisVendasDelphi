@@ -25,7 +25,7 @@ type
     GroupBox3: TGroupBox;
     Label3: TLabel;
     DBEdit3: TDBEdit;
-    Table1: TTable;
+    DBGrid2: TDBGrid;
   private
     { Private declarations }
   public

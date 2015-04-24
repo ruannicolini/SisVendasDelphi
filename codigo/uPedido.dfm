@@ -1,6 +1,11 @@
 inherited FPedido: TFPedido
+<<<<<<< HEAD
   Left = 1956
   Top = 125
+=======
+  Left = 198
+  Top = 118
+>>>>>>> ruan-remote/master
   Width = 755
   Height = 638
   Caption = 'FPedido'
@@ -139,6 +144,19 @@ inherited FPedido: TFPedido
             Height = 329
             Caption = 'PRODUTO'
             TabOrder = 0
+            object DBGrid2: TDBGrid
+              Left = 2
+              Top = 15
+              Width = 509
+              Height = 312
+              Align = alClient
+              TabOrder = 0
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -11
+              TitleFont.Name = 'MS Sans Serif'
+              TitleFont.Style = []
+            end
           end
           object GroupBox3: TGroupBox
             Left = 16
@@ -173,11 +191,7 @@ inherited FPedido: TFPedido
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mPedido
-    Left = 488
+    Left = 672
     Top = 8
-  end
-  object Table1: TTable
-    Left = 204
-    Top = 239
   end
 end
