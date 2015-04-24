@@ -26,6 +26,8 @@ type
     Label3: TLabel;
     DBEdit3: TDBEdit;
     DBGrid2: TDBGrid;
+    Edit1: TEdit;
+    Query1: TQuery;
   private
     { Private declarations }
   public

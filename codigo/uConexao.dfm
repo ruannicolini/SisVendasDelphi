@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 905
-  Top = 157
+  Left = 805
+  Top = 170
   Height = 341
-  Width = 412
+  Width = 511
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
