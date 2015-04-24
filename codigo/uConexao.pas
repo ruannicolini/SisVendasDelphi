@@ -123,6 +123,20 @@ type
     mContastatusPag: TBooleanField;
     mContanumero_duplicata: TStringField;
     mContaidFaturamento: TIntegerField;
+    pPedidoItem: TDataSetProvider;
+    qPedidoItem: TQuery;
+    qPedidoItemidPedido: TIntegerField;
+    qPedidoItemidProduto: TIntegerField;
+    qPedidoItemquantidade: TIntegerField;
+    qPedidoItemprecoParcial: TFloatField;
+    qPedidoItemprecoUnitario: TFloatField;
+    mPedidoItem: TClientDataSet;
+    mPedidoItemidPedido: TIntegerField;
+    mPedidoItemidProduto: TIntegerField;
+    mPedidoItemquantidade: TIntegerField;
+    mPedidoItemprecoParcial: TFloatField;
+    mPedidoItemprecoUnitario: TFloatField;
+    DsPedidoItem: TDataSource;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
@@ -152,6 +166,7 @@ type
     procedure mContaAfterDelete(DataSet: TDataSet);
     procedure mContaAfterCancel(DataSet: TDataSet);
     procedure mContaAfterInsert(DataSet: TDataSet);
+    procedure mPedidoAfterScroll(DataSet: TDataSet);
 
   private
     { Private declarations }
@@ -325,6 +340,14 @@ end;
 procedure TDataModule1.mContaAfterInsert(DataSet: TDataSet);
 begin
   mContaidConta.AsInteger := buscaProximoParametro('SeqConta');
+end;
+
+procedure TDataModule1.mPedidoAfterScroll(DataSet: TDataSet);
+begin
+  mPedidoItem.Close;
+  qPedidoItem.ParamByName('i').AsInteger := mPedidoidPedido.AsInteger;
+  qPedidoItem.Open;
+  mPedidoItem.Open;
 end;
 
 end.

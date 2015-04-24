@@ -1,9 +1,10 @@
 inherited FPedido: TFPedido
-  Left = 203
-  Top = 116
+  Left = 229
+  Top = 108
   Width = 755
   Height = 638
   Caption = 'FPedido'
+  KeyPreview = True
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
@@ -132,6 +133,46 @@ inherited FPedido: TFPedido
             Caption = 'Valor Total'
             FocusControl = DBEdit3
           end
+          object Label7: TLabel
+            Left = 8
+            Top = 126
+            Width = 41
+            Height = 13
+            Caption = 'idPedido'
+            FocusControl = DBEdit7
+          end
+          object Label8: TLabel
+            Left = 8
+            Top = 166
+            Width = 45
+            Height = 13
+            Caption = 'idProduto'
+            FocusControl = DBEdit8
+          end
+          object Label9: TLabel
+            Left = 8
+            Top = 206
+            Width = 53
+            Height = 13
+            Caption = 'quantidade'
+            FocusControl = DBEdit9
+          end
+          object Label10: TLabel
+            Left = 8
+            Top = 246
+            Width = 59
+            Height = 13
+            Caption = 'precoParcial'
+            FocusControl = DBEdit10
+          end
+          object Label11: TLabel
+            Left = 8
+            Top = 286
+            Width = 63
+            Height = 13
+            Caption = 'precoUnitario'
+            FocusControl = DBEdit11
+          end
           object GroupBox2: TGroupBox
             Left = 176
             Top = 16
@@ -145,39 +186,13 @@ inherited FPedido: TFPedido
               Width = 509
               Height = 312
               Align = alClient
+              DataSource = DataModule1.DsPedidoItem
               TabOrder = 0
               TitleFont.Charset = DEFAULT_CHARSET
               TitleFont.Color = clWindowText
               TitleFont.Height = -11
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
-              Columns = <
-                item
-                  Expanded = False
-                  Title.Caption = 'COD'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'DESCRICAO'
-                  Width = 233
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'QTD'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'VL UNIT'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  Title.Caption = 'VL PARCIAL'
-                  Visible = True
-                end>
             end
           end
           object GroupBox3: TGroupBox
@@ -187,12 +202,13 @@ inherited FPedido: TFPedido
             Height = 41
             Caption = 'F5 - Cod Produto '
             TabOrder = 1
-            object Edit1: TEdit
+            object ed_barra: TEdit
               Left = 8
               Top = 16
               Width = 129
               Height = 21
               TabOrder = 0
+              OnKeyDown = ed_barraKeyDown
             end
           end
           object DBEdit3: TDBEdit
@@ -204,6 +220,52 @@ inherited FPedido: TFPedido
             DataField = 'valorTotal'
             DataSource = DS
             TabOrder = 2
+            OnEnter = DBEdit3Enter
+          end
+          object DBEdit7: TDBEdit
+            Left = 8
+            Top = 142
+            Width = 134
+            Height = 21
+            TabStop = False
+            DataField = 'idPedido'
+            TabOrder = 3
+          end
+          object DBEdit8: TDBEdit
+            Left = 8
+            Top = 182
+            Width = 134
+            Height = 21
+            TabStop = False
+            DataField = 'idProduto'
+            TabOrder = 4
+          end
+          object DBEdit9: TDBEdit
+            Left = 8
+            Top = 222
+            Width = 134
+            Height = 21
+            TabStop = False
+            DataField = 'quantidade'
+            TabOrder = 5
+          end
+          object DBEdit10: TDBEdit
+            Left = 8
+            Top = 262
+            Width = 134
+            Height = 21
+            TabStop = False
+            DataField = 'precoParcial'
+            TabOrder = 6
+          end
+          object DBEdit11: TDBEdit
+            Left = 8
+            Top = 302
+            Width = 134
+            Height = 21
+            TabStop = False
+            DataField = 'precoUnitario'
+            TabOrder = 7
           end
         end
       end
@@ -223,17 +285,42 @@ inherited FPedido: TFPedido
     Left = 672
     Top = 8
   end
-  object Query1: TQuery
+  object qProduto: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
-      'select * from produto as prod where prod.ean =:PEan ')
-    Left = 632
-    Top = 8
+      'select * from produto where ean =:PEan ')
+    Left = 704
+    Top = 64
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'PEan'
         ParamType = ptUnknown
       end>
+    object qProdutoidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.produto.idProduto'
+    end
+    object qProdutodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.produto.descricao'
+      Size = 100
+    end
+    object qProdutopreco: TFloatField
+      FieldName = 'preco'
+      Origin = 'SISTEMADEVENDAS.produto.preco'
+    end
+    object qProdutostatusVenda: TBooleanField
+      FieldName = 'statusVenda'
+      Origin = 'SISTEMADEVENDAS.produto.statusVenda'
+    end
+    object qProdutoqtdEstoque: TIntegerField
+      FieldName = 'qtdEstoque'
+      Origin = 'SISTEMADEVENDAS.produto.qtdEstoque'
+    end
+    object qProdutoean: TFloatField
+      FieldName = 'ean'
+      Origin = 'SISTEMADEVENDAS.produto.ean'
+    end
   end
 end

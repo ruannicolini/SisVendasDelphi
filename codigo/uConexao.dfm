@@ -3,7 +3,7 @@ object DataModule1: TDataModule1
   Left = 805
   Top = 170
   Height = 341
-  Width = 511
+  Width = 562
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=04242404')
+      'PASSWORD=123')
     SessionName = 'Default'
     Left = 8
     Top = 8
@@ -858,6 +858,7 @@ object DataModule1: TDataModule1
     AfterPost = mPedidoAfterPost
     AfterCancel = mPedidoAfterCancel
     AfterDelete = mPedidoAfterDelete
+    AfterScroll = mPedidoAfterScroll
     Left = 136
     Top = 128
     object mPedidoidPedido: TIntegerField
@@ -1186,5 +1187,75 @@ object DataModule1: TDataModule1
     DataSet = qConta
     Left = 312
     Top = 184
+  end
+  object pPedidoItem: TDataSetProvider
+    DataSet = qPedidoItem
+    Left = 483
+    Top = 224
+  end
+  object qPedidoItem: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from pedido_item where idPedido = :i')
+    Left = 480
+    Top = 160
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'i'
+        ParamType = ptUnknown
+      end>
+    object qPedidoItemidPedido: TIntegerField
+      FieldName = 'idPedido'
+      Origin = 'SISTEMADEVENDAS.pedido_item.idPedido'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qPedidoItemidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.pedido_item.idProduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qPedidoItemquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'SISTEMADEVENDAS.pedido_item.quantidade'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qPedidoItemprecoParcial: TFloatField
+      FieldName = 'precoParcial'
+      Origin = 'SISTEMADEVENDAS.pedido_item.precoParcial'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qPedidoItemprecoUnitario: TFloatField
+      FieldName = 'precoUnitario'
+      Origin = 'SISTEMADEVENDAS.pedido_item.precoUnitario'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mPedidoItem: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pPedidoItem'
+    Left = 484
+    Top = 112
+    object mPedidoItemidPedido: TIntegerField
+      FieldName = 'idPedido'
+    end
+    object mPedidoItemidProduto: TIntegerField
+      FieldName = 'idProduto'
+    end
+    object mPedidoItemquantidade: TIntegerField
+      FieldName = 'quantidade'
+    end
+    object mPedidoItemprecoParcial: TFloatField
+      FieldName = 'precoParcial'
+    end
+    object mPedidoItemprecoUnitario: TFloatField
+      FieldName = 'precoUnitario'
+    end
+  end
+  object DsPedidoItem: TDataSource
+    DataSet = mPedidoItem
+    Left = 488
+    Top = 56
   end
 end
