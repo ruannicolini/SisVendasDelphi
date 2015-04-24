@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=123')
+      'PASSWORD=04242404')
     SessionName = 'Default'
     Left = 8
     Top = 8
@@ -1033,6 +1033,158 @@ object DataModule1: TDataModule1
   object pUsuario: TDataSetProvider
     DataSet = qUsuario
     Left = 256
+    Top = 184
+  end
+  object qEntrada: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT * FROM responsavel_estoque')
+    Left = 368
+    Top = 64
+    object qEntradaidEntrada: TFloatField
+      FieldName = 'idEntrada'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idEntrada'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idUsuario'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradaidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idProduto'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradaqtd: TIntegerField
+      FieldName = 'qtd'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.qtd'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qEntradadataAlteracaoEstoque: TStringField
+      FieldName = 'dataAlteracaoEstoque'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.dataAlteracaoEstoque'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+  end
+  object mEntrada: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pEntrada'
+    AfterInsert = mEntradaAfterInsert
+    AfterPost = mEntradaAfterPost
+    AfterCancel = mEntradaAfterCancel
+    AfterDelete = mEntradaAfterDelete
+    Left = 368
+    Top = 128
+    object mEntradaidEntrada: TFloatField
+      FieldName = 'idEntrada'
+    end
+    object mEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+    end
+    object mEntradaidProduto: TIntegerField
+      FieldName = 'idProduto'
+    end
+    object mEntradaqtd: TIntegerField
+      FieldName = 'qtd'
+    end
+    object mEntradadataAlteracaoEstoque: TStringField
+      FieldName = 'dataAlteracaoEstoque'
+      Size = 10
+    end
+    object mEntradaProduto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Produto'
+      LookupDataSet = qProduto
+      LookupKeyFields = 'idProduto'
+      LookupResultField = 'descricao'
+      KeyFields = 'idProduto'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object pEntrada: TDataSetProvider
+    DataSet = qEntrada
+    Left = 368
+    Top = 184
+  end
+  object qConta: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT * FROM contas')
+    Left = 312
+    Top = 64
+    object qContaidConta: TIntegerField
+      FieldName = 'idConta'
+      Origin = 'SISTEMADEVENDAS.contas.idConta'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qContadata_venc: TStringField
+      FieldName = 'data_venc'
+      Origin = 'SISTEMADEVENDAS.contas.data_venc'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+    object qContadata_pag: TStringField
+      FieldName = 'data_pag'
+      Origin = 'SISTEMADEVENDAS.contas.data_pag'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+    object qContastatusPag: TBooleanField
+      FieldName = 'statusPag'
+      Origin = 'SISTEMADEVENDAS.contas.statusPag'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qContanumero_duplicata: TStringField
+      FieldName = 'numero_duplicata'
+      Origin = 'SISTEMADEVENDAS.contas.numero_duplicata'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qContaidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+      Origin = 'SISTEMADEVENDAS.contas.idFaturamento'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mConta: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pConta'
+    AfterInsert = mContaAfterInsert
+    AfterPost = mContaAfterPost
+    AfterCancel = mContaAfterCancel
+    AfterDelete = mContaAfterDelete
+    Left = 312
+    Top = 128
+    object mContaidConta: TIntegerField
+      FieldName = 'idConta'
+    end
+    object mContadata_venc: TStringField
+      FieldName = 'data_venc'
+      Size = 10
+    end
+    object mContadata_pag: TStringField
+      FieldName = 'data_pag'
+      Size = 10
+    end
+    object mContastatusPag: TBooleanField
+      FieldName = 'statusPag'
+    end
+    object mContanumero_duplicata: TStringField
+      FieldName = 'numero_duplicata'
+      Size = 50
+    end
+    object mContaidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+    end
+  end
+  object pConta: TDataSetProvider
+    DataSet = qConta
+    Left = 312
     Top = 184
   end
 end

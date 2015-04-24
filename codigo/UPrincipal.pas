@@ -29,6 +29,9 @@ type
     procedure Image7Click(Sender: TObject);
     procedure Image6Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
+    procedure Image9Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+
   private
     { Private declarations }
 
@@ -42,7 +45,9 @@ var
 
 implementation
 
-Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario;
+Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario, UEntradaEstoque,
+  uConta;
+
 
 {$R *.dfm}
 
@@ -76,6 +81,16 @@ end;
 procedure TForm1.Image4Click(Sender: TObject);
 begin
   FUsuario.show;
+  end;
+
+procedure TForm1.Image9Click(Sender: TObject);
+begin
+  FEntradaEstoque.Show;
+end;
+
+procedure TForm1.Image8Click(Sender: TObject);
+begin
+  FConta.Show;
 end;
 
 end.
