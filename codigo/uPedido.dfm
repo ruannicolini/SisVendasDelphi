@@ -193,6 +193,32 @@ inherited FPedido: TFPedido
               TitleFont.Height = -11
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  FieldName = 'idPedido'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'idProduto'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'quantidade'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'precoParcial'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'precoUnitario'
+                  Visible = True
+                end>
             end
           end
           object GroupBox3: TGroupBox

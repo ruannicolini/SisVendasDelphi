@@ -1201,7 +1201,7 @@ object DataModule1: TDataModule1
     Top = 64
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'i'
         ParamType = ptUnknown
       end>
