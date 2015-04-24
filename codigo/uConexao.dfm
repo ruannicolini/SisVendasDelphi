@@ -1,6 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
 <<<<<<< HEAD
+<<<<<<< HEAD
   Left = 2278
   Top = 146
   Height = 299
@@ -10,6 +11,12 @@ object DataModule1: TDataModule1
   Top = 157
   Height = 341
   Width = 412
+>>>>>>> ruan-remote/master
+=======
+  Left = 805
+  Top = 170
+  Height = 341
+  Width = 511
 >>>>>>> ruan-remote/master
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
@@ -971,7 +978,77 @@ object DataModule1: TDataModule1
     Left = 200
     Top = 184
   end
-<<<<<<< HEAD
+object qUsuario: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from Usuario')
+    Left = 256
+    Top = 64
+    object qUsuarioidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+      Origin = 'SISTEMADEVENDAS.Usuario.idUsuario'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qUsuarionome: TStringField
+      FieldName = 'nome'
+      Origin = 'SISTEMADEVENDAS.Usuario.nome'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qUsuariosenha: TStringField
+      FieldName = 'senha'
+      Origin = 'SISTEMADEVENDAS.Usuario.senha'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qUsuarioemail: TStringField
+      FieldName = 'email'
+      Origin = 'SISTEMADEVENDAS.Usuario.email'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qUsuariousername: TStringField
+      FieldName = 'username'
+      Origin = 'SISTEMADEVENDAS.Usuario.username'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+  end
+  object mUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pUsuario'
+    AfterInsert = mUsuarioAfterInsert
+    AfterPost = mUsuarioAfterPost
+    AfterCancel = mUsuarioAfterCancel
+    AfterDelete = mUsuarioAfterDelete
+    Left = 256
+    Top = 128
+    object mUsuarioidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+    end
+    object mUsuarionome: TStringField
+      FieldName = 'nome'
+      Size = 50
+    end
+    object mUsuariosenha: TStringField
+      FieldName = 'senha'
+      Size = 50
+    end
+    object mUsuarioemail: TStringField
+      FieldName = 'email'
+      Size = 50
+    end
+    object mUsuariousername: TStringField
+      FieldName = 'username'
+      Size = 50
+    end
+  end
+  object pUsuario: TDataSetProvider
+    DataSet = qUsuario
+    Left = 256
+    Top = 184
+  end
   object qEntrada: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
@@ -1122,77 +1199,6 @@ object DataModule1: TDataModule1
   object pConta: TDataSetProvider
     DataSet = qConta
     Left = 328
-=======
-  object qUsuario: TQuery
-    DatabaseName = 'SistemaDeVendas'
-    SQL.Strings = (
-      'select * from Usuario')
-    Left = 256
-    Top = 64
-    object qUsuarioidUsuario: TIntegerField
-      FieldName = 'idUsuario'
-      Origin = 'SISTEMADEVENDAS.Usuario.idUsuario'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object qUsuarionome: TStringField
-      FieldName = 'nome'
-      Origin = 'SISTEMADEVENDAS.Usuario.nome'
-      ProviderFlags = [pfInUpdate]
-      Size = 50
-    end
-    object qUsuariosenha: TStringField
-      FieldName = 'senha'
-      Origin = 'SISTEMADEVENDAS.Usuario.senha'
-      ProviderFlags = [pfInUpdate]
-      Size = 50
-    end
-    object qUsuarioemail: TStringField
-      FieldName = 'email'
-      Origin = 'SISTEMADEVENDAS.Usuario.email'
-      ProviderFlags = [pfInUpdate]
-      Size = 50
-    end
-    object qUsuariousername: TStringField
-      FieldName = 'username'
-      Origin = 'SISTEMADEVENDAS.Usuario.username'
-      ProviderFlags = [pfInUpdate]
-      Size = 50
-    end
-  end
-  object mUsuario: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'pUsuario'
-    AfterInsert = mUsuarioAfterInsert
-    AfterPost = mUsuarioAfterPost
-    AfterCancel = mUsuarioAfterCancel
-    AfterDelete = mUsuarioAfterDelete
-    Left = 256
-    Top = 128
-    object mUsuarioidUsuario: TIntegerField
-      FieldName = 'idUsuario'
-    end
-    object mUsuarionome: TStringField
-      FieldName = 'nome'
-      Size = 50
-    end
-    object mUsuariosenha: TStringField
-      FieldName = 'senha'
-      Size = 50
-    end
-    object mUsuarioemail: TStringField
-      FieldName = 'email'
-      Size = 50
-    end
-    object mUsuariousername: TStringField
-      FieldName = 'username'
-      Size = 50
-    end
-  end
-  object pUsuario: TDataSetProvider
-    DataSet = qUsuario
-    Left = 256
->>>>>>> ruan-remote/master
     Top = 184
   end
 end

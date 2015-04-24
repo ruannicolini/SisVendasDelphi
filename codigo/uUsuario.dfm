@@ -1,6 +1,6 @@
 inherited FUsuario: TFUsuario
-  Left = 150
-  Top = 121
+  Left = 320
+  Top = 120
   Caption = 'FUsuario'
   OldCreateOrder = True
   PixelsPerInch = 96

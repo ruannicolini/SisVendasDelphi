@@ -1,10 +1,15 @@
 inherited FPedido: TFPedido
 <<<<<<< HEAD
+<<<<<<< HEAD
   Left = 1956
   Top = 125
 =======
   Left = 198
   Top = 118
+>>>>>>> ruan-remote/master
+=======
+  Left = 200
+  Top = 116
 >>>>>>> ruan-remote/master
   Width = 755
   Height = 638
@@ -156,6 +161,33 @@ inherited FPedido: TFPedido
               TitleFont.Height = -11
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  Title.Caption = 'COD'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'DESCRICAO'
+                  Width = 233
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'QTD'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'VL UNIT'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  Title.Caption = 'VL PARCIAL'
+                  Visible = True
+                end>
             end
           end
           object GroupBox3: TGroupBox
@@ -165,6 +197,13 @@ inherited FPedido: TFPedido
             Height = 41
             Caption = 'F5 - Cod Produto '
             TabOrder = 1
+            object Edit1: TEdit
+              Left = 8
+              Top = 16
+              Width = 129
+              Height = 21
+              TabOrder = 0
+            end
           end
           object DBEdit3: TDBEdit
             Left = 16
@@ -193,5 +232,18 @@ inherited FPedido: TFPedido
     DataSet = DataModule1.mPedido
     Left = 672
     Top = 8
+  end
+  object Query1: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from produto as prod where prod.ean =:PEan ')
+    Left = 632
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'PEan'
+        ParamType = ptUnknown
+      end>
   end
 end

@@ -43,6 +43,8 @@ type
     procedure btnAnteriorClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
     { Private declarations }
@@ -185,6 +187,19 @@ end;
 procedure TFormPadrao.btnUltimoClick(Sender: TObject);
 begin
     ds.DataSet.Last;
+end;
+
+procedure TFormPadrao.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then begin
+    SelectNext(ActiveControl as TWinControl,True,True);
+    key:=#0;
+  end;
+end;
+
+procedure TFormPadrao.FormCreate(Sender: TObject);
+begin
+  KeyPreview:=true;
 end;
 
 end.
