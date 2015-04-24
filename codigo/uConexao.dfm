@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 2256
-  Top = 142
+  Left = 2278
+  Top = 146
   Height = 299
-  Width = 412
+  Width = 453
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
@@ -1037,6 +1037,83 @@ object DataModule1: TDataModule1
   object pEntrada: TDataSetProvider
     DataSet = qEntrada
     Left = 264
+    Top = 184
+  end
+  object qConta: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT * FROM contas')
+    Left = 328
+    Top = 64
+    object qContaidConta: TIntegerField
+      FieldName = 'idConta'
+      Origin = 'SISTEMADEVENDAS.contas.idConta'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qContadata_venc: TStringField
+      FieldName = 'data_venc'
+      Origin = 'SISTEMADEVENDAS.contas.data_venc'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+    object qContadata_pag: TStringField
+      FieldName = 'data_pag'
+      Origin = 'SISTEMADEVENDAS.contas.data_pag'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+    object qContastatusPag: TBooleanField
+      FieldName = 'statusPag'
+      Origin = 'SISTEMADEVENDAS.contas.statusPag'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qContanumero_duplicata: TStringField
+      FieldName = 'numero_duplicata'
+      Origin = 'SISTEMADEVENDAS.contas.numero_duplicata'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
+    end
+    object qContaidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+      Origin = 'SISTEMADEVENDAS.contas.idFaturamento'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mConta: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pConta'
+    AfterInsert = mContaAfterInsert
+    AfterPost = mContaAfterPost
+    AfterCancel = mContaAfterCancel
+    AfterDelete = mContaAfterDelete
+    Left = 328
+    Top = 128
+    object mContaidConta: TIntegerField
+      FieldName = 'idConta'
+    end
+    object mContadata_venc: TStringField
+      FieldName = 'data_venc'
+      Size = 10
+    end
+    object mContadata_pag: TStringField
+      FieldName = 'data_pag'
+      Size = 10
+    end
+    object mContastatusPag: TBooleanField
+      FieldName = 'statusPag'
+    end
+    object mContanumero_duplicata: TStringField
+      FieldName = 'numero_duplicata'
+      Size = 50
+    end
+    object mContaidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+    end
+  end
+  object pConta: TDataSetProvider
+    DataSet = qConta
+    Left = 328
     Top = 184
   end
 end

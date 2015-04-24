@@ -9,7 +9,8 @@ uses
   uCidade in 'uCidade.pas' {FCidade},
   uPedido in 'uPedido.pas' {FPedido},
   uProduto in 'uProduto.pas' {FProduto},
-  UEntradaEstoque in 'UEntradaEstoque.pas' {FEntradaEstoque};
+  UEntradaEstoque in 'UEntradaEstoque.pas' {FEntradaEstoque},
+  uConta in 'uConta.pas' {FConta};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TFPedido, FPedido);
   Application.CreateForm(TFProduto, FProduto);
   Application.CreateForm(TFEntradaEstoque, FEntradaEstoque);
+  Application.CreateForm(TFConta, FConta);
   Application.Run;
 end.
