@@ -9,7 +9,10 @@ uses
   uCidade in 'uCidade.pas' {FCidade},
   uPedido in 'uPedido.pas' {FPedido},
   uProduto in 'uProduto.pas' {FProduto},
-  uUsuario in 'uUsuario.pas' {FUsuario};
+  uUsuario in 'uUsuario.pas' {FUsuario},
+  UEntradaEstoque in 'UEntradaEstoque.pas' {FEntradaEstoque},
+  uConta in 'uConta.pas' {FConta};
+
 
 {$R *.res}
 
@@ -23,5 +26,8 @@ begin
   Application.CreateForm(TFPedido, FPedido);
   Application.CreateForm(TFProduto, FProduto);
   Application.CreateForm(TFUsuario, FUsuario);
+  Application.CreateForm(TFEntradaEstoque, FEntradaEstoque);
+  Application.CreateForm(TFConta, FConta);
+  Application.CreateForm(TFEntradaEstoque, FEntradaEstoque);
   Application.Run;
 end.

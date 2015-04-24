@@ -1,5 +1,6 @@
 inherited FCidade: TFCidade
   Caption = 'FCidade'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited PageControl1: TPageControl

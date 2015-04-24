@@ -94,6 +94,36 @@ type
     mUsuariosenha: TStringField;
     mUsuarioemail: TStringField;
     mUsuariousername: TStringField;
+    qEntrada: TQuery;
+    mEntrada: TClientDataSet;
+    pEntrada: TDataSetProvider;
+    qEntradaidUsuario: TIntegerField;
+    qEntradaidProduto: TIntegerField;
+    qEntradaqtd: TIntegerField;
+    qEntradadataAlteracaoEstoque: TStringField;
+    qEntradaidEntrada: TFloatField;
+    mEntradaidEntrada: TFloatField;
+    mEntradaidUsuario: TIntegerField;
+    mEntradaidProduto: TIntegerField;
+    mEntradaqtd: TIntegerField;
+    mEntradadataAlteracaoEstoque: TStringField;
+    mEntradaProduto: TStringField;
+    qConta: TQuery;
+    mConta: TClientDataSet;
+    pConta: TDataSetProvider;
+    qContaidConta: TIntegerField;
+    qContadata_venc: TStringField;
+    qContadata_pag: TStringField;
+    qContastatusPag: TBooleanField;
+    qContanumero_duplicata: TStringField;
+    qContaidFaturamento: TIntegerField;
+    mContaidConta: TIntegerField;
+    mContadata_venc: TStringField;
+    mContadata_pag: TStringField;
+    mContastatusPag: TBooleanField;
+    mContanumero_duplicata: TStringField;
+    mContaidFaturamento: TIntegerField;
+
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
     procedure mClienteAfterCancel(DataSet: TDataSet);
@@ -114,6 +144,15 @@ type
     procedure mUsuarioAfterDelete(DataSet: TDataSet);
     procedure mUsuarioAfterCancel(DataSet: TDataSet);
     procedure mUsuarioAfterInsert(DataSet: TDataSet);
+    procedure mEntradaAfterPost(DataSet: TDataSet);
+    procedure mEntradaAfterDelete(DataSet: TDataSet);
+    procedure mEntradaAfterCancel(DataSet: TDataSet);
+    procedure mEntradaAfterInsert(DataSet: TDataSet);
+    procedure mContaAfterPost(DataSet: TDataSet);
+    procedure mContaAfterDelete(DataSet: TDataSet);
+    procedure mContaAfterCancel(DataSet: TDataSet);
+    procedure mContaAfterInsert(DataSet: TDataSet);
+
   private
     { Private declarations }
   public
@@ -246,6 +285,46 @@ end;
 procedure TDataModule1.mUsuarioAfterInsert(DataSet: TDataSet);
 begin
   mUsuarioidUsuario.AsInteger := buscaProximoParametro('SeqUsuario');
+end;
+
+procedure TDataModule1.mEntradaAfterPost(DataSet: TDataSet);
+begin
+  mEntrada.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mEntradaAfterDelete(DataSet: TDataSet);
+begin
+  mEntrada.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mEntradaAfterCancel(DataSet: TDataSet);
+begin
+  mEntrada.CancelUpdates;
+end;
+
+procedure TDataModule1.mEntradaAfterInsert(DataSet: TDataSet);
+begin
+  mEntradaidEntrada.AsInteger := buscaProximoParametro('SeqEntrada');
+end;
+
+procedure TDataModule1.mContaAfterPost(DataSet: TDataSet);
+begin
+  mConta.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mContaAfterDelete(DataSet: TDataSet);
+begin
+  mConta.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mContaAfterCancel(DataSet: TDataSet);
+begin
+  mConta.CancelUpdates;
+end;
+
+procedure TDataModule1.mContaAfterInsert(DataSet: TDataSet);
+begin
+  mContaidConta.AsInteger := buscaProximoParametro('SeqConta');
 end;
 
 end.
