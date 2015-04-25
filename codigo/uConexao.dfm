@@ -1196,12 +1196,15 @@ object DataModule1: TDataModule1
   object qPedidoItem: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
-      'select * from pedido_item where idPedido = :i')
+      'select itemp.*, p.descricao '
+      'from pedido_item itemp '
+      'left outer join produto p on itemp.idProduto = p.idProduto'
+      'where itemp.idPedido = :i')
     Left = 432
     Top = 64
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'i'
         ParamType = ptUnknown
       end>
@@ -1230,6 +1233,12 @@ object DataModule1: TDataModule1
       Origin = 'SISTEMADEVENDAS.pedido_item.precoUnitario'
       ProviderFlags = [pfInUpdate]
     end
+    object qPedidoItemdescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.produto.descricao'
+      ProviderFlags = []
+      Size = 100
+    end
   end
   object mPedidoItem: TClientDataSet
     Aggregates = <>
@@ -1254,6 +1263,10 @@ object DataModule1: TDataModule1
     end
     object mPedidoItemprecoUnitario: TFloatField
       FieldName = 'precoUnitario'
+    end
+    object mPedidoItemdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
     end
   end
   object DsPedidoItem: TDataSource

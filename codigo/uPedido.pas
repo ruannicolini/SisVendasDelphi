@@ -86,6 +86,7 @@ begin
          DataModule1.mPedidoItemquantidade.AsInteger :=DataModule1.mPedidoItemquantidade.AsInteger +1;
          DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
 
+         
          {Mostra a linha da DBGrid separadamente}
          DBEdit7.Text := DataModule1.mPedidoItemidPedido.AsString;
          DBEdit8.Text := DataModule1.mPedidoItemidProduto.AsString;
@@ -108,6 +109,7 @@ begin
           DataModule1.mPedidoItemquantidade.AsInteger := 1;
           DataModule1.mPedidoItemprecoUnitario.AsFloat := qProdutopreco.AsFloat;
           DataModule1.mPedidoItemprecoParcial.AsFloat  := qProdutopreco.AsFloat;
+          DataModule1.mPedidoItemdescricao.AsString := qProdutodescricao.AsString;
       end;
 
       {Salva}

@@ -198,26 +198,39 @@ inherited FPedido: TFPedido
                 item
                   Expanded = False
                   FieldName = 'idPedido'
+                  Title.Caption = 'Ped'
+                  Width = 39
                   Visible = True
                 end
                 item
                   Expanded = False
                   FieldName = 'idProduto'
+                  Title.Caption = 'Cod Prod'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'descricao'
+                  Title.Caption = 'Descricao'
+                  Width = 183
                   Visible = True
                 end
                 item
                   Expanded = False
                   FieldName = 'quantidade'
-                  Visible = True
-                end
-                item
-                  Expanded = False
-                  FieldName = 'precoParcial'
+                  Title.Caption = 'QTD'
                   Visible = True
                 end
                 item
                   Expanded = False
                   FieldName = 'precoUnitario'
+                  Title.Caption = 'Preco Unit'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'precoParcial'
+                  Title.Caption = 'Preco Parcial'
                   Visible = True
                 end>
             end

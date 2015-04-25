@@ -137,6 +137,8 @@ type
     mPedidoItemprecoParcial: TFloatField;
     mPedidoItemprecoUnitario: TFloatField;
     DsPedidoItem: TDataSource;
+    qPedidoItemdescricao: TStringField;
+    mPedidoItemdescricao: TStringField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
