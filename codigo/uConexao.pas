@@ -139,6 +139,8 @@ type
     DsPedidoItem: TDataSource;
     qPedidoItemdescricao: TStringField;
     mPedidoItemdescricao: TStringField;
+    qPedidofaturado: TBooleanField;
+    mPedidofaturado: TBooleanField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

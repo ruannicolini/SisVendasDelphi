@@ -172,6 +172,13 @@ inherited FPedido: TFPedido
             Caption = 'precoUnitario'
             FocusControl = DBEdit11
           end
+          object SpeedButton1: TSpeedButton
+            Left = 144
+            Top = 312
+            Width = 23
+            Height = 22
+            OnClick = SpeedButton1Click
+          end
           object GroupBox2: TGroupBox
             Left = 176
             Top = 16
@@ -390,6 +397,7 @@ inherited FPedido: TFPedido
       end>
   end
   object Timer1: TTimer
+    Enabled = False
     Left = 641
     Top = 71
   end

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient;
+  Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons;
 
 type
   TFPedido = class(TFormPadrao)
@@ -47,12 +47,17 @@ type
     ed_vlTotal: TDBEdit;
     Timer1: TTimer;
     ed_tecla: TEdit;
+    SpeedButton1: TSpeedButton;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure ed_teclaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -157,6 +162,37 @@ procedure TFPedido.ed_teclaKeyDown(Sender: TObject; var Key: Word;
 begin
   inherited;
   ShowMessage('O nº da tecla: '+Char(ORD(Key))+' é => '+IntToStr(key));
+end;
+
+procedure TFPedido.FormShow(Sender: TObject);
+begin
+  inherited;
+  Timer1.Enabled := true;
+end;
+
+procedure TFPedido.SpeedButton1Click(Sender: TObject);
+begin
+  inherited;
+  ShowMessage(IntToStr(DBGrid2.SelectedIndex));
+end;
+
+procedure TFPedido.btnSalvarClick(Sender: TObject);
+begin
+  DataModule1.mPedidofaturado.Value := false;
+  inherited;
+
+
+end;
+
+procedure TFPedido.btnAlterarClick(Sender: TObject);
+begin
+  {Faz o controle - Pedidos já faturados não devem ser alterados}
+  if(Ds.DataSet.FieldByName('faturado').AsBoolean = false)then
+  begin
+    inherited;
+  end else
+    ShowMessage('Pedido Ja Faturado - Não pode ser Alterado!');
+
 end;
 
 end.

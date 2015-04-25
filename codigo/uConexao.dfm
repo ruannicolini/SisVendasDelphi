@@ -844,6 +844,10 @@ object DataModule1: TDataModule1
       Origin = 'SISTEMADEVENDAS.pedido.data'
       Size = 11
     end
+    object qPedidofaturado: TBooleanField
+      FieldName = 'faturado'
+      Origin = 'SISTEMADEVENDAS.pedido.faturado'
+    end
   end
   object pPedido: TDataSetProvider
     DataSet = qPedido
@@ -890,6 +894,9 @@ object DataModule1: TDataModule1
       KeyFields = 'idCliente'
       Size = 50
       Lookup = True
+    end
+    object mPedidofaturado: TBooleanField
+      FieldName = 'faturado'
     end
   end
   object qProduto: TQuery
