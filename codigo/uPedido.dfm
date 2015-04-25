@@ -126,7 +126,7 @@ inherited FPedido: TFPedido
           ParentColor = False
           TabOrder = 6
           object Label3: TLabel
-            Left = 16
+            Left = 21
             Top = 64
             Width = 51
             Height = 13
@@ -186,6 +186,8 @@ inherited FPedido: TFPedido
               Height = 312
               Align = alClient
               DataSource = DataModule1.DsPedidoItem
+              Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+              ReadOnly = True
               TabOrder = 0
               TitleFont.Charset = DEFAULT_CHARSET
               TitleFont.Color = clWindowText
@@ -243,6 +245,7 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'idPedido'
+            ReadOnly = True
             TabOrder = 2
           end
           object DBEdit8: TDBEdit
@@ -252,6 +255,7 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'idProduto'
+            ReadOnly = True
             TabOrder = 3
           end
           object DBEdit9: TDBEdit
@@ -270,6 +274,7 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'precoParcial'
+            ReadOnly = True
             TabOrder = 5
           end
           object DBEdit11: TDBEdit
@@ -279,10 +284,11 @@ inherited FPedido: TFPedido
             Height = 21
             TabStop = False
             DataField = 'precoUnitario'
+            ReadOnly = True
             TabOrder = 6
           end
           object ed_vlTotal: TDBEdit
-            Left = 16
+            Left = 21
             Top = 80
             Width = 134
             Height = 21
