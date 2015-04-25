@@ -45,10 +45,14 @@ type
     qProdutoean: TFloatField;
     qValorTotal: TQuery;
     ed_vlTotal: TDBEdit;
+    Timer1: TTimer;
+    ed_tecla: TEdit;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
+    procedure ed_teclaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -81,6 +85,13 @@ begin
          DataModule1.mPedidoItem.Edit;
          DataModule1.mPedidoItemquantidade.AsInteger :=DataModule1.mPedidoItemquantidade.AsInteger +1;
          DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
+
+         {Mostra a linha da DBGrid separadamente}
+         DBEdit7.Text := DataModule1.mPedidoItemidPedido.AsString;
+         DBEdit8.Text := DataModule1.mPedidoItemidProduto.AsString;
+         DBEdit9.Text := DataModule1.mPedidoItemquantidade.AsString;
+         DBEdit10.Text := DataModule1.mPedidoItemprecoParcial.AsString;
+         DBEdit11.Text := DataModule1.mPedidoItemprecoUnitario.AsString;
       end
       else
       begin
@@ -137,6 +148,13 @@ begin
 
   {Indica um prazo padrão}
   DataModule1.mPedidoprazoPagamento.Text := IntToStr(7);
+end;
+
+procedure TFPedido.ed_teclaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  ShowMessage('O nº da tecla: '+Char(ORD(Key))+' é => '+IntToStr(key));
 end;
 
 end.

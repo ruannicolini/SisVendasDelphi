@@ -1,15 +1,15 @@
 inherited FPedido: TFPedido
-  Left = 229
-  Top = 108
+  Left = 237
+  Top = 114
   Width = 755
-  Height = 638
+  Height = 635
   Caption = 'FPedido'
   KeyPreview = True
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 588
+    Top = 585
     Width = 747
   end
   inherited ToolBar1: TToolBar
@@ -17,11 +17,11 @@ inherited FPedido: TFPedido
   end
   inherited PageControl1: TPageControl
     Width = 747
-    Height = 557
+    Height = 554
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 739
-        Height = 529
+        Height = 526
         object Label1: TLabel
           Left = 16
           Top = 24
@@ -133,40 +133,40 @@ inherited FPedido: TFPedido
             Caption = 'Valor Total'
           end
           object Label7: TLabel
-            Left = 8
-            Top = 126
+            Left = 21
+            Top = 101
             Width = 41
             Height = 13
             Caption = 'idPedido'
             FocusControl = DBEdit7
           end
           object Label8: TLabel
-            Left = 8
-            Top = 166
+            Left = 21
+            Top = 141
             Width = 45
             Height = 13
             Caption = 'idProduto'
             FocusControl = DBEdit8
           end
           object Label9: TLabel
-            Left = 8
-            Top = 206
+            Left = 21
+            Top = 181
             Width = 53
             Height = 13
             Caption = 'quantidade'
             FocusControl = DBEdit9
           end
           object Label10: TLabel
-            Left = 8
-            Top = 246
+            Left = 21
+            Top = 221
             Width = 59
             Height = 13
             Caption = 'precoParcial'
             FocusControl = DBEdit10
           end
           object Label11: TLabel
-            Left = 8
-            Top = 286
+            Left = 21
+            Top = 261
             Width = 63
             Height = 13
             Caption = 'precoUnitario'
@@ -239,8 +239,8 @@ inherited FPedido: TFPedido
             end
           end
           object DBEdit7: TDBEdit
-            Left = 8
-            Top = 142
+            Left = 21
+            Top = 117
             Width = 134
             Height = 21
             TabStop = False
@@ -249,8 +249,8 @@ inherited FPedido: TFPedido
             TabOrder = 2
           end
           object DBEdit8: TDBEdit
-            Left = 8
-            Top = 182
+            Left = 21
+            Top = 157
             Width = 134
             Height = 21
             TabStop = False
@@ -259,8 +259,8 @@ inherited FPedido: TFPedido
             TabOrder = 3
           end
           object DBEdit9: TDBEdit
-            Left = 8
-            Top = 222
+            Left = 21
+            Top = 197
             Width = 134
             Height = 21
             TabStop = False
@@ -268,8 +268,8 @@ inherited FPedido: TFPedido
             TabOrder = 4
           end
           object DBEdit10: TDBEdit
-            Left = 8
-            Top = 262
+            Left = 21
+            Top = 237
             Width = 134
             Height = 21
             TabStop = False
@@ -278,8 +278,8 @@ inherited FPedido: TFPedido
             TabOrder = 5
           end
           object DBEdit11: TDBEdit
-            Left = 8
-            Top = 302
+            Left = 21
+            Top = 277
             Width = 134
             Height = 21
             TabStop = False
@@ -297,6 +297,14 @@ inherited FPedido: TFPedido
             TabOrder = 7
             OnEnter = ed_vlTotalEnter
           end
+        end
+        object ed_tecla: TEdit
+          Left = 280
+          Top = 32
+          Width = 121
+          Height = 21
+          TabOrder = 7
+          OnKeyDown = ed_teclaKeyDown
         end
       end
     end
@@ -320,7 +328,7 @@ inherited FPedido: TFPedido
     SQL.Strings = (
       'select * from produto where ean =:PEan ')
     Left = 704
-    Top = 64
+    Top = 71
     ParamData = <
       item
         DataType = ftString
@@ -359,13 +367,17 @@ inherited FPedido: TFPedido
       
         'select sum(precoparcial) total from pedido_item where idPedido =' +
         ' :PVlTotal')
-    Left = 660
-    Top = 63
+    Left = 673
+    Top = 71
     ParamData = <
       item
         DataType = ftFloat
         Name = 'PVlTotal'
         ParamType = ptUnknown
       end>
+  end
+  object Timer1: TTimer
+    Left = 641
+    Top = 71
   end
 end
