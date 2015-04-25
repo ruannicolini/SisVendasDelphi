@@ -139,7 +139,6 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'idPedido'
             FocusControl = DBEdit7
-            Visible = False
           end
           object Label8: TLabel
             Left = 8
@@ -148,7 +147,6 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'idProduto'
             FocusControl = DBEdit8
-            Visible = False
           end
           object Label9: TLabel
             Left = 8
@@ -157,7 +155,6 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'quantidade'
             FocusControl = DBEdit9
-            Visible = False
           end
           object Label10: TLabel
             Left = 8
@@ -166,7 +163,6 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'precoParcial'
             FocusControl = DBEdit10
-            Visible = False
           end
           object Label11: TLabel
             Left = 8
@@ -175,7 +171,6 @@ inherited FPedido: TFPedido
             Height = 13
             Caption = 'precoUnitario'
             FocusControl = DBEdit11
-            Visible = False
           end
           object GroupBox2: TGroupBox
             Left = 176
@@ -249,7 +244,6 @@ inherited FPedido: TFPedido
             TabStop = False
             DataField = 'idPedido'
             TabOrder = 2
-            Visible = False
           end
           object DBEdit8: TDBEdit
             Left = 8
@@ -259,7 +253,6 @@ inherited FPedido: TFPedido
             TabStop = False
             DataField = 'idProduto'
             TabOrder = 3
-            Visible = False
           end
           object DBEdit9: TDBEdit
             Left = 8
@@ -269,7 +262,6 @@ inherited FPedido: TFPedido
             TabStop = False
             DataField = 'quantidade'
             TabOrder = 4
-            Visible = False
           end
           object DBEdit10: TDBEdit
             Left = 8
@@ -279,7 +271,6 @@ inherited FPedido: TFPedido
             TabStop = False
             DataField = 'precoParcial'
             TabOrder = 5
-            Visible = False
           end
           object DBEdit11: TDBEdit
             Left = 8
@@ -289,7 +280,6 @@ inherited FPedido: TFPedido
             TabStop = False
             DataField = 'precoUnitario'
             TabOrder = 6
-            Visible = False
           end
           object ed_vlTotal: TDBEdit
             Left = 16

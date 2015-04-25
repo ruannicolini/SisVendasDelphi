@@ -167,6 +167,9 @@ type
     procedure mContaAfterCancel(DataSet: TDataSet);
     procedure mContaAfterInsert(DataSet: TDataSet);
     procedure mPedidoAfterScroll(DataSet: TDataSet);
+    procedure mPedidoItemAfterPost(DataSet: TDataSet);
+    procedure mPedidoItemAfterDelete(DataSet: TDataSet);
+    procedure mPedidoItemAfterCancel(DataSet: TDataSet);
 
   private
     { Private declarations }
@@ -348,6 +351,21 @@ begin
   qPedidoItem.ParamByName('i').AsInteger := mPedidoidPedido.AsInteger;
   qPedidoItem.Open;
   mPedidoItem.Open;
+end;
+
+procedure TDataModule1.mPedidoItemAfterPost(DataSet: TDataSet);
+begin
+  mPedidoItem.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mPedidoItemAfterDelete(DataSet: TDataSet);
+begin
+  mPedidoItem.ApplyUpdates(-1);
+end;
+
+procedure TDataModule1.mPedidoItemAfterCancel(DataSet: TDataSet);
+begin
+  mPedidoItem.CancelUpdates;
 end;
 
 end.

@@ -48,6 +48,7 @@ type
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -125,6 +126,17 @@ procedure TFPedido.ed_vlTotalEnter(Sender: TObject);
 begin
   inherited;
   ed_barra.SetFocus;
+end;
+
+procedure TFPedido.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+
+  {Indica a data Atual Como data do Pedido}
+  DataModule1.mPedidodata.Text :=DateToStr(date);
+
+  {Indica um prazo padrão}
+  DataModule1.mPedidoprazoPagamento.Text := IntToStr(7);
 end;
 
 end.

@@ -1235,6 +1235,9 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pPedidoItem'
+    AfterPost = mPedidoItemAfterPost
+    AfterCancel = mPedidoItemAfterCancel
+    AfterDelete = mPedidoItemAfterDelete
     Left = 435
     Top = 128
     object mPedidoItemidPedido: TIntegerField
