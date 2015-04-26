@@ -10,16 +10,22 @@ uses
 type
   TFEntradaEstoque = class(TFormPadrao)
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    DBEidEntrada: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    DBEidUsuario: TDBEdit;
     Label3: TLabel;
     DBEidProduto: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
+    DBEqtd: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    DBEdata: TDBEdit;
     DBLookupComboBox2: TDBLookupComboBox;
+    eEan: TEdit;
+    lEan: TLabel;
+    eDescricaoProduto: TEdit;
+    lDescricao: TLabel;
+    procedure eEanExit(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,5 +38,21 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFEntradaEstoque.eEanExit(Sender: TObject);
+begin
+  inherited;
+  DataModule1.qEntradaEan.Close;
+  DataModule1.qEntradaEan.Params.ParamByName('pean').Value := eEan.Text;
+  DataModule1.qEntradaEan.Open;
+  DBEidProduto.Text := DataModule1.qEntradaEan.fieldByName('idProduto').AsString;
+  eDescricaoProduto.Text := DataModule1.qEntradaEan.fieldByName('descricao').AsString;
+end;
+
+procedure TFEntradaEstoque.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  DBEdata.Text := DateToStr(Date);
+end;
 
 end.
