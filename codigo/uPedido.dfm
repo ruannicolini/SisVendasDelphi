@@ -47,6 +47,7 @@ inherited FPedido: TFPedido
       Top = 0
       Caption = 'Faturar'
       ImageIndex = 10
+      OnClick = btnFaturarClick
     end
   end
   inherited PageControl1: TPageControl

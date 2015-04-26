@@ -1280,4 +1280,62 @@ object DataModule1: TDataModule1
     Left = 432
     Top = 12
   end
+  object qFaturamento: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'select * from faturamento')
+    Left = 512
+    Top = 64
+    object qFaturamentoidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+      Origin = 'SISTEMADEVENDAS.faturamento.idFaturamento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qFaturamentoidPedido: TIntegerField
+      FieldName = 'idPedido'
+      Origin = 'SISTEMADEVENDAS.faturamento.idPedido'
+      ProviderFlags = [pfInUpdate]
+    end
+    object qFaturamentodata_faturamento: TStringField
+      FieldName = 'data_faturamento'
+      Origin = 'SISTEMADEVENDAS.faturamento.data_faturamento'
+      ProviderFlags = [pfInUpdate]
+      Size = 10
+    end
+    object qFaturamentonf: TFloatField
+      FieldName = 'nf'
+      Origin = 'SISTEMADEVENDAS.faturamento.nf'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mFaturamento: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pFaturamento'
+    Left = 512
+    Top = 128
+    object mFaturamentoidFaturamento: TIntegerField
+      FieldName = 'idFaturamento'
+    end
+    object mFaturamentoidPedido: TIntegerField
+      FieldName = 'idPedido'
+    end
+    object mFaturamentodata_faturamento: TStringField
+      FieldName = 'data_faturamento'
+      Size = 10
+    end
+    object mFaturamentonf: TFloatField
+      FieldName = 'nf'
+    end
+  end
+  object pFaturamento: TDataSetProvider
+    DataSet = qFaturamento
+    Left = 513
+    Top = 184
+  end
+  object DsFaturamento: TDataSource
+    DataSet = mFaturamento
+    Left = 512
+    Top = 13
+  end
 end

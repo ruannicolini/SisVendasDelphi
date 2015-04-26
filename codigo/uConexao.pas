@@ -141,6 +141,18 @@ type
     mPedidoItemdescricao: TStringField;
     qPedidofaturado: TBooleanField;
     mPedidofaturado: TBooleanField;
+    qFaturamento: TQuery;
+    mFaturamento: TClientDataSet;
+    pFaturamento: TDataSetProvider;
+    DsFaturamento: TDataSource;
+    qFaturamentoidFaturamento: TIntegerField;
+    qFaturamentoidPedido: TIntegerField;
+    qFaturamentodata_faturamento: TStringField;
+    qFaturamentonf: TFloatField;
+    mFaturamentoidFaturamento: TIntegerField;
+    mFaturamentoidPedido: TIntegerField;
+    mFaturamentodata_faturamento: TStringField;
+    mFaturamentonf: TFloatField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

@@ -59,6 +59,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
+    procedure btnFaturarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -194,6 +195,28 @@ begin
   end else
     ShowMessage('Pedido Ja Faturado - Não pode ser Alterado!');
 
+end;
+
+procedure TFPedido.btnFaturarClick(Sender: TObject);
+begin
+  inherited;
+  if ds.DataSet.Active then
+  begin
+    if not ds.DataSet.IsEmpty then
+    begin
+        {Faz o controle - Pedidos já faturados não devem ser Faturados novamente;}
+        if(Ds.DataSet.FieldByName('faturado').AsBoolean = false)then
+        begin
+            if (Application.MessageBox('Deseja Faturar Pedido ?', 'Faturamento', MB_YESNO + MB_ICONQUESTION) = id_yes) then
+            begin
+              {Fazer aqui o código de faturamento do pedido;}
+            end;
+        end else
+            ShowMessage('Pedido Já Faturado. Não Pode Ser Faturado Novamente.');
+    end
+    else
+        ShowMessage('Não Há registros');
+  end;
 end;
 
 end.
