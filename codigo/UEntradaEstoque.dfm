@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 280
-  Top = 308
+  Left = 572
+  Top = 266
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -30,7 +30,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 45
           Height = 13
           Caption = 'idProduto'
-          FocusControl = DBEdit3
+          FocusControl = DBEidProduto
         end
         object Label4: TLabel
           Left = 56
@@ -47,14 +47,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 13
           Caption = 'dataAlteracaoEstoque'
           FocusControl = DBEdit5
-        end
-        object Label6: TLabel
-          Left = 208
-          Top = 152
-          Width = 37
-          Height = 13
-          Caption = 'Produto'
-          FocusControl = DBLookupComboBox1
         end
         object DBEdit1: TDBEdit
           Left = 56
@@ -74,7 +66,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEidProduto: TDBEdit
           Left = 56
           Top = 144
           Width = 49
@@ -92,7 +84,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 3
         end
         object DBEdit5: TDBEdit
           Left = 56
@@ -101,16 +93,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'dataAlteracaoEstoque'
           DataSource = DS
-          TabOrder = 5
-        end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 104
-          Top = 144
-          Width = 273
-          Height = 21
-          DataField = 'Produto'
-          DataSource = DS
-          TabOrder = 3
+          TabOrder = 4
         end
         object DBLookupComboBox2: TDBLookupComboBox
           Left = 104
@@ -119,7 +102,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'Usuario'
           DataSource = DS
-          TabOrder = 6
+          TabOrder = 5
         end
       end
     end
