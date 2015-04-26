@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 1938
-  Top = 127
+  Left = 389
+  Top = 267
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -14,7 +14,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 45
           Height = 13
           Caption = 'idEntrada'
-          FocusControl = DBEdit1
+          FocusControl = DBEidEntrada
         end
         object Label2: TLabel
           Left = 56
@@ -22,95 +22,125 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 44
           Height = 13
           Caption = 'idUsuario'
-          FocusControl = DBEdit2
+          FocusControl = DBEidUsuario
         end
         object Label3: TLabel
           Left = 56
-          Top = 128
-          Width = 45
+          Top = 168
+          Width = 44
           Height = 13
-          Caption = 'idProduto'
-          FocusControl = DBEdit3
+          Caption = 'Cod Prod'
+          FocusControl = DBEidProduto
         end
         object Label4: TLabel
-          Left = 56
+          Left = 320
           Top = 168
           Width = 15
           Height = 13
           Caption = 'qtd'
-          FocusControl = DBEdit4
+          FocusControl = DBEqtd
         end
         object Label5: TLabel
           Left = 56
-          Top = 208
-          Width = 105
+          Top = 216
+          Width = 111
           Height = 13
-          Caption = 'dataAlteracaoEstoque'
-          FocusControl = DBEdit5
+          Caption = 'Data altera'#231#227'o estoque'
+          FocusControl = DBEdata
         end
-        object Label6: TLabel
-          Left = 208
-          Top = 152
-          Width = 37
+        object lEan: TLabel
+          Left = 56
+          Top = 128
+          Width = 22
           Height = 13
-          Caption = 'Produto'
-          FocusControl = DBLookupComboBox1
+          Caption = 'EAN'
         end
-        object DBEdit1: TDBEdit
+        object lDescricao: TLabel
+          Left = 104
+          Top = 168
+          Width = 48
+          Height = 13
+          Caption = 'Descri'#231#227'o'
+        end
+        object DBEidEntrada: TDBEdit
           Left = 56
           Top = 64
           Width = 134
           Height = 21
+          Color = 15790320
           DataField = 'idEntrada'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object DBEidUsuario: TDBEdit
           Left = 56
           Top = 104
-          Width = 134
+          Width = 49
           Height = 21
+          Color = 15790320
           DataField = 'idUsuario'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEidProduto: TDBEdit
           Left = 56
-          Top = 144
+          Top = 184
           Width = 49
           Height = 21
           TabStop = False
+          Color = 15790320
           DataField = 'idProduto'
           DataSource = DS
           ReadOnly = True
           TabOrder = 2
         end
-        object DBEdit4: TDBEdit
-          Left = 56
+        object DBEqtd: TDBEdit
+          Left = 320
           Top = 184
           Width = 134
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 3
         end
-        object DBEdit5: TDBEdit
+        object DBEdata: TDBEdit
           Left = 56
-          Top = 224
+          Top = 232
           Width = 134
           Height = 21
+          Color = 15790320
           DataField = 'dataAlteracaoEstoque'
+          DataSource = DS
+          ReadOnly = True
+          TabOrder = 4
+        end
+        object DBLookupComboBox2: TDBLookupComboBox
+          Left = 104
+          Top = 104
+          Width = 274
+          Height = 21
+          DataField = 'Usuario'
           DataSource = DS
           TabOrder = 5
         end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 104
+        object eEan: TEdit
+          Left = 56
           Top = 144
-          Width = 273
+          Width = 97
           Height = 21
-          DataField = 'Produto'
-          DataSource = DS
-          TabOrder = 3
+          TabOrder = 6
+          OnExit = eEanExit
+        end
+        object eDescricaoProduto: TEdit
+          Left = 104
+          Top = 184
+          Width = 217
+          Height = 21
+          Color = 15790320
+          ReadOnly = True
+          TabOrder = 7
         end
       end
     end

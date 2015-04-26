@@ -13,24 +13,24 @@ type
     Panel2: TPanel;
     Image2: TImage;
     Panel3: TPanel;
-    Image4: TImage;
-    Image3: TImage;
+    imgUsuario: TImage;
+    imgCliente: TImage;
     Image1: TImage;
     Image5: TImage;
-    Image6: TImage;
-    Image7: TImage;
-    Image8: TImage;
-    Image9: TImage;
+    imgProduto: TImage;
+    imgPedido: TImage;
+    imgContas: TImage;
+    imgEntradaEstoque: TImage;
     Image10: TImage;
-    Image11: TImage;
+    imgCidade: TImage;
     procedure FormShow(Sender: TObject);
-    procedure Image3Click(Sender: TObject);
-    procedure Image11Click(Sender: TObject);
-    procedure Image7Click(Sender: TObject);
-    procedure Image6Click(Sender: TObject);
-    procedure Image4Click(Sender: TObject);
-    procedure Image9Click(Sender: TObject);
-    procedure Image8Click(Sender: TObject);
+    procedure imgClienteClick(Sender: TObject);
+    procedure imgCidadeClick(Sender: TObject);
+    procedure imgPedidoClick(Sender: TObject);
+    procedure imgProdutoClick(Sender: TObject);
+    procedure imgUsuarioClick(Sender: TObject);
+    procedure imgEntradaEstoqueClick(Sender: TObject);
+    procedure imgContasClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -58,37 +58,37 @@ begin
 
 end;
 
-procedure TForm1.Image3Click(Sender: TObject);
+procedure TForm1.imgClienteClick(Sender: TObject);
 begin
   fcliente.show;
 end;
 
-procedure TForm1.Image11Click(Sender: TObject);
+procedure TForm1.imgCidadeClick(Sender: TObject);
 begin
   FCidade.Show;
 end;
 
-procedure TForm1.Image7Click(Sender: TObject);
+procedure TForm1.imgPedidoClick(Sender: TObject);
 begin
   FPedido.Show;
 end;
 
-procedure TForm1.Image6Click(Sender: TObject);
+procedure TForm1.imgProdutoClick(Sender: TObject);
 begin
   FProduto.Show;
 end;
 
-procedure TForm1.Image4Click(Sender: TObject);
+procedure TForm1.imgUsuarioClick(Sender: TObject);
 begin
   FUsuario.show;
   end;
 
-procedure TForm1.Image9Click(Sender: TObject);
+procedure TForm1.imgEntradaEstoqueClick(Sender: TObject);
 begin
   FEntradaEstoque.Show;
 end;
 
-procedure TForm1.Image8Click(Sender: TObject);
+procedure TForm1.imgContasClick(Sender: TObject);
 begin
   FConta.Show;
 end;

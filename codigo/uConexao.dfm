@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 759
-  Top = 210
+  Left = 999
+  Top = 197
   Height = 365
   Width = 591
   object dbSisVenda: TDatabase
@@ -26,7 +26,7 @@ object DataModule1: TDataModule1
       'ENABLE BCD=FALSE'
       'ROWSET SIZE=20'
       'BLOBS TO CACHE=64'
-      'PASSWORD=123')
+      'PASSWORD=04242404')
     SessionName = 'Default'
     Left = 8
     Top = 8
@@ -35,7 +35,7 @@ object DataModule1: TDataModule1
     Left = 72
     Top = 8
     Bitmap = {
-      494C01010B000E00040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C01010B000E00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -567,7 +567,8 @@ object DataModule1: TDataModule1
       8000E007E00080028001C003E000C00000008003E000800101008001E0008260
       01000001E000024001800001E000018009A00001E000030001000001E0000040
       80000001E000846000018001C0008001C00180038000C003C003C00700014003
-      F00BE00F0003D00FD417F83F0007C41F}
+      F00BE00F0003D00FD417F83F0007C41F00000000000000000000000000000000
+      000000000000}
   end
   object qCliente: TQuery
     DatabaseName = 'SistemaDeVendas'
@@ -1111,6 +1112,15 @@ object DataModule1: TDataModule1
       Size = 50
       Lookup = True
     end
+    object mEntradaUsuario: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Usuario'
+      LookupDataSet = mUsuario
+      LookupKeyFields = 'idUsuario'
+      LookupResultField = 'nome'
+      KeyFields = 'idUsuario'
+      Lookup = True
+    end
   end
   object pEntrada: TDataSetProvider
     DataSet = qEntrada
@@ -1312,8 +1322,8 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pFaturamento'
-    Left = 512
-    Top = 128
+    Left = 312
+    Top = 65496
     object mFaturamentoidFaturamento: TIntegerField
       FieldName = 'idFaturamento'
     end
@@ -1337,5 +1347,19 @@ object DataModule1: TDataModule1
     DataSet = mFaturamento
     Left = 512
     Top = 13
+  end
+  object qEntradaEan: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT idProduto, descricao, ean FROM produto'
+      'WHERE ean = :pean')
+    Left = 368
+    Top = 240
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pean'
+        ParamType = ptUnknown
+      end>
   end
 end
