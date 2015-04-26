@@ -60,6 +60,9 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure btnFaturarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -150,6 +153,8 @@ end;
 
 procedure TFPedido.btnNovoClick(Sender: TObject);
 begin
+  btnFaturar.Enabled := false;
+  
   inherited;
 
   {Indica a data Atual Como data do Pedido}
@@ -182,12 +187,14 @@ procedure TFPedido.btnSalvarClick(Sender: TObject);
 begin
   DataModule1.mPedidofaturado.Value := false;
   inherited;
+  btnFaturar.Enabled := true;
 
 
 end;
 
 procedure TFPedido.btnAlterarClick(Sender: TObject);
 begin
+  btnFaturar.Enabled := false;
   {Faz o controle - Pedidos já faturados não devem ser alterados}
   if(Ds.DataSet.FieldByName('faturado').AsBoolean = false)then
   begin
@@ -217,6 +224,25 @@ begin
     else
         ShowMessage('Não Há registros');
   end;
+end;
+
+procedure TFPedido.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  
+  btnFaturar.Enabled := true;
+end;
+
+procedure TFPedido.FormCreate(Sender: TObject);
+begin
+  inherited;
+  btnFaturar.Enabled := false;
+end;
+
+procedure TFPedido.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  btnFaturar.Enabled := true;
 end;
 
 end.
