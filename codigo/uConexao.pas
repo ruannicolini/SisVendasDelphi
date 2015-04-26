@@ -154,6 +154,7 @@ type
     mFaturamentodata_faturamento: TStringField;
     mFaturamentonf: TFloatField;
     mEntradaUsuario: TStringField;
+    qEntradaEan: TQuery;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

@@ -1322,8 +1322,8 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pFaturamento'
-    Left = 512
-    Top = 128
+    Left = 312
+    Top = 65496
     object mFaturamentoidFaturamento: TIntegerField
       FieldName = 'idFaturamento'
     end
@@ -1347,5 +1347,19 @@ object DataModule1: TDataModule1
     DataSet = mFaturamento
     Left = 512
     Top = 13
+  end
+  object qEntradaEan: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT idProduto, descricao, ean FROM produto'
+      'WHERE ean = :pean')
+    Left = 368
+    Top = 240
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pean'
+        ParamType = ptUnknown
+      end>
   end
 end
