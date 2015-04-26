@@ -96,7 +96,7 @@ begin
          DataModule1.mPedidoItemquantidade.AsInteger :=DataModule1.mPedidoItemquantidade.AsInteger +1;
          DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
 
-         
+
          {Mostra a linha da DBGrid separadamente}
          DBEdit7.Text := DataModule1.mPedidoItemidPedido.AsString;
          DBEdit8.Text := DataModule1.mPedidoItemidProduto.AsString;
@@ -130,14 +130,10 @@ begin
       qValorTotal.Close;
       qValorTotal.ParamByName('PVlTotal').AsString:=(DBEdit1.Text);
       qValorTotal.Open;
-      
       if not DataModule1.mpedidoitem.Active then {Atualiza Edit vl_Total - Abre Edição}
             DataModule1.mpedidoitem.Open;
-
-
       {ShowMessage(qValorTotal.FieldByName('total').AsString);}
       DataModule1.mPedidovalorTotal.AsFloat := StrToInt(qValorTotal.FieldByName('total').AsString);
-
       {Volta o Foco pro Edit EAN}
       ed_barra.clear;
       ed_barra.SetFocus;
@@ -217,6 +213,27 @@ begin
             if (Application.MessageBox('Deseja Faturar Pedido ?', 'Faturamento', MB_YESNO + MB_ICONQUESTION) = id_yes) then
             begin
               {Fazer aqui o código de faturamento do pedido;}
+              {Abre Edição}
+              if not DataModule1.mFaturamento.Active then
+                  DataModule1.mFaturamento.Open;
+
+              DataModule1.mFaturamento.Append;
+
+              DataModule1.mFaturamentoidFaturamento.AsInteger := DataModule1.buscaProximoParametro('SeqFaturamento');
+              DataModule1.mFaturamentoidPedido.AsInteger := Ds.DataSet.FieldByName('idPedido').AsInteger;
+              DataModule1.mFaturamentodata_faturamento.AsString := DateToStr(date);
+              DataModule1.mFaturamentonf.AsInteger := DataModule1.buscaProximoParametro('SeqNf');
+
+              {Salva}
+              DataModule1.mFaturamento.Post;
+              DataModule1.mFaturamento.ApplyUpdates(-1);
+
+              ShowMessage('Pedido Faturado! '+ #13
+                        + ' Cod Faturamento: ' + DataModule1.mFaturamentoidFaturamento.AsString       + #13
+                        + 'Cod Pedido: ' +  DataModule1.mFaturamentoidPedido.AsString                 + #13
+                        +'Data de Faturamento: ' + DataModule1.mFaturamentodata_faturamento.AsString  + #13
+                        +'NF: ' +  DataModule1.mFaturamentonf.AsString
+                        );
             end;
         end else
             ShowMessage('Pedido Já Faturado. Não Pode Ser Faturado Novamente.');
