@@ -48,6 +48,7 @@ type
     Timer1: TTimer;
     ed_tecla: TEdit;
     SpeedButton1: TSpeedButton;
+    btnFaturar: TToolButton;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);

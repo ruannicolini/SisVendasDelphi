@@ -1,6 +1,6 @@
 inherited FPedido: TFPedido
-  Left = 237
-  Top = 114
+  Left = 235
+  Top = 119
   Width = 755
   Height = 635
   Caption = 'FPedido'
@@ -14,10 +14,45 @@ inherited FPedido: TFPedido
   end
   inherited ToolBar1: TToolBar
     Width = 747
+    ButtonWidth = 41
+    inherited btnDeletar: TToolButton
+      Left = 41
+    end
+    inherited btnAlterar: TToolButton
+      Left = 82
+    end
+    inherited btnCancelar: TToolButton
+      Left = 123
+    end
+    inherited btnSalvar: TToolButton
+      Left = 164
+    end
+    inherited btnPesquisar: TToolButton
+      Left = 205
+    end
+    inherited btnPrimeiro: TToolButton
+      Left = 246
+    end
+    inherited btnAnterior: TToolButton
+      Left = 287
+    end
+    inherited btnProximo: TToolButton
+      Left = 328
+    end
+    inherited btnUltimo: TToolButton
+      Left = 369
+    end
+    object btnFaturar: TToolButton
+      Left = 410
+      Top = 0
+      Caption = 'Faturar'
+      ImageIndex = 10
+    end
   end
   inherited PageControl1: TPageControl
     Width = 747
     Height = 554
+    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 739
@@ -334,7 +369,57 @@ inherited FPedido: TFPedido
       end
       inherited DBGrid1: TDBGrid
         Width = 739
-        Height = 464
+        Height = 461
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'idPedido'
+            Title.Caption = 'COD Pedido'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NomeCliente'
+            Title.Caption = 'Cliente'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'data'
+            Title.Caption = 'Data Pedido'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'valorTotal'
+            Title.Caption = 'ValorTotal'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'descricao'
+            Title.Caption = 'Descricao'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'prazoPagamento'
+            Title.Caption = 'Prazo Pag'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'faturado'
+            Title.Caption = 'Faturado'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'idCliente'
+            Visible = False
+          end>
       end
     end
   end
@@ -347,8 +432,8 @@ inherited FPedido: TFPedido
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from produto where ean =:PEan ')
-    Left = 704
-    Top = 71
+    Left = 600
+    Top = 63
     ParamData = <
       item
         DataType = ftString
@@ -387,8 +472,8 @@ inherited FPedido: TFPedido
       
         'select sum(precoparcial) total from pedido_item where idPedido =' +
         ' :PVlTotal')
-    Left = 673
-    Top = 71
+    Left = 569
+    Top = 63
     ParamData = <
       item
         DataType = ftFloat
@@ -398,7 +483,7 @@ inherited FPedido: TFPedido
   end
   object Timer1: TTimer
     Enabled = False
-    Left = 641
-    Top = 71
+    Left = 537
+    Top = 63
   end
 end
