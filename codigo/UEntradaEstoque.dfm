@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 1938
-  Top = 127
+  Left = 280
+  Top = 308
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -68,7 +68,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
         object DBEdit2: TDBEdit
           Left = 56
           Top = 104
-          Width = 134
+          Width = 49
           Height = 21
           DataField = 'idUsuario'
           DataSource = DS
@@ -111,6 +111,15 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'Produto'
           DataSource = DS
           TabOrder = 3
+        end
+        object DBLookupComboBox2: TDBLookupComboBox
+          Left = 104
+          Top = 104
+          Width = 274
+          Height = 21
+          DataField = 'Usuario'
+          DataSource = DS
+          TabOrder = 6
         end
       end
     end

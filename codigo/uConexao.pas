@@ -153,6 +153,7 @@ type
     mFaturamentoidPedido: TIntegerField;
     mFaturamentodata_faturamento: TStringField;
     mFaturamentonf: TFloatField;
+    mEntradaUsuario: TStringField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

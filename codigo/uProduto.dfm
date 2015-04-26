@@ -1,6 +1,6 @@
 inherited FProduto: TFProduto
-  Left = 1945
-  Top = 137
+  Left = 512
+  Top = 47
   Height = 516
   Caption = 'FProduto'
   OldCreateOrder = True
