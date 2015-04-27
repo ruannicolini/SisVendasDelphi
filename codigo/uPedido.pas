@@ -80,6 +80,7 @@ procedure TFPedido.ed_barraKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
+  ShowMessage('ean');
   if (key = 13) and (trim(ed_barra.Text) <> '') then
   begin
       qProduto.Close;
@@ -149,15 +150,17 @@ end;
 
 procedure TFPedido.btnNovoClick(Sender: TObject);
 begin
+  PageControl1.ActivePageIndex := 0;
   btnFaturar.Enabled := false;
-  
+  ShowMessage('0');
   inherited;
-
+  ShowMessage('1');
   {Indica a data Atual Como data do Pedido}
   DataModule1.mPedidodata.Text :=DateToStr(date);
-
+  ShowMessage('2');
   {Indica um prazo padrão}
   DataModule1.mPedidoprazoPagamento.Text := IntToStr(7);
+  ShowMessage('3');
 end;
 
 procedure TFPedido.ed_teclaKeyDown(Sender: TObject; var Key: Word;
@@ -181,7 +184,7 @@ end;
 
 procedure TFPedido.btnSalvarClick(Sender: TObject);
 begin
-  DataModule1.mPedidofaturado.Value := false;
+  
   inherited;
   btnFaturar.Enabled := true;
 

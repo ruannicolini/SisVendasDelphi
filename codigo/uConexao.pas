@@ -3,7 +3,7 @@ unit uConexao;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs, uConexao;
+  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs;
 
 type
   TDataModule1 = class(TDataModule)
@@ -153,6 +153,16 @@ type
     mFaturamentoidPedido: TIntegerField;
     mFaturamentodata_faturamento: TStringField;
     mFaturamentonf: TFloatField;
+    mEntradaUsuario: TStringField;
+    qEntradaEan: TQuery;
+    mEntradaEan: TClientDataSet;
+    pEntradaEan: TDataSetProvider;
+    mEntradaEanidProduto: TIntegerField;
+    mEntradaEandescricao: TStringField;
+    mEntradaEanean: TFloatField;
+    qEntradaEanidProduto: TIntegerField;
+    qEntradaEandescricao: TStringField;
+    qEntradaEanean: TFloatField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
@@ -222,7 +232,7 @@ begin
   qAux.SQL.Text := 'select valor from parametro where idParametro =:p';
   qAux.ParamByName('p').AsString := p;
   qAux.Open;
-  
+
   if not qAux.IsEmpty then
   begin
     i := StrToInt(qAux.Fields[0].AsString);
@@ -279,6 +289,7 @@ end;
 procedure TDataModule1.mPedidoAfterInsert(DataSet: TDataSet);
 begin
   mPedidoidPedido.AsInteger := buscaProximoParametro('SeqPedido');
+  mPedidofaturado.AsBoolean := false;
 end;
 
 procedure TDataModule1.mProdutoAfterPost(DataSet: TDataSet);

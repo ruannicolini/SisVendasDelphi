@@ -53,7 +53,6 @@ inherited FPedido: TFPedido
   inherited PageControl1: TPageControl
     Width = 741
     Height = 554
-    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 733
@@ -286,8 +285,8 @@ inherited FPedido: TFPedido
             Caption = 'F5 - Cod Produto '
             TabOrder = 1
             object ed_barra: TEdit
-              Left = -24
-              Top = 24
+              Left = 8
+              Top = 16
               Width = 129
               Height = 21
               TabOrder = 0
