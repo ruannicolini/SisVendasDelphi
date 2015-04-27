@@ -1,6 +1,6 @@
 inherited FCliente: TFCliente
-  Left = 1959
-  Top = 150
+  Left = 431
+  Top = 102
   Height = 499
   Caption = 'FCliente'
   OldCreateOrder = True

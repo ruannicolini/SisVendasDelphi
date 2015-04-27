@@ -3,7 +3,7 @@ unit uConexao;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs;
+  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs, uConexao;
 
 type
   TDataModule1 = class(TDataModule)
