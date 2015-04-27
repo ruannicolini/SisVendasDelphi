@@ -155,6 +155,14 @@ type
     mFaturamentonf: TFloatField;
     mEntradaUsuario: TStringField;
     qEntradaEan: TQuery;
+    mEntradaEan: TClientDataSet;
+    pEntradaEan: TDataSetProvider;
+    mEntradaEanidProduto: TIntegerField;
+    mEntradaEandescricao: TStringField;
+    mEntradaEanean: TFloatField;
+    qEntradaEanidProduto: TIntegerField;
+    qEntradaEandescricao: TStringField;
+    qEntradaEanean: TFloatField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
