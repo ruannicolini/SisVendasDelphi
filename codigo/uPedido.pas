@@ -152,15 +152,15 @@ procedure TFPedido.btnNovoClick(Sender: TObject);
 begin
   PageControl1.ActivePageIndex := 0;
   btnFaturar.Enabled := false;
-  ShowMessage('0');
+
   inherited;
-  ShowMessage('1');
+
   {Indica a data Atual Como data do Pedido}
   DataModule1.mPedidodata.Text :=DateToStr(date);
-  ShowMessage('2');
+
   {Indica um prazo padrão}
   DataModule1.mPedidoprazoPagamento.Text := IntToStr(7);
-  ShowMessage('3');
+  
 end;
 
 procedure TFPedido.ed_teclaKeyDown(Sender: TObject; var Key: Word;
@@ -215,13 +215,20 @@ begin
         begin
             if (Application.MessageBox('Deseja Faturar Pedido ?', 'Faturamento', MB_YESNO + MB_ICONQUESTION) = id_yes) then
             begin
-              {Fazer aqui o código de faturamento do pedido;}
+              
               {Abre Edição}
               if not DataModule1.mFaturamento.Active then
                   DataModule1.mFaturamento.Open;
 
-              DataModule1.mFaturamento.Append;
+              {Alteração do Status do Pedido}
+              DataModule1.mPedido.Edit;
+              DataModule1.mPedidofaturado.AsBoolean := True;
+              DataModule1.mPedido.Post;
+              DataModule1.mPedido.ApplyUpdates(-1);
 
+
+              {Registro Faturamento}
+              DataModule1.mFaturamento.Append;
               DataModule1.mFaturamentoidFaturamento.AsInteger := DataModule1.buscaProximoParametro('SeqFaturamento');
               DataModule1.mFaturamentoidPedido.AsInteger := Ds.DataSet.FieldByName('idPedido').AsInteger;
               DataModule1.mFaturamentodata_faturamento.AsString := DateToStr(date);
