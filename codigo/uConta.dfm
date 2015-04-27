@@ -1,6 +1,6 @@
 inherited FConta: TFConta
-  Left = 449
-  Top = 123
+  Left = 366
+  Top = 91
   Caption = 'FConta'
   OldCreateOrder = True
   PixelsPerInch = 96

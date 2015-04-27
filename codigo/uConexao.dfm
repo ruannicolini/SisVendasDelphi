@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 999
-  Top = 197
+  Left = 775
+  Top = 145
   Height = 365
-  Width = 591
+  Width = 679
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
     DatabaseName = 'SistemaDeVendas'
@@ -1353,13 +1353,50 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'SELECT idProduto, descricao, ean FROM produto'
       'WHERE ean = :pean')
-    Left = 368
-    Top = 240
+    Left = 584
+    Top = 64
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftInteger
         Name = 'pean'
         ParamType = ptUnknown
       end>
+    object qEntradaEanidProduto: TIntegerField
+      FieldName = 'idProduto'
+      Origin = 'SISTEMADEVENDAS.produto.idProduto'
+    end
+    object qEntradaEandescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.produto.descricao'
+      ProviderFlags = [pfInUpdate]
+      Size = 100
+    end
+    object qEntradaEanean: TFloatField
+      FieldName = 'ean'
+      Origin = 'SISTEMADEVENDAS.produto.ean'
+      ProviderFlags = [pfInUpdate]
+    end
+  end
+  object mEntradaEan: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'pEntradaEan'
+    Left = 584
+    Top = 128
+    object mEntradaEanidProduto: TIntegerField
+      FieldName = 'idProduto'
+    end
+    object mEntradaEandescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object mEntradaEanean: TFloatField
+      FieldName = 'ean'
+    end
+  end
+  object pEntradaEan: TDataSetProvider
+    DataSet = qEntradaEan
+    Left = 584
+    Top = 184
   end
 end

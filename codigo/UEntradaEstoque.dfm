@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 389
-  Top = 267
+  Left = 742
+  Top = 401
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -130,6 +130,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Top = 144
           Width = 97
           Height = 21
+          Enabled = False
           TabOrder = 6
           OnExit = eEanExit
         end
@@ -142,6 +143,35 @@ inherited FEntradaEstoque: TFEntradaEstoque
           ReadOnly = True
           TabOrder = 7
         end
+        object rbAutomatico: TRadioButton
+          Left = 176
+          Top = 144
+          Width = 113
+          Height = 17
+          Caption = 'Autom'#225'tico'
+          Checked = True
+          Enabled = False
+          TabOrder = 8
+          TabStop = True
+        end
+        object rbManual: TRadioButton
+          Left = 264
+          Top = 144
+          Width = 113
+          Height = 17
+          Caption = 'Manual'
+          Enabled = False
+          TabOrder = 9
+        end
+      end
+    end
+    inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        Width = 904
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 904
+        Height = 334
       end
     end
   end
