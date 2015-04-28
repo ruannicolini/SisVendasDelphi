@@ -163,6 +163,8 @@ type
     qEntradaEanidProduto: TIntegerField;
     qEntradaEandescricao: TStringField;
     qEntradaEanean: TFloatField;
+    qEntradadescricao: TStringField;
+    mEntradadescricao: TStringField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

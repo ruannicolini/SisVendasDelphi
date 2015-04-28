@@ -1046,7 +1046,9 @@ object DataModule1: TDataModule1
   object qEntrada: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
-      'SELECT * FROM responsavel_estoque')
+      'select resp_est.*, p.descricao'
+      'from responsavel_estoque resp_est'
+      'left outer join produto p on resp_est.idProduto = p.idProduto')
     Left = 368
     Top = 64
     object qEntradaidEntrada: TFloatField
@@ -1057,7 +1059,7 @@ object DataModule1: TDataModule1
     object qEntradaidUsuario: TIntegerField
       FieldName = 'idUsuario'
       Origin = 'SISTEMADEVENDAS.responsavel_estoque.idUsuario'
-      ProviderFlags = [pfInUpdate]
+      ProviderFlags = []
     end
     object qEntradaidProduto: TIntegerField
       FieldName = 'idProduto'
@@ -1074,6 +1076,12 @@ object DataModule1: TDataModule1
       Origin = 'SISTEMADEVENDAS.responsavel_estoque.dataAlteracaoEstoque'
       ProviderFlags = [pfInUpdate]
       Size = 10
+    end
+    object qEntradadescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'SISTEMADEVENDAS.produto.descricao'
+      ProviderFlags = []
+      Size = 100
     end
   end
   object mEntrada: TClientDataSet
@@ -1119,7 +1127,13 @@ object DataModule1: TDataModule1
       LookupKeyFields = 'idUsuario'
       LookupResultField = 'nome'
       KeyFields = 'idUsuario'
+      ProviderFlags = [pfInWhere]
       Lookup = True
+    end
+    object mEntradadescricao: TStringField
+      FieldName = 'descricao'
+      ProviderFlags = []
+      Size = 100
     end
   end
   object pEntrada: TDataSetProvider

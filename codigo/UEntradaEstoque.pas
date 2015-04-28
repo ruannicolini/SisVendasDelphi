@@ -21,7 +21,6 @@ type
     DBEdata: TDBEdit;
     eEan: TEdit;
     lEan: TLabel;
-    eDescricaoProduto: TEdit;
     lDescricao: TLabel;
     rbAutomatico: TRadioButton;
     rbManual: TRadioButton;
@@ -32,9 +31,11 @@ type
     Label7: TLabel;
     Label6: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
-    procedure eEanExit(Sender: TObject);
+    DBEdit1: TDBEdit;
     procedure btnNovoClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure eEanKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -47,33 +48,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TFEntradaEstoque.eEanExit(Sender: TObject);
-begin
-  inherited;
-  DataModule1.qEntradaEan.Close;
-  DataModule1.qEntradaEan.ParamByName('pean').AsString := eEan.Text;
-  DataModule1.qEntradaEan.Open;
-
-  if not (DataModule1.qEntradaEan.IsEmpty) then
-  begin
-    if not (DataModule1.mProduto.Active) then
-      DataModule1.mProduto.Open;
-
-    DataModule1.mProduto.Edit;
-    DataModule1.mProdutoidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
-    DataModule1.mProduto.Post;
-
-    DBEidProduto.Text := DataModule1.mProdutoidProduto.AsString;
-    eDescricaoProduto.Text := DataModule1.qEntradaEan.fieldByName('descricao').AsString;
-  end
-  else
-  begin
-    eDescricaoProduto.Clear;
-    ShowMessage('Código de barra não encontrado.');
-    eEan.SetFocus;
-  end;
-end;
 
 procedure TFEntradaEstoque.btnNovoClick(Sender: TObject);
 begin
@@ -89,9 +63,38 @@ procedure TFEntradaEstoque.btnCancelarClick(Sender: TObject);
 begin
   inherited;
   eEan.Enabled := False;
-  eDescricaoProduto.Enabled := False;
+
   rbAutomatico.Enabled := False;
   rbManual.Enabled := False;
+end;
+
+procedure TFEntradaEstoque.eEanKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+
+  if (key = 13) and (trim(eEan.Text) <> '') then
+  begin
+  DataModule1.qEntradaEan.Close;
+  DataModule1.qEntradaEan.ParamByName('pean').AsInteger := StrToInt(eEan.Text);
+  DataModule1.qEntradaEan.Open;
+
+  if not (DataModule1.qEntradaEan.IsEmpty) then
+  begin
+    if not (DataModule1.mEntrada.Active) then
+      DataModule1.mEntrada.Open;
+
+    {OBS> qEntradaEan consulta um produto}
+    DataModule1.mEntradaidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
+    DataModule1.mEntradadescricao.AsString := DataModule1.qEntradaEan.fieldByName('descricao').AsString
+
+  end else
+  begin
+
+    ShowMessage('Código de barra não encontrado.');
+    eEan.SetFocus;
+  end;
+  END;
 end;
 
 end.
