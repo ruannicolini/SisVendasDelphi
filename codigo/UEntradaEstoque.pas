@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  DBCtrls, Mask, ExtCtrls;
+  DBCtrls, Mask, ExtCtrls, DBTables;
 
 type
   TFEntradaEstoque = class(TFormPadrao)
@@ -19,16 +19,21 @@ type
     DBEqtd: TDBEdit;
     Label5: TLabel;
     DBEdata: TDBEdit;
-    DBLookupComboBox2: TDBLookupComboBox;
     eEan: TEdit;
     lEan: TLabel;
     eDescricaoProduto: TEdit;
     lDescricao: TLabel;
     rbAutomatico: TRadioButton;
     rbManual: TRadioButton;
+    qAuxProduto: TQuery;
+    qAuxUsuario: TQuery;
+    qU: TQuery;
+    qP: TQuery;
+    Label7: TLabel;
+    Label6: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure eEanExit(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
@@ -47,17 +52,24 @@ procedure TFEntradaEstoque.eEanExit(Sender: TObject);
 begin
   inherited;
   DataModule1.qEntradaEan.Close;
-  DataModule1.qEntradaEan.Params.ParamByName('pean').AsString := eEan.Text;
+  DataModule1.qEntradaEan.ParamByName('pean').AsString := eEan.Text;
   DataModule1.qEntradaEan.Open;
+
   if not (DataModule1.qEntradaEan.IsEmpty) then
   begin
-    DBEidProduto.Text := DataModule1.qEntradaEan.fieldByName('idProduto').AsString;
+    if not (DataModule1.mProduto.Active) then
+      DataModule1.mProduto.Open;
+
+    DataModule1.mProduto.Edit;
+    DataModule1.mProdutoidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
+    DataModule1.mProduto.Post;
+
+    DBEidProduto.Text := DataModule1.mProdutoidProduto.AsString;
     eDescricaoProduto.Text := DataModule1.qEntradaEan.fieldByName('descricao').AsString;
   end
   else
   begin
     eDescricaoProduto.Clear;
-    DBEidProduto.Clear;
     ShowMessage('Código de barra não encontrado.');
     eEan.SetFocus;
   end;
@@ -71,40 +83,6 @@ begin
   rbAutomatico.Enabled := True;
   rbManual.Enabled := True;
   DBEqtd.Text := IntToStr(1);
-end;
-
-procedure TFEntradaEstoque.btnSalvarClick(Sender: TObject);
-begin
-  inherited;
-  if (trim(eEan.Text) <> '') then
-  begin
-    DataModule1.mEntrada.Append;
-    if(rbAutomatico.Checked) then
-    begin
-      DataModule1.mEntradaqtd.AsInteger := 1;
-    end
-    else
-      DataModule1.mEntradaqtd.AsInteger := StrToInt(DBEqtd.Text);
-
-    DataModule1.mEntradaidEntrada.Value := StrToInt64 (DBEidEntrada.Text);
-    ShowMessage('Entrada: ' + DataModule1.mEntradaidEntrada.AsString);
-    DataModule1.mEntradaidUsuario.AsInteger := StrToInt(DBEidUsuario.Text);
-    ShowMessage('Usuário: ' + DataModule1.mEntradaidUsuario.AsString);
-    DataModule1.mEntradaidProduto.AsInteger := StrToInt(DataModule1.mEntradaEan.fieldByName('idProduto').AsString);
-    ShowMessage('Produto: ' + DataModule1.mEntradaidProduto.AsString);
-    DataModule1.mEntradadataAlteracaoEstoque.AsString := DBEdata.Text;
-    ShowMessage('Data: ' + DataModule1.mEntradadataAlteracaoEstoque.AsString);
-    DataModule1.mEntrada.Post;
-
-    eEan.Clear;
-    eDescricaoProduto.Clear;
-    eEan.Enabled := False;
-    rbAutomatico.Enabled := False;
-    rbManual.Enabled := False;
-  end
-  else
-    ShowMessage('Digite o código de barra do produto.');
-
 end;
 
 procedure TFEntradaEstoque.btnCancelarClick(Sender: TObject);

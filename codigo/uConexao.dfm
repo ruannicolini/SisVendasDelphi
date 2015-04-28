@@ -1115,7 +1115,7 @@ object DataModule1: TDataModule1
     object mEntradaUsuario: TStringField
       FieldKind = fkLookup
       FieldName = 'Usuario'
-      LookupDataSet = mUsuario
+      LookupDataSet = qUsuario
       LookupKeyFields = 'idUsuario'
       LookupResultField = 'nome'
       KeyFields = 'idUsuario'

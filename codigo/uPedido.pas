@@ -289,20 +289,12 @@ begin
   DataModule1.mPedidoItem.Post;
   DataModule1.mPedidoItem.ApplyUpdates(-1);
 
-
-
   {Altera Preço Total do Pedido}
   DataModule1.qAux.Close;
   DataModule1.qAux.SQL.Text := 'select SUM(precoParcial) as precototal from pedido_item where idPedido =:i';
   DataModule1.qAux.ParamByName('i').AsString:=(DataModule1.mPedidoidPedido.AsString);
   DataModule1.qAux.Open;
   DataModule1.mPedidovalorTotal.AsFloat := DataModule1.qAux.FieldByName('precototal').AsFloat;
-  DataModule1.mPedido.Post;
-  DataModule1.mPedido.ApplyUpdates(-1);
-  DataModule1.mPedido.Edit;
-
-
-
 
   end;
 end;

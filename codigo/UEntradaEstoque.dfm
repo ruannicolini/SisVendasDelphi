@@ -1,11 +1,19 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 196
-  Top = 203
+  Left = 293
+  Top = 120
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
+  object Label7: TLabel [0]
+    Left = 0
+    Top = 224
+    Width = 36
+    Height = 13
+    Caption = 'Usuario'
+  end
   inherited PageControl1: TPageControl
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel
@@ -62,6 +70,14 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 13
           Caption = 'Descri'#231#227'o'
         end
+        object Label6: TLabel
+          Left = 104
+          Top = 88
+          Width = 36
+          Height = 13
+          Caption = 'Usuario'
+          FocusControl = DBLookupComboBox1
+        end
         object DBEidEntrada: TDBEdit
           Left = 56
           Top = 64
@@ -116,22 +132,13 @@ inherited FEntradaEstoque: TFEntradaEstoque
           ReadOnly = True
           TabOrder = 4
         end
-        object DBLookupComboBox2: TDBLookupComboBox
-          Left = 104
-          Top = 104
-          Width = 274
-          Height = 21
-          DataField = 'Usuario'
-          DataSource = DS
-          TabOrder = 5
-        end
         object eEan: TEdit
           Left = 56
           Top = 144
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 6
+          TabOrder = 5
           OnExit = eEanExit
         end
         object eDescricaoProduto: TEdit
@@ -141,7 +148,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           Color = 15790320
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 6
         end
         object rbAutomatico: TRadioButton
           Left = 176
@@ -151,7 +158,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Caption = 'Autom'#225'tico'
           Checked = True
           Enabled = False
-          TabOrder = 8
+          TabOrder = 7
           TabStop = True
         end
         object rbManual: TRadioButton
@@ -161,21 +168,41 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 17
           Caption = 'Manual'
           Enabled = False
+          TabOrder = 8
+        end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 104
+          Top = 104
+          Width = 217
+          Height = 21
+          DataField = 'Usuario'
+          DataSource = DS
           TabOrder = 9
         end
-      end
-    end
-    inherited tbFiltros: TTabSheet
-      inherited gbFiltros: TGroupBox
-        Width = 904
-      end
-      inherited DBGrid1: TDBGrid
-        Width = 904
-        Height = 334
       end
     end
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mEntrada
+  end
+  object qAuxProduto: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    Left = 688
+    Top = 16
+  end
+  object qAuxUsuario: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    Left = 736
+    Top = 16
+  end
+  object qU: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    Left = 632
+    Top = 16
+  end
+  object qP: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    Left = 784
+    Top = 16
   end
 end
