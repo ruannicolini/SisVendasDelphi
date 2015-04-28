@@ -208,13 +208,6 @@ inherited FPedido: TFPedido
             Caption = 'precoUnitario'
             FocusControl = DBEdit11
           end
-          object SpeedButton1: TSpeedButton
-            Left = 144
-            Top = 312
-            Width = 23
-            Height = 22
-            OnClick = SpeedButton1Click
-          end
           object GroupBox2: TGroupBox
             Left = 176
             Top = 16
@@ -238,6 +231,7 @@ inherited FPedido: TFPedido
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
               OnDblClick = DBGrid2DblClick
+              OnKeyDown = DBGrid2KeyDown
               Columns = <
                 item
                   Expanded = False
@@ -482,10 +476,5 @@ inherited FPedido: TFPedido
         Name = 'PVlTotal'
         ParamType = ptUnknown
       end>
-  end
-  object Timer1: TTimer
-    Enabled = False
-    Left = 537
-    Top = 63
   end
 end

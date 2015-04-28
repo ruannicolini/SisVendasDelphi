@@ -45,9 +45,7 @@ type
     qProdutoean: TFloatField;
     qValorTotal: TQuery;
     ed_vlTotal: TDBEdit;
-    Timer1: TTimer;
     ed_tecla: TEdit;
-    SpeedButton1: TSpeedButton;
     btnFaturar: TToolButton;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -55,7 +53,6 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure ed_teclaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure FormShow(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
@@ -64,6 +61,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
+    procedure DBGrid2KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -81,7 +80,7 @@ procedure TFPedido.ed_barraKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
-  
+
   if (key = 13) and (trim(ed_barra.Text) <> '') then
   begin
       qProduto.Close;
@@ -169,12 +168,6 @@ procedure TFPedido.ed_teclaKeyDown(Sender: TObject; var Key: Word;
 begin
   inherited;
   ShowMessage('O nº da tecla: '+Char(ORD(Key))+' é => '+IntToStr(key));
-end;
-
-procedure TFPedido.FormShow(Sender: TObject);
-begin
-  inherited;
-  Timer1.Enabled := true;
 end;
 
 procedure TFPedido.SpeedButton1Click(Sender: TObject);
@@ -296,6 +289,28 @@ begin
   DataModule1.qAux.Open;
   DataModule1.mPedidovalorTotal.AsFloat := DataModule1.qAux.FieldByName('precototal').AsFloat;
 
+  end;
+end;
+
+procedure TFPedido.DBGrid2KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if (key = 46) then
+  begin
+    if MessageDlg('Deseja Apagar Item Selecionado ?',mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+     begin
+        Datamodule1.mPedidoItem.Delete;
+        Datamodule1.mPedidoItem.ApplyUpdates(-1);
+
+        {Altera Preço Total do Pedido}
+        DataModule1.qAux.Close;
+        DataModule1.qAux.SQL.Text := 'select SUM(precoParcial) as precototal from pedido_item where idPedido =:i';
+        DataModule1.qAux.ParamByName('i').AsString:=(DataModule1.mPedidoidPedido.AsString);
+        DataModule1.qAux.Open;
+        DataModule1.mPedidovalorTotal.AsFloat := DataModule1.qAux.FieldByName('precototal').AsFloat;
+
+     end;
   end;
 end;
 
