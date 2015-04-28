@@ -63,6 +63,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,7 +81,7 @@ procedure TFPedido.ed_barraKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
-  ShowMessage('ean');
+  
   if (key = 13) and (trim(ed_barra.Text) <> '') then
   begin
       qProduto.Close;
@@ -215,7 +216,7 @@ begin
         begin
             if (Application.MessageBox('Deseja Faturar Pedido ?', 'Faturamento', MB_YESNO + MB_ICONQUESTION) = id_yes) then
             begin
-              
+
               {Abre Edição}
               if not DataModule1.mFaturamento.Active then
                   DataModule1.mFaturamento.Open;
@@ -270,6 +271,40 @@ procedure TFPedido.btnPesquisarClick(Sender: TObject);
 begin
   inherited;
   btnFaturar.Enabled := true;
+end;
+
+procedure TFPedido.DBGrid2DblClick(Sender: TObject);
+var
+  texto : String;
+begin
+  inherited;
+
+  if DataModule1.DsPedidoItem.DataSet.Active then
+  begin
+  texto := InputBox('Alterar','Quantidade', DataModule1.mPedidoItemquantidade.AsString);
+  DataModule1.mPedidoItem.Edit;
+  
+  DataModule1.mPedidoItemquantidade.AsInteger := StrToInt(texto);
+  DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
+  DataModule1.mPedidoItem.Post;
+  DataModule1.mPedidoItem.ApplyUpdates(-1);
+
+
+
+  {Altera Preço Total do Pedido}
+  DataModule1.qAux.Close;
+  DataModule1.qAux.SQL.Text := 'select SUM(precoParcial) as precototal from pedido_item where idPedido =:i';
+  DataModule1.qAux.ParamByName('i').AsString:=(DataModule1.mPedidoidPedido.AsString);
+  DataModule1.qAux.Open;
+  DataModule1.mPedidovalorTotal.AsFloat := DataModule1.qAux.FieldByName('precototal').AsFloat;
+  DataModule1.mPedido.Post;
+  DataModule1.mPedido.ApplyUpdates(-1);
+  DataModule1.mPedido.Edit;
+
+
+
+
+  end;
 end;
 
 end.

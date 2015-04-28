@@ -53,6 +53,7 @@ inherited FPedido: TFPedido
   inherited PageControl1: TPageControl
     Width = 741
     Height = 554
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 733
@@ -236,6 +237,7 @@ inherited FPedido: TFPedido
               TitleFont.Height = -11
               TitleFont.Name = 'MS Sans Serif'
               TitleFont.Style = []
+              OnDblClick = DBGrid2DblClick
               Columns = <
                 item
                   Expanded = False
