@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 227
-  Top = 180
+  Left = 345
+  Top = 175
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -16,46 +16,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
     ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        object Label1: TLabel
-          Left = 56
-          Top = 48
-          Width = 45
-          Height = 13
-          Caption = 'idEntrada'
-          FocusControl = DBEidEntrada
-        end
-        object Label2: TLabel
-          Left = 56
-          Top = 88
-          Width = 44
-          Height = 13
-          Caption = 'idUsuario'
-          FocusControl = DBEidUsuario
-        end
-        object Label3: TLabel
-          Left = 56
-          Top = 168
-          Width = 44
-          Height = 13
-          Caption = 'Cod Prod'
-          FocusControl = DBEidProduto
-        end
-        object Label4: TLabel
-          Left = 320
-          Top = 168
-          Width = 15
-          Height = 13
-          Caption = 'qtd'
-          FocusControl = DBEqtd
-        end
-        object Label5: TLabel
-          Left = 56
-          Top = 216
-          Width = 111
-          Height = 13
-          Caption = 'Data altera'#231#227'o estoque'
-          FocusControl = DBEdata
-        end
         object lEan: TLabel
           Left = 56
           Top = 128
@@ -63,84 +23,45 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 13
           Caption = 'EAN'
         end
-        object lDescricao: TLabel
-          Left = 104
-          Top = 168
-          Width = 48
+        object Label1: TLabel
+          Left = 56
+          Top = 48
+          Width = 59
           Height = 13
-          Caption = 'Descri'#231#227'o'
+          Caption = 'Cod Entrada'
+          FocusControl = DBEdit1
+        end
+        object Label4: TLabel
+          Left = 56
+          Top = 171
+          Width = 37
+          Height = 13
+          Caption = 'Produto'
+          FocusControl = DBEdit4
         end
         object Label6: TLabel
-          Left = 104
+          Left = 304
+          Top = 171
+          Width = 21
+          Height = 13
+          Caption = 'qTD'
+          FocusControl = DBEqtd
+        end
+        object Label8: TLabel
+          Left = 56
+          Top = 211
+          Width = 27
+          Height = 13
+          Caption = 'dATA'
+          FocusControl = DBEdata
+        end
+        object Label2: TLabel
+          Left = 56
           Top = 88
           Width = 36
           Height = 13
-          Caption = 'Usuario'
-        end
-        object Label8: TLabel
-          Left = 80
-          Top = 280
-          Width = 34
-          Height = 13
-          Caption = 'usuario'
-          FocusControl = DBLookupComboBox1
-        end
-        object DBEidEntrada: TDBEdit
-          Left = 56
-          Top = 64
-          Width = 73
-          Height = 21
-          TabStop = False
-          Color = 15790320
-          DataField = 'idEntrada'
-          DataSource = DS
-          ReadOnly = True
-          TabOrder = 5
-        end
-        object DBEidUsuario: TDBEdit
-          Left = 56
-          Top = 104
-          Width = 49
-          Height = 21
-          TabStop = False
-          Color = 15790320
-          DataField = 'idUsuario'
-          DataSource = DS
-          ReadOnly = True
-          TabOrder = 6
-        end
-        object DBEidProduto: TDBEdit
-          Left = 56
-          Top = 184
-          Width = 49
-          Height = 21
-          TabStop = False
-          Color = 15790320
-          DataField = 'idProduto'
-          DataSource = DS
-          ReadOnly = True
-          TabOrder = 2
-        end
-        object DBEqtd: TDBEdit
-          Left = 318
-          Top = 184
-          Width = 75
-          Height = 21
-          DataField = 'qtd'
-          DataSource = DS
-          TabOrder = 4
-        end
-        object DBEdata: TDBEdit
-          Left = 56
-          Top = 232
-          Width = 134
-          Height = 21
-          TabStop = False
-          Color = 15790320
-          DataField = 'dataAlteracaoEstoque'
-          DataSource = DS
-          ReadOnly = True
-          TabOrder = 0
+          Caption = 'Usu'#225'rio'
+          FocusControl = DBEdit2
         end
         object eEan: TEdit
           Left = 56
@@ -148,18 +69,8 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 3
+          TabOrder = 0
           OnKeyDown = eEanKeyDown
-        end
-        object DBEdit1: TDBEdit
-          Left = 112
-          Top = 184
-          Width = 200
-          Height = 21
-          TabStop = False
-          DataField = 'descricao'
-          DataSource = DS
-          TabOrder = 1
         end
         object rbGrup: TRadioGroup
           Left = 160
@@ -167,7 +78,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 233
           Height = 33
           DragMode = dmAutomatic
-          TabOrder = 7
+          TabOrder = 1
         end
         object rbAutomatico: TRadioButton
           Left = 184
@@ -177,7 +88,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Caption = 'Autom'#225'tico'
           Checked = True
           Enabled = False
-          TabOrder = 8
+          TabOrder = 2
           TabStop = True
         end
         object rbManual: TRadioButton
@@ -187,17 +98,70 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 17
           Caption = 'Manual'
           Enabled = False
+          TabOrder = 3
+        end
+        object DBEdit1: TDBEdit
+          Left = 56
+          Top = 64
+          Width = 65
+          Height = 21
+          DataField = 'idEntrada'
+          DataSource = DS
+          TabOrder = 4
+        end
+        object DBEdit4: TDBEdit
+          Left = 56
+          Top = 187
+          Width = 49
+          Height = 21
+          DataField = 'idProduto'
+          DataSource = DS
+          TabOrder = 5
+        end
+        object DBEdit5: TDBEdit
+          Left = 104
+          Top = 187
+          Width = 201
+          Height = 21
+          DataField = 'descricao'
+          DataSource = DS
+          TabOrder = 6
+        end
+        object DBEqtd: TDBEdit
+          Left = 304
+          Top = 187
+          Width = 89
+          Height = 21
+          DataField = 'qtd'
+          DataSource = DS
+          TabOrder = 7
+        end
+        object DBEdata: TDBEdit
+          Left = 56
+          Top = 227
+          Width = 134
+          Height = 21
+          DataField = 'dataAlteracaoEstoque'
+          DataSource = DS
+          TabOrder = 8
+        end
+        object DBEdit2: TDBEdit
+          Left = 56
+          Top = 104
+          Width = 65
+          Height = 21
+          DataField = 'idUsuario'
+          DataSource = DS
           TabOrder = 9
         end
         object DBLookupComboBox1: TDBLookupComboBox
-          Left = 80
-          Top = 296
+          Left = 120
+          Top = 104
           Width = 273
           Height = 21
           DataField = 'usuario'
           DataSource = DS
           TabOrder = 10
-          OnClick = DBLookupComboBox1Click
         end
       end
     end

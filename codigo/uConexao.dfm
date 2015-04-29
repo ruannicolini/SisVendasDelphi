@@ -6,6 +6,7 @@ object DataModule1: TDataModule1
   Width = 699
   object dbSisVenda: TDatabase
     AliasName = 'SistemaDeVendas'
+    Connected = True
     DatabaseName = 'SistemaDeVendas'
     KeepConnection = False
     LoginPrompt = False
@@ -973,6 +974,7 @@ object DataModule1: TDataModule1
     Top = 184
   end
   object qUsuario: TQuery
+    Active = True
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       'select * from Usuario')
@@ -1056,11 +1058,6 @@ object DataModule1: TDataModule1
       Origin = 'SISTEMADEVENDAS.responsavel_estoque.idEntrada'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
-    object qEntradaidUsuario: TIntegerField
-      FieldName = 'idUsuario'
-      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idUsuario'
-      ProviderFlags = []
-    end
     object qEntradaidProduto: TIntegerField
       FieldName = 'idProduto'
       Origin = 'SISTEMADEVENDAS.responsavel_estoque.idProduto'
@@ -1083,6 +1080,10 @@ object DataModule1: TDataModule1
       ProviderFlags = []
       Size = 100
     end
+    object qEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
+      Origin = 'SISTEMADEVENDAS.responsavel_estoque.idUsuario'
+    end
   end
   object mEntrada: TClientDataSet
     Aggregates = <>
@@ -1097,9 +1098,6 @@ object DataModule1: TDataModule1
     object mEntradaidEntrada: TFloatField
       FieldName = 'idEntrada'
     end
-    object mEntradaidUsuario: TIntegerField
-      FieldName = 'idUsuario'
-    end
     object mEntradaidProduto: TIntegerField
       FieldName = 'idProduto'
     end
@@ -1110,20 +1108,12 @@ object DataModule1: TDataModule1
       FieldName = 'dataAlteracaoEstoque'
       Size = 10
     end
-    object mEntradaProduto: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Produto'
-      LookupDataSet = qProduto
-      LookupKeyFields = 'idProduto'
-      LookupResultField = 'descricao'
-      KeyFields = 'idProduto'
-      Size = 50
-      Lookup = True
-    end
     object mEntradadescricao: TStringField
       FieldName = 'descricao'
-      ProviderFlags = []
       Size = 100
+    end
+    object mEntradaidUsuario: TIntegerField
+      FieldName = 'idUsuario'
     end
     object mEntradausuario: TStringField
       FieldKind = fkLookup

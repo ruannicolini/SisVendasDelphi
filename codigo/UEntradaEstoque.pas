@@ -9,32 +9,28 @@ uses
 
 type
   TFEntradaEstoque = class(TFormPadrao)
-    Label1: TLabel;
-    DBEidEntrada: TDBEdit;
-    Label2: TLabel;
-    DBEidUsuario: TDBEdit;
-    Label3: TLabel;
-    DBEidProduto: TDBEdit;
-    Label4: TLabel;
-    DBEqtd: TDBEdit;
-    Label5: TLabel;
-    DBEdata: TDBEdit;
     eEan: TEdit;
     lEan: TLabel;
-    lDescricao: TLabel;
     Label7: TLabel;
-    Label6: TLabel;
-    DBEdit1: TDBEdit;
     rbGrup: TRadioGroup;
     rbAutomatico: TRadioButton;
     rbManual: TRadioButton;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEqtd: TDBEdit;
     Label8: TLabel;
+    DBEdata: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
     procedure btnNovoClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure eEanKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure DBLookupComboBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -96,13 +92,6 @@ begin
     eEan.SetFocus;
   end;
   END;
-end;
-
-procedure TFEntradaEstoque.DBLookupComboBox1Click(Sender: TObject);
-begin
-  inherited;
-  DBEidUsuario.Text := DataModule1.mEntradaidUsuario.AsString;
-  ShowMessage('1');
 end;
 
 end.

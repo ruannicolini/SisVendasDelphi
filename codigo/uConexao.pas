@@ -97,17 +97,6 @@ type
     qEntrada: TQuery;
     mEntrada: TClientDataSet;
     pEntrada: TDataSetProvider;
-    qEntradaidUsuario: TIntegerField;
-    qEntradaidProduto: TIntegerField;
-    qEntradaqtd: TIntegerField;
-    qEntradadataAlteracaoEstoque: TStringField;
-    qEntradaidEntrada: TFloatField;
-    mEntradaidEntrada: TFloatField;
-    mEntradaidUsuario: TIntegerField;
-    mEntradaidProduto: TIntegerField;
-    mEntradaqtd: TIntegerField;
-    mEntradadataAlteracaoEstoque: TStringField;
-    mEntradaProduto: TStringField;
     qConta: TQuery;
     mConta: TClientDataSet;
     pConta: TDataSetProvider;
@@ -162,8 +151,18 @@ type
     qEntradaEanidProduto: TIntegerField;
     qEntradaEandescricao: TStringField;
     qEntradaEanean: TFloatField;
+    qEntradaidProduto: TIntegerField;
+    qEntradaqtd: TIntegerField;
+    qEntradadataAlteracaoEstoque: TStringField;
+    qEntradaidEntrada: TFloatField;
     qEntradadescricao: TStringField;
+    mEntradaidEntrada: TFloatField;
+    mEntradaidProduto: TIntegerField;
+    mEntradaqtd: TIntegerField;
+    mEntradadataAlteracaoEstoque: TStringField;
     mEntradadescricao: TStringField;
+    qEntradaidUsuario: TIntegerField;
+    mEntradaidUsuario: TIntegerField;
     mEntradausuario: TStringField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
