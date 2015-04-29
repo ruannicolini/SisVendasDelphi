@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB, StdCtrls,
-  Grids, DBGrids, DBCtrls, Buttons, ComObj, ExcelXP;
+  Grids, DBGrids, DBCtrls, Buttons;
 
 type
   TFormPadrao = class(TForm)
@@ -45,10 +45,9 @@ type
     procedure btnUltimoClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
-    function ExportToExcel(oDataSet : TDataSet; sFile : String): Boolean;
+
     { Private declarations }
   public
     { Public declarations }
@@ -80,117 +79,6 @@ begin
   btnPesquisar.Enabled := e=2;
 
 end;
-
-
-function TFormPadrao.ExportToExcel(oDataSet : TDataSet; sFile : String): Boolean;
-var
-iCol,iRow : Integer;
-
-oExcel : TExcelApplication;
-oWorkbook : TExcelWorkbook;
-oSheet : TExcelWorksheet;
-
-begin
-iCol := 0;
-iRow := 0;
-result := True;
-
-oExcel := TExcelApplication.Create(Application);
-oWorkbook := TExcelWorkbook.Create(Application);
-oSheet := TExcelWorksheet.Create(Application);
-
-try
-oExcel.Visible[0] := False;
-oExcel.Connect;
-except
-result := False;
-MessageDlg('Excel may not be installed', mtError, [mbOk], 0);
-exit;
-end;
-
-oExcel.Visible[0] := True;
-oExcel.Caption := 'Sawami Export Engine';
-oExcel.Workbooks.Add(Null,0);
-
-oWorkbook.ConnectTo(oExcel.Workbooks[1]);
-oSheet.ConnectTo(oWorkbook.Worksheets[1] as _Worksheet);
-
-// iRow := 1;
-
-for iCol:=1 to oDataSet.FieldCount do begin
-// oSheet.Cells.Item[iRow,iCol] := oDataSet.FieldDefs.Items[iCol].Name;
-// oSheet.Cells.Item[iRow,iCol] := oDataSet.Fields[iCol-1].FieldName;
-end;
-
-// iRow := 2;
-
-oDataSet.Open;
-while NOT oDataSet.Eof do begin
-Inc(iRow);
-
-for iCol:=1 to oDataSet.FieldCount do begin
-oSheet.Cells.Item[iRow,iCol] := oDataSet.Fields[iCol-1].AsString;
-end;
-
-oDataSet.Next;
-end;
-
-//Change the wprksheet name.
-oSheet.Name := 'List of Accounts';
-
-//Change the font properties of all columns.
-oSheet.Columns.Font.Color := clPurple;
-oSheet.Columns.Font.FontStyle := fsBold;
-oSheet.Columns.Font.Size := 10;
-
-//Change the font properties of a row.
-oSheet.Range['A1','A1'].EntireRow.Font.Color := clNavy;
-oSheet.Range['A1','A1'].EntireRow.Font.Size := 16;
-oSheet.Range['A1','A1'].EntireRow.Font.FontStyle := fsBold;
-oSheet.Range['A1','A1'].EntireRow.Font.Name := 'Arabic Transparent';
-
-//Change the font properties of a row.
-oSheet.Range['A2','A2'].EntireRow.Font.Color := clBlue;
-oSheet.Range['A2','A2'].EntireRow.Font.Size := 12;
-oSheet.Range['A2','A2'].EntireRow.Font.FontStyle := fsBold;
-oSheet.Range['A2','A2'].EntireRow.Font.Name := 'Arabic Transparent';
-oSheet.Range['A2','H2'].HorizontalAlignment := xlHAlignCenter;
-{
-//Change the font properties of a column.
-oSheet.Range['A1','C1'].EntireColumn.Font.Color := clBlue;
-
-//Change Cells color of a row.
-oSheet.Range['A1', 'A1'].EntireRow.Interior.Color := clNavy;
-
-//Change Cells color of a column.
-oSheet.Range['C1', 'C1'].EntireColumn.Interior.Color := clYellow;
-
-//Align a column.
-oSheet.Range['A1','A1'].HorizontalAlignment := xlHAlignLeft;
-
-//Set a column with manually.
-// oSheet.Columns.Range['A1','A1'].ColumnWidth := 16;
-}
-//Auto fit all columns.
-oSheet.Columns.AutoFit;
-
-
-DeleteFile(sFile);
-
-Sleep(2000);
-
-oSheet.SaveAs(sFile);
-oSheet.Disconnect;
-oSheet.Free;
-
-oWorkbook.Disconnect;
-oWorkbook.Free;
-
-oExcel.Quit;
-oExcel.Disconnect;
-oExcel.Free;
-end;
-
 
 
 
@@ -315,13 +203,6 @@ end;
 procedure TFormPadrao.FormCreate(Sender: TObject);
 begin
   KeyPreview:=true;
-end;
-
-procedure TFormPadrao.BitBtn1Click(Sender: TObject);
-begin
-  {ExportToExcel(DBGrid1.DataSource.DataSet,'C:\MyDat a.XLS');}
-  ExportToExcel(DBGrid1.DataSource.DataSet,(extractFilepath(application.exename) + DBGrid1.DataSource.DataSet.Name +'.XLS'));
-
 end;
 
 end.

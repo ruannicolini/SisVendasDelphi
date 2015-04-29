@@ -12,7 +12,8 @@ uses
   uUsuario in 'uUsuario.pas' {FUsuario},
   UEntradaEstoque in 'UEntradaEstoque.pas' {FEntradaEstoque},
   uConta in 'uConta.pas' {FConta},
-  uConsultas in 'uConsultas.pas' {FConsultas};
+  uConsultas in 'uConsultas.pas' {FConsultas},
+  uConsultaPadrao in 'uConsultaPadrao.pas' {FConsultaPadrao};
 
 {$R *.res}
 
@@ -30,5 +31,6 @@ begin
   Application.CreateForm(TFConta, FConta);
   Application.CreateForm(TFEntradaEstoque, FEntradaEstoque);
   Application.CreateForm(TFConsultas, FConsultas);
+  Application.CreateForm(TFConsultaPadrao, FConsultaPadrao);
   Application.Run;
 end.
