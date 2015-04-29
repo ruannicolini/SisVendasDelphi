@@ -1,6 +1,6 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 214
-  Top = 242
+  Left = 227
+  Top = 180
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -13,6 +13,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
     Caption = 'Usuario'
   end
   inherited PageControl1: TPageControl
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel
@@ -75,6 +76,13 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 36
           Height = 13
           Caption = 'Usuario'
+        end
+        object Label8: TLabel
+          Left = 80
+          Top = 280
+          Width = 34
+          Height = 13
+          Caption = 'usuario'
           FocusControl = DBLookupComboBox1
         end
         object DBEidEntrada: TDBEdit
@@ -87,7 +95,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idEntrada'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 8
+          TabOrder = 5
         end
         object DBEidUsuario: TDBEdit
           Left = 56
@@ -99,7 +107,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idUsuario'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 9
+          TabOrder = 6
         end
         object DBEidProduto: TDBEdit
           Left = 56
@@ -116,11 +124,11 @@ inherited FEntradaEstoque: TFEntradaEstoque
         object DBEqtd: TDBEdit
           Left = 318
           Top = 184
-          Width = 83
+          Width = 75
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 7
+          TabOrder = 4
         end
         object DBEdata: TDBEdit
           Left = 56
@@ -140,37 +148,8 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 4
-          OnKeyDown = eEanKeyDown
-        end
-        object rbAutomatico: TRadioButton
-          Left = 176
-          Top = 144
-          Width = 113
-          Height = 17
-          Caption = 'Autom'#225'tico'
-          Checked = True
-          Enabled = False
-          TabOrder = 5
-          TabStop = True
-        end
-        object rbManual: TRadioButton
-          Left = 264
-          Top = 144
-          Width = 113
-          Height = 17
-          Caption = 'Manual'
-          Enabled = False
-          TabOrder = 6
-        end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 104
-          Top = 104
-          Width = 289
-          Height = 21
-          DataField = 'Usuario'
-          DataSource = DS
           TabOrder = 3
+          OnKeyDown = eEanKeyDown
         end
         object DBEdit1: TDBEdit
           Left = 112
@@ -181,6 +160,44 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'descricao'
           DataSource = DS
           TabOrder = 1
+        end
+        object rbGrup: TRadioGroup
+          Left = 160
+          Top = 136
+          Width = 233
+          Height = 33
+          DragMode = dmAutomatic
+          TabOrder = 7
+        end
+        object rbAutomatico: TRadioButton
+          Left = 184
+          Top = 146
+          Width = 81
+          Height = 17
+          Caption = 'Autom'#225'tico'
+          Checked = True
+          Enabled = False
+          TabOrder = 8
+          TabStop = True
+        end
+        object rbManual: TRadioButton
+          Left = 294
+          Top = 146
+          Width = 65
+          Height = 17
+          Caption = 'Manual'
+          Enabled = False
+          TabOrder = 9
+        end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 80
+          Top = 296
+          Width = 273
+          Height = 21
+          DataField = 'usuario'
+          DataSource = DS
+          TabOrder = 10
+          OnClick = DBLookupComboBox1Click
         end
       end
     end
@@ -218,7 +235,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           end
           item
             Expanded = False
-            FieldName = 'Usuario'
+            FieldName = 'usuario'
             Visible = True
           end>
       end
@@ -226,25 +243,5 @@ inherited FEntradaEstoque: TFEntradaEstoque
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mEntrada
-  end
-  object qAuxProduto: TQuery
-    DatabaseName = 'SistemaDeVendas'
-    Left = 688
-    Top = 16
-  end
-  object qAuxUsuario: TQuery
-    DatabaseName = 'SistemaDeVendas'
-    Left = 736
-    Top = 16
-  end
-  object qU: TQuery
-    DatabaseName = 'SistemaDeVendas'
-    Left = 632
-    Top = 16
-  end
-  object qP: TQuery
-    DatabaseName = 'SistemaDeVendas'
-    Left = 784
-    Top = 16
   end
 end

@@ -22,20 +22,19 @@ type
     eEan: TEdit;
     lEan: TLabel;
     lDescricao: TLabel;
-    rbAutomatico: TRadioButton;
-    rbManual: TRadioButton;
-    qAuxProduto: TQuery;
-    qAuxUsuario: TQuery;
-    qU: TQuery;
-    qP: TQuery;
     Label7: TLabel;
     Label6: TLabel;
-    DBLookupComboBox1: TDBLookupComboBox;
     DBEdit1: TDBEdit;
+    rbGrup: TRadioGroup;
+    rbAutomatico: TRadioButton;
+    rbManual: TRadioButton;
+    Label8: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure btnNovoClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure eEanKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBLookupComboBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,6 +69,8 @@ end;
 
 procedure TFEntradaEstoque.eEanKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
+  var
+  texto :string;
 begin
   inherited;
 
@@ -95,6 +96,13 @@ begin
     eEan.SetFocus;
   end;
   END;
+end;
+
+procedure TFEntradaEstoque.DBLookupComboBox1Click(Sender: TObject);
+begin
+  inherited;
+  DBEidUsuario.Text := DataModule1.mEntradaidUsuario.AsString;
+  ShowMessage('1');
 end;
 
 end.

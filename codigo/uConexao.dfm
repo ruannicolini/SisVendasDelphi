@@ -1120,20 +1120,20 @@ object DataModule1: TDataModule1
       Size = 50
       Lookup = True
     end
-    object mEntradaUsuario: TStringField
-      FieldKind = fkLookup
-      FieldName = 'Usuario'
-      LookupDataSet = qUsuario
-      LookupKeyFields = 'idUsuario'
-      LookupResultField = 'nome'
-      KeyFields = 'idUsuario'
-      ProviderFlags = [pfInWhere]
-      Lookup = True
-    end
     object mEntradadescricao: TStringField
       FieldName = 'descricao'
       ProviderFlags = []
       Size = 100
+    end
+    object mEntradausuario: TStringField
+      FieldKind = fkLookup
+      FieldName = 'usuario'
+      LookupDataSet = qUsuario
+      LookupKeyFields = 'idUsuario'
+      LookupResultField = 'nome'
+      KeyFields = 'idUsuario'
+      Size = 50
+      Lookup = True
     end
   end
   object pEntrada: TDataSetProvider

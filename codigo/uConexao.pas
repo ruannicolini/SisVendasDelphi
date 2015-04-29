@@ -153,7 +153,6 @@ type
     mFaturamentoidPedido: TIntegerField;
     mFaturamentodata_faturamento: TStringField;
     mFaturamentonf: TFloatField;
-    mEntradaUsuario: TStringField;
     qEntradaEan: TQuery;
     mEntradaEan: TClientDataSet;
     pEntradaEan: TDataSetProvider;
@@ -165,6 +164,7 @@ type
     qEntradaEanean: TFloatField;
     qEntradadescricao: TStringField;
     mEntradadescricao: TStringField;
+    mEntradausuario: TStringField;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);
