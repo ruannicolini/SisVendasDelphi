@@ -48,6 +48,7 @@ procedure TFEntradaEstoque.btnNovoClick(Sender: TObject);
 begin
   inherited;
   DBEdata.Text := DateToStr(Date);
+  DBEdata.Enabled := False;
   eEan.Enabled := True;
   rbAutomatico.Enabled := True;
   rbManual.Enabled := True;

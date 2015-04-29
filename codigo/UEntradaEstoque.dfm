@@ -42,17 +42,17 @@ inherited FEntradaEstoque: TFEntradaEstoque
         object Label6: TLabel
           Left = 304
           Top = 171
-          Width = 21
+          Width = 17
           Height = 13
-          Caption = 'qTD'
+          Caption = 'Qtd'
           FocusControl = DBEqtd
         end
         object Label8: TLabel
           Left = 56
           Top = 211
-          Width = 27
+          Width = 23
           Height = 13
-          Caption = 'dATA'
+          Caption = 'Data'
           FocusControl = DBEdata
         end
         object Label2: TLabel
@@ -107,6 +107,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'idEntrada'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 4
         end
         object DBEdit4: TDBEdit
@@ -116,6 +117,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'idProduto'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 5
         end
         object DBEdit5: TDBEdit
@@ -143,6 +145,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'dataAlteracaoEstoque'
           DataSource = DS
+          ReadOnly = True
           TabOrder = 8
         end
         object DBEdit2: TDBEdit
