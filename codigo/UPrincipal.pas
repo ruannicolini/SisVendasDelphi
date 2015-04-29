@@ -31,6 +31,7 @@ type
     procedure imgUsuarioClick(Sender: TObject);
     procedure imgEntradaEstoqueClick(Sender: TObject);
     procedure imgContasClick(Sender: TObject);
+    procedure Image10Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -46,7 +47,7 @@ var
 implementation
 
 Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario, UEntradaEstoque,
-  uConta;
+  uConta, uConsultas;
 
 
 {$R *.dfm}
@@ -91,6 +92,11 @@ end;
 procedure TForm1.imgContasClick(Sender: TObject);
 begin
   FConta.Show;
+end;
+
+procedure TForm1.Image10Click(Sender: TObject);
+begin
+  FConsultas.Show;
 end;
 
 end.

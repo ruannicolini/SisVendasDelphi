@@ -88,11 +88,12 @@ begin
 
   end else
   begin
-
     ShowMessage('Código de barra não encontrado.');
     eEan.SetFocus;
   end;
   END;
+
+
 end;
 
 end.
