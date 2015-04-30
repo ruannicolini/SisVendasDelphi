@@ -63,6 +63,7 @@ type
     procedure DBGrid2DblClick(Sender: TObject);
     procedure DBGrid2KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -312,6 +313,12 @@ begin
 
      end;
   end;
+end;
+
+procedure TFPedido.BitBtn1Click(Sender: TObject);
+begin
+  inherited;
+  ExportarExcel(DataModule1.mPedido);
 end;
 
 end.

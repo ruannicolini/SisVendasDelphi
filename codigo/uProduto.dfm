@@ -7,10 +7,10 @@ inherited FProduto: TFProduto
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 459
+    Top = 466
   end
   inherited PageControl1: TPageControl
-    Height = 428
+    Height = 435
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Height = 400
@@ -111,6 +111,16 @@ inherited FProduto: TFProduto
           DataSource = DS
           TabOrder = 5
         end
+      end
+    end
+    inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Height = 342
       end
     end
   end

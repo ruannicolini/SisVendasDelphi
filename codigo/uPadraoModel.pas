@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB, StdCtrls,
-  Grids, DBGrids, DBCtrls, Buttons;
+  Grids, DBGrids, DBCtrls, Buttons, ComObj, DBClient;
 
 type
   TFormPadrao = class(TForm)
@@ -28,6 +28,7 @@ type
     gbFiltros: TGroupBox;
     DBGrid1: TDBGrid;
     gbDados: TGroupBox;
+    BitBtn1: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -45,9 +46,14 @@ type
     procedure btnUltimoClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
+    procedure ExportarExcel(dado: TClientDataSet);
+    function isData(Field : TDBEdit) : Boolean;
+    function isCPF(Field : TDBEdit): boolean;
+    function isCNPJ(Field : TDBEdit): boolean;
+    function isEMail(Field : TDBEdit): Boolean;
+    function isEmpty: Boolean;
   private
     procedure StatusBotoes(e: integer);
-
     { Private declarations }
   public
     { Public declarations }
@@ -79,8 +85,6 @@ begin
   btnPesquisar.Enabled := e=2;
 
 end;
-
-
 
 procedure TFormPadrao.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -203,6 +207,234 @@ end;
 procedure TFormPadrao.FormCreate(Sender: TObject);
 begin
   KeyPreview:=true;
+end;
+
+procedure TFormPadrao.ExportarExcel(dado: TClientDataSet);
+var
+	 	linha, coluna: integer;
+	 	planilha: variant;
+	 	valorCampo: string;
+	begin
+  inherited;
+    planilha := CreateOleObject ('Excel.Application');
+		planilha.Workbooks.add(1);
+		planilha.Cells.Select;
+		planilha.Selection.NumberFormat := '@';
+		planilha.Caption := 'Exportação de dados para o excel';
+		planilha.Visible := True;
+		dado.First;
+
+		for linha := 0 to dado.RecordCount -1 do
+		begin
+			for coluna := 1 to dado.FieldCount do
+			begin
+				valorCampo := dado.Fields[coluna-1].AsString;
+				planilha.Cells[linha+2, coluna] := valorCampo;
+			end;
+			dado.Next;
+		end;
+
+		for coluna := 1 to dado.FieldCount do
+		begin
+			valorCampo := dado.Fields[coluna-1].DisplayLabel;
+			planilha.Cells[1, coluna] := valorCampo;
+		end;
+		planilha.Columns.AutoFit;
+
+end;
+
+function TFormPadrao.isData(Field : TDBEdit) : Boolean;
+var
+   Data : String;
+begin
+    Data := Copy(Field.Text,1,2) + '/' + Copy(Field.Text,3,2) + '/' + Copy(Field.Text,5,4);
+    try
+       StrToDate(Data);
+       Result := True;
+    except
+       Result := False;
+    end;
+end;
+
+function TFormPadrao.isCPF(Field : TDBEdit): boolean;
+var
+	dig10, dig11: string;
+	s, i, r, peso: integer;
+
+	begin
+	// length - retorna o tamanho da string (CPF é um número formado por 11 dígitos)
+
+		if ((Field.Text = '00000000000') or (Field.Text = '11111111111') or
+		(Field.Text = '22222222222') or (Field.Text = '33333333333') or
+		(Field.Text = '44444444444') or (Field.Text = '55555555555') or
+		(Field.Text = '66666666666') or (Field.Text = '77777777777') or
+		(Field.Text = '88888888888') or (Field.Text = '99999999999') or
+		(length(Field.Text) <> 11)) then
+		begin
+			isCPF := false;
+			exit;
+		end;
+		// try - protege o código para eventuais erros de conversão de tipo na função StrToInt
+		try
+{ *-- Cálculo do 1o. Digito Verificador --* }
+			s := 0;
+			peso := 10;
+			for i := 1 to 9 do
+			begin
+			// StrToInt converte o i-ésimo caractere do CPF em um número
+				s := s + (StrToInt(Field.Text[i]) * peso);
+				peso := peso - 1;
+			end;
+			r := 11 - (s mod 11);
+			if ((r = 10) or (r = 11)) then
+				dig10 := '0'
+			else
+				str(r:1, dig10); // converte um número no respectivo caractere numérico
+
+{ *-- Cálculo do 2o. Digito Verificador --* }
+			s := 0;
+			peso := 11;
+			for i := 1 to 10 do
+			begin
+				s := s + (StrToInt(Field.Text[i]) * peso);
+				peso := peso - 1;
+			end;
+			r := 11 - (s mod 11);
+			if ((r = 10) or (r = 11)) then
+				dig11 := '0'
+			else
+				str(r:1, dig11);
+
+{ Verifica se os digitos calculados conferem com os digitos informados. }
+			if ((dig10 = Field.Text[10]) and (dig11 = Field.Text[11])) then
+				isCPF := true
+			else
+				isCPF := false;
+		except
+			isCPF := false
+		end;
+
+	end;
+
+function TFormPadrao.isCNPJ(Field : TDBEdit): boolean;
+var 
+	dig13, dig14: string; 
+	sm, i, r, peso: integer; 
+	begin
+	// length - retorna o tamanho da string do CNPJ (CNPJ é um número formado por 14 dígitos)
+		if ((Field.Text = '00000000000000') or (Field.Text = '11111111111111') or
+		(Field.Text = '22222222222222') or (Field.Text = '33333333333333') or
+		(Field.Text = '44444444444444') or (Field.Text = '55555555555555') or
+		(Field.Text = '66666666666666') or (Field.Text = '77777777777777') or
+		(Field.Text = '88888888888888') or (Field.Text = '99999999999999') or
+		(length(Field.Text) <> 14)) then
+			begin 
+				isCNPJ := false; 
+				exit; 
+			end; 
+
+	// "try" - protege o código para eventuais erros de conversão de tipo através da função "StrToInt" 
+		try 
+
+	{ *-- Cálculo do 1o. Digito Verificador --* } 
+			sm := 0; 
+			peso := 2; 
+			for i := 12 downto 1 do 
+				begin 
+				// StrToInt converte o i-ésimo caractere do CNPJ em um número 
+					sm := sm + (StrToInt(Field.Text[i]) * peso);
+					peso := peso + 1;
+					
+					if (peso = 10) then 
+						peso := 2; 
+				end; 
+				r := sm mod 11; 
+				if ((r = 0) or (r = 1)) then 
+					dig13 := '0' 
+				else str((11-r):1, dig13); // converte um número no respectivo caractere numérico 
+
+	{ *-- Cálculo do 2o. Digito Verificador --* } 
+			sm := 0; 
+			peso := 2; 
+			for i := 13 downto 1 do 
+				begin 
+					sm := sm + (StrToInt(Field.Text[i]) * peso);
+					peso := peso + 1; 
+					if (peso = 10) then 
+						peso := 2; 
+				end; 
+				r := sm mod 11; 
+				if ((r = 0) or (r = 1)) then 
+					dig14 := '0' 
+				else str((11-r):1, dig14); 
+
+	{ Verifica se os digitos calculados conferem com os digitos informados. } 
+			if ((dig13 = Field.Text[13]) and (dig14 = Field.Text[14])) then
+				isCNPJ := true 
+			else isCNPJ := false; 
+		except 
+			isCNPJ := false
+		end; 
+	end;
+
+function TFormPadrao.isEMail(Field : TDBEdit): Boolean;
+var
+  aStr: string;
+
+begin
+  aStr := Field.Text;
+  aStr := Trim(UpperCase(aStr));
+ if Pos('@', aStr) > 1 then
+ begin
+   Delete(aStr, 1, pos('@', aStr));
+   Result := (Length(aStr) > 0) and (Pos('.', aStr) > 2);
+ end
+ else
+   Result := False;
+end;
+
+function TFormPadrao.isEmpty: Boolean;
+var
+  I: Integer;
+
+begin
+
+  for I := 0 to ComponentCount - 1 do
+
+  begin
+
+    if Components[I].ClassType = TDBEdit then
+
+    if TDBEdit(Components[I]).Text = '' then
+
+    begin
+
+      Result := true;
+
+      TDBEdit(Components[I]).Hint := 'Campo Obrigatório';
+      TDBEdit(Components[I]).SetFocus;
+
+      Exit;
+
+    end;
+
+    if Components[I].ClassType = TDBLookupComboBox then
+
+    if TDBLookupComboBox(Components[I]).Text = '' then
+
+    begin
+
+      Result := true;
+
+      TDBLookupComboBox(Components[I]).Hint := 'Campo Obrigatório';
+      TDBLookupComboBox(Components[I]).SetFocus;
+
+      Exit;
+
+    end;
+
+  end;
+
 end;
 
 end.
