@@ -45,7 +45,6 @@ type
     qProdutoean: TFloatField;
     qValorTotal: TQuery;
     ed_vlTotal: TDBEdit;
-    ed_tecla: TEdit;
     btnFaturar: TToolButton;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);

@@ -53,7 +53,6 @@ inherited FPedido: TFPedido
   inherited PageControl1: TPageControl
     Width = 741
     Height = 554
-    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 733
@@ -359,22 +358,11 @@ inherited FPedido: TFPedido
             OnEnter = ed_vlTotalEnter
           end
         end
-        object ed_tecla: TEdit
-          Left = 280
-          Top = 32
-          Width = 121
-          Height = 21
-          TabOrder = 7
-          OnKeyDown = ed_teclaKeyDown
-        end
       end
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
         Width = 733
-        inherited BitBtn1: TBitBtn
-          Left = 8
-        end
       end
       inherited DBGrid1: TDBGrid
         Width = 733
