@@ -53,6 +53,7 @@ inherited FPedido: TFPedido
   inherited PageControl1: TPageControl
     Width = 741
     Height = 554
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 733
@@ -371,6 +372,9 @@ inherited FPedido: TFPedido
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
         Width = 733
+        inherited BitBtn1: TBitBtn
+          Left = 8
+        end
       end
       inherited DBGrid1: TDBGrid
         Width = 733

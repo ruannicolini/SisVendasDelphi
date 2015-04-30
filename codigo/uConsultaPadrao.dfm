@@ -45,18 +45,4 @@ object FConsultaPadrao: TFConsultaPadrao
     Left = 888
     Top = 8
   end
-  object Query1: TQuery
-    Left = 768
-    Top = 8
-  end
-  object ClientDataSet1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 808
-    Top = 8
-  end
-  object DataSetProvider1: TDataSetProvider
-    Left = 848
-    Top = 8
-  end
 end

@@ -142,7 +142,7 @@ object FormPadrao: TFormPadrao
         Align = alTop
         TabOrder = 0
         object BitBtn1: TBitBtn
-          Left = 688
+          Left = 8
           Top = 16
           Width = 25
           Height = 25

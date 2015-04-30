@@ -13,9 +13,6 @@ type
     StatusBar1: TStatusBar;
     GroupBox1: TGroupBox;
     DS: TDataSource;
-    Query1: TQuery;
-    ClientDataSet1: TClientDataSet;
-    DataSetProvider1: TDataSetProvider;
   private
     { Private declarations }
   public
