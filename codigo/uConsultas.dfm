@@ -22,6 +22,7 @@ object FConsultas: TFConsultas
     Width = 185
     Height = 41
     Caption = 'Contas a Receber em Atraso'
+    OnClick = btnConsultaContasClick
   end
   object BtnConsultaProdutos: TSpeedButton
     Left = 8
