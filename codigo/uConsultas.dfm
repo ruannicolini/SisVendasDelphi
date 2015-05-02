@@ -44,5 +44,6 @@ object FConsultas: TFConsultas
     Width = 185
     Height = 41
     Caption = 'Clientes Sem Venda '
+    OnClick = btnConsultaClientesClick
   end
 end

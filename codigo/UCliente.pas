@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  Mask, DBCtrls;
+  Mask, DBCtrls, Buttons;
 
 type
   TFCliente = class(TFormPadrao)

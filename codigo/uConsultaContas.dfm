@@ -13,26 +13,46 @@ inherited FConsultaContas: TFConsultaContas
   end
   inherited ToolBar1: TToolBar
     Width = 905
+    ButtonWidth = 27
     inherited btnNovo: TToolButton
       Visible = False
     end
     inherited btnDeletar: TToolButton
+      Left = 27
       Visible = False
     end
     inherited btnAlterar: TToolButton
+      Left = 54
       Visible = False
     end
     inherited btnCancelar: TToolButton
+      Left = 81
       Visible = False
     end
     inherited btnSalvar: TToolButton
+      Left = 108
       Visible = False
     end
+    inherited btnPesquisar: TToolButton
+      Left = 135
+    end
+    inherited btnPrimeiro: TToolButton
+      Left = 162
+    end
+    inherited btnAnterior: TToolButton
+      Left = 189
+    end
+    inherited btnProximo: TToolButton
+      Left = 216
+    end
+    inherited btnUltimo: TToolButton
+      Left = 243
+    end
     object ToolButton1: TToolButton
-      Left = 230
+      Left = 270
       Top = 0
       Caption = 'ToolButton1'
-      ImageIndex = 10
+      ImageIndex = 11
       OnClick = ToolButton1Click
     end
   end
