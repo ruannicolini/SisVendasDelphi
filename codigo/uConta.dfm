@@ -22,7 +22,7 @@ inherited FConta: TFConta
       Left = 230
       Top = 0
       Caption = 'ToolButton1'
-      ImageIndex = 10
+      ImageIndex = 12
     end
   end
   inherited PageControl1: TPageControl
