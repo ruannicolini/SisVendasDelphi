@@ -20,6 +20,7 @@ type
     DBEdit4: TDBEdit;
     Label5: TLabel;
     DBEdit5: TDBEdit;
+    ToolButton1: TToolButton;
   private
     { Private declarations }
   public

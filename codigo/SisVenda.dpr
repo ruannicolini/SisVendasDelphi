@@ -14,7 +14,8 @@ uses
   uConta in 'uConta.pas' {FConta},
   uConsultas in 'uConsultas.pas' {FConsultas},
   uConsultaContas in 'uConsultaContas.pas' {FConsultaContas},
-  uConsultaClientes in 'uConsultaClientes.pas' {FConsultaClientes};
+  uConsultaClientes in 'uConsultaClientes.pas' {FConsultaClientes},
+  uConsultasProdutos in 'uConsultasProdutos.pas' {FConsultaProdutos};
 
 {$R *.res}
 
@@ -34,5 +35,6 @@ begin
   Application.CreateForm(TFConsultas, FConsultas);
   Application.CreateForm(TFConsultaContas, FConsultaContas);
   Application.CreateForm(TFConsultaClientes, FConsultaClientes);
+  Application.CreateForm(TFConsultaProdutos, FConsultaProdutos);
   Application.Run;
 end.

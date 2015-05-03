@@ -30,6 +30,7 @@ object FConsultas: TFConsultas
     Width = 185
     Height = 41
     Caption = 'Produtos Mais Vendidos'
+    OnClick = BtnConsultaProdutosClick
   end
   object btnConsultaEstoque: TSpeedButton
     Left = 8

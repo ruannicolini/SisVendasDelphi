@@ -18,6 +18,12 @@ inherited FConta: TFConta
     inherited btnSalvar: TToolButton
       Visible = False
     end
+    object ToolButton1: TToolButton
+      Left = 230
+      Top = 0
+      Caption = 'ToolButton1'
+      ImageIndex = 10
+    end
   end
   inherited PageControl1: TPageControl
     inherited tbDados: TTabSheet

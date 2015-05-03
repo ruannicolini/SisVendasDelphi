@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, Buttons, ComCtrls,
-  ToolWin, DBTables, DBClient, Provider;
+  ToolWin, DBTables, DBClient, Provider, Mask, DBCtrls;
 
 type
   TFConsultaClientes = class(TFormPadrao)
@@ -40,6 +40,30 @@ type
     mConsultaemail: TStringField;
     mConsultaie: TStringField;
     mConsultaidCidade: TIntegerField;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    DBEdit8: TDBEdit;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    Label10: TLabel;
+    DBEdit10: TDBEdit;
+    Label11: TLabel;
+    DBEdit11: TDBEdit;
+    Label12: TLabel;
+    DBEdit12: TDBEdit;
     procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
