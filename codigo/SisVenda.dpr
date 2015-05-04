@@ -15,7 +15,8 @@ uses
   uConsultas in 'uConsultas.pas' {FConsultas},
   uConsultaContas in 'uConsultaContas.pas' {FConsultaContas},
   uConsultaClientes in 'uConsultaClientes.pas' {FConsultaClientes},
-  uConsultasProdutos in 'uConsultasProdutos.pas' {FConsultaProdutos};
+  uConsultasProdutos in 'uConsultasProdutos.pas' {FConsultaProdutos},
+  uConsultaEstoque in 'uConsultaEstoque.pas' {FConsultaEstoque};
 
 {$R *.res}
 
@@ -36,5 +37,6 @@ begin
   Application.CreateForm(TFConsultaContas, FConsultaContas);
   Application.CreateForm(TFConsultaClientes, FConsultaClientes);
   Application.CreateForm(TFConsultaProdutos, FConsultaProdutos);
+  Application.CreateForm(TFConsultaEstoque, FConsultaEstoque);
   Application.Run;
 end.

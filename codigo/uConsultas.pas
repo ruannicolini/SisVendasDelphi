@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, uConsultacontas, uConsultaClientes, uConsultasProdutos;
+  Dialogs, Buttons, uConsultacontas, uConsultaClientes, uConsultasProdutos, uConsultaEstoque;
 
 type
   TFConsultas = class(TForm)
@@ -15,6 +15,7 @@ type
     procedure btnConsultaContasClick(Sender: TObject);
     procedure btnConsultaClientesClick(Sender: TObject);
     procedure BtnConsultaProdutosClick(Sender: TObject);
+    procedure btnConsultaEstoqueClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +42,11 @@ end;
 procedure TFConsultas.BtnConsultaProdutosClick(Sender: TObject);
 begin
   FConsultaProdutos.Show;
+end;
+
+procedure TFConsultas.btnConsultaEstoqueClick(Sender: TObject);
+begin
+  FConsultaEstoque.Show;
 end;
 
 end.
