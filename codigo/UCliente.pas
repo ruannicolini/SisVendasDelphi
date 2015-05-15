@@ -39,7 +39,10 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure DBEemailExit(Sender: TObject);
     procedure DBEcnpjExit(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,11 +85,34 @@ begin
   end;
 end;
 
-procedure TFCliente.FormCreate(Sender: TObject);
+procedure TFCliente.btnNovoClick(Sender: TObject);
 begin
-  inherited;
   DBEidCliente.Color := CorCamposOnlyRead();
   DBEidCidade.Color := CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFCliente.btnAlterarClick(Sender: TObject);
+begin
+  DBEidCliente.Color := CorCamposOnlyRead();
+  DBEidCidade.Color := CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFCliente.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  DBEidCliente.Color := clWindow;
+  DBEidCidade.Color := clWindow;
+end;
+
+procedure TFCliente.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  DBEidCliente.Color := clWindow;
+  DBEidCidade.Color := clWindow;
 end;
 
 end.

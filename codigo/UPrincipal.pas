@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg, Buttons,
-  StdCtrls, AppEvnts, DBTables, BDE;
+  StdCtrls, AppEvnts, DBTables, BDE, DBClient;
 
 type
   TForm1 = class(TForm)
@@ -181,16 +181,28 @@ end;
 
 procedure TForm1.AELogException(Sender: TObject; E: Exception);
 begin
-  if(E is EDBEngineError) then
+  if(Sender is TClientDataSet) then
+  begin
+    ShowMessage(Sender.ClassName);
+  end;
+
+  if (E is EReconcileError) then
+  begin
+    if pos('THE DELETE STATEMENT CONFLICTED WITH THE REFERENCE CONSTRAINT', UpperCase(E.Message)) > 0 then
+      ShowMessage('Registro vinculado a outra tabela, ERRO Chave Estrangeira!');
+  end
+  else if(E is EDBEngineError) then
     with EDBEngineError(E) do
       case Errors[0].ErrorCode of
         DBIERR_KEYVIOL:
           ShowMessage('Já cadastrado.');
         DBIERR_REQDERR:
           ShowMessage('Campo obrigatório não preenchido.');
+        DBIERR_FORIEGNKEYERR:
+          ShowMessage ('Erro integridade referencial.');
       end
-    else
-      ShowMessage('Erro no banco de dados:' + #13#13 + E.Message);
+  else
+    ShowMessage('Erro no banco de dados:' + #13#13 + E.Message);
 end;
 
 procedure TForm1.imgRecalcularClick(Sender: TObject);

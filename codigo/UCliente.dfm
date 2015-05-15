@@ -123,7 +123,6 @@ inherited FCliente: TFCliente
           Width = 134
           Height = 21
           TabStop = False
-          Color = clGray
           DataField = 'idCliente'
           DataSource = DS
           ReadOnly = True
@@ -245,7 +244,6 @@ inherited FCliente: TFCliente
           Width = 25
           Height = 21
           TabStop = False
-          Color = clGray
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True

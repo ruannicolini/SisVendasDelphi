@@ -215,6 +215,39 @@ type
     procedure mPedidoItemAfterPost(DataSet: TDataSet);
     procedure mPedidoItemAfterDelete(DataSet: TDataSet);
     procedure mPedidoItemAfterCancel(DataSet: TDataSet);
+    procedure mCidadeReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mClienteReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mPedidoReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mProdutoReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mUsuarioReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mContaReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mEntradaReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mPedidoItemReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mFaturamentoReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mEntradaEanReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure mLoginReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
 
   private
     { Private declarations }
@@ -227,7 +260,8 @@ var
   DataModule1: TDataModule1;
 
 implementation
-
+Uses
+  uPrincipal;
 {$R *.dfm}
 
 procedure TDataModule1.mClienteAfterPost(DataSet: TDataSet);
@@ -412,6 +446,83 @@ end;
 procedure TDataModule1.mPedidoItemAfterCancel(DataSet: TDataSet);
 begin
   mPedidoItem.CancelUpdates;
+end;
+
+procedure TDataModule1.mCidadeReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mClienteReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mPedidoReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mProdutoReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mUsuarioReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mContaReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mEntradaReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mPedidoItemReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mFaturamentoReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mEntradaEanReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError;
+  UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
+end;
+
+procedure TDataModule1.mLoginReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+  Form1.AELogException(Self,E);
 end;
 
 end.

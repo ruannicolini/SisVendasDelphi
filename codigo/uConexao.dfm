@@ -676,6 +676,7 @@ object DataModule1: TDataModule1
     AfterPost = mClienteAfterPost
     AfterCancel = mClienteAfterCancel
     AfterDelete = mClienteAfterDelete
+    OnReconcileError = mClienteReconcileError
     Left = 8
     Top = 128
     object mClienteidCliente: TIntegerField
@@ -787,6 +788,7 @@ object DataModule1: TDataModule1
     AfterPost = mCidadeAfterPost
     AfterCancel = mCidadeAfterCancel
     AfterDelete = mCidadeAfterDelete
+    OnReconcileError = mCidadeReconcileError
     Left = 72
     Top = 128
     object mCidadeidCidade: TIntegerField
@@ -863,6 +865,7 @@ object DataModule1: TDataModule1
     AfterCancel = mPedidoAfterCancel
     AfterDelete = mPedidoAfterDelete
     AfterScroll = mPedidoAfterScroll
+    OnReconcileError = mPedidoReconcileError
     Left = 136
     Top = 128
     object mPedidoidPedido: TIntegerField
@@ -945,6 +948,7 @@ object DataModule1: TDataModule1
     AfterPost = mProdutoAfterPost
     AfterCancel = mProdutoAfterCancel
     AfterDelete = mProdutoAfterDelete
+    OnReconcileError = mProdutoReconcileError
     Left = 200
     Top = 128
     object mProdutoidProduto: TIntegerField
@@ -1021,6 +1025,7 @@ object DataModule1: TDataModule1
     AfterPost = mUsuarioAfterPost
     AfterCancel = mUsuarioAfterCancel
     AfterDelete = mUsuarioAfterDelete
+    OnReconcileError = mUsuarioReconcileError
     Left = 256
     Top = 128
     object mUsuarioidUsuario: TIntegerField
@@ -1111,6 +1116,7 @@ object DataModule1: TDataModule1
     AfterPost = mEntradaAfterPost
     AfterCancel = mEntradaAfterCancel
     AfterDelete = mEntradaAfterDelete
+    OnReconcileError = mEntradaReconcileError
     Left = 368
     Top = 128
     object mEntradaidEntrada: TFloatField
@@ -1197,6 +1203,7 @@ object DataModule1: TDataModule1
     AfterPost = mContaAfterPost
     AfterCancel = mContaAfterCancel
     AfterDelete = mContaAfterDelete
+    OnReconcileError = mContaReconcileError
     Left = 312
     Top = 128
     object mContaidConta: TIntegerField
@@ -1285,6 +1292,7 @@ object DataModule1: TDataModule1
     AfterPost = mPedidoItemAfterPost
     AfterCancel = mPedidoItemAfterCancel
     AfterDelete = mPedidoItemAfterDelete
+    OnReconcileError = mPedidoItemReconcileError
     Left = 435
     Top = 128
     object mPedidoItemidPedido: TIntegerField
@@ -1344,6 +1352,7 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pFaturamento'
+    OnReconcileError = mFaturamentoReconcileError
     Left = 512
     Top = 124
     object mFaturamentoidFaturamento: TIntegerField
@@ -1403,6 +1412,7 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pEntradaEan'
+    OnReconcileError = mEntradaEanReconcileError
     Left = 584
     Top = 128
     object mEntradaEanidProduto: TIntegerField
@@ -1466,6 +1476,7 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'pLogin'
+    OnReconcileError = mLoginReconcileError
     Left = 648
     Top = 128
   end

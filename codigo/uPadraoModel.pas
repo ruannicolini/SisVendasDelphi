@@ -134,10 +134,10 @@ procedure TFormPadrao.btnNovoClick(Sender: TObject);
 begin
     if not ds.DataSet.Active then
         ds.DataSet.Open;
-
+    PageControl1.ActivePageIndex := 0;
     ds.DataSet.Append;
 
-    PageControl1.ActivePageIndex := 0;
+
 end;
 
 procedure TFormPadrao.btnAlterarClick(Sender: TObject);
