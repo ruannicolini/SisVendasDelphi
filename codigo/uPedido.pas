@@ -64,6 +64,7 @@ type
       Shift: TShiftState);
     procedure BitBtn1Click(Sender: TObject);
     procedure ed_barraKeyPress(Sender: TObject; var Key: Char);
+    procedure btnDeletarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -423,6 +424,16 @@ begin
       ed_barra.SetFocus;
   end;
   ed_barra.SetFocus;
+end;
+
+procedure TFPedido.btnDeletarClick(Sender: TObject);
+begin
+  {Faz o controle - Pedidos já faturados não devem ser excluidos}
+  if(Ds.DataSet.FieldByName('faturado').AsBoolean = false)then
+  begin
+      inherited;
+  end else
+    ShowMessage('Pedido Ja Faturado - Não pode ser Excluído!');
 end;
 
 end.

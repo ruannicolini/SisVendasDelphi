@@ -23,6 +23,7 @@ inherited FConsultaEstoque: TFConsultaEstoque
   inherited PageControl1: TPageControl
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
+        Width = 912
         object Edit_Ean: TLabeledEdit
           Left = 72
           Top = 24
@@ -33,6 +34,10 @@ inherited FConsultaEstoque: TFConsultaEstoque
           EditLabel.Caption = 'Ean'
           TabOrder = 1
         end
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 912
+        Height = 341
       end
     end
   end
