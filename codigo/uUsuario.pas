@@ -26,6 +26,10 @@ type
     DBEidNivel: TDBEdit;
     procedure BitBtn1Click(Sender: TObject);
     procedure DBEemailExit(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,6 +57,40 @@ begin
     ShowMessage('Email Inválido');
     DBEemail.SetFocus;
   end;
+end;
+
+procedure TFUsuario.btnNovoClick(Sender: TObject);
+begin
+  DBidUsuario.Color := CorCamposOnlyRead();
+  DBEidNivel.Color :=  CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFUsuario.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  DBidUsuario.Color := clWindow;
+  DBEidNivel.Color :=  clWindow;
+
+
+end;
+
+procedure TFUsuario.btnSalvarClick(Sender: TObject);
+begin
+
+  inherited;
+  DBidUsuario.Color := clWindow;
+  DBEidNivel.Color :=  clWindow;
+
+end;
+
+procedure TFUsuario.btnAlterarClick(Sender: TObject);
+begin
+  DBidUsuario.Color := CorCamposOnlyRead();
+  DBEidNivel.Color :=  CorCamposOnlyRead();
+  inherited;
+
 end;
 
 end.

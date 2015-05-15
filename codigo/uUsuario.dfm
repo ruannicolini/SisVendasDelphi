@@ -1,5 +1,6 @@
 inherited FUsuario: TFUsuario
-  Top = 221
+  Left = 244
+  Top = 182
   Caption = 'FUsuario'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -66,11 +67,13 @@ inherited FUsuario: TFUsuario
         object DBidUsuario: TDBEdit
           Left = 24
           Top = 48
-          Width = 134
+          Width = 97
           Height = 21
+          TabStop = False
           DataField = 'idUsuario'
           DataSource = DS
-          TabOrder = 0
+          ReadOnly = True
+          TabOrder = 6
         end
         object DBEnome: TDBEdit
           Left = 24
@@ -79,7 +82,7 @@ inherited FUsuario: TFUsuario
           Height = 21
           DataField = 'nome'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 0
         end
         object DBEsenha: TDBEdit
           Left = 24
@@ -107,16 +110,16 @@ inherited FUsuario: TFUsuario
           Height = 21
           DataField = 'username'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 1
         end
         object DBLookupComboBox1: TDBLookupComboBox
           Left = 64
           Top = 248
-          Width = 339
+          Width = 305
           Height = 21
           DataField = 'NivelUsuario'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 4
         end
         object DBEidNivel: TDBEdit
           Left = 24
@@ -127,7 +130,7 @@ inherited FUsuario: TFUsuario
           DataField = 'nivel'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
         end
       end
     end

@@ -34,8 +34,9 @@ type
       Shift: TShiftState);
     procedure DBEdataExit(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure eEanKeyPress(Sender: TObject; var Key: Char);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,7 +52,11 @@ implementation
 
 procedure TFEntradaEstoque.btnNovoClick(Sender: TObject);
 begin
+  DBEidEntrada.Color := CorCamposOnlyRead();
+  DBEidProduto.Color := CorCamposOnlyRead();
+  DBEidUsuario.Color := CorCamposOnlyRead();
   inherited;
+  
   DBEdata.Text := DateToStr(Date);
   DBEdata.Enabled := False;
   eEan.Enabled := True;
@@ -62,9 +67,13 @@ end;
 
 procedure TFEntradaEstoque.btnCancelarClick(Sender: TObject);
 begin
-  inherited;
-  eEan.Enabled := False;
 
+  inherited;
+  DBEidEntrada.Color := clWindow;
+  DBEidProduto.Color := clWindow;
+  DBEidUsuario.Color := clWindow;
+
+  eEan.Enabled := False;
   rbAutomatico.Enabled := False;
   rbManual.Enabled := False;
 end;
@@ -117,14 +126,6 @@ begin
   ExportarExcel(DataModule1.mEntrada);
 end;
 
-procedure TFEntradaEstoque.FormCreate(Sender: TObject);
-begin
-  inherited;
-  DBEidEntrada.Color := CorCamposOnlyRead();
-  DBEidProduto.Color := CorCamposOnlyRead();
-  DBEidUsuario.Color := CorCamposOnlyRead();
-end;
-
 procedure TFEntradaEstoque.eEanKeyPress(Sender: TObject; var Key: Char);
   begin
   inherited;
@@ -139,21 +140,35 @@ procedure TFEntradaEstoque.eEanKeyPress(Sender: TObject; var Key: Char);
         begin
           if not (DataModule1.mEntrada.Active) then
             DataModule1.mEntrada.Open;
-
           {OBS> qEntradaEan consulta um produto}
           DataModule1.mEntradaidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
           DataModule1.mEntradadescricao.AsString := DataModule1.qEntradaEan.fieldByName('descricao').AsString
         end else
         begin
-        ShowMessage('Código de barra não encontrado.');
-        eEan.SetFocus;
-        end;
+          ShowMessage('Código de barra não encontrado.');
+          eEan.SetFocus;
+      end;
     end;
-
-
     SelectNext(ActiveControl as TWinControl,True,True);
     key:=#0;
   end;
+end;
+
+procedure TFEntradaEstoque.btnAlterarClick(Sender: TObject);
+begin
+  DBEidEntrada.Color := CorCamposOnlyRead();
+  DBEidProduto.Color := CorCamposOnlyRead();
+  DBEidUsuario.Color := CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFEntradaEstoque.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  DBEidEntrada.Color := clWindow;
+  DBEidProduto.Color := clWindow;
+  DBEidUsuario.Color := clWindow;
 end;
 
 end.
