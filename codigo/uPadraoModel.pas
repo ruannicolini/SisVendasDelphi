@@ -44,7 +44,6 @@ type
     procedure btnAnteriorClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
     procedure ExportarExcel(dado: TClientDataSet);
     function isData(Field : TDBEdit) : Boolean;
@@ -54,9 +53,11 @@ type
     function isEmpty: Boolean;
   private
     procedure StatusBotoes(e: integer);
+
     { Private declarations }
   public
     { Public declarations }
+    function CorCamposOnlyRead():TColor;
   end;
 
 var
@@ -94,12 +95,16 @@ end;
 procedure TFormPadrao.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+  {VK_RETURN é a tecla enter}
   if( key = vk_return)
       and not (ActiveControl is tmemo)
       and not (ActiveControl is TDBMemo)
       and not (ActiveControl is TDBGrid) then
-      Perform( WM_NEXTDLGCTL,0,0);
-end;
+      begin
+        PERFORM(WM_NEXTDLGCTL,0,0); 
+        KEY:=0;
+        end
+  end;
 
 procedure TFormPadrao.DSStateChange(Sender: TObject);
 begin
@@ -184,7 +189,7 @@ begin
     begin
         if (Application.MessageBox('Deseja Deletar ', 'Deletar', MB_YESNO + MB_ICONQUESTION) = id_yes) then
         begin
-          ds.DataSet.Cancel;
+          ds.DataSet.Delete;
         end;
     end
     else
@@ -218,16 +223,9 @@ begin
     ds.DataSet.Last;
 end;
 
-procedure TFormPadrao.FormKeyPress(Sender: TObject; var Key: Char);
-begin
-  if key=#13 then begin
-    SelectNext(ActiveControl as TWinControl,True,True);
-    key:=#0;
-  end;
-end;
-
 procedure TFormPadrao.FormCreate(Sender: TObject);
 begin
+{Esta propriedade define se o Delphi ira detectar as teclas que sao acionadas no form.}
   KeyPreview:=true;
 end;
 
@@ -459,6 +457,11 @@ begin
 
   end;
 
+end;
+
+function TFormPadrao.CorCamposOnlyRead: TColor;
+begin
+  Result := $009393FF;
 end;
 
 end.

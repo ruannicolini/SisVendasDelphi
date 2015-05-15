@@ -1,5 +1,4 @@
 inherited FCliente: TFCliente
-  Left = 286
   Top = 171
   Height = 499
   Caption = 'FCliente'
@@ -7,107 +6,107 @@ inherited FCliente: TFCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 442
+    Top = 449
   end
   inherited PageControl1: TPageControl
-    Height = 411
+    Height = 418
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Height = 383
+        Height = 390
         object Label1: TLabel
           Left = 24
           Top = 24
-          Width = 40
+          Width = 54
           Height = 13
-          Caption = 'idCliente'
+          Caption = 'Cod Cliente'
           FocusControl = DBEidCliente
         end
         object Label2: TLabel
           Left = 24
           Top = 64
-          Width = 26
+          Width = 28
           Height = 13
-          Caption = 'nome'
+          Caption = 'Nome'
           FocusControl = DBEnome
         end
         object Label3: TLabel
           Left = 24
           Top = 104
-          Width = 45
+          Width = 46
           Height = 13
-          Caption = 'endereco'
+          Caption = 'Endereco'
           FocusControl = DBEendereco
         end
         object Label4: TLabel
           Left = 24
           Top = 144
-          Width = 35
+          Width = 37
           Height = 13
-          Caption = 'numero'
+          Caption = 'Numero'
           FocusControl = DBEnumero
         end
         object Label5: TLabel
           Left = 128
           Top = 144
-          Width = 26
+          Width = 27
           Height = 13
-          Caption = 'bairro'
+          Caption = 'Bairro'
           FocusControl = DBEbairro
         end
         object Label6: TLabel
           Left = 24
           Top = 184
-          Width = 63
+          Width = 64
           Height = 13
-          Caption = 'complemento'
+          Caption = 'Complemento'
           FocusControl = DBEcomplemento
         end
         object Label7: TLabel
           Left = 296
           Top = 184
-          Width = 18
+          Width = 19
           Height = 13
-          Caption = 'cep'
+          Caption = 'Cep'
           FocusControl = DBEcep
         end
         object Label8: TLabel
           Left = 24
           Top = 225
-          Width = 20
+          Width = 27
           Height = 13
-          Caption = 'cnpj'
+          Caption = 'CNPJ'
           FocusControl = DBEcnpj
         end
         object Label9: TLabel
           Left = 232
           Top = 224
-          Width = 30
+          Width = 40
           Height = 13
-          Caption = 'telFixo'
+          Caption = 'Tel. Fixo'
           FocusControl = DBEtelFixo
         end
         object Label10: TLabel
           Left = 232
           Top = 264
-          Width = 26
+          Width = 36
           Height = 13
-          Caption = 'telCel'
+          Caption = 'Tel. Cel'
           FocusControl = DBEtelCel
         end
         object Label11: TLabel
           Left = 24
           Top = 264
-          Width = 24
+          Width = 28
           Height = 13
-          Caption = 'email'
+          Caption = 'E-mail'
           FocusControl = DBEemail
         end
         object Label12: TLabel
           Left = 24
           Top = 303
-          Width = 8
+          Width = 10
           Height = 13
-          Caption = 'ie'
+          Caption = 'IE'
           FocusControl = DBEie
         end
         object Label13: TLabel
@@ -123,11 +122,12 @@ inherited FCliente: TFCliente
           Top = 40
           Width = 134
           Height = 21
-          Color = 14876413
+          TabStop = False
+          Color = clGray
           DataField = 'idCliente'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 0
+          TabOrder = 13
         end
         object DBEnome: TDBEdit
           Left = 24
@@ -136,7 +136,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'nome'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 0
         end
         object DBEendereco: TDBEdit
           Left = 24
@@ -145,7 +145,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'endereco'
           DataSource = DS
-          TabOrder = 2
+          TabOrder = 1
         end
         object DBEnumero: TDBEdit
           Left = 24
@@ -154,7 +154,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'numero'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 2
         end
         object DBEbairro: TDBEdit
           Left = 128
@@ -163,7 +163,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'bairro'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 3
         end
         object DBEcomplemento: TDBEdit
           Left = 24
@@ -172,7 +172,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'complemento'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 4
         end
         object DBEcep: TDBEdit
           Left = 296
@@ -181,7 +181,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'cep'
           DataSource = DS
-          TabOrder = 6
+          TabOrder = 5
         end
         object DBEcnpj: TDBEdit
           Left = 24
@@ -190,7 +190,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'cnpj'
           DataSource = DS
-          TabOrder = 7
+          TabOrder = 6
           OnExit = DBEcnpjExit
         end
         object DBEtelFixo: TDBEdit
@@ -200,7 +200,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'telFixo'
           DataSource = DS
-          TabOrder = 8
+          TabOrder = 7
         end
         object DBEtelCel: TDBEdit
           Left = 232
@@ -209,7 +209,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'telCel'
           DataSource = DS
-          TabOrder = 10
+          TabOrder = 9
         end
         object DBEemail: TDBEdit
           Left = 24
@@ -218,7 +218,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'email'
           DataSource = DS
-          TabOrder = 9
+          TabOrder = 8
           OnExit = DBEemailExit
         end
         object DBEie: TDBEdit
@@ -228,7 +228,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'ie'
           DataSource = DS
-          TabOrder = 11
+          TabOrder = 10
         end
         object DBLookupComboBox1: TDBLookupComboBox
           Left = 256
@@ -237,7 +237,7 @@ inherited FCliente: TFCliente
           Height = 21
           DataField = 'Cidade'
           DataSource = DS
-          TabOrder = 12
+          TabOrder = 11
         end
         object DBEidCidade: TDBEdit
           Left = 233
@@ -245,11 +245,11 @@ inherited FCliente: TFCliente
           Width = 25
           Height = 21
           TabStop = False
-          Color = 14089980
+          Color = clGray
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 13
+          TabOrder = 12
         end
       end
     end

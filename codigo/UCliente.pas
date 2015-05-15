@@ -39,6 +39,7 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure DBEemailExit(Sender: TObject);
     procedure DBEcnpjExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,6 +80,13 @@ begin
     ShowMessage('CNPJ Inválido');
     DBEcnpj.SetFocus;
   end;
+end;
+
+procedure TFCliente.FormCreate(Sender: TObject);
+begin
+  inherited;
+  DBEidCliente.Color := CorCamposOnlyRead();
+  DBEidCidade.Color := CorCamposOnlyRead();
 end;
 
 end.

@@ -34,6 +34,8 @@ type
       Shift: TShiftState);
     procedure DBEdataExit(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure eEanKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -88,7 +90,7 @@ begin
     {OBS> qEntradaEan consulta um produto}
     DataModule1.mEntradaidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
     DataModule1.mEntradadescricao.AsString := DataModule1.qEntradaEan.fieldByName('descricao').AsString
-
+    {}
   end else
   begin
     ShowMessage('Código de barra não encontrado.');
@@ -113,6 +115,45 @@ procedure TFEntradaEstoque.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   ExportarExcel(DataModule1.mEntrada);
+end;
+
+procedure TFEntradaEstoque.FormCreate(Sender: TObject);
+begin
+  inherited;
+  DBEidEntrada.Color := CorCamposOnlyRead();
+  DBEidProduto.Color := CorCamposOnlyRead();
+  DBEidUsuario.Color := CorCamposOnlyRead();
+end;
+
+procedure TFEntradaEstoque.eEanKeyPress(Sender: TObject; var Key: Char);
+  begin
+  inherited;
+  if key=#13 then begin
+    if (key = #13) and (trim(eEan.Text) <> '') then
+      begin
+        DataModule1.qEntradaEan.Close;
+        DataModule1.qEntradaEan.ParamByName('pean').AsInteger := StrToInt(eEan.Text);
+        DataModule1.qEntradaEan.Open;
+
+        if not (DataModule1.qEntradaEan.IsEmpty) then
+        begin
+          if not (DataModule1.mEntrada.Active) then
+            DataModule1.mEntrada.Open;
+
+          {OBS> qEntradaEan consulta um produto}
+          DataModule1.mEntradaidProduto.AsInteger := StrToInt(DataModule1.qEntradaEan.fieldByName('idProduto').AsString);
+          DataModule1.mEntradadescricao.AsString := DataModule1.qEntradaEan.fieldByName('descricao').AsString
+        end else
+        begin
+        ShowMessage('Código de barra não encontrado.');
+        eEan.SetFocus;
+        end;
+    end;
+
+
+    SelectNext(ActiveControl as TWinControl,True,True);
+    key:=#0;
+  end;
 end;
 
 end.

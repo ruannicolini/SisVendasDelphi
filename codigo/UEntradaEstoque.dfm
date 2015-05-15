@@ -67,8 +67,9 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 0
+          TabOrder = 2
           OnKeyDown = eEanKeyDown
+          OnKeyPress = eEanKeyPress
         end
         object rbGrup: TRadioGroup
           Left = 160
@@ -86,7 +87,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Caption = 'Autom'#225'tico'
           Checked = True
           Enabled = False
-          TabOrder = 2
+          TabOrder = 3
           TabStop = True
         end
         object rbManual: TRadioButton
@@ -96,36 +97,40 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 17
           Caption = 'Manual'
           Enabled = False
-          TabOrder = 3
+          TabOrder = 4
         end
         object DBEidEntrada: TDBEdit
           Left = 56
           Top = 64
           Width = 65
           Height = 21
+          TabStop = False
           DataField = 'idEntrada'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 4
+          TabOrder = 9
         end
         object DBEidProduto: TDBEdit
           Left = 56
           Top = 187
           Width = 49
           Height = 21
+          TabStop = False
           DataField = 'idProduto'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 8
         end
         object DBEdescricao: TDBEdit
           Left = 104
           Top = 187
           Width = 201
           Height = 21
+          TabStop = False
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 6
+          ReadOnly = True
+          TabOrder = 10
         end
         object DBEqtd: TDBEdit
           Left = 304
@@ -134,7 +139,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 7
+          TabOrder = 5
         end
         object DBEdata: TDBEdit
           Left = 56
@@ -144,7 +149,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'dataAlteracaoEstoque'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 8
+          TabOrder = 6
           OnExit = DBEdataExit
         end
         object DBEidUsuario: TDBEdit
@@ -152,9 +157,11 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Top = 104
           Width = 65
           Height = 21
+          TabStop = False
           DataField = 'idUsuario'
           DataSource = DS
-          TabOrder = 9
+          ReadOnly = True
+          TabOrder = 7
         end
         object DBLookupComboBox1: TDBLookupComboBox
           Left = 120
@@ -163,7 +170,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'usuario'
           DataSource = DS
-          TabOrder = 10
+          TabOrder = 0
         end
       end
     end
