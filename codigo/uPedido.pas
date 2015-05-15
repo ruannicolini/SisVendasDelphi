@@ -372,7 +372,7 @@ begin
       qProduto.Open;
 
       {Abre Edição}
-      if not DataModule1.mpedidoitem.Active then
+       if not DataModule1.mpedidoitem.Active then
             DataModule1.mpedidoitem.Open;
 
       if DataModule1.mPedidoItem.Locate('idproduto',qProdutoidProduto.AsString,[]) then
