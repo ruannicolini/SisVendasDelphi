@@ -1,6 +1,6 @@
 inherited FPedido: TFPedido
-  Left = 248
-  Top = 83
+  Left = 275
+  Top = 103
   Width = 749
   Height = 635
   Caption = 'FPedido'
@@ -9,11 +9,11 @@ inherited FPedido: TFPedido
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 585
-    Width = 741
+    Top = 578
+    Width = 733
   end
-  inherited ToolBar1: TToolBar
-    Width = 741
+  inherited TBAcaoTela: TToolBar
+    Width = 733
     ButtonWidth = 41
     inherited btnDeletar: TToolButton
       Left = 41
@@ -51,19 +51,19 @@ inherited FPedido: TFPedido
     end
   end
   inherited PageControl1: TPageControl
-    Width = 741
-    Height = 554
+    Width = 733
+    Height = 547
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 733
-        Height = 526
+        Width = 725
+        Height = 519
         object Label1: TLabel
           Left = 16
           Top = 24
           Width = 55
           Height = 13
           Caption = 'Cod Pedido'
-          FocusControl = DBEdit1
+          FocusControl = DBEcodPedido
         end
         object Label4: TLabel
           Left = 593
@@ -71,7 +71,7 @@ inherited FPedido: TFPedido
           Width = 99
           Height = 13
           Caption = 'Prazo de Pagamento'
-          FocusControl = DBEdit4
+          FocusControl = DBprazo
         end
         object Label5: TLabel
           Left = 16
@@ -79,7 +79,7 @@ inherited FPedido: TFPedido
           Width = 32
           Height = 13
           Caption = 'Cliente'
-          FocusControl = DBEdit5
+          FocusControl = DBEidCliente
         end
         object Label6: TLabel
           Left = 593
@@ -87,7 +87,7 @@ inherited FPedido: TFPedido
           Width = 23
           Height = 13
           Caption = 'Data'
-          FocusControl = DBEdit6
+          FocusControl = DBEdataAtual
         end
         object Label2: TLabel
           Left = 16
@@ -95,9 +95,9 @@ inherited FPedido: TFPedido
           Width = 48
           Height = 13
           Caption = 'Descricao'
-          FocusControl = DBEdit2
+          FocusControl = DBEdescricao
         end
-        object DBEdit1: TDBEdit
+        object DBEcodPedido: TDBEdit
           Left = 16
           Top = 42
           Width = 65
@@ -106,7 +106,7 @@ inherited FPedido: TFPedido
           DataSource = DS
           TabOrder = 0
         end
-        object DBEdit4: TDBEdit
+        object DBprazo: TDBEdit
           Left = 594
           Top = 123
           Width = 128
@@ -115,7 +115,7 @@ inherited FPedido: TFPedido
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit5: TDBEdit
+        object DBEidCliente: TDBEdit
           Left = 16
           Top = 82
           Width = 65
@@ -124,7 +124,7 @@ inherited FPedido: TFPedido
           DataSource = DS
           TabOrder = 2
         end
-        object DBEdit6: TDBEdit
+        object DBEdataAtual: TDBEdit
           Left = 593
           Top = 82
           Width = 128
@@ -142,7 +142,7 @@ inherited FPedido: TFPedido
           DataSource = DS
           TabOrder = 4
         end
-        object DBEdit2: TDBEdit
+        object DBEdescricao: TDBEdit
           Left = 16
           Top = 122
           Width = 569
@@ -173,7 +173,7 @@ inherited FPedido: TFPedido
             Width = 41
             Height = 13
             Caption = 'idPedido'
-            FocusControl = DBEdit7
+            FocusControl = DBEidPedido
             Visible = False
           end
           object Label8: TLabel
@@ -182,7 +182,7 @@ inherited FPedido: TFPedido
             Width = 45
             Height = 13
             Caption = 'idProduto'
-            FocusControl = DBEdit8
+            FocusControl = DBEidProduto
             Visible = False
           end
           object Label9: TLabel
@@ -191,7 +191,7 @@ inherited FPedido: TFPedido
             Width = 53
             Height = 13
             Caption = 'quantidade'
-            FocusControl = DBEdit9
+            FocusControl = DBEqtde
             Visible = False
           end
           object Label10: TLabel
@@ -200,7 +200,7 @@ inherited FPedido: TFPedido
             Width = 59
             Height = 13
             Caption = 'precoParcial'
-            FocusControl = DBEdit10
+            FocusControl = DBEprecoParcial
             Visible = False
           end
           object Label11: TLabel
@@ -209,7 +209,7 @@ inherited FPedido: TFPedido
             Width = 63
             Height = 13
             Caption = 'precoUnitario'
-            FocusControl = DBEdit11
+            FocusControl = DBEprecoUnitario
             Visible = False
           end
           object GroupBox2: TGroupBox
@@ -293,7 +293,7 @@ inherited FPedido: TFPedido
               OnKeyDown = ed_barraKeyDown
             end
           end
-          object DBEdit7: TDBEdit
+          object DBEidPedido: TDBEdit
             Left = 21
             Top = 117
             Width = 134
@@ -304,7 +304,7 @@ inherited FPedido: TFPedido
             TabOrder = 2
             Visible = False
           end
-          object DBEdit8: TDBEdit
+          object DBEidProduto: TDBEdit
             Left = 21
             Top = 157
             Width = 134
@@ -315,7 +315,7 @@ inherited FPedido: TFPedido
             TabOrder = 3
             Visible = False
           end
-          object DBEdit9: TDBEdit
+          object DBEqtde: TDBEdit
             Left = 21
             Top = 197
             Width = 134
@@ -325,7 +325,7 @@ inherited FPedido: TFPedido
             TabOrder = 4
             Visible = False
           end
-          object DBEdit10: TDBEdit
+          object DBEprecoParcial: TDBEdit
             Left = 21
             Top = 237
             Width = 134
@@ -336,7 +336,7 @@ inherited FPedido: TFPedido
             TabOrder = 5
             Visible = False
           end
-          object DBEdit11: TDBEdit
+          object DBEprecoUnitario: TDBEdit
             Left = 21
             Top = 277
             Width = 134
@@ -362,11 +362,14 @@ inherited FPedido: TFPedido
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 733
+        Width = 725
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
+        end
       end
       inherited DBGrid1: TDBGrid
-        Width = 733
-        Height = 461
+        Width = 725
+        Height = 454
         Columns = <
           item
             Expanded = False

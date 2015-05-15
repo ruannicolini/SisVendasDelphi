@@ -5,12 +5,12 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB, StdCtrls,
-  Grids, DBGrids, DBCtrls, Buttons, ComObj, DBClient;
+  Grids, DBGrids, DBCtrls, Buttons, ComObj, DBClient, MaskUtils;
 
 type
   TFormPadrao = class(TForm)
     StatusBar1: TStatusBar;
-    ToolBar1: TToolBar;
+    TBAcaoTela: TToolBar;
     btnNovo: TToolButton;
     btnDeletar: TToolButton;
     btnAlterar: TToolButton;
@@ -116,6 +116,13 @@ end;
 procedure TFormPadrao.FormShow(Sender: TObject);
 begin
     StatusBotoes(2);
+    if(DataModule1.qLoginnivel.AsInteger = 4) then
+    begin
+      btnNovo.Visible := False;
+      btnDeletar.Visible := False;
+      btnAlterar.Visible := False;
+      btnSalvar.Visible := False;
+    end;
 end;
 
 procedure TFormPadrao.btnNovoClick(Sender: TObject);
@@ -130,19 +137,34 @@ end;
 
 procedure TFormPadrao.btnAlterarClick(Sender: TObject);
 begin
+  try
     if ds.DataSet.Active then
     begin
-        if not ds.DataSet.IsEmpty then
-        begin
+
             ds.DataSet.Edit;
             PageControl1.ActivePageIndex := 0;
         end else
             ShowMessage('Não Há Registros para Alteração.');
+  except
+    on E: EDatabaseError do
+    begin
+      raise;
     end;
+  end;
 end;
 
 procedure TFormPadrao.btnSalvarClick(Sender: TObject);
 begin
+  {try
+    ds.DataSet.Post;
+  except
+    on E: EDatabaseError do
+    begin
+      raise;
+    end;
+  end;   }
+  {if not isEmpty then
+    ds.DataSet.Post;}
     ds.DataSet.Post;
 end;
 
@@ -363,7 +385,7 @@ var
 					if (peso = 10) then 
 						peso := 2; 
 				end; 
-				r := sm mod 11; 
+				r := sm mod 11;
 				if ((r = 0) or (r = 1)) then 
 					dig14 := '0' 
 				else str((11-r):1, dig14); 
@@ -411,7 +433,8 @@ begin
 
       Result := true;
 
-      TDBEdit(Components[I]).Hint := 'Campo Obrigatório';
+      TDBEdit(Components[I]).ShowHint := True;
+      TDBEdit(Components[I]).Hint := 'Campo Obrigatório!';
       TDBEdit(Components[I]).SetFocus;
 
       Exit;
@@ -426,7 +449,8 @@ begin
 
       Result := true;
 
-      TDBLookupComboBox(Components[I]).Hint := 'Campo Obrigatório';
+      TDBLookupComboBox(Components[I]).ShowHint := True;
+      TDBLookupComboBox(Components[I]).Hint := 'Campo Obrigatório!';
       TDBLookupComboBox(Components[I]).SetFocus;
 
       Exit;

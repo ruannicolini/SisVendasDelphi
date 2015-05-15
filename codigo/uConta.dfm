@@ -1,11 +1,10 @@
 inherited FConta: TFConta
-  Left = 366
   Top = 91
   Caption = 'FConta'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBar1: TToolBar
+  inherited TBAcaoTela: TToolBar
     inherited btnNovo: TToolButton
       Visible = False
     end
@@ -35,7 +34,7 @@ inherited FConta: TFConta
           Width = 36
           Height = 13
           Caption = 'idConta'
-          FocusControl = DBEdit1
+          FocusControl = DBEidConta
         end
         object Label2: TLabel
           Left = 24
@@ -43,7 +42,7 @@ inherited FConta: TFConta
           Width = 51
           Height = 13
           Caption = 'data_venc'
-          FocusControl = DBEdit2
+          FocusControl = DBEdataVenc
         end
         object Label3: TLabel
           Left = 24
@@ -51,7 +50,7 @@ inherited FConta: TFConta
           Width = 45
           Height = 13
           Caption = 'data_pag'
-          FocusControl = DBEdit3
+          FocusControl = DBEdataPag
         end
         object Label4: TLabel
           Left = 24
@@ -59,7 +58,7 @@ inherited FConta: TFConta
           Width = 84
           Height = 13
           Caption = 'numero_duplicata'
-          FocusControl = DBEdit4
+          FocusControl = DBEnumDuplicata
         end
         object Label5: TLabel
           Left = 24
@@ -67,9 +66,9 @@ inherited FConta: TFConta
           Width = 67
           Height = 13
           Caption = 'idFaturamento'
-          FocusControl = DBEdit5
+          FocusControl = DBEidFaturamento
         end
-        object DBEdit1: TDBEdit
+        object DBEidConta: TDBEdit
           Left = 24
           Top = 48
           Width = 134
@@ -78,7 +77,7 @@ inherited FConta: TFConta
           DataSource = DS
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object DBEdataVenc: TDBEdit
           Left = 24
           Top = 88
           Width = 134
@@ -87,7 +86,7 @@ inherited FConta: TFConta
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEdataPag: TDBEdit
           Left = 24
           Top = 128
           Width = 134
@@ -108,7 +107,7 @@ inherited FConta: TFConta
           ValueChecked = 'True'
           ValueUnchecked = 'False'
         end
-        object DBEdit4: TDBEdit
+        object DBEnumDuplicata: TDBEdit
           Left = 24
           Top = 192
           Width = 654
@@ -117,7 +116,7 @@ inherited FConta: TFConta
           DataSource = DS
           TabOrder = 4
         end
-        object DBEdit5: TDBEdit
+        object DBEidFaturamento: TDBEdit
           Left = 24
           Top = 232
           Width = 134
@@ -125,6 +124,13 @@ inherited FConta: TFConta
           DataField = 'idFaturamento'
           DataSource = DS
           TabOrder = 5
+        end
+      end
+    end
+    inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
         end
       end
     end

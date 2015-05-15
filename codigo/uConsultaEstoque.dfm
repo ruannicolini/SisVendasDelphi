@@ -1,8 +1,9 @@
 inherited FConsultaEstoque: TFConsultaEstoque
   Caption = 'FConsultaEstoque'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBar1: TToolBar
+  inherited TBAcaoTela: TToolBar
     inherited btnNovo: TToolButton
       Visible = False
     end

@@ -10,32 +10,35 @@ uses
 type
   TFCliente = class(TFormPadrao)
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    DBEidCliente: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    DBEnome: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
+    DBEendereco: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
+    DBEnumero: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    DBEbairro: TDBEdit;
     Label6: TLabel;
-    DBEdit6: TDBEdit;
+    DBEcomplemento: TDBEdit;
     Label7: TLabel;
-    DBEdit7: TDBEdit;
+    DBEcep: TDBEdit;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
+    DBEcnpj: TDBEdit;
     Label9: TLabel;
-    DBEdit9: TDBEdit;
+    DBEtelFixo: TDBEdit;
     Label10: TLabel;
-    DBEdit10: TDBEdit;
+    DBEtelCel: TDBEdit;
     Label11: TLabel;
-    DBEdit11: TDBEdit;
+    DBEemail: TDBEdit;
     Label12: TLabel;
-    DBEdit12: TDBEdit;
+    DBEie: TDBEdit;
     Label13: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
-    DBEdit13: TDBEdit;
+    DBEidCidade: TDBEdit;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DBEemailExit(Sender: TObject);
+    procedure DBEcnpjExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +50,35 @@ var
 
 implementation
 
+uses MaskUtils;
+
 {$R *.dfm}
+
+procedure TFCliente.BitBtn1Click(Sender: TObject);
+begin
+  inherited;
+  ExportarExcel(DataModule1.mCliente);
+end;
+
+procedure TFCliente.DBEemailExit(Sender: TObject);
+begin
+  inherited;
+  if not isEMail(DBEemail) then
+  begin
+    ShowMessage('Email Inválido');
+    DBEemail.SetFocus;
+  end;
+end;
+
+procedure TFCliente.DBEcnpjExit(Sender: TObject);
+begin
+  inherited;
+   ShowMessage(DBEcnpj.Text);
+   if isCNPJ(DBEcnpj) then
+  begin
+    ShowMessage('CNPJ Inválido');
+    DBEcnpj.SetFocus;
+  end;
+end;
 
 end.

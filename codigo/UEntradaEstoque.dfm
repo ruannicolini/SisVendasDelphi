@@ -1,5 +1,4 @@
 inherited FEntradaEstoque: TFEntradaEstoque
-  Left = 345
   Top = 175
   Caption = 'FEntradaEstoque'
   OldCreateOrder = True
@@ -13,7 +12,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
     Caption = 'Usuario'
   end
   inherited PageControl1: TPageControl
-    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object lEan: TLabel
@@ -29,7 +27,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 59
           Height = 13
           Caption = 'Cod Entrada'
-          FocusControl = DBEdit1
+          FocusControl = DBEidEntrada
         end
         object Label4: TLabel
           Left = 56
@@ -37,7 +35,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 37
           Height = 13
           Caption = 'Produto'
-          FocusControl = DBEdit4
+          FocusControl = DBEidProduto
         end
         object Label6: TLabel
           Left = 304
@@ -61,7 +59,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 36
           Height = 13
           Caption = 'Usu'#225'rio'
-          FocusControl = DBEdit2
+          FocusControl = DBEidUsuario
         end
         object eEan: TEdit
           Left = 56
@@ -100,7 +98,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Enabled = False
           TabOrder = 3
         end
-        object DBEdit1: TDBEdit
+        object DBEidEntrada: TDBEdit
           Left = 56
           Top = 64
           Width = 65
@@ -110,7 +108,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           ReadOnly = True
           TabOrder = 4
         end
-        object DBEdit4: TDBEdit
+        object DBEidProduto: TDBEdit
           Left = 56
           Top = 187
           Width = 49
@@ -120,7 +118,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           ReadOnly = True
           TabOrder = 5
         end
-        object DBEdit5: TDBEdit
+        object DBEdescricao: TDBEdit
           Left = 104
           Top = 187
           Width = 201
@@ -147,8 +145,9 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataSource = DS
           ReadOnly = True
           TabOrder = 8
+          OnExit = DBEdataExit
         end
-        object DBEdit2: TDBEdit
+        object DBEidUsuario: TDBEdit
           Left = 56
           Top = 104
           Width = 65
@@ -169,6 +168,11 @@ inherited FEntradaEstoque: TFEntradaEstoque
       end
     end
     inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
+        end
+      end
       inherited DBGrid1: TDBGrid
         Columns = <
           item

@@ -27,26 +27,28 @@ var
 
 implementation
 
+uses uPrincipal;
+
 {$R *.dfm}
 
 procedure TFConsultas.btnConsultaContasClick(Sender: TObject);
 begin
-  FConsultaContas.show;
+  Form1.Dinamico(TFConsultaContas, FConsultaContas);
 end;
 
 procedure TFConsultas.btnConsultaClientesClick(Sender: TObject);
 begin
-  FConsultaClientes.show;
+  Form1.Dinamico(TFConsultaClientes, FConsultaClientes);
 end;
 
 procedure TFConsultas.BtnConsultaProdutosClick(Sender: TObject);
 begin
-  FConsultaProdutos.Show;
+  Form1.Dinamico(TFConsultaProdutos, FConsultaProdutos);
 end;
 
 procedure TFConsultas.btnConsultaEstoqueClick(Sender: TObject);
 begin
-  FConsultaEstoque.Show;
+  Form1.Dinamico(TFConsultaEstoque, FConsultaEstoque);
 end;
 
 end.

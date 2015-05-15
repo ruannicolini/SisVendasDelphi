@@ -3,7 +3,8 @@ unit uConexao;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs;
+  SysUtils, Classes, DB, DBTables, ImgList, Controls, Provider, DBClient, Dialogs,
+  AppEvnts;
 
 type
   TDataModule1 = class(TDataModule)
@@ -164,6 +165,23 @@ type
     qEntradaidUsuario: TIntegerField;
     mEntradaidUsuario: TIntegerField;
     mEntradausuario: TStringField;
+    qLogin: TQuery;
+    mLogin: TClientDataSet;
+    pLogin: TDataSetProvider;
+    qLoginidUsuario: TIntegerField;
+    qLoginnome: TStringField;
+    qLoginsenha: TStringField;
+    qLoginemail: TStringField;
+    qLoginusername: TStringField;
+    qLoginnivel: TIntegerField;
+    qUsuarionivel: TIntegerField;
+    mUsuarionivel: TIntegerField;
+    qNivel: TQuery;
+    qNivelidNivel: TIntegerField;
+    qNiveldescricao: TStringField;
+    mUsuarioNivelUsuario: TStringField;
+    qRecalcular: TQuery;
+    spRecalcularEstoque: TStoredProc;
 
     procedure mClienteAfterPost(DataSet: TDataSet);
     procedure mClienteAfterDelete(DataSet: TDataSet);

@@ -1,5 +1,5 @@
 inherited FConsultaContas: TFConsultaContas
-  Left = 195
+  Left = 111
   Top = 128
   Width = 913
   Height = 573
@@ -8,11 +8,11 @@ inherited FConsultaContas: TFConsultaContas
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 523
-    Width = 905
+    Top = 516
+    Width = 897
   end
-  inherited ToolBar1: TToolBar
-    Width = 905
+  inherited TBAcaoTela: TToolBar
+    Width = 897
     ButtonWidth = 27
     inherited btnNovo: TToolButton
       Visible = False
@@ -57,14 +57,13 @@ inherited FConsultaContas: TFConsultaContas
     end
   end
   inherited PageControl1: TPageControl
-    Width = 905
-    Height = 492
-    ActivePage = tbDados
+    Width = 897
+    Height = 485
     inherited tbDados: TTabSheet
       ParentShowHint = False
       inherited gbDados: TGroupBox
-        Width = 897
-        Height = 464
+        Width = 889
+        Height = 457
         object Label8: TLabel
           Left = 520
           Top = 8
@@ -124,7 +123,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 84
             Height = 13
             Caption = 'numero_duplicata'
-            FocusControl = DBEdit3
+            FocusControl = DBEnumDuplicata
           end
           object Label4: TLabel
             Left = 128
@@ -132,7 +131,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 83
             Height = 13
             Caption = 'data_faturamento'
-            FocusControl = DBEdit4
+            FocusControl = DBEdataFat
           end
           object Label5: TLabel
             Left = 16
@@ -140,7 +139,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 51
             Height = 13
             Caption = 'data_venc'
-            FocusControl = DBEdit5
+            FocusControl = DBEdataVenc
           end
           object Label6: TLabel
             Left = 129
@@ -148,7 +147,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 45
             Height = 13
             Caption = 'data_pag'
-            FocusControl = DBEdit6
+            FocusControl = DBEdataPag
           end
           object Label7: TLabel
             Left = 16
@@ -156,7 +155,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 41
             Height = 13
             Caption = 'idPedido'
-            FocusControl = DBEdit7
+            FocusControl = DBEidPedido
           end
           object Label9: TLabel
             Left = 16
@@ -164,7 +163,7 @@ inherited FConsultaContas: TFConsultaContas
             Width = 47
             Height = 13
             Caption = 'valorTotal'
-            FocusControl = DBEdit9
+            FocusControl = DBEvalorTotal
           end
           object Label11: TLabel
             Left = 131
@@ -179,9 +178,9 @@ inherited FConsultaContas: TFConsultaContas
             Width = 36
             Height = 13
             Caption = 'idConta'
-            FocusControl = DBEdit1
+            FocusControl = DBEidConta
           end
-          object DBEdit1: TDBEdit
+          object DBEidConta: TDBEdit
             Left = 16
             Top = 33
             Width = 134
@@ -191,7 +190,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 0
           end
-          object DBEdit2: TDBEdit
+          object DBEnome: TDBEdit
             Left = 16
             Top = 73
             Width = 217
@@ -201,7 +200,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 1
           end
-          object DBEdit3: TDBEdit
+          object DBEnumDuplicata: TDBEdit
             Left = 16
             Top = 113
             Width = 105
@@ -211,7 +210,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 2
           end
-          object DBEdit4: TDBEdit
+          object DBEdataFat: TDBEdit
             Left = 128
             Top = 113
             Width = 105
@@ -221,7 +220,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 3
           end
-          object DBEdit5: TDBEdit
+          object DBEdataVenc: TDBEdit
             Left = 16
             Top = 154
             Width = 105
@@ -231,7 +230,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 4
           end
-          object DBEdit6: TDBEdit
+          object DBEdataPag: TDBEdit
             Left = 129
             Top = 154
             Width = 104
@@ -241,7 +240,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 5
           end
-          object DBEdit7: TDBEdit
+          object DBEidPedido: TDBEdit
             Left = 16
             Top = 194
             Width = 105
@@ -251,7 +250,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 6
           end
-          object DBEdit8: TDBEdit
+          object DBEnf: TDBEdit
             Left = 129
             Top = 194
             Width = 104
@@ -261,7 +260,7 @@ inherited FConsultaContas: TFConsultaContas
             ReadOnly = True
             TabOrder = 7
           end
-          object DBEdit9: TDBEdit
+          object DBEvalorTotal: TDBEdit
             Left = 16
             Top = 234
             Width = 105
@@ -272,7 +271,7 @@ inherited FConsultaContas: TFConsultaContas
             TabOrder = 8
           end
         end
-        object DBEdit10: TDBEdit
+        object DBEdestinatario: TDBEdit
           Left = 360
           Top = 52
           Width = 513
@@ -288,7 +287,7 @@ inherited FConsultaContas: TFConsultaContas
           Height = 21
           TabOrder = 2
         end
-        object Memo1: TMemo
+        object mAssunto: TMemo
           Left = 296
           Top = 114
           Width = 577
@@ -318,11 +317,14 @@ inherited FConsultaContas: TFConsultaContas
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 897
+        Width = 889
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
+        end
       end
       inherited DBGrid1: TDBGrid
-        Width = 897
-        Height = 399
+        Width = 889
+        Height = 392
         Columns = <
           item
             Expanded = False

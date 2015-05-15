@@ -10,16 +10,16 @@ uses
 type
   TFProduto = class(TFormPadrao)
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    DBEidProduto: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    DBEdescricao: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
+    DBEpreco: TDBEdit;
     DBCheckBox1: TDBCheckBox;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
+    DBEqtde: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    DBEean: TDBEdit;
     procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }

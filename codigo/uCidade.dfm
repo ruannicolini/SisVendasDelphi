@@ -1,4 +1,6 @@
 inherited FCidade: TFCidade
+  Left = 226
+  Top = 160
   Caption = 'FCidade'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -12,7 +14,7 @@ inherited FCidade: TFCidade
           Width = 41
           Height = 13
           Caption = 'idCidade'
-          FocusControl = DBEdit1
+          FocusControl = DBEidCidade
         end
         object Label2: TLabel
           Left = 22
@@ -20,7 +22,7 @@ inherited FCidade: TFCidade
           Width = 26
           Height = 13
           Caption = 'nome'
-          FocusControl = DBEdit2
+          FocusControl = DBEnome
         end
         object Label3: TLabel
           Left = 22
@@ -28,9 +30,9 @@ inherited FCidade: TFCidade
           Width = 9
           Height = 13
           Caption = 'uf'
-          FocusControl = DBEdit3
+          FocusControl = DBEuf
         end
-        object DBEdit1: TDBEdit
+        object DBEidCidade: TDBEdit
           Left = 22
           Top = 37
           Width = 134
@@ -41,7 +43,7 @@ inherited FCidade: TFCidade
           ReadOnly = True
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object DBEnome: TDBEdit
           Left = 22
           Top = 77
           Width = 394
@@ -50,7 +52,7 @@ inherited FCidade: TFCidade
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEuf: TDBEdit
           Left = 22
           Top = 117
           Width = 30
@@ -58,6 +60,13 @@ inherited FCidade: TFCidade
           DataField = 'uf'
           DataSource = DS
           TabOrder = 2
+        end
+      end
+    end
+    inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
         end
       end
     end

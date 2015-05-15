@@ -1,5 +1,4 @@
 inherited FProduto: TFProduto
-  Left = 417
   Top = 35
   Height = 516
   Caption = 'FProduto'
@@ -7,10 +6,11 @@ inherited FProduto: TFProduto
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 466
+    Top = 459
   end
   inherited PageControl1: TPageControl
-    Height = 435
+    Height = 428
+    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Height = 400
@@ -20,7 +20,7 @@ inherited FProduto: TFProduto
           Width = 45
           Height = 13
           Caption = 'idProduto'
-          FocusControl = DBEdit1
+          FocusControl = DBEidProduto
         end
         object Label2: TLabel
           Left = 40
@@ -28,7 +28,7 @@ inherited FProduto: TFProduto
           Width = 46
           Height = 13
           Caption = 'descricao'
-          FocusControl = DBEdit2
+          FocusControl = DBEdescricao
         end
         object Label3: TLabel
           Left = 40
@@ -36,7 +36,7 @@ inherited FProduto: TFProduto
           Width = 27
           Height = 13
           Caption = 'preco'
-          FocusControl = DBEdit3
+          FocusControl = DBEpreco
         end
         object Label4: TLabel
           Left = 40
@@ -44,7 +44,7 @@ inherited FProduto: TFProduto
           Width = 54
           Height = 13
           Caption = 'qtdEstoque'
-          FocusControl = DBEdit4
+          FocusControl = DBEqtde
         end
         object Label5: TLabel
           Left = 40
@@ -52,9 +52,9 @@ inherited FProduto: TFProduto
           Width = 18
           Height = 13
           Caption = 'ean'
-          FocusControl = DBEdit5
+          FocusControl = DBEean
         end
-        object DBEdit1: TDBEdit
+        object DBEidProduto: TDBEdit
           Left = 40
           Top = 56
           Width = 134
@@ -63,7 +63,7 @@ inherited FProduto: TFProduto
           DataSource = DS
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object DBEdescricao: TDBEdit
           Left = 40
           Top = 96
           Width = 1304
@@ -72,7 +72,7 @@ inherited FProduto: TFProduto
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEpreco: TDBEdit
           Left = 40
           Top = 136
           Width = 134
@@ -93,7 +93,7 @@ inherited FProduto: TFProduto
           ValueChecked = 'True'
           ValueUnchecked = 'False'
         end
-        object DBEdit4: TDBEdit
+        object DBEqtde: TDBEdit
           Left = 40
           Top = 200
           Width = 134
@@ -102,7 +102,7 @@ inherited FProduto: TFProduto
           DataSource = DS
           TabOrder = 4
         end
-        object DBEdit5: TDBEdit
+        object DBEean: TDBEdit
           Left = 40
           Top = 240
           Width = 134
@@ -120,7 +120,7 @@ inherited FProduto: TFProduto
         end
       end
       inherited DBGrid1: TDBGrid
-        Height = 342
+        Height = 335
       end
     end
   end

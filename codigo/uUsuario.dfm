@@ -1,6 +1,5 @@
 inherited FUsuario: TFUsuario
-  Left = 261
-  Top = 89
+  Top = 221
   Caption = 'FUsuario'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -14,7 +13,7 @@ inherited FUsuario: TFUsuario
           Width = 44
           Height = 13
           Caption = 'idUsuario'
-          FocusControl = DBEdit1
+          FocusControl = DBidUsuario
         end
         object Label2: TLabel
           Left = 24
@@ -22,7 +21,7 @@ inherited FUsuario: TFUsuario
           Width = 26
           Height = 13
           Caption = 'nome'
-          FocusControl = DBEdit2
+          FocusControl = DBEnome
         end
         object Label3: TLabel
           Left = 24
@@ -30,7 +29,7 @@ inherited FUsuario: TFUsuario
           Width = 29
           Height = 13
           Caption = 'senha'
-          FocusControl = DBEdit3
+          FocusControl = DBEsenha
         end
         object Label4: TLabel
           Left = 24
@@ -38,7 +37,7 @@ inherited FUsuario: TFUsuario
           Width = 24
           Height = 13
           Caption = 'email'
-          FocusControl = DBEdit4
+          FocusControl = DBEemail
         end
         object Label5: TLabel
           Left = 24
@@ -46,9 +45,25 @@ inherited FUsuario: TFUsuario
           Width = 46
           Height = 13
           Caption = 'username'
-          FocusControl = DBEdit5
+          FocusControl = DBEusername
         end
-        object DBEdit1: TDBEdit
+        object Label6: TLabel
+          Left = 64
+          Top = 232
+          Width = 48
+          Height = 13
+          Caption = 'Descri'#231#227'o'
+          FocusControl = DBLookupComboBox1
+        end
+        object Label7: TLabel
+          Left = 24
+          Top = 232
+          Width = 26
+          Height = 13
+          Caption = 'N'#237'vel'
+          FocusControl = DBEidNivel
+        end
+        object DBidUsuario: TDBEdit
           Left = 24
           Top = 48
           Width = 134
@@ -57,7 +72,7 @@ inherited FUsuario: TFUsuario
           DataSource = DS
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit
+        object DBEnome: TDBEdit
           Left = 24
           Top = 88
           Width = 345
@@ -66,7 +81,7 @@ inherited FUsuario: TFUsuario
           DataSource = DS
           TabOrder = 1
         end
-        object DBEdit3: TDBEdit
+        object DBEsenha: TDBEdit
           Left = 24
           Top = 168
           Width = 345
@@ -75,7 +90,7 @@ inherited FUsuario: TFUsuario
           DataSource = DS
           TabOrder = 2
         end
-        object DBEdit4: TDBEdit
+        object DBEemail: TDBEdit
           Left = 24
           Top = 208
           Width = 345
@@ -83,8 +98,9 @@ inherited FUsuario: TFUsuario
           DataField = 'email'
           DataSource = DS
           TabOrder = 3
+          OnExit = DBEemailExit
         end
-        object DBEdit5: TDBEdit
+        object DBEusername: TDBEdit
           Left = 24
           Top = 128
           Width = 345
@@ -92,6 +108,33 @@ inherited FUsuario: TFUsuario
           DataField = 'username'
           DataSource = DS
           TabOrder = 4
+        end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 64
+          Top = 248
+          Width = 339
+          Height = 21
+          DataField = 'NivelUsuario'
+          DataSource = DS
+          TabOrder = 5
+        end
+        object DBEidNivel: TDBEdit
+          Left = 24
+          Top = 248
+          Width = 41
+          Height = 21
+          Color = 15790320
+          DataField = 'nivel'
+          DataSource = DS
+          ReadOnly = True
+          TabOrder = 6
+        end
+      end
+    end
+    inherited tbFiltros: TTabSheet
+      inherited gbFiltros: TGroupBox
+        inherited BitBtn1: TBitBtn
+          OnClick = BitBtn1Click
         end
       end
     end

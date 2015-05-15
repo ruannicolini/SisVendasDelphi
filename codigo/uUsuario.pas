@@ -5,20 +5,27 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  Mask, DBCtrls;
+  Mask, DBCtrls,
+  Buttons;
 
 type
   TFUsuario = class(TFormPadrao)
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    DBidUsuario: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    DBEnome: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
+    DBEsenha: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
+    DBEemail: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    DBEusername: TDBEdit;
+    Label6: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label7: TLabel;
+    DBEidNivel: TDBEdit;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DBEemailExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,5 +38,21 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFUsuario.BitBtn1Click(Sender: TObject);
+begin
+  inherited;
+  ExportarExcel(DataModule1.mUsuario);
+end;
+
+procedure TFUsuario.DBEemailExit(Sender: TObject);
+begin
+  inherited;
+  if not isEMail(DBEemail) then
+  begin
+    ShowMessage('Email Inválido');
+    DBEemail.SetFocus;
+  end;
+end;
 
 end.

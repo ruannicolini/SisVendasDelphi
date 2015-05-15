@@ -10,16 +10,16 @@ uses
 type
   TFPedido = class(TFormPadrao)
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    DBEcodPedido: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
+    DBprazo: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    DBEidCliente: TDBEdit;
     Label6: TLabel;
-    DBEdit6: TDBEdit;
+    DBEdataAtual: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    DBEdescricao: TDBEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
@@ -27,15 +27,15 @@ type
     ed_barra: TEdit;
     qProduto: TQuery;
     Label7: TLabel;
-    DBEdit7: TDBEdit;
+    DBEidPedido: TDBEdit;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
+    DBEidProduto: TDBEdit;
     Label9: TLabel;
-    DBEdit9: TDBEdit;
+    DBEqtde: TDBEdit;
     Label10: TLabel;
-    DBEdit10: TDBEdit;
+    DBEprecoParcial: TDBEdit;
     Label11: TLabel;
-    DBEdit11: TDBEdit;
+    DBEprecoUnitario: TDBEdit;
     DBGrid2: TDBGrid;
     qProdutoidProduto: TIntegerField;
     qProdutodescricao: TStringField;
@@ -99,21 +99,21 @@ begin
 
 
          {Mostra a linha da DBGrid separadamente}
-         DBEdit7.Text := DataModule1.mPedidoItemidPedido.AsString;
-         DBEdit8.Text := DataModule1.mPedidoItemidProduto.AsString;
-         DBEdit9.Text := DataModule1.mPedidoItemquantidade.AsString;
-         DBEdit10.Text := DataModule1.mPedidoItemprecoParcial.AsString;
-         DBEdit11.Text := DataModule1.mPedidoItemprecoUnitario.AsString;
+         DBEidPedido.Text := DataModule1.mPedidoItemidPedido.AsString;
+         DBEidProduto.Text := DataModule1.mPedidoItemidProduto.AsString;
+         DBEqtde.Text := DataModule1.mPedidoItemquantidade.AsString;
+         DBEprecoParcial.Text := DataModule1.mPedidoItemprecoParcial.AsString;
+         DBEprecoUnitario.Text := DataModule1.mPedidoItemprecoUnitario.AsString;
       end
       else
       begin
           DataModule1.mpedidoitem.Append;
 
-          DBEdit7.Text := DBEdit1.Text;
-          DBEdit8.Text := qProduto.FieldByName('idProduto').AsString;
-          DBEdit9.Text := IntToStr(1);
-          DBEdit10.Text := IntToStr(StrToInt(qProduto.FieldByName('preco').AsString) * StrToInt(DBEdit9.Text));
-          DBEdit11.Text := qProduto.FieldByName('preco').AsString;
+          DBEidPedido.Text := DBEcodPedido.Text;
+          DBEidProduto.Text := qProduto.FieldByName('idProduto').AsString;
+          DBEqtde.Text := IntToStr(1);
+          DBEprecoParcial.Text := IntToStr(StrToInt(qProduto.FieldByName('preco').AsString) * StrToInt(DBEqtde.Text));
+          DBEprecoUnitario.Text := qProduto.FieldByName('preco').AsString;
 
           DataModule1.mPedidoItemidPedido.AsInteger := DataModule1.mPedidoidPedido.AsInteger;
           DataModule1.mPedidoItemidProduto.AsInteger := qProdutoidProduto.AsInteger;
@@ -129,7 +129,7 @@ begin
 
       {Atualiza Edit vl_Total}
       qValorTotal.Close;
-      qValorTotal.ParamByName('PVlTotal').AsString:=(DBEdit1.Text);
+      qValorTotal.ParamByName('PVlTotal').AsString:=(DBEcodPedido.Text);
       qValorTotal.Open;
       if not DataModule1.mpedidoitem.Active then {Atualiza Edit vl_Total - Abre Edição}
             DataModule1.mpedidoitem.Open;
