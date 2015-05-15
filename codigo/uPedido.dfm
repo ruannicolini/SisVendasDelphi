@@ -9,11 +9,11 @@ inherited FPedido: TFPedido
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 578
-    Width = 733
+    Top = 585
+    Width = 741
   end
   inherited TBAcaoTela: TToolBar
-    Width = 733
+    Width = 741
     ButtonWidth = 41
     inherited btnDeletar: TToolButton
       Left = 41
@@ -51,12 +51,12 @@ inherited FPedido: TFPedido
     end
   end
   inherited PageControl1: TPageControl
-    Width = 733
-    Height = 547
+    Width = 741
+    Height = 554
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 725
-        Height = 519
+        Width = 733
+        Height = 526
         object Label1: TLabel
           Left = 16
           Top = 24
@@ -104,7 +104,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idPedido'
           DataSource = DS
-          TabOrder = 0
+          TabOrder = 6
         end
         object DBprazo: TDBEdit
           Left = 594
@@ -113,7 +113,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'prazoPagamento'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 3
         end
         object DBEidCliente: TDBEdit
           Left = 16
@@ -122,7 +122,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idCliente'
           DataSource = DS
-          TabOrder = 2
+          TabOrder = 5
         end
         object DBEdataAtual: TDBEdit
           Left = 593
@@ -131,7 +131,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'data'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 1
         end
         object DBLookupComboBox1: TDBLookupComboBox
           Left = 80
@@ -140,7 +140,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'NomeCliente'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 0
         end
         object DBEdescricao: TDBEdit
           Left = 16
@@ -149,7 +149,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 2
         end
         object GroupBox1: TGroupBox
           Left = 16
@@ -159,7 +159,7 @@ inherited FPedido: TFPedido
           Caption = 'ITENS'
           Color = clBtnFace
           ParentColor = False
-          TabOrder = 6
+          TabOrder = 4
           object Label3: TLabel
             Left = 21
             Top = 64
@@ -224,6 +224,7 @@ inherited FPedido: TFPedido
               Top = 15
               Width = 509
               Height = 312
+              TabStop = False
               Align = alClient
               DataSource = DataModule1.DsPedidoItem
               Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
@@ -291,6 +292,7 @@ inherited FPedido: TFPedido
               Height = 21
               TabOrder = 0
               OnKeyDown = ed_barraKeyDown
+              OnKeyPress = ed_barraKeyPress
             end
           end
           object DBEidPedido: TDBEdit

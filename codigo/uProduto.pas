@@ -21,6 +21,10 @@ type
     Label5: TLabel;
     DBEean: TDBEdit;
     procedure BitBtn1Click(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,6 +42,32 @@ procedure TFProduto.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   ExportarExcel(DataModule1.mProduto);
+end;
+
+procedure TFProduto.btnNovoClick(Sender: TObject);
+begin
+  DBEidProduto.Color := CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFProduto.btnAlterarClick(Sender: TObject);
+begin
+  DBEidProduto.Color := CorCamposOnlyRead();
+  inherited;
+
+end;
+
+procedure TFProduto.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  DBEidProduto.Color := clWindow;
+end;
+
+procedure TFProduto.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  DBEidProduto.Color := clWindow;
 end;
 
 end.
