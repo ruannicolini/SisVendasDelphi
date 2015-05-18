@@ -46,6 +46,7 @@ type
     qValorTotal: TQuery;
     ed_vlTotal: TDBEdit;
     btnFaturar: TToolButton;
+    qExcluiPedidoItem: TQuery;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);
@@ -289,7 +290,13 @@ end;
 
 procedure TFPedido.btnCancelarClick(Sender: TObject);
 begin
+  {Exclui os Registros já inseridos de Pedido_item}
+  qExcluiPedidoItem.Close;
+  {qExcluiPedidoItem.ParamByName('idPed').AsInteger:= StrToInt(DBEcodPedido.Text); }
+  qExcluiPedidoItem.ParamByName('idPed').AsInteger:= DataModule1.mPedidoidPedido.AsInteger;
+  qExcluiPedidoItem.ExecSQL;
   inherited;
+
   DBEcodPedido.Color := clWindow;
   DBEidCliente.Color := clWindow;
   ed_vlTotal.Color := clWindow;
@@ -318,7 +325,7 @@ begin
   begin
   texto := InputBox('Alterar','Quantidade', DataModule1.mPedidoItemquantidade.AsString);
   DataModule1.mPedidoItem.Edit;
-  
+
   DataModule1.mPedidoItemquantidade.AsInteger := StrToInt(texto);
   DataModule1.mPedidoItemprecoParcial.AsFloat := ((DataModule1.mPedidoItemquantidade.AsInteger)*(DataModule1.mPedidoItemprecoUnitario.AsFloat));
   DataModule1.mPedidoItem.Post;

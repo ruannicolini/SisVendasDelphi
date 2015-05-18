@@ -65,7 +65,7 @@ Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario, UEntradaEsto
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-   mLog.Lines.Add('DATA: ' + FormatDateTime('dd/mm/yyyy',date) + ' ENTROU NO SISTEMA.');
+  mLog.Lines.Add('DATA: ' + FormatDateTime('dd/mm/yyyy',date) + ' ENTROU NO SISTEMA.');
 
   if(DataModule1.qLoginnivel.AsInteger = 2) then
   begin
@@ -83,7 +83,7 @@ begin
     NivelEstagiario();
   end;
 
-  {Aplica Tela Cheia ao Form}
+   {Aplica Tela Cheia ao Form}
   ShowWindow(Handle, SW_MAXIMIZE);
   ShowMessage(DataModule1.qLoginnome.AsString + ' Bem vindo ao Real System!!!');
 end;
@@ -172,6 +172,7 @@ procedure TForm1.Dinamico(F: TFormClass; F2: TForm);
 begin
   Application.CreateForm(F,F2);
   try
+
     F2.ShowModal;
   finally
     F2.Free;

@@ -1,6 +1,6 @@
 inherited FPedido: TFPedido
-  Left = 275
-  Top = 103
+  Left = 261
+  Top = 105
   Width = 749
   Height = 635
   Caption = 'FPedido'
@@ -474,12 +474,27 @@ inherited FPedido: TFPedido
       
         'select sum(precoparcial) total from pedido_item where idPedido =' +
         ' :PVlTotal')
-    Left = 569
+    Left = 573
     Top = 63
     ParamData = <
       item
         DataType = ftFloat
         Name = 'PVlTotal'
+        ParamType = ptUnknown
+      end>
+  end
+  object qExcluiPedidoItem: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'delete from pedido_item where pedido_item.idPedido '
+      'not in (select Pedido.idPedido from pedido) '
+      'and pedido_item.idPedido =:idPed')
+    Left = 628
+    Top = 63
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'idPed'
         ParamType = ptUnknown
       end>
   end
