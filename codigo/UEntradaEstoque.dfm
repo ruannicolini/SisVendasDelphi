@@ -12,6 +12,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
     Caption = 'Usuario'
   end
   inherited PageControl1: TPageControl
+    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object lEan: TLabel
@@ -176,44 +177,54 @@ inherited FEntradaEstoque: TFEntradaEstoque
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
+        Width = 912
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
       end
       inherited DBGrid1: TDBGrid
+        Width = 912
+        Height = 341
         Columns = <
           item
             Expanded = False
             FieldName = 'idEntrada'
             Title.Caption = 'Cod Entrada'
+            Width = 71
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'idProduto'
             Title.Caption = 'Cod Produto'
+            Width = 71
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Produto'
+            FieldName = 'descricao'
+            Title.Caption = 'Produto'
+            Width = 230
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'qtd'
-            Title.Caption = 'QTD'
+            Title.Caption = 'Qtd'
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'dataAlteracaoEstoque'
             Title.Caption = 'Data'
+            Width = 96
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'usuario'
+            Title.Caption = 'Usuario'
+            Width = 185
             Visible = True
           end>
       end
