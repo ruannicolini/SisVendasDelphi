@@ -23,6 +23,7 @@ type
     BtnBaixarContas: TToolButton;
     procedure BtnBaixarContasClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure btnDeletarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,6 +73,18 @@ procedure TFConta.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   ExportarExcel(DataModule1.mConta);
+end;
+
+procedure TFConta.btnDeletarClick(Sender: TObject);
+begin
+  {Faz o controle - Contas já pagas não devem ser excluidos}
+  if(Ds.DataSet.FieldByName('statusPag').AsBoolean = false)then
+  begin
+      inherited;
+  end else
+    ShowMessage('Conta Já Paga - Não pode ser Excluída!');
+
+
 end;
 
 end.
