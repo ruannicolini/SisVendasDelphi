@@ -166,6 +166,17 @@ end;
 procedure TFEntradaEstoque.btnSalvarClick(Sender: TObject);
 begin
   inherited;
+
+  {Chama a Função de Recalcular Estoque}
+  try
+    DataModule1.spRecalcularEstoque.ExecProc;
+  except
+  on E: Exception do
+    begin
+      raise;
+    end;
+  end;
+
   DBEidEntrada.Color := clWindow;
   DBEidProduto.Color := clWindow;
   DBEidUsuario.Color := clWindow;
