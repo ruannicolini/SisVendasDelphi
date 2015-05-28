@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons, DateUtils,
-  DBGridBeleza;
+  DBGridBeleza,
+  DBEditBeleza;
 
 type
   TFPedido = class(TFormPadrao)
@@ -18,7 +19,6 @@ type
     DBEidCliente: TDBEdit;
     Label6: TLabel;
     DBEdataAtual: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
     Label2: TLabel;
     DBEdescricao: TDBEdit;
     GroupBox1: TGroupBox;
@@ -48,6 +48,7 @@ type
     ed_vlTotal: TDBEdit;
     btnFaturar: TToolButton;
     qExcluiPedidoItem: TQuery;
+    DBEditBeleza1: TDBEditBeleza;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);

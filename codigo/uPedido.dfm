@@ -53,6 +53,7 @@ inherited FPedido: TFPedido
   inherited PageControl1: TPageControl
     Width = 741
     Height = 554
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 733
@@ -104,7 +105,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idPedido'
           DataSource = DS
-          TabOrder = 6
+          TabOrder = 5
         end
         object DBprazo: TDBEdit
           Left = 594
@@ -113,7 +114,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'prazoPagamento'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 2
         end
         object DBEidCliente: TDBEdit
           Left = 16
@@ -122,7 +123,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idCliente'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 4
         end
         object DBEdataAtual: TDBEdit
           Left = 593
@@ -130,15 +131,6 @@ inherited FPedido: TFPedido
           Width = 128
           Height = 21
           DataField = 'data'
-          DataSource = DS
-          TabOrder = 1
-        end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 80
-          Top = 82
-          Width = 505
-          Height = 21
-          DataField = 'NomeCliente'
           DataSource = DS
           TabOrder = 0
         end
@@ -149,7 +141,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 2
+          TabOrder = 1
         end
         object GroupBox1: TGroupBox
           Left = 16
@@ -159,7 +151,7 @@ inherited FPedido: TFPedido
           Caption = 'ITENS'
           Color = clBtnFace
           ParentColor = False
-          TabOrder = 4
+          TabOrder = 3
           object Label3: TLabel
             Left = 21
             Top = 64
@@ -359,6 +351,33 @@ inherited FPedido: TFPedido
             TabOrder = 7
             OnEnter = ed_vlTotalEnter
           end
+        end
+        object DBEditBeleza1: TDBEditBeleza
+          Left = 80
+          Top = 82
+          Width = 505
+          Height = 21
+          Color = 14737361
+          DataField = 'NomeCliente'
+          DataSource = DS
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 6
+          Ativar_Pesquisa = True
+          mostrar_Botao = False
+          sql.Strings = (
+            'select idCliente, nome from Cliente where nome like :x')
+          database = 'SistemaDeVendas'
+          campo = 'nome'
+          Sempre_Mostrar_Janela = False
+          Outro_Edit = DBEidCliente
+          campo_outro_edit = 'idCliente'
+          CorBorda = clGray
+          NovoLayout = False
         end
       end
     end
