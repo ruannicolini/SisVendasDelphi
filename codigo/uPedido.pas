@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
-  Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons, DateUtils;
+  Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons, DateUtils,
+  DBGridBeleza;
 
 type
   TFPedido = class(TFormPadrao)

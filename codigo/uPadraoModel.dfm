@@ -22,15 +22,15 @@ object FormPadrao: TFormPadrao
   TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 458
-    Width = 912
+    Top = 465
+    Width = 920
     Height = 19
     Panels = <>
   end
   object TBAcaoTela: TToolBar
     Left = 0
     Top = 0
-    Width = 912
+    Width = 920
     Height = 31
     ButtonHeight = 27
     Caption = 'TBAcaoTela'
@@ -112,9 +112,9 @@ object FormPadrao: TFormPadrao
   object PageControl1: TPageControl
     Left = 0
     Top = 31
-    Width = 912
-    Height = 427
-    ActivePage = tbDados
+    Width = 920
+    Height = 434
+    ActivePage = tbFiltros
     Align = alClient
     TabOrder = 2
     object tbDados: TTabSheet
@@ -122,8 +122,8 @@ object FormPadrao: TFormPadrao
       object gbDados: TGroupBox
         Left = 0
         Top = 0
-        Width = 904
-        Height = 399
+        Width = 912
+        Height = 406
         Align = alClient
         Color = clBtnFace
         ParentColor = False
@@ -136,7 +136,7 @@ object FormPadrao: TFormPadrao
       object gbFiltros: TGroupBox
         Left = 0
         Top = 0
-        Width = 904
+        Width = 912
         Height = 65
         Align = alTop
         TabOrder = 0
@@ -212,19 +212,38 @@ object FormPadrao: TFormPadrao
             000000000064}
         end
       end
-      object DBGrid1: TDBGrid
+      object DBGrid1: TDBGridBeleza
         Left = 0
         Top = 65
-        Width = 904
-        Height = 334
+        Width = 912
+        Height = 341
+        Hint = 'Clique no Titulo da Coluna para Ordenar'
         Align = alClient
+        BorderStyle = bsNone
         DataSource = DS
+        FixedColor = 16762447
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
+        TitleFont.Color = clWhite
         TitleFont.Height = -11
-        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        Cor_2 = 16773849
+        Direcao_Cor2 = dg_Vertical
+        Direcao_Enter = dg_Horiz
+        ClickTituloOrdenar = True
+        MarcarLinhaInteira = False
+        CorLinhaMarcada = clSilver
+        BloquearExportacoes = False
       end
     end
   end

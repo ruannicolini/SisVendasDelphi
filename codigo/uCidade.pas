@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls,
-  Buttons;
+  Buttons,
+  DBGridBeleza;
 
 type
   TFCidade = class(TFormPadrao)

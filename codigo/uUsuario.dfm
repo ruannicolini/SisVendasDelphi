@@ -6,7 +6,6 @@ inherited FUsuario: TFUsuario
   PixelsPerInch = 96
   TextHeight = 13
   inherited PageControl1: TPageControl
-    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel

@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   DBCtrls, Mask, ExtCtrls, DBTables,
-  Buttons;
+  Buttons,
+  DBGridBeleza;
 
 type
   TFEntradaEstoque = class(TFormPadrao)

@@ -21,7 +21,6 @@ inherited FConsultaProdutos: TFConsultaProdutos
     end
   end
   inherited PageControl1: TPageControl
-    ActivePage = tbFiltros
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
         inherited BitBtn1: TBitBtn

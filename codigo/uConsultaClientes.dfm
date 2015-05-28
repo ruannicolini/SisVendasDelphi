@@ -5,7 +5,6 @@ inherited FConsultaClientes: TFConsultaClientes
   PixelsPerInch = 96
   TextHeight = 13
   inherited PageControl1: TPageControl
-    ActivePage = tbFiltros
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
         inherited BitBtn1: TBitBtn

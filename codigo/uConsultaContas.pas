@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, Buttons, ComCtrls,
-  ToolWin, DBTables, Provider, DBClient, Mask, DBCtrls, ExtCtrls;
+  ToolWin, DBTables, Provider, DBClient, Mask, DBCtrls, ExtCtrls,
+  DBGridBeleza;
 
 type
   TFConsultaContas = class(TFormPadrao)

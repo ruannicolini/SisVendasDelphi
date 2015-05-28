@@ -117,13 +117,11 @@ inherited FProduto: TFProduto
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 912
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
       end
-      inherited DBGrid1: TDBGrid
-        Width = 912
+      inherited DBGrid1: TDBGridBeleza
         Height = 342
       end
     end

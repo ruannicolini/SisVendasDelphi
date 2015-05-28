@@ -12,7 +12,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
     Caption = 'Usuario'
   end
   inherited PageControl1: TPageControl
-    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object lEan: TLabel
@@ -181,7 +180,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           OnClick = BitBtn1Click
         end
       end
-      inherited DBGrid1: TDBGrid
+      inherited DBGrid1: TDBGridBeleza
         Columns = <
           item
             Expanded = False
