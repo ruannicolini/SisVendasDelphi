@@ -32,3 +32,15 @@ BEGIN
 
 END
 GO
+
+-- Excluiu os pedido_item do pedido excluído
+CREATE TRIGGER TRIGGER_PED_ITEM
+ON pedido 
+AFTER DELETE
+AS
+BEGIN
+	DECLARE @IDPEDIDO INTEGER;
+	SELECT @IDPEDIDO = idPedido from deleted
+	DELETE FROM pedido_item WHERE pedido_item.idPedido = @IDPEDIDO
+END
+GO

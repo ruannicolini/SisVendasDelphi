@@ -51,6 +51,9 @@ type
     function isCNPJ(Field : TDBEdit): boolean;
     function isEMail(Field : TDBEdit): Boolean;
     function isEmpty: Boolean;
+    procedure NivelGerente(F : TForm);
+    procedure NivelVendedor(F : TForm);
+    procedure NivelEstagiario(F : TForm);
   private
     procedure StatusBotoes(e: integer);
 
@@ -64,7 +67,8 @@ var
   FormPadrao: TFormPadrao;
 
 implementation
-Uses  uPrincipal;
+Uses  uPrincipal, uCliente, uProduto, uEntradaEstoque, uUsuario, uPedido, uConta, uConsultas,
+      uCidade;
 
 {$R *.dfm}
 
@@ -121,12 +125,24 @@ end;
 procedure TFormPadrao.FormShow(Sender: TObject);
 begin
     StatusBotoes(2);
-    if(DataModule1.qLoginnivel.AsInteger = 4) then
+    btnNovo.Visible := True;
+    btnDeletar.Visible := True;
+    btnAlterar.Visible := True;
+    btnSalvar.Visible := True;
+    //GERENTE
+    if(DataModule1.qLoginnivel.AsInteger = 2) then
     begin
-      btnNovo.Visible := False;
-      btnDeletar.Visible := False;
-      btnAlterar.Visible := False;
-      btnSalvar.Visible := False;
+      NivelGerente(Self);
+    end
+    //VENDEDOR
+    else if(DataModule1.qLoginnivel.AsInteger = 3) then
+    begin
+      NivelVendedor(Self);
+    end
+    //ESTAGIÁRIO
+    else if(DataModule1.qLoginnivel.AsInteger = 4) then
+    begin
+      NivelEstagiario(Self);
     end;
 end;
 
@@ -462,6 +478,52 @@ end;
 function TFormPadrao.CorCamposOnlyRead: TColor;
 begin
   Result := $009393FF;
+end;
+
+procedure TFormPadrao.NivelGerente(F : TForm);
+begin
+  if(F is TFUsuario) then
+  begin
+    btnNovo.Visible := False;
+    btnDeletar.Visible := False;
+    btnAlterar.Visible := False;
+    btnSalvar.Visible := False;
+  end;
+end;
+
+procedure TFormPadrao.NivelVendedor(F : TForm);
+begin
+
+  if(F is TFUsuario) then
+    NivelGerente(F)
+  else if(F is TFEntradaEstoque)then
+  begin
+    btnNovo.Visible := False;
+    btnDeletar.Visible := False;
+    btnAlterar.Visible := False;
+    btnSalvar.Visible := False;
+  end;
+
+end;
+
+procedure TFormPadrao.NivelEstagiario(F : TForm);
+begin
+
+  if(F is TFCliente) OR (F is TFCidade) then
+  begin
+    btnNovo.Visible := True;
+    btnDeletar.Visible := False;
+    btnAlterar.Visible := False;
+    btnSalvar.Visible := True;
+  end
+  else
+  begin
+    btnNovo.Visible := False;
+    btnDeletar.Visible := False;
+    btnAlterar.Visible := False;
+    btnSalvar.Visible := False;
+  end;
+
 end;
 
 end.

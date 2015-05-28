@@ -176,7 +176,6 @@ begin
       raise;
     end;
   end;
-
   DBEidEntrada.Color := clWindow;
   DBEidProduto.Color := clWindow;
   DBEidUsuario.Color := clWindow;

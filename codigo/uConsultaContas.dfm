@@ -1,6 +1,6 @@
 inherited FConsultaContas: TFConsultaContas
-  Left = 204
-  Top = 119
+  Left = 111
+  Top = 128
   Width = 913
   Height = 573
   Caption = 'FConsultaContas'
@@ -8,11 +8,11 @@ inherited FConsultaContas: TFConsultaContas
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 523
-    Width = 905
+    Top = 516
+    Width = 897
   end
   inherited TBAcaoTela: TToolBar
-    Width = 905
+    Width = 897
     ButtonWidth = 27
     inherited btnNovo: TToolButton
       Visible = False
@@ -57,14 +57,14 @@ inherited FConsultaContas: TFConsultaContas
     end
   end
   inherited PageControl1: TPageControl
-    Width = 905
-    Height = 492
+    Width = 897
+    Height = 485
     ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       ParentShowHint = False
       inherited gbDados: TGroupBox
-        Width = 897
-        Height = 464
+        Width = 889
+        Height = 457
         object Label8: TLabel
           Left = 520
           Top = 8
@@ -318,14 +318,14 @@ inherited FConsultaContas: TFConsultaContas
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 897
+        Width = 889
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
       end
       inherited DBGrid1: TDBGrid
-        Width = 897
-        Height = 399
+        Width = 889
+        Height = 392
         Columns = <
           item
             Expanded = False

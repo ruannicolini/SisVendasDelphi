@@ -71,7 +71,7 @@ end;
 procedure TFConsultaClientes.BitBtn1Click(Sender: TObject);
 begin
   inherited;
-  ExportarExcel(DataModule1.mCliente);
+  ExportarExcel(mConsulta);
 end;
 
 end.

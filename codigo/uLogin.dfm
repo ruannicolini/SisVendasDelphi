@@ -33,7 +33,6 @@ object FLogin: TFLogin
     Width = 121
     Height = 21
     TabOrder = 0
-    OnKeyPress = eLoginKeyPress
   end
   object eSenha: TEdit
     Left = 176
@@ -42,7 +41,6 @@ object FLogin: TFLogin
     Height = 21
     PasswordChar = '*'
     TabOrder = 1
-    OnKeyPress = eSenhaKeyPress
   end
   object btnEntrar: TButton
     Left = 200

@@ -6,13 +6,13 @@ inherited FCliente: TFCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 449
+    Top = 442
   end
   inherited PageControl1: TPageControl
-    Height = 418
+    Height = 411
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Height = 390
+        Height = 383
         object Label1: TLabel
           Left = 24
           Top = 24
@@ -190,6 +190,7 @@ inherited FCliente: TFCliente
           DataField = 'cnpj'
           DataSource = DS
           TabOrder = 6
+          OnEnter = DBEcnpjEnter
           OnExit = DBEcnpjExit
         end
         object DBEtelFixo: TDBEdit
@@ -200,6 +201,7 @@ inherited FCliente: TFCliente
           DataField = 'telFixo'
           DataSource = DS
           TabOrder = 7
+          OnEnter = DBEtelFixoEnter
         end
         object DBEtelCel: TDBEdit
           Left = 232
@@ -209,6 +211,7 @@ inherited FCliente: TFCliente
           DataField = 'telCel'
           DataSource = DS
           TabOrder = 9
+          OnEnter = DBEtelCelEnter
         end
         object DBEemail: TDBEdit
           Left = 24

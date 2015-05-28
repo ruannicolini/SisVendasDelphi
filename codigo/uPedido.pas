@@ -115,7 +115,7 @@ begin
           DBEidPedido.Text := DBEcodPedido.Text;
           DBEidProduto.Text := qProduto.FieldByName('idProduto').AsString;
           DBEqtde.Text := IntToStr(1);
-          DBEprecoParcial.Text := IntToStr(StrToInt(qProduto.FieldByName('preco').AsString) * StrToInt(DBEqtde.Text));
+          DBEprecoParcial.Text := FloatToStr(StrToFloat(qProduto.FieldByName('preco').AsString) * StrToFloat(DBEqtde.Text));
           DBEprecoUnitario.Text := qProduto.FieldByName('preco').AsString;
 
           DataModule1.mPedidoItemidPedido.AsInteger := DataModule1.mPedidoidPedido.AsInteger;
@@ -137,7 +137,7 @@ begin
       if not DataModule1.mpedidoitem.Active then {Atualiza Edit vl_Total - Abre Edição}
             DataModule1.mpedidoitem.Open;
       {ShowMessage(qValorTotal.FieldByName('total').AsString);}
-      DataModule1.mPedidovalorTotal.AsFloat := StrToInt(qValorTotal.FieldByName('total').AsString);
+      DataModule1.mPedidovalorTotal.AsFloat := StrToFloat(qValorTotal.FieldByName('total').AsString);
       {Volta o Foco pro Edit EAN}
       ed_barra.clear;
       ed_barra.SetFocus;
@@ -403,7 +403,7 @@ begin
           DBEidPedido.Text := DBEcodPedido.Text;
           DBEidProduto.Text := qProduto.FieldByName('idProduto').AsString;
           DBEqtde.Text := IntToStr(1);
-          DBEprecoParcial.Text := IntToStr(StrToInt(qProduto.FieldByName('preco').AsString) * StrToInt(DBEqtde.Text));
+          DBEprecoParcial.Text := FloatToStr(StrToFloat(qProduto.FieldByName('preco').AsString) * StrToFloat(DBEqtde.Text));
           DBEprecoUnitario.Text := qProduto.FieldByName('preco').AsString;
 
           DataModule1.mPedidoItemidPedido.AsInteger := DataModule1.mPedidoidPedido.AsInteger;
@@ -425,7 +425,7 @@ begin
       if not DataModule1.mpedidoitem.Active then {Atualiza Edit vl_Total - Abre Edição}
             DataModule1.mpedidoitem.Open;
       {ShowMessage(qValorTotal.FieldByName('total').AsString);}
-      DataModule1.mPedidovalorTotal.AsFloat := StrToInt(qValorTotal.FieldByName('total').AsString);
+      DataModule1.mPedidovalorTotal.AsFloat := StrToFloat(qValorTotal.FieldByName('total').AsString);
       {Volta o Foco pro Edit EAN}
       ed_barra.clear;
       ed_barra.SetFocus;

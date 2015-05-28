@@ -14,8 +14,6 @@ type
     eSenha: TEdit;
     btnEntrar: TButton;
     procedure btnEntrarClick(Sender: TObject);
-    procedure eSenhaKeyPress(Sender: TObject; var Key: Char);
-    procedure eLoginKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -46,23 +44,6 @@ begin
   begin
     ShowMessage('Login ou Senha Errada!');
     eLogin.SetFocus;
-  end;
-end;
-
-procedure TFLogin.eSenhaKeyPress(Sender: TObject; var Key: Char);
-begin
-  if(Key = #13)then
-  begin
-    btnEntrar.OnClick(Sender);
-  end;
-
-end;
-
-procedure TFLogin.eLoginKeyPress(Sender: TObject; var Key: Char);
-begin
-  if(Key = #13)then
-  begin
-    eSenha.SetFocus;
   end;
 end;
 

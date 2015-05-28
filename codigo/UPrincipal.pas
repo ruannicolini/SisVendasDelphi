@@ -37,9 +37,6 @@ type
     procedure Image10Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AELogMessage(var Msg: tagMSG; var Handled: Boolean);
-    procedure NivelGerente();
-    procedure NivelVendedor();
-    procedure NivelEstagiario();
     procedure Dinamico(F: TFormClass; F2: TForm);
     procedure AELogException(Sender: TObject; E: Exception);
     procedure imgRecalcularClick(Sender: TObject);
@@ -65,25 +62,15 @@ Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario, UEntradaEsto
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  mLog.Lines.Add('DATA: ' + FormatDateTime('dd/mm/yyyy',date) + ' ENTROU NO SISTEMA.');
-
-  if(DataModule1.qLoginnivel.AsInteger = 2) then
-  begin
-    NivelGerente();
-  end
-  else if(DataModule1.qLoginnivel.AsInteger = 3) then
-  begin
-    NivelGerente();
-    NivelVendedor();
-  end
-  else if(DataModule1.qLoginnivel.AsInteger = 4) then
-  begin
-    NivelGerente();
-    NivelVendedor();
-    NivelEstagiario();
-  end;
-
-   {Aplica Tela Cheia ao Form}
+   mLog.Lines.Add('DATA: ' + FormatDateTime('dd/mm/yyyy',date) + ' ENTROU NO SISTEMA.');
+   //VENDEDOR OU ESTAGIÁRIO
+   if(DataModule1.qLoginnivel.AsInteger = 3) OR (DataModule1.qLoginnivel.AsInteger = 4) then
+   begin
+    imgRecalcular.Enabled := False;
+    imgRecalcular.Hint := 'ACESSO NEGADO!!!';
+   end;
+   
+  {Aplica Tela Cheia ao Form}
   ShowWindow(Handle, SW_MAXIMIZE);
   ShowMessage(DataModule1.qLoginnome.AsString + ' Bem vindo ao Real System!!!');
 end;
@@ -151,28 +138,10 @@ begin
   end;//fim case
 end;
 
-procedure TForm1.NivelGerente();
-begin
-  imgUsuario.Visible := False;
-end;
-
-procedure TForm1.NivelVendedor();
-begin
-  imgEntradaEstoque.Visible:= False;
-  imgRecalcular.Visible := False;
-end;
-
-procedure TForm1.NivelEstagiario();
-begin
-  imgCliente.Visible := False;
-  imgCidade.Visible := False;
-end;
-
 procedure TForm1.Dinamico(F: TFormClass; F2: TForm);
 begin
   Application.CreateForm(F,F2);
   try
-
     F2.ShowModal;
   finally
     F2.Free;
@@ -218,5 +187,6 @@ begin
     end;
   end;
 end;
+
 
 end.

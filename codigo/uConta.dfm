@@ -26,7 +26,6 @@ inherited FConta: TFConta
     end
   end
   inherited PageControl1: TPageControl
-    ActivePage = tbFiltros
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel
@@ -130,14 +129,9 @@ inherited FConta: TFConta
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 912
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
-      end
-      inherited DBGrid1: TDBGrid
-        Width = 912
-        Height = 341
       end
     end
   end

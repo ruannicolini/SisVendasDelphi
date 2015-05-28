@@ -22,15 +22,15 @@ object FormPadrao: TFormPadrao
   TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 465
-    Width = 920
+    Top = 458
+    Width = 912
     Height = 19
     Panels = <>
   end
   object TBAcaoTela: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 31
     ButtonHeight = 27
     Caption = 'TBAcaoTela'
@@ -112,8 +112,8 @@ object FormPadrao: TFormPadrao
   object PageControl1: TPageControl
     Left = 0
     Top = 31
-    Width = 920
-    Height = 434
+    Width = 912
+    Height = 427
     ActivePage = tbDados
     Align = alClient
     TabOrder = 2
@@ -122,8 +122,8 @@ object FormPadrao: TFormPadrao
       object gbDados: TGroupBox
         Left = 0
         Top = 0
-        Width = 912
-        Height = 406
+        Width = 904
+        Height = 399
         Align = alClient
         Color = clBtnFace
         ParentColor = False

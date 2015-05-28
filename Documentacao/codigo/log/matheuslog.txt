@@ -1,0 +1,11 @@
+HORA: 05:51:08  Interagiu com o btnEntrar
+HORA: 05:51:17  Interagiu com o OK
+HORA: 05:51:18  Interagiu com o eLogin
+HORA: 05:51:21  Interagiu com o btnEntrar
+DATA: 03/05/2015 ENTROU NO SISTEMA.
+HORA: 05:51:48 matheus Interagiu com o Panel3
+HORA: 05:51:50 matheus Interagiu com o Panel3
+HORA: 05:51:52 matheus Interagiu com o Panel3
+HORA: 05:51:54 matheus Interagiu com o Panel3
+HORA: 05:52:25 matheus Interagiu com o FConsultas
+HORA: 05:52:32 SAIU DO SISTEMA
