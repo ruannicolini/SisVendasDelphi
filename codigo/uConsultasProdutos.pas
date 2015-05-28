@@ -20,7 +20,6 @@ type
     mConsultaidProduto: TIntegerField;
     mConsultaQTDE: TIntegerField;
     procedure btnPesquisarClick(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,12 +42,6 @@ begin
 
   inherited;
 
-end;
-
-procedure TFConsultaProdutos.BitBtn1Click(Sender: TObject);
-begin
-  inherited;
-  ExportarExcel(mConsulta);
 end;
 
 end.

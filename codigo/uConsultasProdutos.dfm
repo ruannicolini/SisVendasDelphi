@@ -23,9 +23,6 @@ inherited FConsultaProdutos: TFConsultaProdutos
   inherited PageControl1: TPageControl
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        inherited BitBtn1: TBitBtn
-          OnClick = BitBtn1Click
-        end
         object date_inic: TDateTimePicker
           Left = 40
           Top = 16

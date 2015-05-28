@@ -23,9 +23,6 @@ inherited FConsultaEstoque: TFConsultaEstoque
   inherited PageControl1: TPageControl
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        inherited BitBtn1: TBitBtn
-          OnClick = BitBtn1Click
-        end
         object Edit_Ean: TLabeledEdit
           Left = 72
           Top = 24
@@ -35,7 +32,47 @@ inherited FConsultaEstoque: TFConsultaEstoque
           EditLabel.Height = 13
           EditLabel.Caption = 'Ean'
           TabOrder = 1
+          OnKeyPress = Edit_EanKeyPress
         end
+      end
+      inherited DBGrid1: TDBGridBeleza
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Operacao'
+            Width = 81
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'codOP'
+            Title.Caption = 'Cod OP'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'codProduto'
+            Title.Caption = 'Cod Produto'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Produto'
+            Width = 504
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'quantidade'
+            Title.Caption = 'Qtd'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'data'
+            Title.Caption = 'Data'
+            Visible = True
+          end>
       end
     end
   end
@@ -50,26 +87,25 @@ inherited FConsultaEstoque: TFConsultaEstoque
     ProviderName = 'pConsulta'
     Left = 744
     Top = 8
-    object mConsultaidProduto: TIntegerField
-      FieldName = 'idProduto'
+    object mConsultaOperacao: TStringField
+      FieldName = 'Operacao'
+      Size = 7
     end
-    object mConsultadescricao: TStringField
-      FieldName = 'descricao'
+    object mConsultacodOP: TFloatField
+      FieldName = 'codOP'
+    end
+    object mConsultacodProduto: TIntegerField
+      FieldName = 'codProduto'
+    end
+    object mConsultaProduto: TStringField
+      FieldName = 'Produto'
       Size = 100
     end
-    object mConsultaean: TFloatField
-      FieldName = 'ean'
+    object mConsultaquantidade: TIntegerField
+      FieldName = 'quantidade'
     end
-    object mConsultaqtd: TIntegerField
-      FieldName = 'qtd'
-    end
-    object mConsultadataAlteracaoEstoque: TStringField
-      FieldName = 'dataAlteracaoEstoque'
-      Size = 10
-    end
-    object mConsultanome: TStringField
-      FieldName = 'nome'
-      Size = 50
+    object mConsultadata: TDateTimeField
+      FieldName = 'data'
     end
   end
   object pConsulta: TDataSetProvider
@@ -81,46 +117,64 @@ inherited FConsultaEstoque: TFConsultaEstoque
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
       
-        'select prod.idProduto, prod.descricao, prod.ean, re.qtd, re.data' +
-        'AlteracaoEstoque, us.nome '
-      'from dbo.responsavel_estoque re, produto prod, usuario us'
+        'select '#39'ENTRADA'#39' as Operacao, re.idEntrada as codOP, re.idProdut' +
+        'o as codProduto,'
+      'prod.descricao as Produto, re.qtd as quantidade, '
+      'CONVERT(DATETIME,re.dataAlteracaoEstoque,103)  as data '
+      'from responsavel_estoque re'
+      'left outer join produto prod on re.idProduto = prod.idProduto'
+      'where prod.ean = :Pean'
+      'UNION'
       
-        'where re.idProduto = prod.idProduto and re.idUsuario = us.idUsua' +
-        'rio and re.idProduto = :idProd')
+        'select '#39'SAIDA'#39' as Operacao, ped.idPedido as codOP, pit.idProduto' +
+        ' as codProduto, '
+      'prod.descricao as Produto, pit.quantidade as quantidade,'
+      'CONVERT(DATETIME,fat.data_faturamento,103)  as data'
+      'from faturamento fat, pedido ped'
+      
+        'left outer join pedido_item  as pit on pit.idPedido = ped.idPedi' +
+        'do'
+      'left outer join produto prod on pit.idProduto = prod.idProduto'
+      'where prod.ean = :Pean'
+      'order by data desc')
     Left = 808
     Top = 8
     ParamData = <
       item
         DataType = ftInteger
-        Name = 'idProd'
+        Name = 'Pean'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftInteger
+        Name = 'Pean'
         ParamType = ptUnknown
       end>
-    object qConsultaidProduto: TIntegerField
-      FieldName = 'idProduto'
-      Origin = 'SISTEMADEVENDAS.produto.idProduto'
+    object qConsultaOperacao: TStringField
+      FieldName = 'Operacao'
+      ProviderFlags = [pfInWhere]
+      Size = 7
     end
-    object qConsultadescricao: TStringField
-      FieldName = 'descricao'
-      Origin = 'SISTEMADEVENDAS.produto.descricao'
+    object qConsultacodOP: TFloatField
+      FieldName = 'codOP'
+      ProviderFlags = [pfInWhere]
+    end
+    object qConsultacodProduto: TIntegerField
+      FieldName = 'codProduto'
+      ProviderFlags = [pfInWhere]
+    end
+    object qConsultaProduto: TStringField
+      FieldName = 'Produto'
+      ProviderFlags = [pfInWhere]
       Size = 100
     end
-    object qConsultaean: TFloatField
-      FieldName = 'ean'
-      Origin = 'SISTEMADEVENDAS.produto.ean'
+    object qConsultaquantidade: TIntegerField
+      FieldName = 'quantidade'
+      ProviderFlags = [pfInWhere]
     end
-    object qConsultaqtd: TIntegerField
-      FieldName = 'qtd'
-      Origin = 'SISTEMADEVENDAS.responsavel_estoque.qtd'
-    end
-    object qConsultadataAlteracaoEstoque: TStringField
-      FieldName = 'dataAlteracaoEstoque'
-      Origin = 'SISTEMADEVENDAS.responsavel_estoque.dataAlteracaoEstoque'
-      Size = 10
-    end
-    object qConsultanome: TStringField
-      FieldName = 'nome'
-      Origin = 'SISTEMADEVENDAS.usuario.nome'
-      Size = 50
+    object qConsultadata: TDateTimeField
+      FieldName = 'data'
+      ProviderFlags = [pfInWhere]
     end
   end
 end

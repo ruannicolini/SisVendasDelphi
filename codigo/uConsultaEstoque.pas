@@ -13,21 +13,21 @@ type
     mConsulta: TClientDataSet;
     pConsulta: TDataSetProvider;
     qConsulta: TQuery;
-    qConsultaidProduto: TIntegerField;
-    qConsultadescricao: TStringField;
-    qConsultaean: TFloatField;
-    qConsultaqtd: TIntegerField;
-    qConsultadataAlteracaoEstoque: TStringField;
-    qConsultanome: TStringField;
-    mConsultaidProduto: TIntegerField;
-    mConsultadescricao: TStringField;
-    mConsultaean: TFloatField;
-    mConsultaqtd: TIntegerField;
-    mConsultadataAlteracaoEstoque: TStringField;
-    mConsultanome: TStringField;
     Edit_Ean: TLabeledEdit;
+    qConsultaOperacao: TStringField;
+    qConsultacodOP: TFloatField;
+    qConsultacodProduto: TIntegerField;
+    qConsultaProduto: TStringField;
+    qConsultaquantidade: TIntegerField;
+    qConsultadata: TDateTimeField;
+    mConsultaOperacao: TStringField;
+    mConsultacodOP: TFloatField;
+    mConsultacodProduto: TIntegerField;
+    mConsultaProduto: TStringField;
+    mConsultaquantidade: TIntegerField;
+    mConsultadata: TDateTimeField;
     procedure btnPesquisarClick(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit_EanKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -43,18 +43,28 @@ implementation
 
 procedure TFConsultaEstoque.btnPesquisarClick(Sender: TObject);
 begin
-  DataModule1.qAux.Close;
-  DataModule1.qAux.SQL.Text := 'Select idProduto from Produto where idProduto = ' + Edit_Ean.Text;
-  DataModule1.qAux.Open;
-  qConsulta.ParamByName(':idProd').Text :=  IntToStr( DataModule1.qAux.FieldByName('idProduto').AsInteger);
+  if(Edit_Ean.Text <> '') then
+  begin
+    qConsulta.Close;
+    qConsulta.Open;
+    qConsulta.ParamByName('Pean').AsString:=(Edit_Ean.Text);
+    inherited;
+  end else
+  begin
+    ShowMessage('Informe Ean do Produto');
+    Edit_Ean.SetFocus;
+  end;
 
-  inherited;
 end;
 
-procedure TFConsultaEstoque.BitBtn1Click(Sender: TObject);
+procedure TFConsultaEstoque.Edit_EanKeyPress(Sender: TObject;
+  var Key: Char);
 begin
   inherited;
-  ExportarExcel(mConsulta);
+  if (key = #13) then
+  begin
+    btnPesquisar.OnClick(Sender);
+  end;
 end;
 
 end.

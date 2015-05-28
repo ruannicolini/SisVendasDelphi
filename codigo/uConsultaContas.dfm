@@ -1,6 +1,6 @@
 inherited FConsultaContas: TFConsultaContas
-  Left = 111
-  Top = 128
+  Left = 204
+  Top = 119
   Width = 913
   Height = 573
   Caption = 'FConsultaContas'
@@ -62,8 +62,8 @@ inherited FConsultaContas: TFConsultaContas
     inherited tbDados: TTabSheet
       ParentShowHint = False
       inherited gbDados: TGroupBox
-        Width = 889
-        Height = 457
+        Width = 897
+        Height = 464
         object Label8: TLabel
           Left = 520
           Top = 8

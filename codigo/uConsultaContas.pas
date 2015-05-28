@@ -120,7 +120,7 @@ end;
 procedure TFConsultaContas.BitBtn1Click(Sender: TObject);
 begin
   inherited;
-  ExportarExcel(mConsulta);
+  ExportarExcel(DataModule1.mConta);
 end;
 
 end.
