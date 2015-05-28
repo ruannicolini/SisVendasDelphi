@@ -7,7 +7,8 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls,
   Buttons,
-  DBGridBeleza;
+  DBGridBeleza,
+  DBEditBeleza;
 
 type
   TFUsuario = class(TFormPadrao)
@@ -22,9 +23,9 @@ type
     Label5: TLabel;
     DBEusername: TDBEdit;
     Label6: TLabel;
-    DBLookupComboBox1: TDBLookupComboBox;
     Label7: TLabel;
     DBEidNivel: TDBEdit;
+    DBEditBeleza1: TDBEditBeleza;
     procedure BitBtn1Click(Sender: TObject);
     procedure DBEemailExit(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);

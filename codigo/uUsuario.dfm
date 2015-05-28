@@ -6,6 +6,7 @@ inherited FUsuario: TFUsuario
   PixelsPerInch = 96
   TextHeight = 13
   inherited PageControl1: TPageControl
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel
@@ -54,7 +55,6 @@ inherited FUsuario: TFUsuario
           Width = 48
           Height = 13
           Caption = 'Descri'#231#227'o'
-          FocusControl = DBLookupComboBox1
         end
         object Label7: TLabel
           Left = 24
@@ -73,7 +73,7 @@ inherited FUsuario: TFUsuario
           DataField = 'idUsuario'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
         end
         object DBEnome: TDBEdit
           Left = 24
@@ -112,15 +112,6 @@ inherited FUsuario: TFUsuario
           DataSource = DS
           TabOrder = 1
         end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 64
-          Top = 248
-          Width = 305
-          Height = 21
-          DataField = 'NivelUsuario'
-          DataSource = DS
-          TabOrder = 4
-        end
         object DBEidNivel: TDBEdit
           Left = 24
           Top = 248
@@ -130,7 +121,34 @@ inherited FUsuario: TFUsuario
           DataField = 'nivel'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 4
+        end
+        object DBEditBeleza1: TDBEditBeleza
+          Left = 64
+          Top = 248
+          Width = 305
+          Height = 21
+          Color = 14737361
+          DataField = 'NivelUsuario'
+          DataSource = DS
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 6
+          Ativar_Pesquisa = True
+          mostrar_Botao = False
+          sql.Strings = (
+            'select idNivel, descricao from nivel where descricao like :x')
+          database = 'SistemaDeVendas'
+          campo = 'descricao'
+          Sempre_Mostrar_Janela = False
+          Outro_Edit = DBEidNivel
+          campo_outro_edit = 'idNivel'
+          CorBorda = clGray
+          NovoLayout = False
         end
       end
     end
