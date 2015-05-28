@@ -24,22 +24,40 @@ inherited FConsultaProdutos: TFConsultaProdutos
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
         object date_inic: TDateTimePicker
-          Left = 40
+          Left = 375
           Top = 16
           Width = 97
           Height = 21
           Date = 42126.665987337960000000
           Time = 42126.665987337960000000
           TabOrder = 1
+          Visible = False
         end
         object date_fim: TDateTimePicker
-          Left = 144
+          Left = 479
           Top = 16
           Width = 97
           Height = 21
           Date = 42126.668445682870000000
           Time = 42126.668445682870000000
           TabOrder = 2
+          Visible = False
+        end
+        object filtroData: tFiltroDatas
+          Left = 40
+          Top = 16
+          Width = 210
+          Height = 40
+          BevelOuter = bvNone
+          Caption = 'filtroData'
+          Constraints.MaxHeight = 40
+          Constraints.MinHeight = 40
+          Constraints.MinWidth = 210
+          ParentColor = True
+          TabOrder = 3
+          CaptionCheck = 'Data Entre'
+          Checked = False
+          Formato_Data = 'dd/mm/yyyy'
         end
       end
     end

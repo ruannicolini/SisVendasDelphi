@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, Buttons, ComCtrls,
   ToolWin, DBTables, DBClient, Provider,
-  DBGridBeleza;
+  DBGridBeleza,
+  ExtCtrls, uFiltroDatas;
 
 type
   TFConsultaClientes = class(TFormPadrao)
@@ -41,6 +42,7 @@ type
     mConsultaemail: TStringField;
     mConsultaie: TStringField;
     mConsultaidCidade: TIntegerField;
+    filtroData: tFiltroDatas;
     procedure btnPesquisarClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
   private
@@ -60,9 +62,14 @@ uses uConexao;
 
 procedure TFConsultaClientes.btnPesquisarClick(Sender: TObject);
 begin
+  ShowMessage( DateToStr(filtroData.Data1) );
+
   qConsulta.Close;
-  qConsulta.Params.ParamByName('d1').AsDateTime := date_inic.DateTime;
-  qConsulta.Params.ParamByName('d2').AsDateTime := date_fim.DateTime;
+  //qConsulta.Params.ParamByName('d1').AsDateTime := date_inic.DateTime;
+  //qConsulta.Params.ParamByName('d2').AsDateTime := date_fim.DateTime;
+
+  qConsulta.Params.ParamByName('d1').AsDateTime := StrToDateTime( DateToStr(filtroData.Data1) );
+  qConsulta.Params.ParamByName('d2').AsDateTime := StrToDateTime( DateToStr(filtroData.Data2) );
   qConsulta.Open;
 
   inherited;

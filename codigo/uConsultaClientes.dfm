@@ -11,22 +11,40 @@ inherited FConsultaClientes: TFConsultaClientes
           OnClick = BitBtn1Click
         end
         object Date_Inic: TDateTimePicker
-          Left = 48
+          Left = 286
           Top = 16
           Width = 89
           Height = 21
           Date = 42126.488447997680000000
           Time = 42126.488447997680000000
           TabOrder = 1
+          Visible = False
         end
         object Date_fim: TDateTimePicker
-          Left = 144
+          Left = 382
           Top = 16
           Width = 89
           Height = 21
           Date = 42126.488549120370000000
           Time = 42126.488549120370000000
           TabOrder = 2
+          Visible = False
+        end
+        object filtroData: tFiltroDatas
+          Left = 40
+          Top = 16
+          Width = 210
+          Height = 40
+          BevelOuter = bvNone
+          Caption = 'filtroData'
+          Constraints.MaxHeight = 40
+          Constraints.MinHeight = 40
+          Constraints.MinWidth = 210
+          ParentColor = True
+          TabOrder = 3
+          CaptionCheck = 'Data Entre'
+          Checked = False
+          Formato_Data = 'dd/mm/yyyy'
         end
       end
     end
