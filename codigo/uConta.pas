@@ -7,7 +7,9 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   DBCtrls, Mask, Buttons,
   DBGridBeleza,
-  DBEdit_Calendario;
+  DBEdit_Calendario,
+  DBTables,
+  EditDinheiro;
 
 type
   TFConta = class(TFormPadrao)
@@ -23,9 +25,16 @@ type
     BtnBaixarContas: TToolButton;
     DBEdataPag: TDBEdit_Calendario;
     DBEdataVenc: TDBEdit_Calendario;
+    qAuxiliar: TQuery;
+    EditDinheiro1: TEditDinheiro;
     procedure BtnBaixarContasClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
+    procedure tbDadosEnter(Sender: TObject);
+    procedure tbDadosContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure tbDadosShow(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -86,6 +95,42 @@ begin
   end
   else
     ShowMessage('Conta Já Paga =  Não pode ser Excluída!');
+end;
+
+procedure TFConta.tbDadosEnter(Sender: TObject);
+begin
+  inherited;
+  ShowMessage('entrou');
+end;
+
+procedure TFConta.tbDadosContextPopup(Sender: TObject; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+  inherited;
+  ShowMessage('oi');
+end;
+
+procedure TFConta.tbDadosShow(Sender: TObject);
+begin
+  inherited;
+  if(DS.DataSet.IsEmpty = false)then
+  begin
+    qAuxiliar.Close;
+    qAuxiliar.ParamByName('idC').AsString:= DataModule1.mContaidConta.AsString;
+    qAuxiliar.Open;
+    EditDinheiro1.Text := FloatToStr( qAuxiliar.FieldByName('valorTotal').AsFloat );
+  end;
+
+
+end;
+
+procedure TFConta.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  qAuxiliar.Close;
+  qAuxiliar.ParamByName('idC').AsString:= DataModule1.mContaidConta.AsString;
+  qAuxiliar.Open;
+  EditDinheiro1.Text := FloatToStr( qAuxiliar.FieldByName('valorTotal').AsFloat )
 end;
 
 end.

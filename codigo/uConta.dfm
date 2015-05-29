@@ -29,6 +29,7 @@ inherited FConta: TFConta
   inherited PageControl1: TPageControl
     ActivePage = tbDados
     inherited tbDados: TTabSheet
+      OnShow = tbDadosShow
       inherited gbDados: TGroupBox
         object Label1: TLabel
           Left = 24
@@ -115,7 +116,6 @@ inherited FConta: TFConta
           Hint = 'Duplo Clique para Buscar a data de hoje!'
           DataField = 'data_pag'
           DataSource = DS
-          MaxLength = 8
           ParentShowHint = False
           ShowHint = True
           TabOrder = 4
@@ -129,11 +129,19 @@ inherited FConta: TFConta
           Hint = 'Duplo Clique para Buscar a data de hoje!'
           DataField = 'data_venc'
           DataSource = DS
-          MaxLength = 8
           ParentShowHint = False
           ShowHint = True
           TabOrder = 5
           Formato_Data = 'dd/mm/yy'
+        end
+        object EditDinheiro1: TEditDinheiro
+          Left = 24
+          Top = 272
+          Width = 121
+          Height = 21
+          TabOrder = 6
+          Text = '0'
+          Formato = '0.00'
         end
       end
     end
@@ -147,5 +155,25 @@ inherited FConta: TFConta
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mConta
+  end
+  object qAuxiliar: TQuery
+    DatabaseName = 'SistemaDeVendas'
+    SQL.Strings = (
+      'SELECT cont.*,'
+      'ped.idPedido, ped.valorTotal, fat.data_faturamento, fat.nf'
+      'FROM contas cont'
+      
+        'left outer join faturamento fat on cont.idFaturamento = fat.idFa' +
+        'turamento'
+      'left outer join pedido ped on fat.idPedido = ped.idPedido '
+      'where cont.idConta =:idC')
+    Left = 576
+    Top = 16
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'idC'
+        ParamType = ptUnknown
+      end>
   end
 end

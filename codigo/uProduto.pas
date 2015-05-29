@@ -28,7 +28,9 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure DBEprecoClick(Sender: TObject);
     procedure EditDinheiro1Exit(Sender: TObject);
+    procedure DBEprecoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,10 +76,22 @@ begin
   DBEidProduto.Color := clWindow;
 end;
 
+procedure TFProduto.DBEprecoClick(Sender: TObject);
+begin
+  inherited;
+  EditDinheiro1.Text := DBEpreco.EditText;
+end;
+
 procedure TFProduto.EditDinheiro1Exit(Sender: TObject);
 begin
   inherited;
   DBEpreco.EditText := EditDinheiro1.Text;
+end;
+
+procedure TFProduto.DBEprecoChange(Sender: TObject);
+begin
+  inherited;
+  EditDinheiro1.Text := DBEpreco.EditText;
 end;
 
 end.
