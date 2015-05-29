@@ -7,14 +7,15 @@ inherited FProduto: TFProduto
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 466
+    Top = 459
   end
   inherited PageControl1: TPageControl
-    Height = 435
+    Height = 428
     ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Height = 407
+        Width = 904
+        Height = 400
         object Label1: TLabel
           Left = 40
           Top = 40
@@ -84,7 +85,6 @@ inherited FProduto: TFProduto
           DataSource = DS
           TabOrder = 1
           Visible = False
-          OnChange = DBEprecoChange
         end
         object DBCheckBox1: TDBCheckBox
           Left = 40
@@ -135,7 +135,7 @@ inherited FProduto: TFProduto
         end
       end
       inherited DBGrid1: TDBGridBeleza
-        Height = 342
+        Height = 335
       end
     end
   end
