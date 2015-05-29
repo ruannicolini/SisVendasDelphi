@@ -1,5 +1,6 @@
 inherited FConta: TFConta
-  Top = 91
+  Left = 236
+  Top = 118
   Caption = 'FConta'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -26,38 +27,37 @@ inherited FConta: TFConta
     end
   end
   inherited PageControl1: TPageControl
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         object Label1: TLabel
           Left = 24
           Top = 32
-          Width = 36
+          Width = 19
           Height = 13
-          Caption = 'idConta'
+          Caption = 'Cod'
           FocusControl = DBEidConta
         end
         object Label2: TLabel
           Left = 24
           Top = 72
-          Width = 51
+          Width = 82
           Height = 13
-          Caption = 'data_venc'
-          FocusControl = DBEdataVenc
+          Caption = 'Data Vencimento'
         end
         object Label3: TLabel
           Left = 24
           Top = 112
-          Width = 45
+          Width = 80
           Height = 13
-          Caption = 'data_pag'
-          FocusControl = DBEdataPag
+          Caption = 'Data Pagamento'
         end
         object Label4: TLabel
           Left = 24
           Top = 176
-          Width = 84
+          Width = 85
           Height = 13
-          Caption = 'numero_duplicata'
+          Caption = 'Numero Duplicata'
           FocusControl = DBEnumDuplicata
         end
         object Label5: TLabel
@@ -77,53 +77,63 @@ inherited FConta: TFConta
           DataSource = DS
           TabOrder = 0
         end
-        object DBEdataVenc: TDBEdit
-          Left = 24
-          Top = 88
-          Width = 134
-          Height = 21
-          DataField = 'data_venc'
-          DataSource = DS
-          TabOrder = 1
-        end
-        object DBEdataPag: TDBEdit
-          Left = 24
-          Top = 128
-          Width = 134
-          Height = 21
-          DataField = 'data_pag'
-          DataSource = DS
-          TabOrder = 2
-        end
         object DBCheckBox1: TDBCheckBox
           Left = 24
           Top = 152
           Width = 97
           Height = 17
-          Caption = 'statusPag'
+          Caption = 'Pago'
           DataField = 'statusPag'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 1
           ValueChecked = 'True'
           ValueUnchecked = 'False'
         end
         object DBEnumDuplicata: TDBEdit
           Left = 24
           Top = 192
-          Width = 654
+          Width = 137
           Height = 21
           DataField = 'numero_duplicata'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 2
         end
         object DBEidFaturamento: TDBEdit
-          Left = 24
+          Left = 25
           Top = 232
           Width = 134
           Height = 21
           DataField = 'idFaturamento'
           DataSource = DS
+          TabOrder = 3
+        end
+        object DBEdataPag: TDBEdit_Calendario
+          Left = 24
+          Top = 128
+          Width = 137
+          Height = 21
+          Hint = 'Duplo Clique para Buscar a data de hoje!'
+          DataField = 'data_pag'
+          DataSource = DS
+          MaxLength = 8
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Formato_Data = 'dd/mm/yy'
+        end
+        object DBEdataVenc: TDBEdit_Calendario
+          Left = 24
+          Top = 88
+          Width = 137
+          Height = 21
+          Hint = 'Duplo Clique para Buscar a data de hoje!'
+          DataField = 'data_venc'
+          DataSource = DS
+          MaxLength = 8
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 5
+          Formato_Data = 'dd/mm/yy'
         end
       end
     end

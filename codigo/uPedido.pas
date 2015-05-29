@@ -7,7 +7,8 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons, DateUtils,
   DBGridBeleza,
-  DBEditBeleza;
+  DBEditBeleza,
+  DBEdit_Calendario;
 
 type
   TFPedido = class(TFormPadrao)
@@ -18,7 +19,6 @@ type
     Label5: TLabel;
     DBEidCliente: TDBEdit;
     Label6: TLabel;
-    DBEdataAtual: TDBEdit;
     Label2: TLabel;
     DBEdescricao: TDBEdit;
     GroupBox1: TGroupBox;
@@ -49,6 +49,7 @@ type
     btnFaturar: TToolButton;
     qExcluiPedidoItem: TQuery;
     DBEditBeleza1: TDBEditBeleza;
+    DBEdataAtual: TDBEdit_Calendario;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);

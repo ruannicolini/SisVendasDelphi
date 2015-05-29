@@ -6,22 +6,23 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   DBCtrls, Mask, Buttons,
-  DBGridBeleza;
+  DBGridBeleza,
+  DBEdit_Calendario;
 
 type
   TFConta = class(TFormPadrao)
     Label1: TLabel;
     DBEidConta: TDBEdit;
     Label2: TLabel;
-    DBEdataVenc: TDBEdit;
     Label3: TLabel;
-    DBEdataPag: TDBEdit;
     DBCheckBox1: TDBCheckBox;
     Label4: TLabel;
     DBEnumDuplicata: TDBEdit;
     Label5: TLabel;
     DBEidFaturamento: TDBEdit;
     BtnBaixarContas: TToolButton;
+    DBEdataPag: TDBEdit_Calendario;
+    DBEdataVenc: TDBEdit_Calendario;
     procedure BtnBaixarContasClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);

@@ -15,8 +15,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
     ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 904
-        Height = 399
         object lEan: TLabel
           Left = 56
           Top = 128
@@ -54,7 +52,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 23
           Height = 13
           Caption = 'Data'
-          FocusControl = DBEdata
         end
         object Label2: TLabel
           Left = 56
@@ -111,7 +108,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idEntrada'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 8
+          TabOrder = 7
         end
         object DBEidProduto: TDBEdit
           Left = 56
@@ -122,7 +119,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idProduto'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 6
         end
         object DBEdescricao: TDBEdit
           Left = 104
@@ -133,7 +130,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'descricao'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 9
+          TabOrder = 8
         end
         object DBEqtd: TDBEdit
           Left = 304
@@ -144,17 +141,6 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataSource = DS
           TabOrder = 4
         end
-        object DBEdata: TDBEdit
-          Left = 56
-          Top = 227
-          Width = 134
-          Height = 21
-          DataField = 'dataAlteracaoEstoque'
-          DataSource = DS
-          ReadOnly = True
-          TabOrder = 5
-          OnExit = DBEdataExit
-        end
         object DBEidUsuario: TDBEdit
           Left = 56
           Top = 104
@@ -164,7 +150,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idUsuario'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
         end
         object DBEditBeleza1: TDBEditBeleza
           Left = 120
@@ -180,7 +166,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 9
           Ativar_Pesquisa = True
           mostrar_Botao = False
           sql.Strings = (
@@ -192,6 +178,20 @@ inherited FEntradaEstoque: TFEntradaEstoque
           campo_outro_edit = 'idUsuario'
           CorBorda = clGray
           NovoLayout = False
+        end
+        object DBEdata: TDBEdit_Calendario
+          Left = 56
+          Top = 226
+          Width = 129
+          Height = 21
+          Hint = 'Duplo Clique para Buscar a data de hoje!'
+          DataField = 'dataAlteracaoEstoque'
+          DataSource = DS
+          MaxLength = 8
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 10
+          Formato_Data = 'dd/mm/yy'
         end
       end
     end

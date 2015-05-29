@@ -88,7 +88,6 @@ inherited FPedido: TFPedido
           Width = 23
           Height = 13
           Caption = 'Data'
-          FocusControl = DBEdataAtual
         end
         object Label2: TLabel
           Left = 16
@@ -105,7 +104,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idPedido'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 4
         end
         object DBprazo: TDBEdit
           Left = 594
@@ -114,7 +113,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'prazoPagamento'
           DataSource = DS
-          TabOrder = 2
+          TabOrder = 1
         end
         object DBEidCliente: TDBEdit
           Left = 16
@@ -123,16 +122,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idCliente'
           DataSource = DS
-          TabOrder = 4
-        end
-        object DBEdataAtual: TDBEdit
-          Left = 593
-          Top = 82
-          Width = 128
-          Height = 21
-          DataField = 'data'
-          DataSource = DS
-          TabOrder = 0
+          TabOrder = 3
         end
         object DBEdescricao: TDBEdit
           Left = 16
@@ -141,7 +131,7 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 0
         end
         object GroupBox1: TGroupBox
           Left = 16
@@ -151,7 +141,7 @@ inherited FPedido: TFPedido
           Caption = 'ITENS'
           Color = clBtnFace
           ParentColor = False
-          TabOrder = 3
+          TabOrder = 2
           object Label3: TLabel
             Left = 21
             Top = 64
@@ -366,7 +356,7 @@ inherited FPedido: TFPedido
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 5
           Ativar_Pesquisa = True
           mostrar_Botao = False
           sql.Strings = (
@@ -378,6 +368,20 @@ inherited FPedido: TFPedido
           campo_outro_edit = 'idCliente'
           CorBorda = clGray
           NovoLayout = False
+        end
+        object DBEdataAtual: TDBEdit_Calendario
+          Left = 592
+          Top = 80
+          Width = 129
+          Height = 21
+          Hint = 'Duplo Clique para Buscar a data de hoje!'
+          DataField = 'data'
+          DataSource = DS
+          MaxLength = 8
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          Formato_Data = 'dd/mm/yy'
         end
       end
     end

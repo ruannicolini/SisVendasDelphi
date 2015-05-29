@@ -8,7 +8,8 @@ uses
   DBCtrls, Mask, ExtCtrls, DBTables,
   Buttons,
   DBGridBeleza,
-  DBEditBeleza;
+  DBEditBeleza,
+  DBEdit_Calendario;
 
 type
   TFEntradaEstoque = class(TFormPadrao)
@@ -26,10 +27,10 @@ type
     Label6: TLabel;
     DBEqtd: TDBEdit;
     Label8: TLabel;
-    DBEdata: TDBEdit;
     Label2: TLabel;
     DBEidUsuario: TDBEdit;
     DBEditBeleza1: TDBEditBeleza;
+    DBEdata: TDBEdit_Calendario;
     procedure btnNovoClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure eEanKeyDown(Sender: TObject; var Key: Word;
