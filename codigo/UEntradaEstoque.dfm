@@ -12,8 +12,11 @@ inherited FEntradaEstoque: TFEntradaEstoque
     Caption = 'Usuario'
   end
   inherited PageControl1: TPageControl
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
+        Width = 904
+        Height = 399
         object lEan: TLabel
           Left = 56
           Top = 128
@@ -67,7 +70,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 2
+          TabOrder = 1
           OnKeyDown = eEanKeyDown
           OnKeyPress = eEanKeyPress
         end
@@ -77,7 +80,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 233
           Height = 33
           DragMode = dmAutomatic
-          TabOrder = 1
+          TabOrder = 0
         end
         object rbAutomatico: TRadioButton
           Left = 184
@@ -87,7 +90,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Caption = 'Autom'#225'tico'
           Checked = True
           Enabled = False
-          TabOrder = 3
+          TabOrder = 2
           TabStop = True
         end
         object rbManual: TRadioButton
@@ -97,7 +100,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 17
           Caption = 'Manual'
           Enabled = False
-          TabOrder = 4
+          TabOrder = 3
         end
         object DBEidEntrada: TDBEdit
           Left = 56
@@ -108,7 +111,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idEntrada'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 9
+          TabOrder = 8
         end
         object DBEidProduto: TDBEdit
           Left = 56
@@ -119,7 +122,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idProduto'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 8
+          TabOrder = 7
         end
         object DBEdescricao: TDBEdit
           Left = 104
@@ -130,7 +133,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'descricao'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 10
+          TabOrder = 9
         end
         object DBEqtd: TDBEdit
           Left = 304
@@ -139,7 +142,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 5
+          TabOrder = 4
         end
         object DBEdata: TDBEdit
           Left = 56
@@ -149,7 +152,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'dataAlteracaoEstoque'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
           OnExit = DBEdataExit
         end
         object DBEidUsuario: TDBEdit
@@ -161,16 +164,34 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idUsuario'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 6
         end
-        object DBLookupComboBox1: TDBLookupComboBox
+        object DBEditBeleza1: TDBEditBeleza
           Left = 120
           Top = 104
           Width = 273
           Height = 21
+          Color = 14737361
           DataField = 'usuario'
           DataSource = DS
-          TabOrder = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 10
+          Ativar_Pesquisa = True
+          mostrar_Botao = False
+          sql.Strings = (
+            'select idUsuario, nome from usuario where nome like :x')
+          database = 'SistemaDeVendas'
+          campo = 'nome'
+          Sempre_Mostrar_Janela = False
+          Outro_Edit = DBEidUsuario
+          campo_outro_edit = 'idUsuario'
+          CorBorda = clGray
+          NovoLayout = False
         end
       end
     end

@@ -6,13 +6,15 @@ inherited FCliente: TFCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 449
+    Top = 442
   end
   inherited PageControl1: TPageControl
-    Height = 418
+    Height = 411
+    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Height = 390
+        Width = 904
+        Height = 383
         object Label1: TLabel
           Left = 24
           Top = 24
@@ -115,7 +117,6 @@ inherited FCliente: TFCliente
           Width = 33
           Height = 13
           Caption = 'Cidade'
-          FocusControl = DBLookupComboBox1
         end
         object DBEidCliente: TDBEdit
           Left = 24
@@ -126,7 +127,7 @@ inherited FCliente: TFCliente
           DataField = 'idCliente'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 13
+          TabOrder = 12
         end
         object DBEnome: TDBEdit
           Left = 24
@@ -232,15 +233,6 @@ inherited FCliente: TFCliente
           DataSource = DS
           TabOrder = 10
         end
-        object DBLookupComboBox1: TDBLookupComboBox
-          Left = 256
-          Top = 320
-          Width = 177
-          Height = 21
-          DataField = 'Cidade'
-          DataSource = DS
-          TabOrder = 11
-        end
         object DBEidCidade: TDBEdit
           Left = 233
           Top = 320
@@ -250,7 +242,34 @@ inherited FCliente: TFCliente
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 12
+          TabOrder = 11
+        end
+        object DBEditBeleza1: TDBEditBeleza
+          Left = 256
+          Top = 320
+          Width = 200
+          Height = 21
+          Color = 14737361
+          DataField = 'Cidade'
+          DataSource = DS
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 13
+          Ativar_Pesquisa = True
+          mostrar_Botao = False
+          sql.Strings = (
+            'select idCidade, nome from cidade where nome like :x')
+          database = 'SistemaDeVendas'
+          campo = 'nome'
+          Sempre_Mostrar_Janela = False
+          Outro_Edit = DBEidCidade
+          campo_outro_edit = 'idCidade'
+          CorBorda = clGray
+          NovoLayout = False
         end
       end
     end
@@ -261,7 +280,7 @@ inherited FCliente: TFCliente
         end
       end
       inherited DBGrid1: TDBGridBeleza
-        Height = 325
+        Height = 318
       end
     end
   end

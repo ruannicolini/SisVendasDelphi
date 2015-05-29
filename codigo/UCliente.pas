@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls, Buttons,
-  DBGridBeleza;
+  DBGridBeleza,
+  DBEditBeleza;
 
 type
   TFCliente = class(TFormPadrao)
@@ -35,8 +36,8 @@ type
     Label12: TLabel;
     DBEie: TDBEdit;
     Label13: TLabel;
-    DBLookupComboBox1: TDBLookupComboBox;
     DBEidCidade: TDBEdit;
+    DBEditBeleza1: TDBEditBeleza;
     procedure BitBtn1Click(Sender: TObject);
     procedure DBEemailExit(Sender: TObject);
     procedure DBEcnpjExit(Sender: TObject);

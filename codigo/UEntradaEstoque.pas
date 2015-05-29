@@ -7,7 +7,8 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   DBCtrls, Mask, ExtCtrls, DBTables,
   Buttons,
-  DBGridBeleza;
+  DBGridBeleza,
+  DBEditBeleza;
 
 type
   TFEntradaEstoque = class(TFormPadrao)
@@ -28,7 +29,7 @@ type
     DBEdata: TDBEdit;
     Label2: TLabel;
     DBEidUsuario: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
+    DBEditBeleza1: TDBEditBeleza;
     procedure btnNovoClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure eEanKeyDown(Sender: TObject; var Key: Word;
