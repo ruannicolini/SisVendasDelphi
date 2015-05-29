@@ -8,7 +8,8 @@ uses
   Mask, DBCtrls, ExtCtrls, DBTables, Provider, DBClient, Buttons, DateUtils,
   DBGridBeleza,
   DBEditBeleza,
-  DBEdit_Calendario;
+  DBEdit_Calendario,
+  EditDinheiro;
 
 type
   TFPedido = class(TFormPadrao)
@@ -50,6 +51,7 @@ type
     qExcluiPedidoItem: TQuery;
     DBEditBeleza1: TDBEditBeleza;
     DBEdataAtual: TDBEdit_Calendario;
+    EditDinheiro1: TEditDinheiro;
     procedure ed_barraKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ed_vlTotalEnter(Sender: TObject);
@@ -69,6 +71,7 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure ed_barraKeyPress(Sender: TObject; var Key: Char);
     procedure btnDeletarClick(Sender: TObject);
+    procedure ed_vlTotalChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -432,6 +435,7 @@ begin
       {Volta o Foco pro Edit EAN}
       ed_barra.clear;
       ed_barra.SetFocus;
+      
   end;
   ed_barra.SetFocus;
 end;
@@ -444,6 +448,12 @@ begin
       inherited;
   end else
     ShowMessage('Pedido Ja Faturado - Não pode ser Excluído!');
+end;
+
+procedure TFPedido.ed_vlTotalChange(Sender: TObject);
+begin
+  inherited;
+  EditDinheiro1.Text := ed_vlTotal.EditText;
 end;
 
 end.

@@ -339,6 +339,8 @@ inherited FPedido: TFPedido
             DataField = 'valorTotal'
             DataSource = DS
             TabOrder = 7
+            Visible = False
+            OnChange = ed_vlTotalChange
             OnEnter = ed_vlTotalEnter
           end
         end
@@ -377,11 +379,19 @@ inherited FPedido: TFPedido
           Hint = 'Duplo Clique para Buscar a data de hoje!'
           DataField = 'data'
           DataSource = DS
-          MaxLength = 8
           ParentShowHint = False
           ShowHint = True
           TabOrder = 6
           Formato_Data = 'dd/mm/yy'
+        end
+        object EditDinheiro1: TEditDinheiro
+          Left = 37
+          Top = 232
+          Width = 133
+          Height = 21
+          ReadOnly = True
+          TabOrder = 7
+          Formato = '0.00'
         end
       end
     end
