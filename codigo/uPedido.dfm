@@ -104,16 +104,17 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idPedido'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 6
         end
         object DBprazo: TDBEdit
+          Tag = 4
           Left = 594
           Top = 123
           Width = 128
           Height = 21
           DataField = 'prazoPagamento'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 3
         end
         object DBEidCliente: TDBEdit
           Left = 16
@@ -122,16 +123,17 @@ inherited FPedido: TFPedido
           Height = 21
           DataField = 'idCliente'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 5
         end
         object DBEdescricao: TDBEdit
+          Tag = 3
           Left = 16
           Top = 122
           Width = 569
           Height = 21
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 0
+          TabOrder = 2
         end
         object GroupBox1: TGroupBox
           Left = 16
@@ -141,7 +143,7 @@ inherited FPedido: TFPedido
           Caption = 'ITENS'
           Color = clBtnFace
           ParentColor = False
-          TabOrder = 2
+          TabOrder = 4
           object Label3: TLabel
             Left = 21
             Top = 64
@@ -268,6 +270,7 @@ inherited FPedido: TFPedido
             Caption = 'F5 - Cod Produto '
             TabOrder = 1
             object ed_barra: TEdit
+              Tag = 5
               Left = 8
               Top = 16
               Width = 129
@@ -345,6 +348,7 @@ inherited FPedido: TFPedido
           end
         end
         object DBEditBeleza1: TDBEditBeleza
+          Tag = 1
           Left = 80
           Top = 82
           Width = 505
@@ -358,7 +362,7 @@ inherited FPedido: TFPedido
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 5
+          TabOrder = 0
           Ativar_Pesquisa = True
           mostrar_Botao = False
           sql.Strings = (
@@ -372,6 +376,7 @@ inherited FPedido: TFPedido
           NovoLayout = False
         end
         object DBEdataAtual: TDBEdit_Calendario
+          Tag = 2
           Left = 592
           Top = 80
           Width = 129
@@ -381,7 +386,7 @@ inherited FPedido: TFPedido
           DataSource = DS
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 1
           Formato_Data = 'dd/mm/yy'
         end
         object EditDinheiro1: TEditDinheiro
@@ -389,8 +394,10 @@ inherited FPedido: TFPedido
           Top = 232
           Width = 133
           Height = 21
+          TabStop = False
           ReadOnly = True
           TabOrder = 7
+          Text = '0'
           Formato = '0.00'
         end
       end

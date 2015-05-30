@@ -65,6 +65,7 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure btnEnviarEmailClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -121,6 +122,15 @@ procedure TFConsultaContas.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   ExportarExcel(DataModule1.mConta);
+end;
+
+procedure TFConsultaContas.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnNovo.Visible := false;
+  btnSalvar.Visible := false;
+  btnAlterar.Visible := false;
+  btnDeletar.Visible := false;
 end;
 
 end.

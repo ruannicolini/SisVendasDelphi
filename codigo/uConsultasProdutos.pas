@@ -22,6 +22,7 @@ type
     mConsultaQTDE: TIntegerField;
     filtroData: tFiltroDatas;
     procedure btnPesquisarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,6 +49,15 @@ begin
 
   inherited;
 
+end;
+
+procedure TFConsultaProdutos.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnNovo.Visible := false;
+  btnAlterar.Visible := false;
+  btnDeletar.Visible := false;
+  tbDados.TabVisible := false;
 end;
 
 end.

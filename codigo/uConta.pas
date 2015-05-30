@@ -35,6 +35,7 @@ type
       var Handled: Boolean);
     procedure tbDadosShow(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -131,6 +132,14 @@ begin
   qAuxiliar.ParamByName('idC').AsString:= DataModule1.mContaidConta.AsString;
   qAuxiliar.Open;
   EditDinheiro1.Text := FloatToStr( qAuxiliar.FieldByName('valorTotal').AsFloat )
+end;
+
+procedure TFConta.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnNovo.Visible := false;
+  btnAlterar.Visible := false;
+  btnDeletar.Visible := false;
 end;
 
 end.

@@ -28,6 +28,7 @@ type
     mConsultadata: TDateTimeField;
     procedure btnPesquisarClick(Sender: TObject);
     procedure Edit_EanKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,6 +66,15 @@ begin
   begin
     btnPesquisar.OnClick(Sender);
   end;
+end;
+
+procedure TFConsultaEstoque.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnNovo.Visible := false;
+  btnAlterar.Visible := false;
+  btnDeletar.Visible := false;
+  tbDados.TabVisible := false;
 end;
 
 end.

@@ -7,9 +7,15 @@ inherited FConta: TFConta
   TextHeight = 13
   inherited TBAcaoTela: TToolBar
     inherited btnNovo: TToolButton
+      Enabled = False
+      Visible = False
+    end
+    inherited btnDeletar: TToolButton
+      Enabled = False
       Visible = False
     end
     inherited btnAlterar: TToolButton
+      Enabled = False
       Visible = False
     end
     inherited btnCancelar: TToolButton

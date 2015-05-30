@@ -45,6 +45,7 @@ type
     filtroData: tFiltroDatas;
     procedure btnPesquisarClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +81,15 @@ procedure TFConsultaClientes.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   ExportarExcel(DataModule1.mCliente);
+end;
+
+procedure TFConsultaClientes.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnNovo.Visible := false;
+  btnAlterar.Visible := false;
+  btnDeletar.Visible := false;
+  tbDados.TabVisible := false;
 end;
 
 end.
