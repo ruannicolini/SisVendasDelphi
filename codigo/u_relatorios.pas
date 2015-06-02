@@ -132,11 +132,11 @@ type
     procedure gridRelatsSistemaDblClick(Sender: TObject);
     procedure Relatorios_sisAfterScroll(DataSet: TDataSet);
     procedure btEmailClick(Sender: TObject);
-    procedure btPDFClick(Sender: TObject);
     procedure btRelatsSistemaClick(Sender: TObject);
     procedure EnviarporEmail1Click(Sender: TObject);
     procedure EnviarparaumEmaildeClientesRepresentantesFornecedores1Click(
       Sender: TObject);
+    procedure btPDFClick(Sender: TObject);
   private
     { Private declarations }
     RelatsAtual : Short;
@@ -194,7 +194,7 @@ begin
  // nomerep := ('RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
   //nomerep := ('C:\Users\Thallys\Desktop\Tecno_Vendas-master\app\Relatorios\RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
   //nomerep := '\relatorios\usuarios';
-  nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios';
+  nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios' + '\' + Relats_UsurArquivo.AsString;
   ppreport1.template.FileName := nomerep;
   ppreport1.template.LoadFromFile;
 
@@ -509,43 +509,6 @@ begin
     popEnvioEmail.Popup(Mouse.CursorPos.X, Mouse.CursorPos.Y);
 end;
 
-procedure Tf_relatorios.btPDFClick(Sender: TObject);
-var s, NomeRep : String;
-begin
-
-    if SaveDialog1.InitialDir = '' then SaveDialog1.InitialDir := ExtractFilePath(Application.ExeName);
-
-    case RelatsAtual of
-    1:
-    begin
-        s       := Relatorios_sisdescricao.AsString;
-        //nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
-        nomerep := ExtractFilePath(Application.ExeName) + 'relatorios\sistema\';
-    end;
-    2:
-    begin
-        s       := relats_usurDescricao.AsString;
-        //nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
-        nomerep := ExtractFilePath(Application.ExeName)+ 'relatorios\usuarios\';
-    end;
-    end;
-
-
-    SaveDialog1.FileName := s;
-    if SaveDialog1.Execute then
-    begin
-        ppReport1.template.FileName   := nomerep;
-        ppReport1.template.LoadFromFile;
-        ppReport1.PDFSettings.Author  := 'SAF';
-        ppReport1.PDFSettings.Subject := 'PDF Gerado pelo programa " SAF " ';
-        ppReport1.PDFSettings.Title   := s;
-        ppReport1.ShowPrintDialog     := False;
-        ppReport1.DeviceType          := 'PDF';
-        ppReport1.TextFileName        := SaveDialog1.FileName;
-        ppReport1.Print;
-    end;
-    
-end;
 
 procedure Tf_relatorios.btRelatsSistemaClick(Sender: TObject);
 begin
@@ -594,14 +557,12 @@ begin
     1:
     begin
         ppReport1.EmailSettings.Subject := Relatorios_sisdescricao.AsString;
-        //nomerep   := f_principal.BuscaParamTexto('RelatoriosSistema')
-        //    + '\' + Relatorios_Sisarquivo.AsString;
+        nomerep   := ExtractFilePath(Application.ExeName) + 'relatorios\sistema\' + Relatorios_Sisarquivo.AsString;
     end;
     2:
     begin
         ppReport1.EmailSettings.Subject := relats_usurDescricao.AsString;
-        //nomerep   := f_principal.BuscaParamTexto('RelatoriosUsuario')
-        //    + '\' + Relats_UsurArquivo.AsString;
+        nomerep   := ExtractFilePath(Application.ExeName)+ 'relatorios\usuarios\' + Relats_UsurArquivo.AsString;
     end;
     end;
 
@@ -654,5 +615,43 @@ begin
     end;
     
 end;
+
+procedure Tf_relatorios.btPDFClick(Sender: TObject);
+var s, NomeRep : String;
+begin
+
+    if SaveDialog1.InitialDir = '' then SaveDialog1.InitialDir := ExtractFilePath(Application.ExeName);
+
+    case RelatsAtual of
+    1:
+    begin
+        s       := Relatorios_sisdescricao.AsString;
+        //nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
+        nomerep := ExtractFilePath(Application.ExeName) + 'relatorios\sistema\' + Relatorios_Sisarquivo.AsString;
+    end;
+    2:
+    begin
+        s       := relats_usurDescricao.AsString;
+        //nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
+        nomerep := ExtractFilePath(Application.ExeName)+ 'relatorios\usuarios\' + Relats_UsurArquivo.AsString;
+    end;
+    end;
+
+
+    SaveDialog1.FileName := s;
+    if SaveDialog1.Execute then
+    begin
+        ppReport1.template.FileName   := nomerep;
+        ppReport1.template.LoadFromFile;
+        ppReport1.PDFSettings.Author  := 'SAF';
+        ppReport1.PDFSettings.Subject := 'PDF Gerado pelo programa " SAF " ';
+        ppReport1.PDFSettings.Title   := s;
+        ppReport1.ShowPrintDialog     := False;
+        ppReport1.DeviceType          := 'PDF';
+        ppReport1.TextFileName        := SaveDialog1.FileName;
+        ppReport1.Print;
+    end;
+
+end;
 
 end.

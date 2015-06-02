@@ -9,6 +9,7 @@ uses
 
 begin
   Application.Initialize;
+  Application.Title := 'MR System';
   Application.CreateForm(TFLogin, FLogin);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
