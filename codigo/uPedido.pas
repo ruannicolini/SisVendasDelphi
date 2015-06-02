@@ -9,7 +9,9 @@ uses
   DBGridBeleza,
   DBEditBeleza,
   DBEdit_Calendario,
-  EditDinheiro;
+  EditDinheiro,
+  ppBands, ppPrnabl, ppClass, ppCtrls, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe;
 
 type
   TFPedido = class(TFormPadrao)
@@ -89,7 +91,7 @@ procedure TFPedido.ed_barraKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
-
+  try
   if (key = 13) and (trim(ed_barra.Text) <> '') then
   begin
       qProduto.Close;
@@ -147,6 +149,12 @@ begin
       {Volta o Foco pro Edit EAN}
       ed_barra.clear;
       ed_barra.SetFocus;
+  end;
+  except
+   on E: Exception do
+    begin
+      raise;
+    end;
   end;
 
 end;
@@ -378,6 +386,7 @@ end;
 procedure TFPedido.ed_barraKeyPress(Sender: TObject; var Key: Char);
 begin
   inherited;
+try
   if (key = #13) and (trim(ed_barra.Text) <> '') then
   begin
       qProduto.Close;
@@ -438,6 +447,12 @@ begin
       
   end;
   ed_barra.SetFocus;
+except
+   on E: Exception do
+    begin
+      raise;
+    end;
+  end;
 end;
 
 procedure TFPedido.btnDeletarClick(Sender: TObject);

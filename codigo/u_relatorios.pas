@@ -14,7 +14,7 @@ uses
   ppPrnabl, ppStrtch, ppSubRpt, ppVar, ppMemo, ppDBBDE, daDataView,
   daQueryDataView, daDBBDE, daDataModule, daSQL, raCodMod, ppViewr,
   ToolWin, raIDE, daDatMan, DBClient, uFrameAviso, ppPDFDevice, ppCTMain,
-  XiButton, jpeg, Menus;
+  XiButton, jpeg, Menus, uConexao;
 
 type
   Tf_relatorios = class(TForm)
@@ -120,6 +120,7 @@ type
     mNumTelaRelatNomeRelatorio: TStringField;
     mNumTelaRelatTela: TStringField;
     mNumTelaRelatFiltrosMarcados: TMemoField;
+    Image1: TImage;
     procedure btalterarClick(Sender: TObject);
     procedure btnovoClick(Sender: TObject);
     procedure btexcluirClick(Sender: TObject);
@@ -158,7 +159,7 @@ var
 
 implementation
 
-uses u_principal, uEmailsEnvioRelat, uDM_Dados;
+uses uEmailsEnvioRelat ;
 
 {$R *.DFM}
 
@@ -190,7 +191,10 @@ procedure Tf_relatorios.btalterarClick(Sender: TObject);
 var nomerep: string;
 begin
 
-  nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+ // nomerep := ('RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+  //nomerep := ('C:\Users\Thallys\Desktop\Tecno_Vendas-master\app\Relatorios\RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+  //nomerep := '\relatorios\usuarios';
+  nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios';
   ppreport1.template.FileName := nomerep;
   ppreport1.template.LoadFromFile;
 
@@ -215,11 +219,15 @@ begin
   case botao of
   6:
   begin
-      case RelatsAtual of
+      {case RelatsAtual of
       1: nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') +'\'+ Relatorios_Sisarquivo.AsString;
       2: nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
       end;
-
+}
+  case RelatsAtual of
+      1: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\sistema';
+      2: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios';
+      end;
       ppreport1.template.FileName := nomerep;
       ppreport1.template.LoadFromFile;
   end;
@@ -240,7 +248,11 @@ begin
   Relats_UsurNum_Relat.AsInteger := seq;
   Relats_Usur.Post;
 
-  ppReport1.template.FileName    := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' + _tela + ' '+ inttostr(seq) + ' - '+nomerep+'.rtm';
+  //ppReport1.template.FileName    := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' + _tela + ' '+ inttostr(seq) + ' - '+nomerep+'.rtm';
+
+ // nomerep := ('C:\Users\Thallys\Desktop\Tecno_Vendas-master\app\Relatorios\RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+  ppReport1.template.FileName    := ExtractFilePath(Application.ExeName)+'relatorios\usuarios\' + _tela + ' '+ inttostr(seq) + ' - '+nomerep+'.rtm';
+
   ppReport1.template.SaveToFile;
   PageControl1.ActivePage        := tbRelatsUsuarios;
   ppdesigner1.Report             := ppreport1;
@@ -255,10 +267,12 @@ var nomearq : string;
 begin
 
   if relats_usur.IsEmpty then
-      f_principal.mens_aviso('Não há Relatorios a Excluir!')
+      //f_principal.mens_aviso('Não há Relatorios a Excluir!')
   else if Application.MessageBox('Deseja realmente excluir relatório atual?','Exclusão de relatório',mb_okcancel + mb_iconquestion) = idok then
   begin
-      nomearq        := f_principal.BuscaParamTexto('RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+      //nomearq        := f_principal.BuscaParamTexto('RelatoriosUsuario')+ '\' + Relats_UsurArquivo.AsString;
+      nomearq        := ExtractFilePath(Application.ExeName)+ 'relatorios\usuarios\' + Relats_UsurArquivo.AsString;
+
       deletefile(nomearq);
       Relats_Usur.delete;
   end;
@@ -278,7 +292,7 @@ begin
   mNumTelaRelatFiltrosMarcados.AsString := '';
 
   // Pegar Filtros Marcados do Dataset da Tela de Origem
-  if f_principal.FindComponent('f' + Copy(Application.Title, 9, 5)) <> Nil then
+ { if f_principal.FindComponent('f' + Copy(Application.Title, 9, 5)) <> Nil then
   begin
       TelaF := tForm(f_principal.FindComponent('f' + Copy(Application.Title, 9, 5)));
       if TelaF.FindComponent('mImprFiltrosMarcados') <> Nil then
@@ -300,17 +314,21 @@ begin
           end;      // Fim do IF se o Dataset dos Filtros está Ativo
       end;          // Fim do IF se o Dataset dos Filtros Existe
   end;              // Fim do IF se encontrou a tela de Origem
-
+  }
   mNumTelaRelat.Post;
 
 
   ppReport1.ShowPrintDialog := True;
   ppReport1.DeviceType      := 'Screen';
 
+  //case RelatsAtual of
+  //1: nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
+  //2: nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
+  //end;
   case RelatsAtual of
-  1: nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
-  2: nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
-  end;
+      1: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\sistema'+ '\' + Relatorios_Sisarquivo.AsString;
+      2: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios'+ '\' + Relats_UsurArquivo.AsString;
+      end;
 
   ppReport1.template.FileName := nomerep;
   ppReport1.template.LoadFromFile;
@@ -333,6 +351,7 @@ end;
 procedure Tf_relatorios.FormShow(Sender: TObject);
 begin
     ppDesigner1.IniStorageName := ExtractFilePath(Application.ExeName)+'\RBuilder.ini';
+    
 //    if not dm_dados.mConfig.active then
 //        dm_dados.mConfig.open;
 
@@ -378,15 +397,23 @@ begin
   if Ds.Active then Ds.EmptyDataSet
   else Ds.CreateDataSet;
 
-  Dir := f_principal.BuscaParamTexto('RelatoriosSistema');
 
-  if Origem = 2 then Dir := f_principal.BuscaParamTexto('RelatoriosUsuario');
+     // 1: nomerep := ('C:\Users\Thallys\Desktop\Tecno_Vendas-master\app\Relatorios\RelatoriosSistema')+ '\' + Relats_UsurArquivo.AsString;
+
+   //  /*Mudei aqui*/
+
+  //Dir := f_principal.BuscaParamTexto('RelatoriosSistema');
+     Dir := 'relatorios\sistema\';
+  //if Origem = 2 then Dir := f_principal.BuscaParamTexto('RelatoriosUsuario');
+  if Origem = 2 then Dir := ExtractFilePath(Application.ExeName) + 'relatorios\usuarios';
 
   if Copy(Dir, 1, length(Dir)) <> '\' then
       Dir := Dir + '\';
 
   Arqs := TStringList.Create;
-  f_principal.DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+  //f_principal.DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+  //f_principal.DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+
   for i := 0 to Arqs.Count -1 do
   begin
       Ds.Append;
@@ -492,12 +519,14 @@ begin
     1:
     begin
         s       := Relatorios_sisdescricao.AsString;
-        nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
+        //nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') + '\' + Relatorios_Sisarquivo.AsString;
+        nomerep := ExtractFilePath(Application.ExeName) + 'relatorios\sistema\';
     end;
     2:
     begin
         s       := relats_usurDescricao.AsString;
-        nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
+        //nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
+        nomerep := ExtractFilePath(Application.ExeName)+ 'relatorios\usuarios\';
     end;
     end;
 
@@ -565,14 +594,14 @@ begin
     1:
     begin
         ppReport1.EmailSettings.Subject := Relatorios_sisdescricao.AsString;
-        nomerep                         := f_principal.BuscaParamTexto('RelatoriosSistema')
-            + '\' + Relatorios_Sisarquivo.AsString;
+        //nomerep   := f_principal.BuscaParamTexto('RelatoriosSistema')
+        //    + '\' + Relatorios_Sisarquivo.AsString;
     end;
     2:
     begin
         ppReport1.EmailSettings.Subject := relats_usurDescricao.AsString;
-        nomerep                         := f_principal.BuscaParamTexto('RelatoriosUsuario')
-            + '\' + Relats_UsurArquivo.AsString;
+        //nomerep   := f_principal.BuscaParamTexto('RelatoriosUsuario')
+        //    + '\' + Relats_UsurArquivo.AsString;
     end;
     end;
 
@@ -598,7 +627,7 @@ begin
 
         if fEnvioEmailRelats.mEmails.IsEmpty then
         begin
-            f_principal.mens_info('Não foram selecionados Emails para Envio!');
+            //f_principal.mens_info('Não foram selecionados Emails para Envio!');
             fEnvioEmailRelats.mEmails.Filter := '';
             Exit;
         end;

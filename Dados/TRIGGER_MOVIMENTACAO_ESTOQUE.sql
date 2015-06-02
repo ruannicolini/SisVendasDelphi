@@ -20,7 +20,7 @@ GO
 
 
 
--- Toda vez que for inserida um novo registro em responsavel_estoque
+-- Toda vez que for inserida um novo registro em faturamento
 CREATE TRIGGER TRIGGER_SUBT_ESTOQUE
 ON faturamento
 FOR INSERT
@@ -42,5 +42,20 @@ BEGIN
 	DECLARE @IDPEDIDO INTEGER;
 	SELECT @IDPEDIDO = idPedido from deleted
 	DELETE FROM pedido_item WHERE pedido_item.idPedido = @IDPEDIDO
+END
+GO
+
+-- Diminuiu a quantidade de estoque da tabela produto quando uma entrada de estoque é excluída
+CREATE TRIGGER TRIGGER_ENT_EST_DEL
+ON responsavel_estoque 
+AFTER DELETE
+AS
+BEGIN
+	DECLARE @IDENTRADA INTEGER;
+	DECLARE @QTD INTEGER;
+	DECLARE @IDPRODUTO INTEGER
+	
+	SELECT @IDENTRADA = idEntrada, @QTD = qtd, @IDPRODUTO = idProduto from deleted
+	UPDATE produto SET qtdEstoque = qtdEstoque - @QTD WHERE produto.idProduto = @IDPRODUTO
 END
 GO

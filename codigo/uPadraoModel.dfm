@@ -22,15 +22,15 @@ object FormPadrao: TFormPadrao
   TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 465
-    Width = 920
+    Top = 458
+    Width = 912
     Height = 19
     Panels = <>
   end
   object TBAcaoTela: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 31
     ButtonHeight = 27
     Caption = 'TBAcaoTela'
@@ -112,8 +112,8 @@ object FormPadrao: TFormPadrao
   object PageControl1: TPageControl
     Left = 0
     Top = 31
-    Width = 920
-    Height = 434
+    Width = 912
+    Height = 427
     ActivePage = tbFiltros
     Align = alClient
     TabOrder = 2
@@ -122,8 +122,8 @@ object FormPadrao: TFormPadrao
       object gbDados: TGroupBox
         Left = 0
         Top = 0
-        Width = 912
-        Height = 406
+        Width = 904
+        Height = 399
         Align = alClient
         Color = clBtnFace
         ParentColor = False
@@ -136,7 +136,7 @@ object FormPadrao: TFormPadrao
       object gbFiltros: TGroupBox
         Left = 0
         Top = 0
-        Width = 912
+        Width = 904
         Height = 65
         Align = alTop
         TabOrder = 0
@@ -211,12 +211,21 @@ object FormPadrao: TFormPadrao
             37177136177135177235157234177337227B401C6E37043413030C0600000000
             000000000064}
         end
+        object Button1: TButton
+          Left = 56
+          Top = 16
+          Width = 75
+          Height = 25
+          Caption = 'RELAT'#211'RIO'
+          TabOrder = 1
+          OnClick = Button1Click
+        end
       end
       object DBGrid1: TDBGridBeleza
         Left = 0
         Top = 65
-        Width = 912
-        Height = 341
+        Width = 904
+        Height = 334
         Hint = 'Clique no Titulo da Coluna para Ordenar'
         Align = alClient
         BorderStyle = bsNone
@@ -250,5 +259,76 @@ object FormPadrao: TFormPadrao
   object DS: TDataSource
     OnStateChange = DSStateChange
     Left = 888
+  end
+  object ppDBPipeline1: TppDBPipeline
+    DataSource = DS
+    UserName = 'DBPipeline1'
+    Left = 472
+    Top = 72
+  end
+  object ppReport1: TppReport
+    AutoStop = False
+    DataPipeline = ppDBPipeline1
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    DeviceType = 'Screen'
+    EmailSettings.ReportFormat = 'PDF'
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    PreviewFormSettings.WindowState = wsMaximized
+    PreviewFormSettings.ZoomSetting = zs100Percent
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    Left = 504
+    Top = 72
+    Version = '10.06'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppDBPipeline1'
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
+    object ppDetailBand1: TppDetailBand
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+      object ppDBText1: TppDBText
+        UserName = 'DBText1'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4763
+        mmLeft = 20373
+        mmTop = 3704
+        mmWidth = 17198
+        BandType = 4
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
   end
 end

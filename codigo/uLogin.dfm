@@ -4760,6 +4760,8 @@ object FLogin: TFLogin
     Width = 161
     Height = 57
     Hint = 'Entrar'
+    ParentShowHint = False
+    ShowHint = True
     OnClick = Image2Click
   end
   object eLogin: TEdit
@@ -4774,19 +4776,8 @@ object FLogin: TFLogin
     Left = 275
     Top = 293
     Width = 121
-    Height = 22
+    Height = 21
     PasswordChar = '*'
     TabOrder = 1
-    OnKeyPress = eSenhaKeyPress
-  end
-  object btnEntrar: TButton
-    Left = 202
-    Top = 347
-    Width = 81
-    Height = 33
-    Caption = 'ENTRAR'
-    TabOrder = 2
-    Visible = False
-    OnClick = btnEntrarClick
   end
 end

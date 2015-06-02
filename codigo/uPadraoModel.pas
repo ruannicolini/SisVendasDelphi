@@ -6,7 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, jpeg, ExtCtrls, ComCtrls, ToolWin, uConexao, DB, StdCtrls,
   Grids, DBGrids, DBCtrls, Buttons, ComObj, DBClient, MaskUtils,
-  DBGridBeleza;
+  DBGridBeleza,
+  ppBands, ppCache, ppClass, ppProd, ppReport, ppComm, ppRelatv, ppDB,
+  ppDBPipe, ppPrnabl, ppCtrls;
 
 type
   TFormPadrao = class(TForm)
@@ -30,6 +32,13 @@ type
     gbDados: TGroupBox;
     BitBtn1: TBitBtn;
     DBGrid1: TDBGridBeleza;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    Button1: TButton;
+    ppDBText1: TppDBText;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -55,6 +64,8 @@ type
     procedure NivelGerente(F : TForm);
     procedure NivelVendedor(F : TForm);
     procedure NivelEstagiario(F : TForm);
+    function RetornaNomeForm(F : TForm): String;
+    procedure Button1Click(Sender: TObject);
   private
     procedure StatusBotoes(e: integer);
 
@@ -69,7 +80,7 @@ var
 
 implementation
 Uses  uPrincipal, uCliente, uProduto, uEntradaEstoque, uUsuario, uPedido, uConta, uConsultas,
-      uCidade;
+      uCidade, u_relatorios;
 
 {$R *.dfm}
 
@@ -525,6 +536,29 @@ begin
     btnSalvar.Visible := False;
   end;
 
+end;
+
+function TFormPadrao.RetornaNomeForm(F : TForm): String;
+begin
+  Result := F.Caption;
+end;
+
+procedure TFormPadrao.Button1Click(Sender: TObject);
+var
+  nomeTela: String;
+begin
+  f_relatorios := tf_relatorios.Create(Application);
+  with f_relatorios do
+  begin
+      try
+          Assimila_Relat_q(Screen.ActiveForm.Name, 0, DS.DataSet, DS.DataSet, '', '');
+          ShowModal;
+      finally
+          Relatorios_sis.close;
+          relats_usur.close;
+          Free;
+      end;
+   end;
 end;
 
 end.

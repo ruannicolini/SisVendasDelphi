@@ -7,7 +7,9 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   DBCtrls, Mask, Buttons,
   DBGridBeleza,
-  EditDinheiro;
+  EditDinheiro,
+  ppBands, ppPrnabl, ppClass, ppCtrls, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe;
 
 type
   TFProduto = class(TFormPadrao)
@@ -52,7 +54,7 @@ procedure TFProduto.btnNovoClick(Sender: TObject);
 begin
   DBEidProduto.Color := CorCamposOnlyRead();
   inherited;
-
+  DBCheckBox1.Checked := True;
 end;
 
 procedure TFProduto.btnAlterarClick(Sender: TObject);

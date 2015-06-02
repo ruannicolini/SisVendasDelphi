@@ -15,6 +15,8 @@ inherited FEntradaEstoque: TFEntradaEstoque
     ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
+        Width = 904
+        Height = 399
         object lEan: TLabel
           Left = 56
           Top = 128
@@ -67,7 +69,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 97
           Height = 21
           Enabled = False
-          TabOrder = 1
+          TabOrder = 3
           OnKeyDown = eEanKeyDown
           OnKeyPress = eEanKeyPress
         end
@@ -77,7 +79,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Width = 233
           Height = 33
           DragMode = dmAutomatic
-          TabOrder = 0
+          TabOrder = 10
         end
         object rbAutomatico: TRadioButton
           Left = 184
@@ -87,7 +89,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Caption = 'Autom'#225'tico'
           Checked = True
           Enabled = False
-          TabOrder = 2
+          TabOrder = 4
           TabStop = True
         end
         object rbManual: TRadioButton
@@ -97,7 +99,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 17
           Caption = 'Manual'
           Enabled = False
-          TabOrder = 3
+          TabOrder = 5
         end
         object DBEidEntrada: TDBEdit
           Left = 56
@@ -108,7 +110,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idEntrada'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 0
         end
         object DBEidProduto: TDBEdit
           Left = 56
@@ -130,7 +132,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'descricao'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 8
+          TabOrder = 7
         end
         object DBEqtd: TDBEdit
           Left = 304
@@ -139,7 +141,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Height = 21
           DataField = 'qtd'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 8
         end
         object DBEidUsuario: TDBEdit
           Left = 56
@@ -150,12 +152,12 @@ inherited FEntradaEstoque: TFEntradaEstoque
           DataField = 'idUsuario'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 1
         end
         object DBEditBeleza1: TDBEditBeleza
           Left = 120
           Top = 104
-          Width = 273
+          Width = 201
           Height = 21
           Color = 14737361
           DataField = 'usuario'
@@ -166,7 +168,7 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 9
+          TabOrder = 2
           Ativar_Pesquisa = True
           mostrar_Botao = False
           sql.Strings = (
@@ -187,10 +189,9 @@ inherited FEntradaEstoque: TFEntradaEstoque
           Hint = 'Duplo Clique para Buscar a data de hoje!'
           DataField = 'dataAlteracaoEstoque'
           DataSource = DS
-          MaxLength = 8
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 10
+          TabOrder = 9
           Formato_Data = 'dd/mm/yy'
         end
       end
@@ -242,5 +243,13 @@ inherited FEntradaEstoque: TFEntradaEstoque
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mEntrada
+  end
+  inherited ppReport1: TppReport
+    DataPipelineName = 'ppDBPipeline1'
+    inherited ppDetailBand1: TppDetailBand
+      inherited ppDBText1: TppDBText
+        DataPipelineName = 'ppDBPipeline1'
+      end
+    end
   end
 end

@@ -7,7 +7,9 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, ComCtrls, ToolWin, uConexao,
   Mask, DBCtrls, Buttons,
   DBGridBeleza,
-  DBEditBeleza;
+  DBEditBeleza,
+  ppDB, ppBands, ppCache, ppClass, ppProd, ppReport, ppComm, ppRelatv,
+  ppDBPipe, ppPrnabl, ppCtrls;
 
 type
   TFCliente = class(TFormPadrao)
@@ -80,8 +82,14 @@ begin
 end;
 
 procedure TFCliente.DBEcnpjExit(Sender: TObject);
+var
+  texto : String;
 begin
   inherited;
+  texto := DBEcnpj.EditText;
+  texto := StringReplace(texto, '.', '', [rfReplaceAll,rfIgnoreCase]);
+  texto := StringReplace(texto, '/', '', [rfReplaceAll,rfIgnoreCase]);
+  texto := StringReplace(texto, '-', '', [rfReplaceAll,rfIgnoreCase]);
   if not isCNPJ(DBEcnpj) then
   begin
     ShowMessage('CNPJ Inválido');
@@ -122,6 +130,7 @@ end;
 procedure TFCliente.DBEcnpjEnter(Sender: TObject);
 begin
   inherited;
+  DBEcnpj.Field.EditMask:= '99.999.999/9999-99;0';
   //DBEcnpj.Field.EditMask:= '00.000.000/0000-00;1;_';
 end;
 

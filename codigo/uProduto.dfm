@@ -65,7 +65,7 @@ inherited FProduto: TFProduto
           DataField = 'idProduto'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 0
         end
         object DBEdescricao: TDBEdit
           Left = 40
@@ -74,7 +74,7 @@ inherited FProduto: TFProduto
           Height = 21
           DataField = 'descricao'
           DataSource = DS
-          TabOrder = 0
+          TabOrder = 1
         end
         object DBEpreco: TDBEdit
           Left = 40
@@ -83,7 +83,7 @@ inherited FProduto: TFProduto
           Height = 21
           DataField = 'preco'
           DataSource = DS
-          TabOrder = 1
+          TabOrder = 6
           Visible = False
         end
         object DBCheckBox1: TDBCheckBox
@@ -94,7 +94,7 @@ inherited FProduto: TFProduto
           Caption = 'statusVenda'
           DataField = 'statusVenda'
           DataSource = DS
-          TabOrder = 4
+          TabOrder = 5
           ValueChecked = 'True'
           ValueUnchecked = 'False'
         end
@@ -105,7 +105,7 @@ inherited FProduto: TFProduto
           Height = 21
           DataField = 'qtdEstoque'
           DataSource = DS
-          TabOrder = 2
+          TabOrder = 3
         end
         object DBEean: TDBEdit
           Left = 344
@@ -114,14 +114,14 @@ inherited FProduto: TFProduto
           Height = 21
           DataField = 'ean'
           DataSource = DS
-          TabOrder = 3
+          TabOrder = 4
         end
         object EditDinheiro1: TEditDinheiro
           Left = 40
           Top = 136
           Width = 121
           Height = 21
-          TabOrder = 6
+          TabOrder = 2
           Text = '0'
           OnExit = EditDinheiro1Exit
           Formato = '0.00'
@@ -141,5 +141,13 @@ inherited FProduto: TFProduto
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mProduto
+  end
+  inherited ppReport1: TppReport
+    DataPipelineName = 'ppDBPipeline1'
+    inherited ppDetailBand1: TppDetailBand
+      inherited ppDBText1: TppDBText
+        DataPipelineName = 'ppDBPipeline1'
+      end
+    end
   end
 end

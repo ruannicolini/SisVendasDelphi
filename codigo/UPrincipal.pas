@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, XPMan, ComCtrls, ToolWin, jpeg, Buttons,
-  StdCtrls, AppEvnts, DBTables, BDE, DBClient;
+  StdCtrls, AppEvnts, DBTables, BDE, DBClient, Mask, DB;
 
 type
   TForm1 = class(TForm)
@@ -62,6 +62,7 @@ Uses  uPadraoModel, UCliente, uCidade, uPedido, uProduto, uUsuario, UEntradaEsto
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
+  ShowMessage(DataModule1.qLoginnome.AsString + ' Bem vindo ao Real System!!!');
    mLog.Lines.Add('DATA: ' + FormatDateTime('dd/mm/yyyy',date) + ' ENTROU NO SISTEMA.');
    //VENDEDOR OU ESTAGIÁRIO
    if(DataModule1.qLoginnivel.AsInteger = 3) OR (DataModule1.qLoginnivel.AsInteger = 4) then
@@ -69,10 +70,9 @@ begin
     imgRecalcular.Enabled := False;
     imgRecalcular.Hint := 'ACESSO NEGADO!!!';
    end;
-   
+
   {Aplica Tela Cheia ao Form}
   ShowWindow(Handle, SW_MAXIMIZE);
-  ShowMessage(DataModule1.qLoginnome.AsString + ' Bem vindo ao Real System!!!');
 end;
 
 procedure TForm1.imgClienteClick(Sender: TObject);
@@ -162,6 +162,7 @@ begin
       ShowMessage('Registro vinculado a outra tabela, ERRO Chave Estrangeira!');
   end
   else if(E is EDBEngineError) then
+  begin
     with EDBEngineError(E) do
       case Errors[0].ErrorCode of
         DBIERR_KEYVIOL:
@@ -170,7 +171,16 @@ begin
           ShowMessage('Campo obrigatório não preenchido.');
         DBIERR_FORIEGNKEYERR:
           ShowMessage ('Erro integridade referencial.');
-      end
+    end;
+  end
+  else if(E is EDBEditError)then
+  begin
+      ShowMessage('Quantidade de dígitos inválida!');
+  end
+  else if(E is EDatabaseError) then
+  begin
+    ShowMessage('Não encontrado');
+  end
   else
     ShowMessage('Erro no banco de dados:' + #13#13 + E.Message);
 end;

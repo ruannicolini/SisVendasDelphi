@@ -9,11 +9,11 @@ inherited FPedido: TFPedido
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 585
-    Width = 741
+    Top = 578
+    Width = 733
   end
   inherited TBAcaoTela: TToolBar
-    Width = 741
+    Width = 733
     ButtonWidth = 41
     inherited btnDeletar: TToolButton
       Left = 41
@@ -51,13 +51,13 @@ inherited FPedido: TFPedido
     end
   end
   inherited PageControl1: TPageControl
-    Width = 741
-    Height = 554
+    Width = 733
+    Height = 547
     ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 733
-        Height = 526
+        Width = 725
+        Height = 519
         object Label1: TLabel
           Left = 16
           Top = 24
@@ -404,14 +404,14 @@ inherited FPedido: TFPedido
     end
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
-        Width = 733
+        Width = 725
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
       end
       inherited DBGrid1: TDBGridBeleza
-        Width = 733
-        Height = 461
+        Width = 725
+        Height = 454
         Columns = <
           item
             Expanded = False
@@ -469,6 +469,14 @@ inherited FPedido: TFPedido
     DataSet = DataModule1.mPedido
     Left = 672
     Top = 8
+  end
+  inherited ppReport1: TppReport
+    DataPipelineName = 'ppDBPipeline1'
+    inherited ppDetailBand1: TppDetailBand
+      inherited ppDBText1: TppDBText
+        DataPipelineName = 'ppDBPipeline1'
+      end
+    end
   end
   object qProduto: TQuery
     DatabaseName = 'SistemaDeVendas'

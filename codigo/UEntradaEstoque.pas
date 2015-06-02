@@ -9,7 +9,9 @@ uses
   Buttons,
   DBGridBeleza,
   DBEditBeleza,
-  DBEdit_Calendario;
+  DBEdit_Calendario,
+  ppBands, ppPrnabl, ppClass, ppCtrls, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe;
 
 type
   TFEntradaEstoque = class(TFormPadrao)

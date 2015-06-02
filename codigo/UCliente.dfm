@@ -1,5 +1,6 @@
 inherited FCliente: TFCliente
-  Top = 171
+  Left = 345
+  Top = 183
   Height = 499
   Caption = 'FCliente'
   OldCreateOrder = True
@@ -10,7 +11,6 @@ inherited FCliente: TFCliente
   end
   inherited PageControl1: TPageControl
     Height = 411
-    ActivePage = tbDados
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
         Width = 904
@@ -127,7 +127,7 @@ inherited FCliente: TFCliente
           DataField = 'idCliente'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 12
+          TabOrder = 13
         end
         object DBEnome: TDBEdit
           Left = 24
@@ -242,7 +242,7 @@ inherited FCliente: TFCliente
           DataField = 'idCidade'
           DataSource = DS
           ReadOnly = True
-          TabOrder = 11
+          TabOrder = 12
         end
         object DBEditBeleza1: TDBEditBeleza
           Left = 256
@@ -258,7 +258,7 @@ inherited FCliente: TFCliente
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 13
+          TabOrder = 11
           Ativar_Pesquisa = True
           mostrar_Botao = False
           sql.Strings = (
@@ -278,6 +278,9 @@ inherited FCliente: TFCliente
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
+        inherited Button1: TButton
+          OnClick = Button1Click
+        end
       end
       inherited DBGrid1: TDBGridBeleza
         Height = 318
@@ -286,5 +289,117 @@ inherited FCliente: TFCliente
   end
   inherited DS: TDataSource
     DataSet = DataModule1.mCliente
+  end
+  inherited ppDBPipeline1: TppDBPipeline
+    object ppDBPipeline1ppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idCliente'
+      FieldName = 'idCliente'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppDBPipeline1ppField2: TppField
+      FieldAlias = 'nome'
+      FieldName = 'nome'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 1
+    end
+    object ppDBPipeline1ppField3: TppField
+      FieldAlias = 'endereco'
+      FieldName = 'endereco'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 2
+    end
+    object ppDBPipeline1ppField4: TppField
+      FieldAlias = 'numero'
+      FieldName = 'numero'
+      FieldLength = 7
+      DisplayWidth = 7
+      Position = 3
+    end
+    object ppDBPipeline1ppField5: TppField
+      FieldAlias = 'bairro'
+      FieldName = 'bairro'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 4
+    end
+    object ppDBPipeline1ppField6: TppField
+      FieldAlias = 'complemento'
+      FieldName = 'complemento'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 5
+    end
+    object ppDBPipeline1ppField7: TppField
+      FieldAlias = 'cep'
+      FieldName = 'cep'
+      FieldLength = 9
+      DisplayWidth = 9
+      Position = 6
+    end
+    object ppDBPipeline1ppField8: TppField
+      FieldAlias = 'cnpj'
+      FieldName = 'cnpj'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 7
+    end
+    object ppDBPipeline1ppField9: TppField
+      FieldAlias = 'telFixo'
+      FieldName = 'telFixo'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 8
+    end
+    object ppDBPipeline1ppField10: TppField
+      FieldAlias = 'telCel'
+      FieldName = 'telCel'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 9
+    end
+    object ppDBPipeline1ppField11: TppField
+      FieldAlias = 'email'
+      FieldName = 'email'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 10
+    end
+    object ppDBPipeline1ppField12: TppField
+      FieldAlias = 'ie'
+      FieldName = 'ie'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 11
+    end
+    object ppDBPipeline1ppField13: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idCidade'
+      FieldName = 'idCidade'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 12
+    end
+    object ppDBPipeline1ppField14: TppField
+      FieldAlias = 'Cidade'
+      FieldName = 'Cidade'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 13
+    end
+  end
+  inherited ppReport1: TppReport
+    DataPipelineName = 'ppDBPipeline1'
+    inherited ppDetailBand1: TppDetailBand
+      inherited ppDBText1: TppDBText
+        DataPipelineName = 'ppDBPipeline1'
+      end
+    end
   end
 end
