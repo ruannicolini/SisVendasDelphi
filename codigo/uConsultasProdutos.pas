@@ -7,7 +7,9 @@ uses
   Dialogs, uPadraoModel, DB, Grids, DBGrids, StdCtrls, Buttons, ComCtrls,
   ToolWin, DBTables, DBClient, Provider,
   DBGridBeleza,
-  ExtCtrls, uFiltroDatas;
+  ExtCtrls, uFiltroDatas,
+  ppBands, ppPrnabl, ppClass, ppCtrls, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe;
 
 type
   TFConsultaProdutos = class(TFormPadrao)
@@ -21,6 +23,8 @@ type
     mConsultaidProduto: TIntegerField;
     mConsultaQTDE: TIntegerField;
     filtroData: tFiltroDatas;
+    qConsultadescricao: TStringField;
+    mConsultadescricao: TStringField;
     procedure btnPesquisarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

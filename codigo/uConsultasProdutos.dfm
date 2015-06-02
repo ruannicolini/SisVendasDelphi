@@ -23,6 +23,9 @@ inherited FConsultaProdutos: TFConsultaProdutos
   inherited PageControl1: TPageControl
     inherited tbFiltros: TTabSheet
       inherited gbFiltros: TGroupBox
+        inherited Button1: TButton
+          TabOrder = 4
+        end
         object date_inic: TDateTimePicker
           Left = 375
           Top = 16
@@ -67,6 +70,14 @@ inherited FConsultaProdutos: TFConsultaProdutos
     Left = 880
     Top = 8
   end
+  inherited ppReport1: TppReport
+    DataPipelineName = 'ppDBPipeline1'
+    inherited ppDetailBand1: TppDetailBand
+      inherited ppDBText1: TppDBText
+        DataPipelineName = 'ppDBPipeline1'
+      end
+    end
+  end
   object pConsulta: TDataSetProvider
     DataSet = qConsulta
     Left = 848
@@ -84,11 +95,17 @@ inherited FConsultaProdutos: TFConsultaProdutos
     object mConsultaQTDE: TIntegerField
       FieldName = 'QTDE'
     end
+    object mConsultadescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
   end
   object qConsulta: TQuery
     DatabaseName = 'SistemaDeVendas'
     SQL.Strings = (
-      'SELECT pedIT.idProduto , sum(pedIT.quantidade) as QTDE'
+      
+        'SELECT pedIT.idProduto , sum(pedIT.quantidade) as QTDE, prod.des' +
+        'cricao'
       'FROM pedido_Item pedIT'
       '  inner join produto prod ON prod.idProduto = pedIT.IDPRODUTO '
       '  inner join pedido ped ON pedIT.idPedido = ped.idPedido'
@@ -97,7 +114,7 @@ inherited FConsultaProdutos: TFConsultaProdutos
       'and pedIT.idProduto = prod.idProduto and'
       ' CONVERT(DATETIME,ped.data,103) '
       ' between ( :d1) and (:d2)'
-      'GROUP BY pedIT.idProduto'
+      'GROUP BY pedIT.idProduto, prod.descricao'
       'ORDER BY QTDE desc')
     Left = 784
     Top = 8
@@ -117,6 +134,10 @@ inherited FConsultaProdutos: TFConsultaProdutos
     end
     object qConsultaQTDE: TIntegerField
       FieldName = 'QTDE'
+    end
+    object qConsultadescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
     end
   end
 end
