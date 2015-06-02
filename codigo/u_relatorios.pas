@@ -145,7 +145,7 @@ type
     { Public declarations }
     procedure BuscarRelats(Origem: Short); // Buscar os Relatorios 1 p/ Sistema ou 2 p/ usuario
     procedure Assimila_Relat_q(n_tela: string; parametro: short; tab_mestre: tDataset; tab_filha: tDataset; campo_key_tab_mestre: string; campo_key_tab_filha: string);
-
+    procedure DirList( ASource : string; ADirList : TStringList );
     // Procedure Similar à assimila_relat_q, mas com a diferença de Aqui funcionar pra 3 Datasets
     procedure Assimila3Datasets(nTela: String; TabPai, TabFilha1, TabFilha2: tDataset; CampoKeyTabMestre, CampoKeyTabFilha1, CampoKeyTabFilha2: String);
 
@@ -411,8 +411,8 @@ begin
       Dir := Dir + '\';
 
   Arqs := TStringList.Create;
-  //f_principal.DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
-  //f_principal.DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+  DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+  DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
 
   for i := 0 to Arqs.Count -1 do
   begin
@@ -653,5 +653,29 @@ begin
     end;
 
 end;
+
+procedure Tf_relatorios.DirList(ASource: string; ADirList: TStringList);
+var
+  SearchRec : TSearchRec;
+  Result : integer;
+begin
+  Result := FindFirst( ASource, faAnyFile, SearchRec );
+
+  if Result = 0 then
+  while (Result = 0) do
+  begin
+      if (SearchRec.Name+' ')[1] = '.' then
+      { Se pegou nome de SubDiretorio }
+      begin
+          Result := FindNext( SearchRec );
+          Continue;
+      end;
+      ADirList.Add( SearchRec.Name );
+      Result := FindNext( SearchRec );
+  end;  //Fim do While
+  FindClose( SearchRec );
+  ADirList.Sort;
+
+end;
 
 end.
