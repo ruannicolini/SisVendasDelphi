@@ -7,13 +7,12 @@ inherited FCliente: TFCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar1: TStatusBar
-    Top = 442
+    Top = 449
   end
   inherited PageControl1: TPageControl
-    Height = 411
+    Height = 418
     inherited tbDados: TTabSheet
       inherited gbDados: TGroupBox
-        Width = 904
         Height = 383
         object Label1: TLabel
           Left = 24
@@ -278,12 +277,9 @@ inherited FCliente: TFCliente
         inherited BitBtn1: TBitBtn
           OnClick = BitBtn1Click
         end
-        inherited Button1: TButton
-          OnClick = Button1Click
-        end
       end
       inherited DBGrid1: TDBGridBeleza
-        Height = 318
+        Height = 325
       end
     end
   end

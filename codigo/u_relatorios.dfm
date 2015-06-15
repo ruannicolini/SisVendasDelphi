@@ -4301,7 +4301,7 @@ object f_relatorios: Tf_relatorios
   end
   object ds_relats: TDataSource
     DataSet = Relatorios_sis
-    Left = 144
+    Left = 152
     Top = 108
   end
   object ds_relats_usur: TDataSource

@@ -223,10 +223,10 @@ begin
       1: nomerep := f_principal.BuscaParamTexto('RelatoriosSistema') +'\'+ Relatorios_Sisarquivo.AsString;
       2: nomerep := f_principal.BuscaParamTexto('RelatoriosUsuario') + '\' +Relats_UsurArquivo.AsString;
       end;
-}
-  case RelatsAtual of
-      1: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\sistema';
-      2: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios';
+      }
+      case RelatsAtual of
+        1: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\sistema'+'\'+ Relatorios_Sisarquivo.AsString;
+        2: nomerep := ExtractFilePath(Application.ExeName)+'relatorios\usuarios'+ '\' +Relats_UsurArquivo.AsString;
       end;
       ppreport1.template.FileName := nomerep;
       ppreport1.template.LoadFromFile;
