@@ -412,7 +412,7 @@ begin
 
   Arqs := TStringList.Create;
   DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
-  DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
+  //DirList(Dir + lbTela.Caption + '*.rtm', Arqs);
 
   for i := 0 to Arqs.Count -1 do
   begin
